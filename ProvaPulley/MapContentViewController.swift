@@ -81,6 +81,13 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         return annotationView
     }
 
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView()
+        annotationView.image = UIImage(named: "arrow2")
+        //        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        //        annotationView.transform = transform
+        return annotationView
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

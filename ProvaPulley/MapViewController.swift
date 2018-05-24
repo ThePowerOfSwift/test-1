@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 
    
 
@@ -46,12 +46,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        questa riga mi miostra il pallino blu sulla mappa
         self.mappe.showsUserLocation = true
         manager.stopUpdatingLocation()
+        
+        let marker = MKPointAnnotation()
+        
+        marker.coordinate = myLocation
+        marker.title = "SI STRUNZ"
+        
+        mappe.addAnnotation(marker)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        mappe.delegate = self
         manager.delegate = self
         
 //        per ottenere la miglior location dell'user
@@ -64,6 +71,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
 
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView()
+        annotationView.image = UIImage(named: "arrow2")
+        //        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        //        annotationView.transform = transform
+        return annotationView
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

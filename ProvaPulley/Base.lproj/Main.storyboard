@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="2879.1999999999998" y="133.5832083958021"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Map Content View Controller-->
         <scene sceneID="VMz-Cb-IjI">
             <objects>
-                <viewController id="aMu-Sp-8bW" customClass="MapViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aMu-Sp-8bW" customClass="MapContentViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EKG-5K-WdR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="4754.3999999999996" y="-183.05847076461771"/>
         </scene>
-        <!--Pu View Controller-->
+        <!--Drawer Content View Controller-->
         <scene sceneID="2vq-qR-900">
             <objects>
-                <viewController id="1sF-DN-zau" customClass="PuViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1sF-DN-zau" customClass="DrawerContentViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G6k-RY-3bW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -13,8 +13,8 @@
 		871B22D020AF0F5000EACF41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871B22CF20AF0F5000EACF41 /* Assets.xcassets */; };
 		871B22D320AF0F5000EACF41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871B22D120AF0F5000EACF41 /* LaunchScreen.storyboard */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
-		872A484420B5D5730006CB39 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapViewController.swift */; };
-		87EC365820B4325E001F945B /* PuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* PuViewController.swift */; };
+		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
+		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
 		AC52146809BE34490295485D /* Pods_ProvaPulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +30,8 @@
 		871B22D220AF0F5000EACF41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		871B22D420AF0F5000EACF41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		872A484320B5D5730006CB39 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		87EC365720B4325E001F945B /* PuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuViewController.swift; sourceTree = "<group>"; };
+		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
+		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +79,12 @@
 			children = (
 				871B22C820AF0F4F00EACF41 /* AppDelegate.swift */,
 				871B22CA20AF0F4F00EACF41 /* ViewController.swift */,
-				872A484320B5D5730006CB39 /* MapViewController.swift */,
+				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
 				871B22CF20AF0F5000EACF41 /* Assets.xcassets */,
 				871B22D120AF0F5000EACF41 /* LaunchScreen.storyboard */,
 				871B22D420AF0F5000EACF41 /* Info.plist */,
-				87EC365720B4325E001F945B /* PuViewController.swift */,
+				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 			);
 			path = ProvaPulley;
 			sourceTree = "<group>";
@@ -210,10 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87EC365820B4325E001F945B /* PuViewController.swift in Sources */,
+				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
-				872A484420B5D5730006CB39 /* MapViewController.swift in Sources */,
+				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZUZHE8FZA;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,7 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9ZUZHE8FZA;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

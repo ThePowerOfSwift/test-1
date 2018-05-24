@@ -58,16 +58,9 @@ class DrawerContentViewController: UIViewController, UITextFieldDelegate, Pulley
     
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        self.pulleyViewController?.setNeedsSupportedDrawerPositionsUpdate() 
-        if self.pulleyViewController?.drawerPosition != PulleyPosition.open {
-            dismissKeyboard()
-        }
+        print(pulleyViewController?.drawerPosition)
     }
-    
-    
-    
     
   
 }

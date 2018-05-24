@@ -1045,7 +1045,7 @@ open class PulleyViewController: UIViewController, PulleyDrawerViewControllerDel
         switch drawerPosition {
             
         case .collapsed:
-            stopToMoveTo = collapsedHeight + 50
+            stopToMoveTo = collapsedHeight + 60
             
         case .partiallyRevealed:
             stopToMoveTo = partialRevealHeight

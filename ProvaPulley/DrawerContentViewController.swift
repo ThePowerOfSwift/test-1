@@ -17,13 +17,9 @@ class DrawerContentViewController: UIViewController{
     @IBOutlet weak var Pu: UIView!
     @IBOutlet weak var table: UITableView!
     
+    var topicBool: [Bool] = [false, false, false, false, false, false, false]
+    
     @IBOutlet weak var anyy: UICustomButton!
-    @IBAction func anyy1(_ sender: Any) {
-        anyy.backgroundColor = UIColor.blue
-        let myColor = UIColor.white
-        anyy.layer.borderColor = myColor.cgColor
-        anyy.setTitleColor(UIColor.white, for: UIControlState.normal)
-    }
     
     
     override func viewDidLoad() {
@@ -55,6 +51,30 @@ class DrawerContentViewController: UIViewController{
     self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         
     }
+    
+    @IBAction func anyy1(_ sender: Any) {
+        if topicBool[0] == false {
+            anyy.backgroundColor = UIColor.blue
+            let myColor = UIColor.white
+            anyy.layer.borderColor = myColor.cgColor
+            anyy.setTitleColor(UIColor.white, for: UIControlState.normal)
+            topicBool[0] = true
+        }
+        else {
+            anyy.backgroundColor = UIColor.white
+            let myColor = UIColor.black
+            anyy.layer.borderColor = myColor.cgColor
+            anyy.setTitleColor(UIColor.black, for: UIControlState.normal)
+            topicBool[0] = false
+        }
+        
+        
+
+      
+        
+       
+    }
+    
     
  
   

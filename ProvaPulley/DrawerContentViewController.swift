@@ -17,7 +17,7 @@ class DrawerContentViewController: UIViewController{
     @IBOutlet weak var Pu: UIView!
     @IBOutlet weak var table: UITableView!
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

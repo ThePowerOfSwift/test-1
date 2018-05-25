@@ -178,7 +178,7 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAV-FF-D8J">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-EQ-pXy">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gT-EQ-pXy" userLabel="Filter View">
                                                 <rect key="frame" x="0.0" y="0.0" width="550" height="57"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsV-Ws-I3I" userLabel="Any" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
@@ -196,6 +196,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="anyy1:" destination="1sF-DN-zau" eventType="touchUpInside" id="mzl-aP-wIm"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-GL-YGu" userLabel="Nightlife" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                         <rect key="frame" x="150" y="11" width="63" height="30"/>
@@ -340,6 +343,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Pu" destination="ah0-dn-Tw7" id="4Ke-UN-nbp"/>
+                        <outlet property="anyy" destination="LsV-Ws-I3I" id="Eb8-kw-iJD"/>
                         <outlet property="cerca2" destination="uXU-mJ-Wn6" id="Dc7-Dz-5EF"/>
                         <outlet property="table" destination="xqV-to-BYK" id="WhO-Yb-Rwj"/>
                     </connections>

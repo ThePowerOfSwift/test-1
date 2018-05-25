@@ -21,6 +21,7 @@ class DrawerContentViewController: UIViewController{
     
     @IBOutlet weak var anyy: UICustomButton!
     
+    @IBOutlet weak var tourism: UICustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,12 +68,32 @@ class DrawerContentViewController: UIViewController{
             anyy.setTitleColor(UIColor.black, for: UIControlState.normal)
             topicBool[0] = false
         }
-        
-        
-
-      
-        
        
+    }
+    
+    @IBAction func tourism(_ sender: Any) {
+        if topicBool[1] == false {
+            if topicBool[0] {
+                topicBool[0] = false
+                anyy.backgroundColor = UIColor.white
+                let myColor = UIColor.black
+                anyy.layer.borderColor = myColor.cgColor
+                anyy.setTitleColor(UIColor.black, for: UIControlState.normal)
+            }
+            tourism.backgroundColor = UIColor.blue
+            let myColor = UIColor.white
+            tourism.layer.borderColor = myColor.cgColor
+            tourism.setTitleColor(UIColor.white, for: UIControlState.normal)
+            topicBool[1] = true
+        }
+        else {
+            
+            tourism.backgroundColor = UIColor.white
+            let myColor = UIColor.black
+            tourism.layer.borderColor = myColor.cgColor
+            tourism.setTitleColor(UIColor.black, for: UIControlState.normal)
+            topicBool[1] = false
+        }
     }
     
     

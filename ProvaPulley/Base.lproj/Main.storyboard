@@ -229,6 +229,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tourism:" destination="1sF-DN-zau" eventType="touchUpInside" id="ou7-4A-EM2"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSF-ls-d9j" userLabel="Food" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                         <rect key="frame" x="233" y="11" width="63" height="30"/>
@@ -346,6 +349,7 @@
                         <outlet property="anyy" destination="LsV-Ws-I3I" id="Eb8-kw-iJD"/>
                         <outlet property="cerca2" destination="uXU-mJ-Wn6" id="Dc7-Dz-5EF"/>
                         <outlet property="table" destination="xqV-to-BYK" id="WhO-Yb-Rwj"/>
+                        <outlet property="tourism" destination="ijn-17-LqX" id="U8V-fN-2s4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmg-Jv-qT8" userLabel="First Responder" sceneMemberID="firstResponder"/>

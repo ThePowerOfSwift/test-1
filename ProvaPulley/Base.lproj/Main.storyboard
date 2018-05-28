@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-dn-Tw7" userLabel="Pu">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-dn-Tw7" userLabel="Gripper">
                                 <rect key="frame" x="153" y="11" width="70" height="9"/>
                                 <color key="backgroundColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -158,7 +158,7 @@
                                     <action selector="Cancel:" destination="1sF-DN-zau" eventType="touchUpInside" id="HLM-Ko-KJZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask a question" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask a question" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6" userLabel="AskQuestion">
                                 <rect key="frame" x="9" y="38" width="294" height="30"/>
                                 <color key="tintColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -169,7 +169,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="cerca:" destination="1sF-DN-zau" eventType="editingDidBegin" id="Vze-42-cy2"/>
+                                    <action selector="askQuestion:" destination="1sF-DN-zau" eventType="editingDidEnd" id="W7A-hM-Okv"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-cZ-L1b">
@@ -197,23 +197,8 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="anyy1:" destination="1sF-DN-zau" eventType="touchUpInside" id="mzl-aP-wIm"/>
+                                                            <action selector="anyButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="6jI-gr-k7C"/>
                                                         </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-GL-YGu" userLabel="Nightlife" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="11" width="63" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="Nightlife">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijn-17-LqX" userLabel="Tourism" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                         <rect key="frame" x="67" y="11" width="63" height="30"/>
@@ -230,7 +215,25 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="tourism:" destination="1sF-DN-zau" eventType="touchUpInside" id="ou7-4A-EM2"/>
+                                                            <action selector="tourismButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="0Cq-hY-gSx"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-GL-YGu" userLabel="Nightlife" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
+                                                        <rect key="frame" x="150" y="11" width="63" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="Nightlife">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="nightlifeButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="Ghv-I6-6Wx"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSF-ls-d9j" userLabel="Food" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
@@ -247,21 +250,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-v8-7qS" userLabel="City Info" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="399" y="11" width="63" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" title="City Life">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="foodButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="jyk-Ao-d7c"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSy-S9-VWb" userLabel="Art" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                         <rect key="frame" x="316" y="11" width="63" height="30"/>
@@ -277,6 +268,27 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="artButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="BVw-Nf-hZz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-v8-7qS" userLabel="City Info" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
+                                                        <rect key="frame" x="399" y="11" width="63" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="City Life">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="cityinfoButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="c9y-jF-NWD"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGv-ly-yOe" userLabel="Shops" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                         <rect key="frame" x="482" y="11" width="63" height="30"/>
@@ -292,6 +304,9 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="shopsButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="GjH-Kn-MUA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -345,11 +360,16 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="Pu" destination="ah0-dn-Tw7" id="4Ke-UN-nbp"/>
-                        <outlet property="anyy" destination="LsV-Ws-I3I" id="Eb8-kw-iJD"/>
-                        <outlet property="cerca2" destination="uXU-mJ-Wn6" id="Dc7-Dz-5EF"/>
+                        <outlet property="AnyButton" destination="LsV-Ws-I3I" id="MUy-5B-kjl"/>
+                        <outlet property="ArtButton" destination="XSy-S9-VWb" id="iqY-Xd-niJ"/>
+                        <outlet property="AskQuestionTextField" destination="uXU-mJ-Wn6" id="pjJ-2c-z2W"/>
+                        <outlet property="CityInfoButton" destination="EFQ-v8-7qS" id="Kjh-XY-XHg"/>
+                        <outlet property="FoodButton" destination="jSF-ls-d9j" id="RIz-9S-ZM2"/>
+                        <outlet property="Gripper" destination="ah0-dn-Tw7" id="hW5-Cc-gIZ"/>
+                        <outlet property="NightLifeButton" destination="Ga9-GL-YGu" id="iFA-zW-5Wm"/>
+                        <outlet property="ShopsButton" destination="YGv-ly-yOe" id="VEr-c4-oV9"/>
+                        <outlet property="TourismButton" destination="ijn-17-LqX" id="UxV-vY-jXr"/>
                         <outlet property="table" destination="xqV-to-BYK" id="WhO-Yb-Rwj"/>
-                        <outlet property="tourism" destination="ijn-17-LqX" id="U8V-fN-2s4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmg-Jv-qT8" userLabel="First Responder" sceneMemberID="firstResponder"/>

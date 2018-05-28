@@ -13,39 +13,43 @@ import Pulley
 
 class DrawerContentViewController: UIViewController{
 
-    @IBOutlet weak var cerca2: UITextField!
-    @IBOutlet weak var Pu: UIView!
+    @IBOutlet weak var Gripper: UIView!
+    @IBOutlet weak var AskQuestionTextField: UITextField!
     @IBOutlet weak var table: UITableView!
     
-    var topicBool: [Bool] = [false, false, false, false, false, false, false]
+    @IBOutlet weak var AnyButton: UICustomButton!
+    @IBOutlet weak var TourismButton: UICustomButton!
+    @IBOutlet weak var NightLifeButton: UICustomButton!
+    @IBOutlet weak var FoodButton: UICustomButton!
+    @IBOutlet weak var ArtButton: UICustomButton!
+    @IBOutlet weak var CityInfoButton: UICustomButton!
+    @IBOutlet weak var ShopsButton: UICustomButton!
     
-    @IBOutlet weak var anyy: UICustomButton!
-    
-    @IBOutlet weak var tourism: UICustomButton!
+    var topicBool: [Bool] = [true, false, false, false, false, false, false]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        Pu.layer.cornerRadius = 5.0
-        Pu.clipsToBounds = true
+        Gripper.layer.cornerRadius = 5.0
+        Gripper.clipsToBounds = true
         
-//        cerca2.clearButtonMode = .always
+        buttonOn(button: AnyButton)
+        
         self.hideKeyboardWhenTappedAround()
         
-        //        cerca.layer.borderWidth = 1
-        //        cerca.layer.borderColor = UIColor(red: 255/255, green: 253/255, blue: 247/255, alpha: 1.0).cgColor
-        //
-    
+//        cerca.clearButtonMode = .always
+//        cerca.layer.borderWidth = 1
+//        cerca.layer.borderColor = UIColor(red: 255/255, green: 253/255, blue: 247/255, alpha: 1.0).cgColor
+
         
     }
 
-    @IBAction func cerca(_ sender: Any) {
-        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
-        
-        
-    }
+  
     
+    @IBAction func askQuestion(_ sender: Any) {
+        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+    }
     
     @IBAction func Cancel(_ sender: Any) {
         dismissKeyboard()
@@ -53,52 +57,138 @@ class DrawerContentViewController: UIViewController{
         
     }
     
-    @IBAction func anyy1(_ sender: Any) {
-        if topicBool[0] == false {
-            anyy.backgroundColor = UIColor.blue
-            let myColor = UIColor.white
-            anyy.layer.borderColor = myColor.cgColor
-            anyy.setTitleColor(UIColor.white, for: UIControlState.normal)
+    @IBAction func anyButtonTap(_ sender: Any) {
+        if !topicBool[0] {
+            for i in 1...6 {
+                self.topicBool[i] = false
+            }
+            allButtonsOff()
+            
+            buttonOn(button: AnyButton)
             topicBool[0] = true
         }
         else {
-            anyy.backgroundColor = UIColor.white
-            let myColor = UIColor.black
-            anyy.layer.borderColor = myColor.cgColor
-            anyy.setTitleColor(UIColor.black, for: UIControlState.normal)
+            buttonOff(button: AnyButton)
             topicBool[0] = false
         }
-       
+        
     }
     
-    @IBAction func tourism(_ sender: Any) {
-        if topicBool[1] == false {
+    @IBAction func tourismButtonTap(_ sender: Any) {
+        if !topicBool[1] {
             if topicBool[0] {
+                buttonOff(button: AnyButton)
                 topicBool[0] = false
-                anyy.backgroundColor = UIColor.white
-                let myColor = UIColor.black
-                anyy.layer.borderColor = myColor.cgColor
-                anyy.setTitleColor(UIColor.black, for: UIControlState.normal)
             }
-            tourism.backgroundColor = UIColor.blue
-            let myColor = UIColor.white
-            tourism.layer.borderColor = myColor.cgColor
-            tourism.setTitleColor(UIColor.white, for: UIControlState.normal)
+            buttonOn(button: TourismButton)
             topicBool[1] = true
         }
         else {
-            
-            tourism.backgroundColor = UIColor.white
-            let myColor = UIColor.black
-            tourism.layer.borderColor = myColor.cgColor
-            tourism.setTitleColor(UIColor.black, for: UIControlState.normal)
+            buttonOff(button: TourismButton)
             topicBool[1] = false
         }
     }
     
+    @IBAction func nightlifeButtonTap(_ sender: Any) {
+        if !topicBool[2] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
+            }
+            buttonOn(button: NightLifeButton)
+            topicBool[2] = true
+        }
+        else {
+            buttonOff(button: NightLifeButton)
+            topicBool[2] = false
+        }
+    }
     
- 
-  
+    @IBAction func foodButtonTap(_ sender: Any) {
+        if !topicBool[3] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
+            }
+            buttonOn(button: FoodButton)
+            topicBool[3] = true
+        }
+        else {
+            buttonOff(button: FoodButton)
+            topicBool[3] = false
+        }
+    }
+    
+    @IBAction func artButtonTap(_ sender: Any) {
+        if !topicBool[4] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
+            }
+            buttonOn(button: ArtButton)
+            topicBool[4] = true
+        }
+        else {
+            buttonOff(button: ArtButton)
+            topicBool[4] = false
+        }
+    }
+    
+    @IBAction func cityinfoButtonTap(_ sender: Any) {
+        if !topicBool[5] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
+            }
+            buttonOn(button: CityInfoButton)
+            topicBool[5] = true
+        }
+        else {
+            buttonOff(button: CityInfoButton)
+            topicBool[5] = false
+        }
+    }
+    
+    @IBAction func shopsButtonTap(_ sender: Any) {
+        if !topicBool[6] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
+            }
+            buttonOn(button: ShopsButton)
+            topicBool[6] = true
+        }
+        else {
+            buttonOff(button: ShopsButton)
+            topicBool[6] = false
+        }
+    }
+    
+}
+
+extension DrawerContentViewController {
+    private func buttonOn(button: UICustomButton) {
+        button.backgroundColor = UIColor.blue
+        button.layer.borderColor = UIColor.white.cgColor
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+    }
+    
+    private func buttonOff(button: UICustomButton) {
+        button.backgroundColor = UIColor.white
+        button.layer.borderColor = UIColor.black.cgColor
+        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+    }
+    
+    private func allButtonsOff() {
+        buttonOff(button: TourismButton)
+        buttonOff(button: NightLifeButton)
+        buttonOff(button: FoodButton)
+        buttonOff(button: ArtButton)
+        buttonOff(button: CityInfoButton)
+        buttonOff(button: ShopsButton)
+    }
+    
+    
 }
 
 

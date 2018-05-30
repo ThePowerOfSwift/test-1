@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--List-->
         <scene sceneID="Ox0-wr-bdQ">
             <objects>
                 <tableViewController id="YDd-wy-YB7" sceneMemberID="viewController">
@@ -32,7 +32,9 @@
                             <outlet property="delegate" destination="YDd-wy-YB7" id="pa8-Vg-YdY"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="Wz3-bY-ap7"/>
                     <navigationItem key="navigationItem" id="tS4-T2-q6X"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrj-kB-FYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,4 +59,7 @@
             <point key="canvasLocation" x="37.600000000000001" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="30" height="30"/>
+    </resources>
 </document>

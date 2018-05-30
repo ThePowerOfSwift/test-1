@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="Rf1-gZ-H7p">
             <objects>
                 <viewController id="VCf-H4-1N7" sceneMemberID="viewController">
@@ -20,7 +20,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Vip-Eu-Lh5"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="RNc-zJ-RcH"/>
                     <navigationItem key="navigationItem" id="q8z-E5-Drh"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5O-ma-KxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,4 +47,7 @@
             <point key="canvasLocation" x="-116" y="99.400299850074973"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings" width="30" height="30"/>
+    </resources>
 </document>

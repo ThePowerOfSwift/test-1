@@ -10,24 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Settings-->
-        <scene sceneID="fPF-Xo-ank">
-            <objects>
-                <viewController id="zok-dH-BFe" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ocY-dY-yg5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="GKP-c2-39h"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="rbi-bv-P1S">
-                        <barButtonItem key="backBarButtonItem" title="Settings" id="6N7-fE-vS1"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xSi-li-eJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3138.4000000000001" y="971.96401799100454"/>
-        </scene>
         <!--My Questions-->
         <scene sceneID="2ej-nr-SD9">
             <objects>
@@ -427,12 +409,20 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zok-dH-BFe" kind="relationship" relationship="rootViewController" id="YVh-xS-jQN"/>
+                        <segue destination="zOS-x3-vE5" kind="show" id="KSN-ZZ-cEI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8u0-Dn-OhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2199.1999999999998" y="971.96401799100454"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Zgx-Un-f9T">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="zOS-x3-vE5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4H-0X-JE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3405" y="1047"/>
         </scene>
     </scenes>
     <resources>

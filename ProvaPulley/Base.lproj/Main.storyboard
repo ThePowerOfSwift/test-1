@@ -373,14 +373,6 @@
             </objects>
             <point key="canvasLocation" x="1813" y="-97"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="Zgx-Un-f9T">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="zOS-x3-vE5" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T4H-0X-JE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3405" y="1047"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow" width="20" height="20"/>

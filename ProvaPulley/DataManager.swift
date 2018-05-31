@@ -6,23 +6,18 @@
 //  Copyright © 2018 Lorenzo Caso. All rights reserved.
 //
 
-<<<<<<< HEAD
+
 import Foundation
 import UIKit
 import MapKit
 import CoreLocation
 
-final class DataManager {
-    
-   static let shared = DataManager()
-    
-=======
-import UIKit
+
 
 final class DataManager {
     
     let shared = DataManager()
->>>>>>> acd63154e8917e706ab0e6fc5db9d6b51f64488c
+
     private init() {}
 
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food),

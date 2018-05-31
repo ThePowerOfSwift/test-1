@@ -6,11 +6,45 @@
 //  Copyright © 2018 Lorenzo Caso. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class DataManager {
     
     let shared = DataManager()
-    
     private init() {}
+
+    var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "Dove posso bebebebe", topic: .cityLife),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .nightLife)]
+}
+
+class Message {
+    init(author: User, message: String, topic: Topics) {
+        self.author = author
+        self.message = message
+        self.topic = topic
+    }
+    let author: User
+    let message: String
+    let topic: Topics
+}
+
+class User {
+    init(nickname: String, imageNum: Int) {
+        self.nickname = nickname
+        self.imageNum = imageNum
+    }
+    let nickname: String
+    let imageNum: Int
+}
+
+enum Topics {
+    case tourism
+    case nightLife
+    case food
+    case art
+    case cityLife
+    case shops
+    
 }

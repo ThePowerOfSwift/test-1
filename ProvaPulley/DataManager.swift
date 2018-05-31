@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
+import CoreLocation
 
 final class DataManager {
     
-    let shared = DataManager()
+   static let shared = DataManager()
     
     private init() {}
 }

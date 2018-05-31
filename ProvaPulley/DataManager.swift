@@ -13,21 +13,43 @@ final class DataManager {
     let shared = DataManager()
     private init() {}
 
-    var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food),
-                    Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art),
-                    Message(author: User(nickname: "toni", imageNum: 2), message: "Dove posso bebebebe", topic: .cityLife),
-                    Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .nightLife)]
+    var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food, id: true),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art, id: false),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "Dove posso bebebebe", topic: .cityLife, id: false),
+                    Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .nightLife, id: true)]
 }
 
 class Message {
-    init(author: User, message: String, topic: Topics) {
+    init(author: User, message: String, topic: Topics, id: Bool) {
         self.author = author
         self.message = message
         self.topic = topic
+        self.id = id
     }
     let author: User
     let message: String
     let topic: Topics
+    var id: Bool
+}
+
+class Event {
+    
+    init(title: String, description: String, topic: Topics,  id: Bool)
+    {
+        self.title = title
+        self.description = description
+        self.topic = topic
+        
+        self.id = id
+
+    }
+    
+    let title: String
+    let description: String
+    let topic: Topics
+   
+    var id: Bool
+
 }
 
 class User {

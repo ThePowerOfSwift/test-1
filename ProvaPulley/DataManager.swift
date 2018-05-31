@@ -7,10 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 final class DataManager {
     
-    let shared = DataManager()
-    
     private init() {}
+    
+    static let shared = DataManager()
+    
+    var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco")]
+    
+    
 }
+
+

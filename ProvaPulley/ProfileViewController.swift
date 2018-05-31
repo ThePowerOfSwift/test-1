@@ -9,14 +9,29 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+
+    @IBOutlet weak var icon: UIButton!
+    
     @IBAction func change(_ sender: Any) {
+        
+            let img = self.icon.currentBackgroundImage
+            let numWorld = DataManager.shared.profile.index(of: img!)!
+        
+            if numWorld == DataManager.shared.profile.count - 1 {
+                self.icon.setBackgroundImage(DataManager.shared.profile[0], for: .normal)
+            }
+            else {
+                self.icon.setBackgroundImage(DataManager.shared.profile[numWorld + 1], for: .normal)
+            }
+        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    @IBOutlet weak var modify: UIButton!
+ 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

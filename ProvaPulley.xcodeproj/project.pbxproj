@@ -20,9 +20,9 @@
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
 		AC52146809BE34490295485D /* Pods_ProvaPulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
-		BD22808820BEE1D1005E3919 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808720BEE1D1005E3919 /* ProfileViewController.swift */; };
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
+		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +43,9 @@
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
 		A9D8611E20BEE50400F2EC9E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		BD22808720BEE1D1005E3919 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = /Users/sofiapassarelli/Documents/test/ProvaPulley/ProfileViewController.swift; sourceTree = "<absolute>"; };
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				871B22CA20AF0F4F00EACF41 /* ViewController.swift */,
 				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
-				BD22808720BEE1D1005E3919 /* ProfileViewController.swift */,
+				C558478E20C0532A008978D4 /* ProfileViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
 				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
 				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
@@ -235,11 +235,11 @@
 			files = (
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
 				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
+				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */,
 				A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,
-				BD22808820BEE1D1005E3919 /* ProfileViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
 			);

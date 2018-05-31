@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 
    
     @IBOutlet weak var mappe: MKMapView!
@@ -32,6 +32,18 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //        chiede al manager di aggiornare la posizione
         manager.startUpdatingLocation()
         // Do any additional setup after loading the view.
+        
+        
+        
+       
+        
+        print("ci arrivo")
+    }
+    
+
+    func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+        let circle = MKCircle(center: coordinate, radius: radius)
+        mappe.add(circle)
     }
     
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
@@ -50,6 +62,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         mappe.setRegion(region, animated: true)
         
+        showCircle(coordinate: myLocation, radius: CLLocationDistance(exactly: 10000)!)
         print(location.altitude)
         
         //        questa riga mi miostra il pallino blu sulla mappa
@@ -62,6 +75,20 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         marker.title = "SI STRUNZ"
         
         mappe.addAnnotation(marker)
+        
+    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        // If you want to include other shapes, then this check is needed. If you only want circles, then remove it.
+        //        if let circleOverlay = overlay as? MKCircle {
+        let circleOverlay = overlay as? MKCircle
+        let circleRenderer = MKCircleRenderer(overlay: circleOverlay!)
+        circleRenderer.fillColor = UIColor.black
+        circleRenderer.alpha = 0.1
+        
+        return circleRenderer
+        
+        
+        // You can either return your square here, or ignore the circle check and only return circles.
         
     }
     
@@ -84,3 +111,5 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
 
 }
+
+

@@ -1,14 +1,22 @@
 //
 //  ProfileViewController.swift
+<<<<<<< HEAD
 //  
 //
 //  Created by Sofia Passarelli on 30/05/18.
+=======
+//  BatChat
+//
+//  Created by Lorenzo Caso on 30/05/18.
+//  Copyright © 2018 Lorenzo Caso. All rights reserved.
+>>>>>>> 26daeed12b9f9677619c9641e8c15041c1f433b2
 //
 
 import UIKit
 
 class ProfileViewController: UIViewController {
 
+<<<<<<< HEAD
 
     @IBOutlet weak var icon: UIButton!
     
@@ -26,13 +34,21 @@ class ProfileViewController: UIViewController {
         
     }
     
+=======
+    @IBAction func prova(_ sender: Any) {
+    }
+>>>>>>> 26daeed12b9f9677619c9641e8c15041c1f433b2
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+<<<<<<< HEAD
  
     
+=======
+
+>>>>>>> 26daeed12b9f9677619c9641e8c15041c1f433b2
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

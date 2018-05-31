@@ -6,12 +6,21 @@
 //  Copyright © 2018 Lorenzo Caso. All rights reserved.
 //
 
+
+import Foundation
 import UIKit
+import MapKit
+import CoreLocation
+
+
 
 final class DataManager {
     
-    let shared = DataManager()
     private init() {}
+    
+    static let shared = DataManager()
+    
+    var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco")]
 
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food, id: true),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art, id: false),
@@ -70,3 +79,5 @@ enum Topics {
     case shops
     
 }
+
+

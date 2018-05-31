@@ -9,7 +9,10 @@
 
 import Foundation
 import UIKit
-<<<<<<< HEAD
+import MapKit
+import CoreLocation
+
+
 
 final class DataManager {
     
@@ -18,18 +21,6 @@ final class DataManager {
     static let shared = DataManager()
     
     var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco")]
-    
-=======
-import MapKit
-import CoreLocation
-
-
-
-final class DataManager {
-    
-    let shared = DataManager()
-
-    private init() {}
 
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art),
@@ -64,7 +55,6 @@ enum Topics {
     case art
     case cityLife
     case shops
->>>>>>> 26daeed12b9f9677619c9641e8c15041c1f433b2
     
 }
 

@@ -14,7 +14,7 @@ import QuartzCore
 
 class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return DataManager.shared.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,6 +115,10 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 //
 //
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
 
   

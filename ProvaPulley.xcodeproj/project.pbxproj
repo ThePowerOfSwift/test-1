@@ -17,6 +17,10 @@
 		878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */; };
 		878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAC20C1890200F78BC8 /* SegueViewController.swift */; };
 		878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */; };
+		878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB420C19F5600F78BC8 /* ChatViewController.swift */; };
+		878CDCB720C1A0AF00F78BC8 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */; };
+		878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */; };
+		878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */; };
 		87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */; };
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
 		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
@@ -44,6 +48,10 @@
 		878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell.swift; sourceTree = "<group>"; };
 		878CDCAC20C1890200F78BC8 /* SegueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueViewController.swift; sourceTree = "<group>"; };
 		878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell1.swift; sourceTree = "<group>"; };
+		878CDCB420C19F5600F78BC8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat1TableViewCell.swift; sourceTree = "<group>"; };
+		878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue1ViewController.swift; sourceTree = "<group>"; };
 		87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +115,10 @@
 				878CDCAC20C1890200F78BC8 /* SegueViewController.swift */,
 				878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */,
 				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
+				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
+				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
+				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
+				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
 				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
 				BD1A298820BED4C900F1F98B /* Settings.storyboard */,
 				BD22808920BEEC16005E3919 /* passwordViewController.swift */,
@@ -249,10 +261,14 @@
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */,
 				A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */,
+				878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,
 				878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */,
+				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
+				878CDCB720C1A0AF00F78BC8 /* ChatTableViewCell.swift in Sources */,
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
+				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

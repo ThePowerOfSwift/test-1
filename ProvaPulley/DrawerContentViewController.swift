@@ -42,7 +42,7 @@ class DrawerContentViewController: UIViewController{
     override func viewDidLoad() {
          super.viewDidLoad()
         
-        Gripper.layer.cornerRadius = 5.0
+        Gripper.layer.cornerRadius = 2.5
         Gripper.clipsToBounds = true
         
         buttonOn(button: AnyButton)

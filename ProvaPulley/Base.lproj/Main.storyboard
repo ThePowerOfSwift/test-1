@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wAj-yI-6or">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wAj-yI-6or">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -104,11 +104,11 @@
                                 </connections>
                             </textField>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-dn-Tw7" userLabel="Gripper">
-                                <rect key="frame" x="153" y="11" width="70" height="9"/>
+                                <rect key="frame" x="170" y="11" width="36" height="6"/>
                                 <color key="backgroundColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="H0W-Lp-6bz"/>
-                                    <constraint firstAttribute="height" constant="9" id="Sjc-y7-lLO"/>
+                                    <constraint firstAttribute="width" constant="36" id="H0W-Lp-6bz"/>
+                                    <constraint firstAttribute="height" constant="6" id="Sjc-y7-lLO"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK5-a8-Klf">
@@ -122,8 +122,8 @@
                                     <action selector="Cancel:" destination="1sF-DN-zau" eventType="touchUpInside" id="HLM-Ko-KJZ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-cZ-L1b">
-                                <rect key="frame" x="0.0" y="22" width="375" height="57"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-cZ-L1b">
+                                <rect key="frame" x="0.0" y="22" width="375" height="55"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAV-FF-D8J">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
@@ -132,7 +132,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="550" height="57"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsV-Ws-I3I" userLabel="Any" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="6" y="11" width="43" height="30"/>
+                                                        <rect key="frame" x="5" y="11" width="45" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Any">
@@ -140,7 +140,7 @@
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                                 <real key="value" value="1"/>
@@ -151,7 +151,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijn-17-LqX" userLabel="Tourism" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="67" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="61" y="11" width="75" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Tourism">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,7 +161,7 @@
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
@@ -169,7 +169,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ga9-GL-YGu" userLabel="Nightlife" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="150" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="147" y="11" width="70" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Nightlife">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -187,14 +187,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSF-ls-d9j" userLabel="Food" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="233" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="229" y="11" width="70" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Food">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                                 <real key="value" value="1"/>
@@ -205,14 +205,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSy-S9-VWb" userLabel="Art" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="316" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="308" y="11" width="63" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Art">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                                 <real key="value" value="1"/>
@@ -223,14 +223,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EFQ-v8-7qS" userLabel="City Info" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="399" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="385" y="11" width="75" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="City Life">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                                 <real key="value" value="1"/>
@@ -241,14 +241,14 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGv-ly-yOe" userLabel="Shops" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                                        <rect key="frame" x="482" y="11" width="63" height="30"/>
+                                                        <rect key="frame" x="475" y="11" width="70" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <state key="normal" title="Shops">
                                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
+                                                                <real key="value" value="15"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                                 <real key="value" value="1"/>
@@ -311,13 +311,13 @@
                         <constraints>
                             <constraint firstItem="xqV-to-BYK" firstAttribute="trailing" secondItem="ucl-S7-UAK" secondAttribute="trailing" id="0Ee-3Q-ZnR"/>
                             <constraint firstItem="VK5-a8-Klf" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="80" id="3i5-is-mry"/>
-                            <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="ah0-dn-Tw7" secondAttribute="trailing" constant="152" id="9jE-UJ-xxF"/>
+                            <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="ah0-dn-Tw7" secondAttribute="trailing" constant="169" id="9jE-UJ-xxF"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="trailing" secondItem="ucl-S7-UAK" secondAttribute="trailing" id="CSh-Iu-iha"/>
                             <constraint firstItem="xqV-to-BYK" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" id="VEf-SQ-v6y"/>
                             <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="VK5-a8-Klf" secondAttribute="trailing" constant="11" id="XXr-ly-cTo"/>
                             <constraint firstItem="xqV-to-BYK" firstAttribute="top" secondItem="VK5-a8-Klf" secondAttribute="bottom" constant="8" id="g3X-ck-6UT"/>
-                            <constraint firstItem="ah0-dn-Tw7" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="153" id="ifw-cb-bDo"/>
-                            <constraint firstItem="A9Z-cZ-L1b" firstAttribute="top" secondItem="ah0-dn-Tw7" secondAttribute="bottom" constant="2" id="jgX-My-vYt"/>
+                            <constraint firstItem="ah0-dn-Tw7" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="170" id="ifw-cb-bDo"/>
+                            <constraint firstItem="A9Z-cZ-L1b" firstAttribute="top" secondItem="ah0-dn-Tw7" secondAttribute="bottom" constant="5" id="jgX-My-vYt"/>
                             <constraint firstItem="ah0-dn-Tw7" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="11" id="oSd-JT-iju"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" id="qj1-eQ-eAB"/>
                             <constraint firstItem="uXU-mJ-Wn6" firstAttribute="top" secondItem="A9Z-cZ-L1b" secondAttribute="bottom" constant="1" id="qsq-fz-SQ0"/>

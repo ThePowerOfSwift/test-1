@@ -14,13 +14,12 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 
    
     @IBOutlet weak var mappe: MKMapView!
-    
+    var oldCircle = MKCircle()
+    var raggio = CLLocationDistance(exactly: 1000)
     let manager = CLLocationManager()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         mappe.delegate = self
         manager.delegate = self
         
@@ -28,23 +27,23 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         manager.desiredAccuracy = kCLLocationAccuracyBest
    
 //        richiede l'autorizzazione
-    manager.requestWhenInUseAuthorization()
+        manager.requestWhenInUseAuthorization()
 //        chiede al manager di aggiornare la posizione
         manager.startUpdatingLocation()
         // Do any additional setup after loading the view.
-        
-        
-        
-       
-        
-        print("ci arrivo")
     }
     
 
-    func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
         let circle = MKCircle(center: coordinate, radius: radius)
         mappe.add(circle)
+        return circle
     }
+    func removeCircle(circle:MKCircle) {
+        
+        mappe.remove(circle)
+    }
+    
     
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -62,8 +61,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         mappe.setRegion(region, animated: true)
         
-        showCircle(coordinate: myLocation, radius: CLLocationDistance(exactly: 10000)!)
-        print(location.altitude)
         
         //        questa riga mi miostra il pallino blu sulla mappa
         self.mappe.showsUserLocation = true
@@ -76,7 +73,22 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         mappe.addAnnotation(marker)
         
+//        self.oldCircle = showCircle(coordinate: myLocation, radius: self.raggio!)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Let's put in a log statement to see the order of events
+        print(#function)
+        
+        for touch in touches {
+            let touchPoint = touch.location(in: self.mappe)
+            let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
+            removeCircle(circle: self.oldCircle)
+            self.oldCircle = showCircle(coordinate: location, radius: self.raggio!)
+            
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // If you want to include other shapes, then this check is needed. If you only want circles, then remove it.
         //        if let circleOverlay = overlay as? MKCircle {

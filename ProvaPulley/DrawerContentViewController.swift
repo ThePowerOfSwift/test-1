@@ -13,8 +13,8 @@ import QuartzCore
 
 
 class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
+    
     static var i=0
-    static var drawer: DrawerContentViewController = DrawerContentViewController()
     
     @IBOutlet weak var Gripper: UIView!
     @IBOutlet weak var AskQuestionTextField: UITextField!
@@ -38,10 +38,6 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     override func viewDidLoad() {
          super.viewDidLoad()
-        if(DrawerContentViewController.i==0){
-        self.present(DrawerContentViewController.drawer, animated: true, completion: nil)
-            DrawerContentViewController.i=DrawerContentViewController.i+1
-        }
         
 //        cerca.clearButtonMode = .always
 //        cerca.layer.borderWidth = 1

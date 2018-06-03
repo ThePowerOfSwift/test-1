@@ -12,38 +12,12 @@ import QuartzCore
 
 
 
-class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.shared.messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
-        
-        cell.improf.image = #imageLiteral(resourceName: "Lorenzo")
-        cell.sfondo.backgroundColor = .red
-        cell.desc.text = "Andiamo a ballare? Waju o drag"
-        cell.desc.textColor = .white
-        cell.nickname.text = "Lorenzo"
-        cell.nickname.textColor = .white
-        cell.num.layer.cornerRadius = 12.0
-        cell.num.clipsToBounds = true
-        cell.num.text = "2"
-        cell.num.backgroundColor = .white
-        cell.num.textColor = .red
-        cell.num.textAlignment = .center
-        
-        cell.inizio.text = "22:00"
-        cell.inizio.textColor = .white
-
-        return cell
-    }
-    
-
+class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
+    static var i=0
+    static var drawer: DrawerContentViewController = DrawerContentViewController()
     
     @IBOutlet weak var Gripper: UIView!
     @IBOutlet weak var AskQuestionTextField: UITextField!
-    @IBOutlet weak var table: UITableView!
     
     @IBOutlet weak var AnyButton: UICustomButton!
     @IBOutlet weak var TourismButton: UICustomButton!
@@ -53,27 +27,21 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBOutlet weak var CityInfoButton: UICustomButton!
     @IBOutlet weak var ShopsButton: UICustomButton!
     
+    @IBOutlet weak var messageTable: UITableView!
     
-
+    var topicBool: [Bool] = [true, false, false, false, false, false, false]
 
     // inizializzazine nuovo evento
     var newEvent = Event(title: "Party", description: "Venite", topic: .nightLife, id: true )
     var newMessage = Message(author: User(nickname: "toni", imageNum: 2), message: "Dove posso bebebebe", topic: .cityLife, id: true)
 
     
-    
-    var topicBool: [Bool] = [true, false, false, false, false, false, false]
-    
     override func viewDidLoad() {
          super.viewDidLoad()
-        
-        Gripper.layer.cornerRadius = 2.5
-        Gripper.clipsToBounds = true
-        
-        buttonOn(button: AnyButton)
-        
-        
-        self.hideKeyboardWhenTappedAround()
+        if(DrawerContentViewController.i==0){
+        self.present(DrawerContentViewController.drawer, animated: true, completion: nil)
+            DrawerContentViewController.i=DrawerContentViewController.i+1
+        }
         
 //        cerca.clearButtonMode = .always
 //        cerca.layer.borderWidth = 1
@@ -119,6 +87,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+          
+     
     }
 
   
@@ -255,9 +225,6 @@ extension DrawerContentViewController {
      se è una chat coloro tutto
 */
     
-    
-    
-    
     private func buttonOff(button: UICustomButton) {
         button.backgroundColor = UIColor.white
         button.layer.borderColor = UIColor.black.cgColor
@@ -274,6 +241,34 @@ extension DrawerContentViewController {
     }
     
     
+}
+
+extension DrawerContentViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DataManager.shared.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
+        
+        cell.improf.image = DataManager.shared.profile[DataManager.shared.messages[DataManager.shared.messages.count-indexPath.row-1].author.imageNum]
+        cell.sfondo.backgroundColor = .red
+        cell.desc.text = DataManager.shared.messages[DataManager.shared.messages.count-indexPath.row-1].message
+        cell.desc.textColor = .white
+        cell.nickname.text = DataManager.shared.messages[DataManager.shared.messages.count-indexPath.row-1].author.nickname
+        cell.nickname.textColor = .white
+        cell.num.layer.cornerRadius = 12.0
+        cell.num.clipsToBounds = true
+        cell.num.text = "2"
+        cell.num.backgroundColor = .white
+        cell.num.textColor = .red
+        cell.num.textAlignment = .center
+        
+        cell.inizio.text = "22:00"
+        cell.inizio.textColor = .white
+        
+        return cell
+    }
 }
 
 

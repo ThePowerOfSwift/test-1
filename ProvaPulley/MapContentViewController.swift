@@ -78,8 +78,9 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Let's put in a log statement to see the order of events
-        print(#function)
         
+        DataManager.shared.messages.append(Message(author: User(nickname:"String", imageNum: 1), message: "ciaooo", topic: .art, id: true))
+//        DrawerContentViewController.table.reloadData()
         for touch in touches {
             let touchPoint = touch.location(in: self.mappe)
             let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
@@ -121,7 +122,14 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+}
+extension MapContentViewController {
+    convenience init() {
+        self.init()
+        
+    }
 }
 
 

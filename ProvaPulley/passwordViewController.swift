@@ -39,6 +39,7 @@ class passwordViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         hideKeyboardWhenTappedAround()
         self.title = "Password"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))

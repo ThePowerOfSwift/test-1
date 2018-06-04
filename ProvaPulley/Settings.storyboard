@@ -229,7 +229,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="62" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="imm" destination="2e0-A8-QWs" id="4GU-4O-5iI"/>
                                             <outlet property="scritta" destination="Yvt-fl-xx7" id="73s-uP-NIy"/>
@@ -293,7 +293,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="62" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="imm" destination="iBk-RK-DYV" id="3r8-GQ-Bya"/>
                                             <outlet property="scritta" destination="MKF-dz-UHh" id="oaL-XP-ZNS"/>

@@ -576,7 +576,7 @@
     <resources>
         <image name="arrow" width="20" height="20"/>
         <image name="grey" width="680" height="480"/>
-        <image name="map" width="30" height="30"/>
+        <image name="map" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="48z-Nc-RAV"/>

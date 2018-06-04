@@ -124,6 +124,21 @@
             </objects>
             <point key="canvasLocation" x="1580" y="850.52473763118451"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="HYS-dK-EXN">
+            <objects>
+                <viewController id="Tpy-DH-iPQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HXr-W1-UtI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RLR-Z5-Yp0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vyX-zx-8zL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="409"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="axD-kS-4zz">
             <objects>
@@ -163,7 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SWA-h8-EKc">
-                                <rect key="frame" x="0.0" y="344" width="375" height="99"/>
+                                <rect key="frame" x="0.0" y="356" width="375" height="98"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -228,7 +243,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kb9-KO-jCH">
-                                <rect key="frame" x="0.0" y="469" width="375" height="149"/>
+                                <rect key="frame" x="0.0" y="487" width="375" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -256,6 +271,7 @@
                                         <connections>
                                             <outlet property="imm" destination="GkX-Zk-drd" id="0RG-fP-DTH"/>
                                             <outlet property="scritta" destination="Rfk-sO-vWo" id="WDe-Wd-r4f"/>
+                                            <segue destination="Tpy-DH-iPQ" kind="show" id="gib-Lj-0YD"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell3" editingAccessoryType="disclosureIndicator" rowHeight="51" id="FwV-50-HrH" customClass="Cella4SettingsTableViewCell" customModule="BatChat" customModuleProvider="target">
@@ -282,32 +298,6 @@
                                         <connections>
                                             <outlet property="imm" destination="iBk-RK-DYV" id="3r8-GQ-Bya"/>
                                             <outlet property="scritta" destination="MKF-dz-UHh" id="oaL-XP-ZNS"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" editingAccessoryType="disclosureIndicator" rowHeight="51" id="1Ik-Ey-Xdv" customClass="Cella5SettingsTableViewCell" customModule="BatChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="103" width="375" height="51"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ik-Ey-Xdv" id="eSr-yB-S2Q">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="50.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wdw-7R-cs5">
-                                                    <rect key="frame" x="11" y="5" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wId-og-Lha">
-                                                    <rect key="frame" x="64" y="11" width="185" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="62" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <connections>
-                                            <outlet property="imm" destination="Wdw-7R-cs5" id="nFh-3c-wxR"/>
-                                            <outlet property="scritta" destination="wId-og-Lha" id="M1S-0k-oYI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -363,7 +353,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxd-nX-eZM">
                                                     <rect key="frame" x="10" y="12" width="185" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

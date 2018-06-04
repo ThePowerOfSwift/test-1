@@ -18,7 +18,6 @@
 		871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956820C5549F0035C3A2 /* NotificheViewController.swift */; };
 		871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */; };
 		871B957120C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957020C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift */; };
-		871B957320C573180035C3A2 /* Cella5SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957220C573180035C3A2 /* Cella5SettingsTableViewCell.swift */; };
 		871B957520C5773B0035C3A2 /* CellaPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957420C5773B0035C3A2 /* CellaPasswordTableViewCell.swift */; };
 		871B957720C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */; };
 		871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */; };
@@ -59,7 +58,6 @@
 		871B956820C5549F0035C3A2 /* NotificheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheViewController.swift; sourceTree = "<group>"; };
 		871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellaNotificheTableViewCell.swift; sourceTree = "<group>"; };
 		871B957020C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella4SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		871B957220C573180035C3A2 /* Cella5SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella5SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		871B957420C5773B0035C3A2 /* CellaPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellaPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella2PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella3PasswordTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 				871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */,
 				871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */,
 				871B957420C5773B0035C3A2 /* CellaPasswordTableViewCell.swift */,
-				871B957220C573180035C3A2 /* Cella5SettingsTableViewCell.swift */,
 				871B957020C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift */,
 				871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */,
 				871B956820C5549F0035C3A2 /* NotificheViewController.swift */,
@@ -285,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
-				871B957320C573180035C3A2 /* Cella5SettingsTableViewCell.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,

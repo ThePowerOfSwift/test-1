@@ -29,6 +29,7 @@ class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDa
 
         messaggio.text = "Se disattiverai tutte le notifiche, l'applicazione sarà inutile"
        
+        self.title = "Notifications"
         
         messaggio.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.

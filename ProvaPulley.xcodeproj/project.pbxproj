@@ -13,6 +13,8 @@
 		871B22D020AF0F5000EACF41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 871B22CF20AF0F5000EACF41 /* Assets.xcassets */; };
 		871B22D320AF0F5000EACF41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871B22D120AF0F5000EACF41 /* LaunchScreen.storyboard */; };
 		871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */; };
+		871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */; };
+		871B956320C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
 		878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */; };
@@ -45,6 +47,8 @@
 		871B22D220AF0F5000EACF41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		871B22D420AF0F5000EACF41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella1SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella2SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella3SettiongsTableViewCell.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
 		878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
 				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
 				BD1A298820BED4C900F1F98B /* Settings.storyboard */,
+				871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */,
+				871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */,
 				871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */,
 				BD22808920BEEC16005E3919 /* passwordViewController.swift */,
 				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
@@ -258,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
+				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
 				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
@@ -267,6 +274,7 @@
 				878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */,
 				871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,
+				871B956320C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift in Sources */,
 				878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */,
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,

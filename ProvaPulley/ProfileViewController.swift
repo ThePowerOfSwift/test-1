@@ -12,17 +12,48 @@
 import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    
+    @IBOutlet weak var table1: UITableView!
+    
+    @IBOutlet weak var table2: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if tableView == self.table1{
+            return 2
+        }else{
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cella1SettingsTableViewCell
+        let cell = table1.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cella1SettingsTableViewCell
         
+        let cell1 = table1.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! Cella2SettingsTableViewCell
+        
+        let cell2 = table2.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! Cella3SettiongsTableViewCell
+        
+        if tableView == self.table1{
+            if indexPath.row == 0{
         cell.notifiche.image = #imageLiteral(resourceName: "notifica")
         cell.scritta.text = "Notifications"
         return cell
+        }else{
+            cell1.scritta.text = "Report a problem"
+           cell1.imm.image = #imageLiteral(resourceName: "warning")
+            return cell1
+        }
+        }
+        
+        if tableView == self.table2{
+            
+            cell2.scritta.text = "City"
+            cell2.imm.image = #imageLiteral(resourceName: "position")
+            return cell2
+        }else{
+            return cell2
+        }
+
     }
     
 

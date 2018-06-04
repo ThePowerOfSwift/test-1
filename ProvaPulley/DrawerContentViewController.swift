@@ -39,45 +39,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     override func viewDidLoad() {
          super.viewDidLoad()
         
-//        cerca.clearButtonMode = .always
-//        cerca.layer.borderWidth = 1
-//        cerca.layer.borderColor = UIColor(red: 255/255, green: 253/255, blue: 247/255, alpha: 1.0).cgColor
-        
-        
-        
-       
-       //LABEL EVENT
-        
-//        labelEvent.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-//       // labelEvent.layer.backgroundColor = UIColor(red: 0/255, green: 159/255, blue: 184/255, alpha: 1.0).cgColor
-//
-//        labelEvent.layer.cornerRadius = 50
-//        table.addSubview(labelEvent)
-//
-//
-//        //LABEL MESSAGE
-//
-//        labelMessage.frame = CGRect(x: 0, y: 130, width: 100, height: 100)
-//        labelMessage.layer.backgroundColor = UIColor(red: 0/255, green: 90/255, blue: 50/255, alpha: 1.0).cgColor
-//
-//        labelMessage.layer.cornerRadius = 50
-//        table.addSubview(labelMessage)
-//
-//        // condizione sulle label
-//
-//
-//        if newEvent.id == true {
-//            labelEvent.layer.borderWidth = 10.0
-////            let testo = newEvent.title
-//            labelEvent.text = newEvent.title
-//        }
-//
-//        else
-//        {
-//             labelMessage.layer.borderColor = UIColor(red: 0/255, green: 20/255, blue: 50/255, alpha: 1.0).cgColor
-//        }
-//
-//
+
 
     }
     

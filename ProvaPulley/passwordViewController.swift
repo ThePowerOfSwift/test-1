@@ -8,9 +8,34 @@
 
 import UIKit
 
-class passwordViewController: UIViewController {
-
+class passwordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellaPasswordTableViewCell
+        
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! Cella2PasswordTableViewCell
+        
+        let cell3 = tableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! Cella3PasswordTableViewCell
+        
+        if indexPath.row == 0{
+            
+        cell.scritta.text = "Old"
+            return cell
+        }
+        if indexPath.row == 1{
+            cell2.scritta.text = "New"
+            return cell2
+        }else{
+            cell3.scritta.text = "Verify"
+            return cell3
+        }
+    }
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

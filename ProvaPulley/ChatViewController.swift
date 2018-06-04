@@ -66,8 +66,10 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var titolo = ""
-        title?.append(titolo)
+        
+//        var titolo = ""
+//        title?.append(titolo)
+        
         // Do any additional setup after loading the view.
     }
 

@@ -13,13 +13,25 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    @IBAction func Signout(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "", message: "Confermare di voler uscire?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
+
     @IBOutlet weak var table1: UITableView!
     
     @IBOutlet weak var table2: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.table1{
             return 2
+        }
+        if tableView == self.table2{
+            
+            return 3
         }else{
             return 1
         }
@@ -32,6 +44,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell1 = table1.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! Cella2SettingsTableViewCell
         
         let cell2 = table2.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! Cella3SettiongsTableViewCell
+        let cell3 = table2.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! Cella4SettingsTableViewCell
+        let cell4 = table2.dequeueReusableCell(withIdentifier: "cell4", for: indexPath) as! Cella5SettingsTableViewCell
         
         if tableView == self.table1{
             if indexPath.row == 0{
@@ -46,14 +60,24 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         if tableView == self.table2{
-            
+            if indexPath.row == 0{
             cell2.scritta.text = "City"
             cell2.imm.image = #imageLiteral(resourceName: "position")
             return cell2
-        }else{
-            return cell2
+            }
+            if indexPath.row == 1{
+                cell3.imm.image = #imageLiteral(resourceName: "privacy")
+                cell3.scritta.text = "Privacy Information"
+                return cell3
+            }else{
+                cell4.imm.image = #imageLiteral(resourceName: "warning")
+                cell4.scritta.text = "Report Problems"
+                return cell4
+            }
         }
+        
 
+        return cell2
     }
     
 
@@ -85,10 +109,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         nome.textAlignment = .center
         nome.text = "Antonio Falso"
        
-        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.blue]
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        self.navigationController?.navigationBar.tintColor = .blue
+        self.navigationController?.navigationBar.tintColor = .black
 
         
         // Do any additional setup after loading the view.

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Cella4SettingsTableViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:Pods/../ProvaPulley.xcodeproj">
    </FileRef>
    <FileRef

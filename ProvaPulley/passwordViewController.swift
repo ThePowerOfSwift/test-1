@@ -39,6 +39,9 @@ class passwordViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        hideKeyboardWhenTappedAround()
+        self.title = "Password"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         // Do any additional setup after loading the view.
     }
 
@@ -47,7 +50,10 @@ class passwordViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-
+    @objc func doneTapped(){
+        dismissKeyboard()
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 

@@ -39,8 +39,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.scritta.text = "Notifications"
         return cell
         }else{
-            cell1.scritta.text = "Report a problem"
-           cell1.imm.image = #imageLiteral(resourceName: "warning")
+            cell1.scritta.text = "Modify Password"
+           cell1.imm.image = #imageLiteral(resourceName: "modify")
             return cell1
         }
         }
@@ -85,6 +85,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         nome.textAlignment = .center
         nome.text = "Antonio Falso"
        
+        let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.blue]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        self.navigationController?.navigationBar.tintColor = .blue
+
+        
         // Do any additional setup after loading the view.
     }
 

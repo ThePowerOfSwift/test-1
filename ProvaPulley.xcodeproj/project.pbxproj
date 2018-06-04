@@ -15,6 +15,8 @@
 		871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */; };
 		871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */; };
 		871B956320C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */; };
+		871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956820C5549F0035C3A2 /* NotificheViewController.swift */; };
+		871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
 		878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */; };
@@ -49,6 +51,8 @@
 		871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella1SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella2SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella3SettiongsTableViewCell.swift; sourceTree = "<group>"; };
+		871B956820C5549F0035C3A2 /* NotificheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificheViewController.swift; sourceTree = "<group>"; };
+		871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellaNotificheTableViewCell.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
 		878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
 				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
 				BD1A298820BED4C900F1F98B /* Settings.storyboard */,
+				871B956A20C554C40035C3A2 /* CellaNotificheTableViewCell.swift */,
+				871B956820C5549F0035C3A2 /* NotificheViewController.swift */,
 				871B956220C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift */,
 				871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */,
 				871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */,
@@ -263,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
@@ -282,6 +289,7 @@
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
+				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

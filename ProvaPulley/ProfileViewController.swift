@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func Signout(_ sender: Any) {
         
-        let alert = UIAlertController(title: "", message: "Confermare di voler uscire?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "", message: "Are you sure that you want to exit?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)

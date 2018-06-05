@@ -123,8 +123,24 @@
 		871B22C720AF0F4F00EACF41 /* ProvaPulley */ = {
 			isa = PBXGroup;
 			children = (
+				871B95B620C6C5940035C3A2 /* List */,
+				871B95B520C6C56B0035C3A2 /* Settings */,
+				871B95B420C6C5550035C3A2 /* Main */,
 				871B22C820AF0F4F00EACF41 /* AppDelegate.swift */,
 				871B22CA20AF0F4F00EACF41 /* ViewController.swift */,
+				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
+				871B22CF20AF0F5000EACF41 /* Assets.xcassets */,
+				871B22D120AF0F5000EACF41 /* LaunchScreen.storyboard */,
+				871B22D420AF0F5000EACF41 /* Info.plist */,
+			);
+			path = ProvaPulley;
+			sourceTree = "<group>";
+		};
+		871B95B420C6C5550035C3A2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
+				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
 				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 				C558478E20C0532A008978D4 /* ProfileViewController.swift */,
@@ -132,12 +148,13 @@
 				878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */,
 				878CDCAC20C1890200F78BC8 /* SegueViewController.swift */,
 				878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */,
-				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
-				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
-				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
-				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
-				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
-				A9D8611E20BEE50400F2EC9E /* DataManager.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		871B95B520C6C56B0035C3A2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
 				BD1A298820BED4C900F1F98B /* Settings.storyboard */,
 				871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */,
 				871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */,
@@ -149,13 +166,20 @@
 				871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */,
 				871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */,
 				BD22808920BEEC16005E3919 /* passwordViewController.swift */,
-				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
-				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
-				871B22CF20AF0F5000EACF41 /* Assets.xcassets */,
-				871B22D120AF0F5000EACF41 /* LaunchScreen.storyboard */,
-				871B22D420AF0F5000EACF41 /* Info.plist */,
 			);
-			path = ProvaPulley;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		871B95B620C6C5940035C3A2 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
+				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
+				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
+				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
+				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		95F3C351F7D4ECDB14710FAD /* Frameworks */ = {

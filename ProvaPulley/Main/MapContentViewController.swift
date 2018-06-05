@@ -23,6 +23,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         mappe.delegate = self
         manager.delegate = self
         
+       
+        navigationController?.isNavigationBarHidden = true
 //        per ottenere la miglior location dell'user
         manager.desiredAccuracy = kCLLocationAccuracyBest
    
@@ -44,7 +46,9 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         mappe.remove(circle)
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

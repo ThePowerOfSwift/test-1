@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let vm = UIView()
-        vm.backgroundColor = .lightGray
+        vm.backgroundColor = UIColor.purple
         return vm
     }
     

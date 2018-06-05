@@ -47,6 +47,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let vm = UIView()
+        vm.backgroundColor = .lightGray
+        return vm
+    }
+    
+   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = table1.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cella1SettingsTableViewCell

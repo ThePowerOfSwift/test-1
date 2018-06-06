@@ -363,10 +363,10 @@
             </objects>
             <point key="canvasLocation" x="6524" y="568"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Selected View Controller-->
         <scene sceneID="3Dc-Mx-M0d">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wAj-yI-6or" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wAj-yI-6or" customClass="SelectedViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GE0-PM-dhN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -557,7 +557,6 @@
                                 </state>
                                 <connections>
                                     <action selector="Log:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="IRp-yb-oYN"/>
-                                    <segue destination="wAj-yI-6or" kind="show" id="mWq-eq-U52"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0n-9l-zIe">
@@ -620,6 +619,7 @@
                         <outlet property="password" destination="mjH-rZ-Ngx" id="CSo-5h-peW"/>
                         <outlet property="register" destination="pHG-TA-OE4" id="chX-ES-a2u"/>
                         <outlet property="vista" destination="gGR-Yp-OLc" id="Vfq-MH-wS8"/>
+                        <segue destination="wAj-yI-6or" kind="show" identifier="seguelogin" id="nrR-kV-S66"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMm-Sj-4rJ" sceneMemberID="firstResponder"/>

@@ -965,6 +965,7 @@
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbL-m6-TGl" userLabel="Avatar Button">
                                 <rect key="frame" x="141" y="285" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="avatarButtonFunc:" destination="eCE-oM-fJY" eventType="touchUpInside" id="dte-Gp-Bta"/>
                                 </connections>
@@ -976,6 +977,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjg-PY-uYb">
+                                <rect key="frame" x="164" y="547" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="obq-R0-Jsv"/>
@@ -991,6 +997,7 @@
                         <outlet property="button7" destination="eeU-ef-AF8" id="qng-QW-hUg"/>
                         <outlet property="button8" destination="kJt-ep-805" id="dMn-Oc-pfF"/>
                         <outlet property="button9" destination="Zvg-6t-ZkX" id="qxP-qJ-1JN"/>
+                        <outlet property="buttonAvanti" destination="mjg-PY-uYb" id="5FO-Lw-92M"/>
                         <outlet property="nome" destination="Wi5-C5-ULN" id="n5q-P7-4pe"/>
                     </connections>
                 </viewController>

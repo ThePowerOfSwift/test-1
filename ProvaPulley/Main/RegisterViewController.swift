@@ -43,154 +43,159 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var button9: UIButton!
     
+    @IBOutlet weak var buttonAvanti: UIButton!
+    
+    
     //     Metodi
     
     @IBAction func avatarButtonFunc(_ sender: Any) {
-        //     central button
-        
-        //         flag
-        
-        if buttonOpen == false {
-            buttonOpen = true
-        } else {
-            buttonOpen = false
-        }
-        
-        print(buttonOpen)
-        
-        //       central button animation
-        
-        UIView.animate(withDuration: 0.2, delay: 0,options: [],
-                       animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
         
-        UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
-                       animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
-        
-        
-        
-        
-        
-        if buttonOpen == true {
-            
-            
-            //          sparisce il nome
-            
-            UIView.animate(withDuration: 0.2, delay: 0.0,options: [],
-                           
-                           animations: { self.nome.alpha = 0 })
-            
-            //          button telefono animation
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
-                           
-                           animations: { self.button1.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
-                           
-                           animations: { self.button2.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
-                           
-                           animations: { self.button3.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
-                           
-                           animations: { self.button4.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
-                           
-                           animations: { self.button5.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
-                           
-                           animations: { self.button6.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
-                           
-                           animations: { self.button7.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
-                           
-                           animations: { self.button8.alpha = 1 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
-                           
-                           animations: { self.button9.alpha = 1 })
-            
-            
-        } else {
-            
-            
-            
-            //          riappare nome e tableview
-            
-            UIView.animate(withDuration: 0.2, delay: 1.9,options: [],
-                           
-                           animations: { self.nome.alpha = 1 })
-            
-            //          button telefono animation chiudi
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
-                           
-                           animations: { self.button1.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
-                           
-                           animations: { self.button2.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
-                           
-                           animations: { self.button3.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
-                           
-                           animations: { self.button4.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
-                           
-                           animations: { self.button5.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
-                           
-                           animations: { self.button6.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
-                           
-                           animations: { self.button7.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
-                           
-                           animations: { self.button8.alpha = 0 })
-            
-            
-            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
-                           
-                           animations: { self.button9.alpha = 0 })
-            
-            
-        }
-        
-        
-        
-        
+//        //     central button
+//
+//        //         flag
+//
+//        if buttonOpen == false {
+//            buttonOpen = true
+//        } else {
+//            buttonOpen = false
+//        }
+//
+//        print(buttonOpen)
+//
+//        //       central button animation
+//
+//        UIView.animate(withDuration: 0.2, delay: 0,options: [],
+//                       animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
+//
+//
+//        UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
+//                       animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+//
+//
+//
+//
+//
+//        if buttonOpen == true {
+//
+//
+//            //          sparisce il nome
+//
+//            UIView.animate(withDuration: 0.2, delay: 0.0,options: [],
+//
+//                           animations: { self.nome.alpha = 0 })
+//
+//            //          button telefono animation
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
+//
+//                           animations: { self.button1.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
+//
+//                           animations: { self.button2.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
+//
+//                           animations: { self.button3.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
+//
+//                           animations: { self.button4.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
+//
+//                           animations: { self.button5.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
+//
+//                           animations: { self.button6.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
+//
+//                           animations: { self.button7.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
+//
+//                           animations: { self.button8.alpha = 1 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
+//
+//                           animations: { self.button9.alpha = 1 })
+//
+//
+//        } else {
+//
+//
+//
+//            //          riappare nome e tableview
+//
+//            UIView.animate(withDuration: 0.2, delay: 1.9,options: [],
+//
+//                           animations: { self.nome.alpha = 1 })
+//
+//            //          button telefono animation chiudi
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
+//
+//                           animations: { self.button1.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
+//
+//                           animations: { self.button2.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
+//
+//                           animations: { self.button3.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
+//
+//                           animations: { self.button4.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
+//
+//                           animations: { self.button5.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
+//
+//                           animations: { self.button6.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
+//
+//                           animations: { self.button7.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
+//
+//                           animations: { self.button8.alpha = 0 })
+//
+//
+//            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
+//
+//                           animations: { self.button9.alpha = 0 })
+//
+//
+//        }
+//
+//
+//
+//
     }
     
     
@@ -202,6 +207,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button2Func(_ sender: Any) {
@@ -212,6 +221,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button3Func(_ sender: Any) {
@@ -222,6 +235,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button4Func(_ sender: Any) {
@@ -232,6 +249,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button5Func(_ sender: Any) {
@@ -242,6 +263,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button6Func(_ sender: Any) {
@@ -252,6 +277,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button7Func(_ sender: Any) {
@@ -262,6 +291,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button8Func(_ sender: Any) {
@@ -272,6 +305,10 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     @IBAction func button9Func(_ sender: Any) {
@@ -282,21 +319,80 @@ class RegisterViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.15,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)},completion: nil)
+        
+        UIView.animate(withDuration: 0.3, delay: 0.1,options: [],
+                       
+                       animations: { self.buttonAvanti.alpha = 1 })
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
+                       
+                       animations: { self.button1.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
+                       
+                       animations: { self.button2.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
+                       
+                       animations: { self.button3.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
+                       
+                       animations: { self.button4.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
+                       
+                       animations: { self.button5.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
+                       
+                       animations: { self.button6.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
+                       
+                       animations: { self.button7.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
+                       
+                       animations: { self.button8.alpha = 1 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
+                       
+                       animations: { self.button9.alpha = 1 })
+        
+    }
     
-    
-    //    Fine /Luca <<<<<<<<<<<<<
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //        luca
         
+        buttonAvanti.alpha = 0
+        button1.alpha = 0
+        button2.alpha = 0
+        button3.alpha = 0
+        button4.alpha = 0
+        button5.alpha = 0
+        button6.alpha = 0
+        button7.alpha = 0
+        button8.alpha = 0
+        button9.alpha = 0
+
        
-        
-        //        end luca
-        
+ 
         nome.text = ""
        
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Login2")!)

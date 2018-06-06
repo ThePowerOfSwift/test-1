@@ -67,9 +67,9 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
 
         
-//        var titolo = ""
+//        var titolo = "Chat"
 //        title?.append(titolo)
-        
+//        
         // Do any additional setup after loading the view.
     }
 

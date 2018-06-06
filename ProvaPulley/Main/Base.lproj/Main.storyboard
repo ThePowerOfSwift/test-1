@@ -75,7 +75,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="piu"/>
                                 <connections>
-                                    <segue destination="8s4-DI-KGl" kind="show" id="vV0-vj-dHV"/>
+                                    <segue destination="8s4-DI-KGl" kind="show" id="3cY-Tl-JAt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -697,7 +697,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ec5-sY-SeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7595.1999999999998" y="-661.61919040479768"/>
+            <point key="canvasLocation" x="7744" y="36"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="veN-Qx-gxF">
@@ -874,20 +874,129 @@
             </objects>
             <point key="canvasLocation" x="-244" y="-282.00899550224892"/>
         </scene>
-        <!--View Controller-->
+        <!--Register View Controller-->
         <scene sceneID="lUB-WS-I5F">
             <objects>
-                <viewController id="eCE-oM-fJY" sceneMemberID="viewController">
+                <viewController id="eCE-oM-fJY" customClass="RegisterViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lrX-mL-YZi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-6L-Oa4">
+                                <rect key="frame" x="16" y="72" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Annulla"/>
+                                <connections>
+                                    <action selector="cancel:" destination="eCE-oM-fJY" eventType="touchUpInside" id="3Dk-Q5-JMa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OE-Da-Dja" userLabel="Button 1">
+                                <rect key="frame" x="157" y="189" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Francesco"/>
+                                <connections>
+                                    <action selector="button1Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="gBv-pd-Zqj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGZ-vg-4Gb" userLabel="Button 2">
+                                <rect key="frame" x="231" y="215" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Antonio vero"/>
+                                <connections>
+                                    <action selector="button2Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="kzB-Xd-QWE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-rn-67V" userLabel="Button 3">
+                                <rect key="frame" x="270" y="283" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Sofia"/>
+                                <connections>
+                                    <action selector="button3Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="dks-wT-BzY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-Pl-RC6" userLabel="Button 4">
+                                <rect key="frame" x="257" y="360" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Giorgio"/>
+                                <connections>
+                                    <action selector="button4Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="xfh-MT-LiJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg5-sS-pBt" userLabel="Button 5">
+                                <rect key="frame" x="196" y="412" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Hind"/>
+                                <connections>
+                                    <action selector="button5Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="rHn-Sf-Fob"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-03-9z7" userLabel="Button 6">
+                                <rect key="frame" x="118" y="412" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Antonio falso"/>
+                                <connections>
+                                    <action selector="button6Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="Rct-uh-f1Y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-ef-AF8" userLabel="Button 7">
+                                <rect key="frame" x="58" y="360" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Luca"/>
+                                <connections>
+                                    <action selector="button7Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="3Yj-Il-3XQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJt-ep-805" userLabel="Button 8">
+                                <rect key="frame" x="45" y="283" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Lorenzo"/>
+                                <connections>
+                                    <action selector="button8Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="cYg-lB-y7E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvg-6t-ZkX" userLabel="Button 9">
+                                <rect key="frame" x="84" y="216" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="Silvia"/>
+                                <connections>
+                                    <action selector="button9Func:" destination="eCE-oM-fJY" eventType="touchUpInside" id="Xdj-66-gq6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbL-m6-TGl" userLabel="Avatar Button">
+                                <rect key="frame" x="141" y="285" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="avatarButtonFunc:" destination="eCE-oM-fJY" eventType="touchUpInside" id="dte-Gp-Bta"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-C5-ULN">
+                                <rect key="frame" x="0.0" y="377" width="375" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="obq-R0-Jsv"/>
                     </view>
+                    <connections>
+                        <outlet property="avatarButton" destination="BbL-m6-TGl" id="8hE-ri-Y95"/>
+                        <outlet property="button1" destination="4OE-Da-Dja" id="Hkb-Nb-Y6N"/>
+                        <outlet property="button2" destination="BGZ-vg-4Gb" id="xat-V2-EaV"/>
+                        <outlet property="button3" destination="5ka-rn-67V" id="vPp-FE-bjC"/>
+                        <outlet property="button4" destination="Oyz-Pl-RC6" id="mDF-Ky-SeV"/>
+                        <outlet property="button5" destination="Bg5-sS-pBt" id="RZL-oy-VnU"/>
+                        <outlet property="button6" destination="GcP-03-9z7" id="xDZ-ys-3MZ"/>
+                        <outlet property="button7" destination="eeU-ef-AF8" id="qng-QW-hUg"/>
+                        <outlet property="button8" destination="kJt-ep-805" id="dMn-Oc-pfF"/>
+                        <outlet property="button9" destination="Zvg-6t-ZkX" id="qxP-qJ-1JN"/>
+                        <outlet property="nome" destination="Wi5-C5-ULN" id="n5q-P7-4pe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRQ-Dy-YwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244" y="636"/>
+            <point key="canvasLocation" x="-244" y="635.53223388305855"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pNF-N3-o4K">
@@ -909,7 +1018,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Antonio falso" width="61" height="62"/>
+        <image name="Antonio vero" width="62" height="62"/>
+        <image name="Francesco" width="61" height="62"/>
+        <image name="Giorgio" width="62" height="62"/>
+        <image name="Hind" width="62" height="62"/>
         <image name="Line" width="267" height="1"/>
+        <image name="Lorenzo" width="62" height="62"/>
+        <image name="Luca" width="62" height="62"/>
+        <image name="Silvia" width="62" height="62"/>
+        <image name="Sofia" width="62" height="62"/>
         <image name="arrow" width="20" height="20"/>
         <image name="grey" width="680" height="480"/>
         <image name="map" width="30" height="30"/>

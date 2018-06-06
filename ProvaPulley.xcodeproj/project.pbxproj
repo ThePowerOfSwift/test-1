@@ -24,6 +24,7 @@
 		871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
+		87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6A20C822EA0046DFAC /* ForgotViewController.swift */; };
 		878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */; };
 		878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAC20C1890200F78BC8 /* SegueViewController.swift */; };
 		878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */; };
@@ -66,6 +67,7 @@
 		871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
+		87415E6A20C822EA0046DFAC /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell.swift; sourceTree = "<group>"; };
 		878CDCAC20C1890200F78BC8 /* SegueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueViewController.swift; sourceTree = "<group>"; };
 		878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell1.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
+				87415E6A20C822EA0046DFAC /* ForgotViewController.swift */,
 				871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */,
 				BD08B14C20C6CE8000E77AFE /* EventViewController.swift */,
 				878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */,
@@ -328,6 +331,7 @@
 				871B956320C539A90035C3A2 /* Cella3SettiongsTableViewCell.swift in Sources */,
 				878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */,
 				BD08B14D20C6CE8000E77AFE /* EventViewController.swift in Sources */,
+				87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */,
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,

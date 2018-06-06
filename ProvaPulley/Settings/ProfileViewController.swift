@@ -342,12 +342,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if tableView == self.table1{
             if indexPath.row == 0{
-        cell.notifiche.image = #imageLiteral(resourceName: "notifica")
+        cell.notifiche.image = #imageLiteral(resourceName: "Notifications")
         cell.scritta.text = "Notifications"
         return cell
         }else{
             cell1.scritta.text = "Modify Password"
-           cell1.imm.image = #imageLiteral(resourceName: "modify")
+           cell1.imm.image = #imageLiteral(resourceName: "key")
             return cell1
         }
         }
@@ -355,11 +355,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if tableView == self.table2{
             if indexPath.row == 0{
             cell2.scritta.text = "Report Problems"
-            cell2.imm.image = #imageLiteral(resourceName: "warning")
+            cell2.imm.image = #imageLiteral(resourceName: "Report problem")
             return cell2
             }
             if indexPath.row == 1{
-                cell3.imm.image = #imageLiteral(resourceName: "privacy")
+                cell3.imm.image = #imageLiteral(resourceName: "priva")
                 cell3.scritta.text = "Privacy Information"
                 return cell3
             }

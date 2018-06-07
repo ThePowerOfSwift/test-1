@@ -103,12 +103,44 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-0y-HDP">
-                                <rect key="frame" x="0.0" y="92" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="67" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="7b0-Io-oIB" kind="embed" id="lwv-BR-KhA"/>
                                 </connections>
                             </containerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tK-LI-gRk">
+                                <rect key="frame" x="0.0" y="150" width="375" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ly1-hP-xRU" userLabel="PreviewView">
+                                <rect key="frame" x="0.0" y="145" width="375" height="176"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlT-GP-yxy">
+                                <rect key="frame" x="16" y="338" width="67" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="galleria"/>
+                                <connections>
+                                    <action selector="importoFromGalleryButton:" destination="8s4-DI-KGl" eventType="touchUpInside" id="oQ7-V2-cXa"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="event name " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8hG-Pb-OLW">
+                                <rect key="frame" x="38" y="412" width="305" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQx-R2-rqe">
+                                <rect key="frame" x="295" y="335" width="64" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="fotocamera"/>
+                                <connections>
+                                    <action selector="didTakePhoto:" destination="8s4-DI-KGl" eventType="touchUpInside" id="Loa-Eu-FDg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Lpb-nt-ft2"/>
@@ -116,10 +148,16 @@
                     <navigationItem key="navigationItem" id="86m-Tl-jRg">
                         <barButtonItem key="backBarButtonItem" title="Back" id="SuA-w9-Qtg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captureImageView" destination="0tK-LI-gRk" id="BOz-bk-JRE"/>
+                        <outlet property="didTakePhotoOutlat" destination="vQx-R2-rqe" id="9m5-No-OxV"/>
+                        <outlet property="importFromGalleryOutlet" destination="LlT-GP-yxy" id="5tx-L5-iY7"/>
+                        <outlet property="previewView" destination="ly1-hP-xRU" id="Fcy-aN-oLb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kmv-3n-cR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4465" y="-99"/>
+            <point key="canvasLocation" x="4464.8000000000002" y="-99.400299850074973"/>
         </scene>
         <!--Drawer Content View Controller-->
         <scene sceneID="2vq-qR-900">
@@ -947,6 +985,8 @@
         <image name="Silvia" width="62" height="62"/>
         <image name="Sofia" width="62" height="62"/>
         <image name="arrow" width="20" height="20"/>
+        <image name="fotocamera" width="512" height="512"/>
+        <image name="galleria" width="941" height="720"/>
         <image name="grey" width="680" height="480"/>
         <image name="map" width="30" height="30"/>
         <image name="piu" width="200" height="200"/>

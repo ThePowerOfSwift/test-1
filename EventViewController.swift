@@ -1,15 +1,7 @@
-//
-//  EventViewController.swift
-//  BatChat
-//
-//  Created by Sofia Passarelli on 05/06/18.
-//  Copyright © 2018 Lorenzo Caso. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var captureImageView: UIImageView!
@@ -117,3 +109,4 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
 }
+

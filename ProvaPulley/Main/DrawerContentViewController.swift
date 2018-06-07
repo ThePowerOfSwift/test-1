@@ -53,6 +53,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @objc func reload() {
         self.messageTable.reloadData()
+        dismissKeyboard()
         print("CIAO")
         
         
@@ -70,7 +71,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @IBAction func Cancel(_ sender: Any) {
         dismissKeyboard()
-    self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+//    self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         
     }
     

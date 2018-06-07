@@ -585,7 +585,6 @@
                                     <color key="titleColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                 </state>
                                 <connections>
-                                    <action selector="Log:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="Gpt-gr-73n"/>
                                     <segue destination="eCE-oM-fJY" kind="show" id="oSP-Zf-EdI"/>
                                 </connections>
                             </button>
@@ -603,9 +602,6 @@
                                 <state key="normal" title="Log with facebook">
                                     <color key="titleColor" red="0.98275349310000004" green="0.98706511990000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <action selector="Log:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="WPv-Xc-crW"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -903,9 +899,6 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                 </state>
-                                <connections>
-                                    <action selector="Log:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="YaI-jt-gEW"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

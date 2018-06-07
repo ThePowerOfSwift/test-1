@@ -7,6 +7,21 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var captureImageView: UIImageView!
     
     
+    @IBOutlet weak var apriButton: UIButton!
+    
+    
+    
+    
+    @IBAction func Apri(_ sender: Any) {
+        UIView.animate(withDuration: 0.8, animations: {(self.apriButton.frame.origin.y += 140)})
+        //apriButton.frame.origin.x = 20
+        
+        UIView.animate(withDuration: 0.8, delay: 0.0,options: [],
+                       
+                       animations: ({ self.apriButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))}))
+        
+    }
+    
     @IBAction func didTakePhoto(_ sender: Any) {
         self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
         self.pickerController.sourceType = .camera // scelgo il sourceType, cioè il luogo in cui pescare le immagini

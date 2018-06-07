@@ -72,6 +72,9 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.vista.endEditing(true)
     }

@@ -35,7 +35,7 @@
 		878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */; };
 		878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */; };
 		879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80320C849D100DA81CD /* SelectedViewController.swift */; };
-		879FC80620C84A8200DA81CD /* SingletonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80520C84A8200DA81CD /* SingletonServer.swift */; };
+		879FC80C20C9490600DA81CD /* SingletonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80B20C9490600DA81CD /* SingletonServer.swift */; };
 		87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */; };
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
 		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
@@ -83,7 +83,7 @@
 		878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat1TableViewCell.swift; sourceTree = "<group>"; };
 		878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue1ViewController.swift; sourceTree = "<group>"; };
 		879FC80320C849D100DA81CD /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedViewController.swift; path = ../../SelectedViewController.swift; sourceTree = "<group>"; };
-		879FC80520C84A8200DA81CD /* SingletonServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingletonServer.swift; path = ../../../../../../Downloads/SingletonServer.swift; sourceTree = "<group>"; };
+		879FC80B20C9490600DA81CD /* SingletonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingletonServer.swift; path = "/Users/lorenzocaso/Desktop/Academy/3rd challenge/test/ProvaPulley/Main/SingletonServer.swift"; sourceTree = "<absolute>"; };
 		87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +164,8 @@
 				879FC80320C849D100DA81CD /* SelectedViewController.swift */,
 				87415E6E20C834800046DFAC /* Register2ViewController.swift */,
 				87415E6C20C827140046DFAC /* RegisterViewController.swift */,
-				879FC80520C84A8200DA81CD /* SingletonServer.swift */,
 				87415E6A20C822EA0046DFAC /* ForgotViewController.swift */,
+				879FC80B20C9490600DA81CD /* SingletonServer.swift */,
 				871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */,
 				BD08B14C20C6CE8000E77AFE /* EventViewController.swift */,
 				878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */,
@@ -342,7 +342,7 @@
 				A946593D20C8481800D1314F /* MessageTableView.swift in Sources */,
 				87415E6F20C834800046DFAC /* Register2ViewController.swift in Sources */,
 				A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */,
-				879FC80620C84A8200DA81CD /* SingletonServer.swift in Sources */,
+				879FC80C20C9490600DA81CD /* SingletonServer.swift in Sources */,
 				878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */,
 				871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,

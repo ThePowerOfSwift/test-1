@@ -1348,17 +1348,19 @@ extension PulleyViewController: PulleyPassthroughScrollViewDelegate {
 }
 
 extension PulleyViewController: UIScrollViewDelegate {
-
+    
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
+
         if scrollView == drawerScrollView
         {
+
             // Find the closest anchor point and snap there.
             var collapsedHeight:CGFloat = kPulleyDefaultCollapsedHeight
             var partialRevealHeight:CGFloat = kPulleyDefaultPartialRevealHeight
             
             if let drawerVCCompliant = drawerContentViewController as? PulleyDrawerViewControllerDelegate
             {
+
                 collapsedHeight = drawerVCCompliant.collapsedDrawerHeight?(bottomSafeArea: getBottomSafeArea()) ?? kPulleyDefaultCollapsedHeight
                 partialRevealHeight = drawerVCCompliant.partialRevealDrawerHeight?(bottomSafeArea: getBottomSafeArea()) ?? kPulleyDefaultPartialRevealHeight
             }
@@ -1368,30 +1370,39 @@ extension PulleyViewController: UIScrollViewDelegate {
             
             if supportedPositions.contains(.open)
             {
+
                 drawerStops.append((self.drawerScrollView.bounds.height))
                 
                 if drawerPosition == .open
                 {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    print("open")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
             
             if supportedPositions.contains(.partiallyRevealed)
             {
+
                 drawerStops.append(partialRevealHeight)
                 
                 if drawerPosition == .partiallyRevealed
                 {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    print("partially")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
             
             if supportedPositions.contains(.collapsed)
             {
+
                 drawerStops.append(collapsedHeight)
                 
                 if drawerPosition == .collapsed
                 {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    print("collapsed")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
@@ -1414,14 +1425,17 @@ extension PulleyViewController: UIScrollViewDelegate {
             
             if abs(Float(currentClosestStop - (self.drawerScrollView.bounds.height))) <= Float.ulpOfOne && supportedPositions.contains(.open)
             {
+
                 closestValidDrawerPosition = .open
             }
             else if abs(Float(currentClosestStop - collapsedHeight)) <= Float.ulpOfOne && supportedPositions.contains(.collapsed)
             {
+
                 closestValidDrawerPosition = .collapsed
             }
             else if supportedPositions.contains(.partiallyRevealed)
             {
+
                 closestValidDrawerPosition = .partiallyRevealed
             }
             

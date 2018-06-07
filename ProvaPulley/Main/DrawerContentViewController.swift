@@ -23,7 +23,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBOutlet weak var FoodButton: UICustomButton!
     @IBOutlet weak var ArtButton: UICustomButton!
     @IBOutlet weak var CityInfoButton: UICustomButton!
-    @IBOutlet weak var ShopsButton: UICustomButton!
+
+    @IBOutlet weak var Tourism2Button: UICustomButton!
     
     var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
 
@@ -165,23 +166,23 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
-    @IBAction func shopsButtonTap(_ sender: Any) {
-        if !topicBool[6] {
-            if topicBool[0] {
-                buttonOff(button: AnyButton)
-                topicBool[0] = false
+    @IBAction func Tourism2Tap(_ sender: Any) {
+        
+            if !topicBool[6] {
+                if topicBool[0] {
+                    buttonOff(button: AnyButton)
+                    topicBool[0] = false
+                }
+                buttonOn(button: Tourism2Button)
+                topicBool[6] = true
             }
-            buttonOn(button: ShopsButton)
-            topicBool[6] = true
+            else {
+                buttonOff(button: Tourism2Button)
+                topicBool[6] = false
+            }
         }
-        else {
-            buttonOff(button: ShopsButton)
-            topicBool[6] = false
-        }
-    }
     
 }
-
 extension DrawerContentViewController {
     private func buttonOn(button: UICustomButton) {
         button.backgroundColor = UIColor.blue
@@ -206,7 +207,7 @@ extension DrawerContentViewController {
         buttonOff(button: FoodButton)
         buttonOff(button: ArtButton)
         buttonOff(button: CityInfoButton)
-        buttonOff(button: ShopsButton)
+        buttonOff(button: Tourism2Button)
     }
     
     

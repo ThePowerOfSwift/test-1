@@ -25,7 +25,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBOutlet weak var CityInfoButton: UICustomButton!
     @IBOutlet weak var ShopsButton: UICustomButton!
     
-    var messageTable = MessageTableView.messageTableView
+    var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
 
     var topicBool: [Bool] = [true, false, false, false, false, false, false]
     
@@ -39,8 +39,24 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         self.messageTable.separatorStyle = .none
         
         self.view.addSubview(messageTable)
+        
+        setupTable()
     }
     
+    
+    func setupTable() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: nil)
+        
+        
+    }
+    
+    @objc func reload() {
+        self.messageTable.reloadData()
+        print("CIAO")
+        
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
           

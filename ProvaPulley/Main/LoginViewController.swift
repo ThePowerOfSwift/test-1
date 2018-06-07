@@ -19,6 +19,22 @@ class LoginViewController: UIViewController {
     
     @IBAction func Log(_ sender: Any) {
         
+        let result = SingletonServer.singleton.login(email: nick.text!, password: password.text!)
+        
+        //print("ini\(result as! String)fine")
+        
+        print(result)
+        if(result == "Email ok"){
+
+            self.performSegue(withIdentifier: "seguelogin", sender: self)
+
+
+        }else{
+            let alert = UIAlertController(title: "", message: result, preferredStyle: UIAlertControllerStyle.alert)
+
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBOutlet weak var imm: UIImageView!
@@ -56,6 +72,9 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.vista.endEditing(true)
     }

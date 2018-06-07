@@ -289,7 +289,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let alert = UIAlertController(title: "", message: "Are you sure that you want to exit?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (ACTION)
+            in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) //decare the storyboard
+            let profile = storyboard.instantiateViewController(withIdentifier: "10") //after assigning an id to  LoginViewController in order to be identified, we instanciaite and return a LoginViewController
+            self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented
+
+    }))
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -342,12 +350,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if tableView == self.table1{
             if indexPath.row == 0{
-        cell.notifiche.image = #imageLiteral(resourceName: "notifica")
+        cell.notifiche.image = #imageLiteral(resourceName: "Notifications")
         cell.scritta.text = "Notifications"
         return cell
         }else{
             cell1.scritta.text = "Modify Password"
-           cell1.imm.image = #imageLiteral(resourceName: "modify")
+           cell1.imm.image = #imageLiteral(resourceName: "key")
             return cell1
         }
         }
@@ -355,11 +363,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if tableView == self.table2{
             if indexPath.row == 0{
             cell2.scritta.text = "Report Problems"
-            cell2.imm.image = #imageLiteral(resourceName: "warning")
+            cell2.imm.image = #imageLiteral(resourceName: "Report problem")
             return cell2
             }
             if indexPath.row == 1{
-                cell3.imm.image = #imageLiteral(resourceName: "privacy")
+                cell3.imm.image = #imageLiteral(resourceName: "priva")
                 cell3.scritta.text = "Privacy Information"
                 return cell3
             }

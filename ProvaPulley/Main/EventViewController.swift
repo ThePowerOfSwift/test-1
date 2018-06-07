@@ -19,7 +19,9 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @objc func cancel(){
         dismissKeyboard()
-        _ = navigationController?.popToRootViewController(animated: true)
+        
+      _ = navigationController?.popToRootViewController(animated: true)
+        
     }
 //    @IBOutlet weak var previewView: UIView!
 //    @IBOutlet weak var captureImageView: UIImageView!
@@ -56,7 +58,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         navigationController?.isNavigationBarHidden = false
          navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneTapped))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
 //        let posizione = CGPoint(x: 300, y: 300)
 //        didTakePhotoOutlat.frame.origin = posizione
 //        importFromGalleryOutlet.frame.origin = CGPoint(x: 0, y: 300)

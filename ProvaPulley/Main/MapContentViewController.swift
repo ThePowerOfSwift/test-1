@@ -81,7 +81,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Let's put in a log statement to see the order of events
+       
         DataManager.shared.messages.append(Message(author: User(nickname: "luco", imageNum: 5), message: "eskere", topic: .tourism, id: true))
         
         for touch in touches {
@@ -91,7 +91,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
             self.oldCircle = showCircle(coordinate: location, radius: self.raggio!)
         }
         
-        MessageTableView.messageTableView.reloadData()
+        //            MessageTableView.messageTableView.reloadData()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

@@ -35,7 +35,6 @@
 		878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */; };
 		878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */; };
 		879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80320C849D100DA81CD /* SelectedViewController.swift */; };
-		879FC80C20C9490600DA81CD /* SingletonServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80B20C9490600DA81CD /* SingletonServer.swift */; };
 		87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */; };
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
 		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
@@ -47,6 +46,7 @@
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
+		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +83,6 @@
 		878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat1TableViewCell.swift; sourceTree = "<group>"; };
 		878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue1ViewController.swift; sourceTree = "<group>"; };
 		879FC80320C849D100DA81CD /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedViewController.swift; path = ../../SelectedViewController.swift; sourceTree = "<group>"; };
-		879FC80B20C9490600DA81CD /* SingletonServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingletonServer.swift; path = "/Users/lorenzocaso/Desktop/Academy/3rd challenge/test/ProvaPulley/Main/SingletonServer.swift"; sourceTree = "<absolute>"; };
 		87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +155,7 @@
 		871B95B420C6C5550035C3A2 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */,
 				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
 				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
 				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
@@ -165,7 +166,6 @@
 				87415E6E20C834800046DFAC /* Register2ViewController.swift */,
 				87415E6C20C827140046DFAC /* RegisterViewController.swift */,
 				87415E6A20C822EA0046DFAC /* ForgotViewController.swift */,
-				879FC80B20C9490600DA81CD /* SingletonServer.swift */,
 				871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */,
 				BD08B14C20C6CE8000E77AFE /* EventViewController.swift */,
 				878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */,
@@ -332,6 +332,7 @@
 				871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */,
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
+				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
 				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
@@ -342,7 +343,6 @@
 				A946593D20C8481800D1314F /* MessageTableView.swift in Sources */,
 				87415E6F20C834800046DFAC /* Register2ViewController.swift in Sources */,
 				A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */,
-				879FC80C20C9490600DA81CD /* SingletonServer.swift in Sources */,
 				878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */,
 				871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */,
 				871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */,
@@ -507,7 +507,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 4G53MCT3NM;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 4G53MCT3NM;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

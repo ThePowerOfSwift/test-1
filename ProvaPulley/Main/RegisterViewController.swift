@@ -10,6 +10,8 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+  
+    @IBOutlet weak var annull: UIButton!
     @IBAction func cancel(_ sender: Any) {
         self.presentingViewController!.dismiss(animated: true, completion: nil)
     }
@@ -379,6 +381,12 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.isNavigationBarHidden = true
+        buttonAvanti.layer.cornerRadius = 13.0
+        buttonAvanti.clipsToBounds = true
+        
+        annull.layer.cornerRadius = 13.0
+        annull.clipsToBounds = true
         
         buttonAvanti.alpha = 0
         button1.alpha = 0
@@ -399,6 +407,9 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

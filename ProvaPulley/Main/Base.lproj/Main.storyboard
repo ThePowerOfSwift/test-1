@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2879.1999999999998" y="133.5832083958021"/>
+            <point key="canvasLocation" x="3818.4000000000001" y="133.5832083958021"/>
         </scene>
         <!--Map Content View Controller-->
         <scene sceneID="VMz-Cb-IjI">
@@ -346,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmg-Jv-qT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5708" y="586.95652173913049"/>
+            <point key="canvasLocation" x="6647.1999999999998" y="586.95652173913049"/>
         </scene>
         <!--Segue View Controller-->
         <scene sceneID="poV-cq-G6m">
@@ -361,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PsH-sJ-bOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6524" y="568"/>
+            <point key="canvasLocation" x="7463.1999999999998" y="567.61619190404804"/>
         </scene>
         <!--Selected View Controller-->
         <scene sceneID="3Dc-Mx-M0d">
@@ -381,7 +381,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1y-nB-bII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="618" y="178"/>
+            <point key="canvasLocation" x="1556" y="177.66116941529236"/>
         </scene>
         <!--Settings-->
         <scene sceneID="4Qw-Q1-6Ib">
@@ -391,7 +391,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dll-hu-VsE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="708"/>
+            <point key="canvasLocation" x="2597.5999999999999" y="707.94602698650681"/>
         </scene>
         <!--MyQ-->
         <scene sceneID="GU7-mS-xYo">
@@ -419,7 +419,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Tx-1Z-ud5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4768.8000000000002" y="586.95652173913049"/>
+            <point key="canvasLocation" x="5708" y="586.50674662668666"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="23M-Ny-Zyz">
@@ -585,7 +585,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Log:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="Gpt-gr-73n"/>
-                                    <segue destination="eCE-oM-fJY" kind="show" id="VnF-Ew-2M3"/>
+                                    <segue destination="eCE-oM-fJY" kind="show" id="oSP-Zf-EdI"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="tPR-WS-US9">
@@ -706,7 +706,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OE-Da-Dja" userLabel="Button 1">
-                                <rect key="frame" x="157" y="156" width="60" height="60"/>
+                                <rect key="frame" x="157" y="115" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Francesco"/>
                                 <connections>
@@ -714,7 +714,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGZ-vg-4Gb" userLabel="Button 2">
-                                <rect key="frame" x="231" y="182" width="60" height="60"/>
+                                <rect key="frame" x="231" y="141" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Antonio vero"/>
                                 <connections>
@@ -722,7 +722,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-rn-67V" userLabel="Button 3">
-                                <rect key="frame" x="270" y="250" width="60" height="60"/>
+                                <rect key="frame" x="270" y="209" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Sofia"/>
                                 <connections>
@@ -730,7 +730,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyz-Pl-RC6" userLabel="Button 4">
-                                <rect key="frame" x="257" y="327" width="60" height="60"/>
+                                <rect key="frame" x="257" y="286" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Giorgio"/>
                                 <connections>
@@ -738,7 +738,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg5-sS-pBt" userLabel="Button 5">
-                                <rect key="frame" x="196" y="379" width="60" height="60"/>
+                                <rect key="frame" x="196" y="338" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Hind"/>
                                 <connections>
@@ -746,7 +746,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-03-9z7" userLabel="Button 6">
-                                <rect key="frame" x="118" y="379" width="60" height="60"/>
+                                <rect key="frame" x="118" y="338" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Antonio falso"/>
                                 <connections>
@@ -754,7 +754,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeU-ef-AF8" userLabel="Button 7">
-                                <rect key="frame" x="58" y="327" width="60" height="60"/>
+                                <rect key="frame" x="58" y="286" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Luca"/>
                                 <connections>
@@ -762,7 +762,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJt-ep-805" userLabel="Button 8">
-                                <rect key="frame" x="45" y="250" width="60" height="60"/>
+                                <rect key="frame" x="45" y="209" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Lorenzo"/>
                                 <connections>
@@ -770,7 +770,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvg-6t-ZkX" userLabel="Button 9">
-                                <rect key="frame" x="84" y="183" width="60" height="60"/>
+                                <rect key="frame" x="84" y="142" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="Silvia"/>
                                 <connections>
@@ -778,7 +778,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BbL-m6-TGl" userLabel="Avatar Button" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
-                                <rect key="frame" x="141" y="252" width="90" height="90"/>
+                                <rect key="frame" x="141" y="211" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -791,25 +791,32 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-C5-ULN">
-                                <rect key="frame" x="0.0" y="344" width="375" height="33"/>
+                                <rect key="frame" x="0.0" y="303" width="375" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjg-PY-uYb">
-                                <rect key="frame" x="257" y="57" width="81" height="36"/>
+                                <rect key="frame" x="278" y="35" width="81" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Next &gt;"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                </state>
                                 <connections>
-                                    <segue destination="ksP-bz-0Ru" kind="modal" id="6xj-E6-efP"/>
+                                    <segue destination="ksP-bz-0Ru" kind="show" id="V54-1H-Vkk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-6L-Oa4">
-                                <rect key="frame" x="16" y="60" width="107" height="30"/>
+                                <rect key="frame" x="11" y="41" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Annulla"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                </state>
                                 <connections>
                                     <action selector="cancel:" destination="eCE-oM-fJY" eventType="touchUpInside" id="3Dk-Q5-JMa"/>
                                 </connections>
@@ -818,7 +825,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="obq-R0-Jsv"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WhU-Dt-Sd7"/>
                     <connections>
+                        <outlet property="annull" destination="C0n-6L-Oa4" id="DYe-D1-3Ek"/>
                         <outlet property="avatarButton" destination="BbL-m6-TGl" id="8hE-ri-Y95"/>
                         <outlet property="button1" destination="4OE-Da-Dja" id="Hkb-Nb-Y6N"/>
                         <outlet property="button2" destination="BGZ-vg-4Gb" id="xat-V2-EaV"/>
@@ -835,7 +844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRQ-Dy-YwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-244" y="635.53223388305855"/>
+            <point key="canvasLocation" x="695.20000000000005" y="635.53223388305855"/>
         </scene>
         <!--Register2 View Controller-->
         <scene sceneID="6xg-cy-IIm">
@@ -901,13 +910,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="r29-y1-r3h"/>
                     </view>
+                    <navigationItem key="navigationItem" id="j1B-Lj-tDH">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="9kP-V4-amA"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="register" destination="FNl-Vu-GIY" id="NhE-Xk-03X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK6-CC-jnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600.79999999999995" y="1405.5472263868066"/>
+            <point key="canvasLocation" x="1540" y="1405.5472263868066"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pNF-N3-o4K">

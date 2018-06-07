@@ -54,8 +54,6 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @objc func reload() {
         self.messageTable.reloadData()
         dismissKeyboard()
-        print("CIAO")
-        
         
     }
     override func viewWillAppear(_ animated: Bool) {

@@ -225,12 +225,6 @@
 		879FC81620CA93E300DA81CD /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				879FC81B20CA93F900DA81CD /* DBEvent.swift */,
-				879FC81F20CA940300DA81CD /* DBQuestion.swift */,
-				879FC82320CA940C00DA81CD /* DBUser.swift */,
-				879FC82120CA940700DA81CD /* DBRadar.swift */,
-				879FC81920CA93F400DA81CD /* DBAnswerQ.swift */,
-				879FC81720CA93EF00DA81CD /* DBAnswerE.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -361,8 +355,6 @@
 				871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */,
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
-				879FC81A20CA93F500DA81CD /* DBAnswerQ.swift in Sources */,
-				879FC82420CA940C00DA81CD /* DBUser.swift in Sources */,
 				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
@@ -373,7 +365,6 @@
 				87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */,
 				A946593D20C8481800D1314F /* MessageTableView.swift in Sources */,
 				87415E6F20C834800046DFAC /* Register2ViewController.swift in Sources */,
-				879FC82020CA940300DA81CD /* DBQuestion.swift in Sources */,
 				A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */,
 				878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */,
 				871B955F20C531260035C3A2 /* Cella1SettingsTableViewCell.swift in Sources */,
@@ -382,7 +373,6 @@
 				878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */,
 				879FC82620CA992D00DA81CD /* LoggedViewController.swift in Sources */,
 				87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */,
-				879FC82220CA940700DA81CD /* DBRadar.swift in Sources */,
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,
@@ -392,9 +382,7 @@
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
 				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,
-				879FC81820CA93EF00DA81CD /* DBAnswerE.swift in Sources */,
 				871B957720C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift in Sources */,
-				879FC81C20CA93F900DA81CD /* DBEvent.swift in Sources */,
 				87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */,
 				879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */,
 				A946594020C974F700D1314F /* EventViewController.swift in Sources */,

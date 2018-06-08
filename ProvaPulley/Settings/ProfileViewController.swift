@@ -425,8 +425,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        self.navigationController?.navigationBar.tintColor = .black
-     
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 8/255.0, green: 124/255.0, blue: 255/255.0, alpha: 1)
 
         
         // Do any additional setup after loading the view.

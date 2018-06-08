@@ -40,6 +40,19 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var imm: UIImageView!
     
     @IBOutlet var vista: UIView!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let currentUser = DBUser()
+        if currentUser != nil {
+            loadHomeScreen()
+        }
+    }
+    func loadHomeScreen(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! SelectedViewController
+        self.present(loggedInViewController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         vista.backgroundColor = .white
@@ -72,9 +85,8 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
+   
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.vista.endEditing(true)
     }

@@ -453,7 +453,7 @@
         <!--Selected View Controller-->
         <scene sceneID="3Dc-Mx-M0d">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wAj-yI-6or" customClass="SelectedViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="LoggedInViewController" automaticallyAdjustsScrollViewInsets="NO" id="wAj-yI-6or" customClass="SelectedViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GE0-PM-dhN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

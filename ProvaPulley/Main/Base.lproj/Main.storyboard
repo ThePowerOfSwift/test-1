@@ -488,7 +488,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99t-fz-kfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="-261"/>
+            <point key="canvasLocation" x="496" y="-441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T2s-2K-HYN">
@@ -516,7 +516,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="500" height="75"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="neN-ff-C7X">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neN-ff-C7X">
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="75"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZFO-Ye-gTG">
@@ -1082,6 +1082,6 @@
         <image name="piu" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1cB-hA-ow9"/>
+        <segue reference="aqq-9g-ieK"/>
     </inferredMetricsTieBreakers>
 </document>

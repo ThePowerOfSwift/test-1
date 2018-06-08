@@ -20,7 +20,15 @@ final class DataManager {
     
     static let shared = DataManager()
     
-    var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco")]
+    let mainColor = UIColor.blue
+    let foodColor = UIColor(red: 239.0/255.0, green: 139.0/255.0, blue: 95.0/255.0, alpha: 1)
+    let nightlifeColor = UIColor(red: 233.0/255.0, green: 118.0/255.0, blue: 219.0/255.0, alpha: 1)
+    let artColor = UIColor(red: 139.0/255.0, green: 149.0/255.0, blue: 215.0/255.0, alpha: 1)
+    let shopsColor = UIColor(red: 221.0/255.0, green: 188.0/255.0, blue: 77.0/255.0, alpha: 1)
+    let cityInfoColor = UIColor(red: 151.0/255.0, green: 201.0/255.0, blue: 112.0/255.0, alpha: 1)
+    let tourismColor = UIColor(red: 197.0/255.0, green: 162.0/255.0, blue: 241.0/255.0, alpha: 1)
+    
+    var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco"), #imageLiteral(resourceName: "Hind")]
 
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food, id: true),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art, id: false),

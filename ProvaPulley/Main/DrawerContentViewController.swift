@@ -96,7 +96,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
             }
             allButtonsOff()
             
-            buttonOn(button: AnyButton)
+            buttonOn(button: AnyButton, topicNum: 0)
             topicBool[0] = true
         }
         else {
@@ -112,7 +112,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: TourismButton)
+            buttonOn(button: TourismButton, topicNum: 1)
             topicBool[1] = true
         }
         else {
@@ -127,7 +127,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: NightLifeButton)
+            buttonOn(button: NightLifeButton, topicNum: 2)
             topicBool[2] = true
         }
         else {
@@ -142,7 +142,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: FoodButton)
+            buttonOn(button: FoodButton, topicNum: 3)
             topicBool[3] = true
         }
         else {
@@ -157,7 +157,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: ArtButton)
+            buttonOn(button: ArtButton, topicNum: 4)
             topicBool[4] = true
         }
         else {
@@ -172,7 +172,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: CityInfoButton)
+            buttonOn(button: CityInfoButton, topicNum: 5)
             topicBool[5] = true
         }
         else {
@@ -188,7 +188,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                     buttonOff(button: AnyButton)
                     topicBool[0] = false
                 }
-                buttonOn(button: Tourism2Button)
+                buttonOn(button: Tourism2Button, topicNum: 6)
                 topicBool[6] = true
             }
             else {
@@ -199,18 +199,34 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
 }
 extension DrawerContentViewController {
-    private func buttonOn(button: UICustomButton) {
+    private func buttonOn(button: UICustomButton, topicNum: Int) {
         
-            UIView.animate(withDuration: 0.3,
-
-                           animations: ({button.backgroundColor = UIColor.blue}))
-
-            UIView.animate(withDuration: 0.3,
-                           
-                           animations: ({button.layer.borderColor = UIColor.white.cgColor}))
+        switch topicNum {
+        case 0:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.mainColor}))
+        case 1:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.foodColor}))
+        case 2:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.nightlifeColor}))
+        case 3:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.artColor}))
+        case 4:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.shopsColor}))
+        case 5:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.cityInfoColor}))
+        case 6:
+            UIView.animate(withDuration: 0.3, animations: ({button.backgroundColor = DataManager.shared.tourismColor}))
+        default:
+            print("")
+        }
         
-            UIView.animate(withDuration: 0.3,
-                           animations:  ({button.setTitleColor(UIColor.white, for: UIControlState.normal)}))
+//            UIView.animate(withDuration: 0.3,
+//
+//                           animations: ({button.backgroundColor = UIColor.blue}))
+
+            UIView.animate(withDuration: 0.3, animations: ({button.layer.borderColor = UIColor.white.cgColor}))
+        
+            UIView.animate(withDuration: 0.3, animations:  ({button.setTitleColor(UIColor.white, for: UIControlState.normal)}))
         
 //        button.backgroundColor = UIColor.blue
 //        button.layer.borderColor = UIColor.white.cgColor

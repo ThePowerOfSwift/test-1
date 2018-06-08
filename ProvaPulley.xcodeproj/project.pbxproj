@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAA20CAC1290015CB00 /* DBQuestion.swift */; };
+		81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAB20CAC1290015CB00 /* DBRadar.swift */; };
+		81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */; };
+		81F33FB320CAC12A0015CB00 /* DBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAD20CAC1290015CB00 /* DBEvent.swift */; };
+		81F33FB420CAC12A0015CB00 /* DBAnswerQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAE20CAC1290015CB00 /* DBAnswerQ.swift */; };
+		81F33FB620CAC1300015CB00 /* DBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FB520CAC12F0015CB00 /* DBUser.swift */; };
 		871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B22C820AF0F4F00EACF41 /* AppDelegate.swift */; };
 		871B22CB20AF0F4F00EACF41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B22CA20AF0F4F00EACF41 /* ViewController.swift */; };
 		871B22CE20AF0F4F00EACF41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 871B22CC20AF0F4F00EACF41 /* Main.storyboard */; };
@@ -35,12 +41,6 @@
 		878CDCB920C1A2E000F78BC8 /* Chat1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */; };
 		878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */; };
 		879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC80320C849D100DA81CD /* SelectedViewController.swift */; };
-		879FC81820CA93EF00DA81CD /* DBAnswerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC81720CA93EF00DA81CD /* DBAnswerE.swift */; };
-		879FC81A20CA93F500DA81CD /* DBAnswerQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC81920CA93F400DA81CD /* DBAnswerQ.swift */; };
-		879FC81C20CA93F900DA81CD /* DBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC81B20CA93F900DA81CD /* DBEvent.swift */; };
-		879FC82020CA940300DA81CD /* DBQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC81F20CA940300DA81CD /* DBQuestion.swift */; };
-		879FC82220CA940700DA81CD /* DBRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC82120CA940700DA81CD /* DBRadar.swift */; };
-		879FC82420CA940C00DA81CD /* DBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC82320CA940C00DA81CD /* DBUser.swift */; };
 		879FC82620CA992D00DA81CD /* LoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879FC82520CA992D00DA81CD /* LoggedViewController.swift */; };
 		87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */; };
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
@@ -60,6 +60,12 @@
 		0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.release.xcconfig"; sourceTree = "<group>"; };
 		34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProvaPulley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.debug.xcconfig"; sourceTree = "<group>"; };
+		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
+		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
+		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
+		81F33FAD20CAC1290015CB00 /* DBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEvent.swift; sourceTree = "<group>"; };
+		81F33FAE20CAC1290015CB00 /* DBAnswerQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerQ.swift; sourceTree = "<group>"; };
+		81F33FB520CAC12F0015CB00 /* DBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUser.swift; sourceTree = "<group>"; };
 		871B22C520AF0F4F00EACF41 /* BatChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B22C820AF0F4F00EACF41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		871B22CA20AF0F4F00EACF41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,12 +96,6 @@
 		878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat1TableViewCell.swift; sourceTree = "<group>"; };
 		878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue1ViewController.swift; sourceTree = "<group>"; };
 		879FC80320C849D100DA81CD /* SelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectedViewController.swift; path = ../../SelectedViewController.swift; sourceTree = "<group>"; };
-		879FC81720CA93EF00DA81CD /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBAnswerE.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBAnswerE.swift"; sourceTree = "<group>"; };
-		879FC81920CA93F400DA81CD /* DBAnswerQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBAnswerQ.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBAnswerQ.swift"; sourceTree = "<group>"; };
-		879FC81B20CA93F900DA81CD /* DBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBEvent.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBEvent.swift"; sourceTree = "<group>"; };
-		879FC81F20CA940300DA81CD /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBQuestion.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBQuestion.swift"; sourceTree = "<group>"; };
-		879FC82120CA940700DA81CD /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBRadar.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBRadar.swift"; sourceTree = "<group>"; };
-		879FC82320CA940C00DA81CD /* DBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBUser.swift; path = "../../../../../../Dropbox (iOSDA-IT)/Vaporwave/ServerClasses/Archive/DBUser.swift"; sourceTree = "<group>"; };
 		879FC82520CA992D00DA81CD /* LoggedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedViewController.swift; sourceTree = "<group>"; };
 		87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
@@ -225,6 +225,12 @@
 		879FC81620CA93E300DA81CD /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */,
+				81F33FAE20CAC1290015CB00 /* DBAnswerQ.swift */,
+				81F33FB520CAC12F0015CB00 /* DBUser.swift */,
+				81F33FAD20CAC1290015CB00 /* DBEvent.swift */,
+				81F33FAA20CAC1290015CB00 /* DBQuestion.swift */,
+				81F33FAB20CAC1290015CB00 /* DBRadar.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */,
 				871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */,
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
@@ -374,7 +381,10 @@
 				879FC82620CA992D00DA81CD /* LoggedViewController.swift in Sources */,
 				87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */,
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
+				81F33FB320CAC12A0015CB00 /* DBEvent.swift in Sources */,
+				81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
+				81F33FB620CAC1300015CB00 /* DBUser.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,
 				878CDCB720C1A0AF00F78BC8 /* ChatTableViewCell.swift in Sources */,
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
@@ -382,8 +392,10 @@
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */,
 				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,
+				81F33FB420CAC12A0015CB00 /* DBAnswerQ.swift in Sources */,
 				871B957720C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift in Sources */,
 				87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */,
+				81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */,
 				879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */,
 				A946594020C974F700D1314F /* EventViewController.swift in Sources */,
 			);
@@ -531,7 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 5S2GX64T6Z;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -550,7 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 5S2GX64T6Z;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

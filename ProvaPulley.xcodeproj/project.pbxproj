@@ -54,18 +54,22 @@
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
+		C756986602CAAE07D50962C8 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.release.xcconfig"; sourceTree = "<group>"; };
 		34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProvaPulley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.debug.xcconfig"; sourceTree = "<group>"; };
+		5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.debug.xcconfig"; sourceTree = "<group>"; };
+		755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
 		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
 		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
 		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
 		81F33FAD20CAC1290015CB00 /* DBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEvent.swift; sourceTree = "<group>"; };
 		81F33FAE20CAC1290015CB00 /* DBAnswerQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerQ.swift; sourceTree = "<group>"; };
 		81F33FB520CAC12F0015CB00 /* DBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUser.swift; sourceTree = "<group>"; };
+		84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B22C520AF0F4F00EACF41 /* BatChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B22C820AF0F4F00EACF41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		871B22CA20AF0F4F00EACF41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			files = (
 				872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */,
 				AC52146809BE34490295485D /* Pods_ProvaPulley.framework in Frameworks */,
+				C756986602CAAE07D50962C8 /* Pods_BatChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +133,8 @@
 			children = (
 				418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */,
 				0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */,
+				5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */,
+				755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -240,6 +247,7 @@
 			children = (
 				872A484120B5D4C40006CB39 /* CoreLocation.framework */,
 				34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */,
+				84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -321,16 +329,22 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-BatChat/Pods-BatChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BatChat/Pods-BatChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A703D78C164D66EB1D51B63F /* [CP] Check Pods Manifest.lock */ = {
@@ -344,7 +358,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ProvaPulley-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BatChat-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -539,11 +553,11 @@
 		};
 		871B22D820AF0F5000EACF41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */;
+			baseConfigurationReference = 5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5S2GX64T6Z;
+				DEVELOPMENT_TEAM = VW836T2T62;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,11 +572,11 @@
 		};
 		871B22D920AF0F5000EACF41 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */;
+			baseConfigurationReference = 755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5S2GX64T6Z;
+				DEVELOPMENT_TEAM = VW836T2T62;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

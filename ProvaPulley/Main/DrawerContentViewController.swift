@@ -34,7 +34,12 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        self.Gripper.layer.cornerRadius = 3
+        
+//      tableView
         self.messageTable.delegate = self
+        
         self.messageTable.dataSource = self
         
         self.messageTable.register(PulleyTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -42,6 +47,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
         self.view.addSubview(messageTable)
         
+//      topic buttons
         AnyButton.borderColor = UIColor.gray.cgColor
         CityInfoButton.borderColor = UIColor.gray.cgColor
         Tourism2Button.borderColor = UIColor.gray.cgColor
@@ -194,20 +200,46 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 }
 extension DrawerContentViewController {
     private func buttonOn(button: UICustomButton) {
-        button.backgroundColor = UIColor.blue
-        button.layer.borderColor = UIColor.white.cgColor
-        button.setTitleColor(UIColor.white, for: UIControlState.normal)
-    }
+        
+            UIView.animate(withDuration: 0.3,
+
+                           animations: ({button.backgroundColor = UIColor.blue}))
+
+            UIView.animate(withDuration: 0.3,
+                           
+                           animations: ({button.layer.borderColor = UIColor.white.cgColor}))
+        
+            UIView.animate(withDuration: 0.3,
+                           animations:  ({button.setTitleColor(UIColor.white, for: UIControlState.normal)}))
+        
+//        button.backgroundColor = UIColor.blue
+//        button.layer.borderColor = UIColor.white.cgColor
+//        button.setTitleColor(UIColor.white, for: UIControlState.normal)
     
+}
 /*
     se è un evento colori solo il bordo if-- switch
      se è una chat coloro tutto
 */
     
     private func buttonOff(button: UICustomButton) {
-        button.backgroundColor = UIColor.white
-        button.layer.borderColor = UIColor.black.cgColor
-        button.setTitleColor(UIColor.black, for: UIControlState.normal)
+        
+            UIView.animate(withDuration: 0.25,
+                       
+                       animations: ({button.backgroundColor = UIColor.white}))
+        
+            UIView.animate(withDuration: 0.25,
+                       
+                       animations: ({button.layer.borderColor = UIColor.gray.cgColor}))
+        
+        
+            UIView.animate(withDuration: 0.25,
+                       
+                       animations: ({button.setTitleColor(UIColor.gray, for: UIControlState.normal)}))
+        
+//        button.backgroundColor = UIColor.white
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.setTitleColor(UIColor.black, for: UIControlState.normal)
     }
     
     private func allButtonsOff() {

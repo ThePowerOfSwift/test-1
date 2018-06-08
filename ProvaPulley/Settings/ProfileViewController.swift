@@ -298,6 +298,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }))
         
+        
         self.present(alert, animated: true, completion: nil)
     }
     

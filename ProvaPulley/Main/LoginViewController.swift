@@ -27,23 +27,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
             let userRetrieve: DBUser?
             
-            print(json?["email"])
+            
+            
+            
+//            print(json?["email"])
             if(json?["email"] != nil){
                 userRetrieve = DBUser(email: json!["email"] as! String, nickname: json!["nickname"] as! String, password: json!["password"] as! String, socialAvatar: json!["socialAvatar"] as! String, token: json!["token"] as! String)
-                print("ATT")
+//                print("ATT")
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
                 }
                 
-                var userDefaults = UserDefaults.standard
-                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userRetrieve)
-                    userDefaults.set(encodedData, forKey: "user")
-                    userDefaults.synchronize()
+//                var userDefaults = UserDefaults.standard
+//                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userRetrieve)
+//                    userDefaults.set(encodedData, forKey: "user")
+//                    userDefaults.synchronize()
+//
+//                let decoded  = userDefaults.object(forKey: "user") as! Data
+//                let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! DBUser
+//                print("decoded: \(decodedTeams.email) stop")
+                var userDefaults = UserDefaults.standard.set(result, forKey: "user")
                 
-                let decoded  = userDefaults.object(forKey: "user") as! Data
-                let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! DBUser
-                print("decoded: \(decodedTeams.email) stop")
-                
+                let a = UserDefaults.standard.value(forKey: "user")
+                let jsonString1 = a as! String
+                let data: Data? = jsonString1.data(using: .utf8)
+                let json1 = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
+                let userRetrieve1 = DBUser(email: json1!["email"] as! String, nickname: json1!["nickname"] as! String, password: json1!["password"] as! String, socialAvatar: json1!["socialAvatar"] as! String, token: json1!["token"] as! String)
+                print(userRetrieve1.email!)
             }else{
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "", message: result, preferredStyle: UIAlertControllerStyle.alert)
@@ -103,6 +113,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        if currentUser.password != nil && currentUser.nickname != nil{
 //            loadHomeScreen()
 //        }
+        let a = UserDefaults.standard.value(forKey: "user")
+        if(a != nil){
+            let jsonString1 = a as! String
+            let data: Data? = jsonString1.data(using: .utf8)
+            let json1 = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
+            if(json1?["email"] != nil){
+                let userRetrieve1 = DBUser(email: json1!["email"] as! String, nickname: json1!["nickname"] as! String, password: json1!["password"] as! String, socialAvatar: json1!["socialAvatar"] as! String, token: json1!["token"] as! String)
+                loadHomeScreen()
+            }
+        }
+        
+        
+        
     }
     func loadHomeScreen(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -142,7 +165,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setupTable()
     }
-    
+    @objc func performa() {
+        self.performSegue(withIdentifier: "seguelogin", sender: self)
+    }
     
     func setupTable() {
         
@@ -150,12 +175,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
     }
-    
-    @objc func performa() {
-        self.performSegue(withIdentifier: "seguelogin", sender: self)
-    }
-    
-   
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

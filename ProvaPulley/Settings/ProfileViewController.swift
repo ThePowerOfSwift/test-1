@@ -287,6 +287,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func Signout(_ sender: Any) {
         
+        UserDefaults.standard.removeObject(forKey: "user")
+        
         let alert = UIAlertController(title: "", message: "Are you sure that you want to exit?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (ACTION)

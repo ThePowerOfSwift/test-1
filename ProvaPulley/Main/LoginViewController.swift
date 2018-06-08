@@ -38,22 +38,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
                 }
                 
-//                var userDefaults = UserDefaults.standard
-//                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userRetrieve)
-//                    userDefaults.set(encodedData, forKey: "user")
-//                    userDefaults.synchronize()
-//
-//                let decoded  = userDefaults.object(forKey: "user") as! Data
-//                let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! DBUser
-//                print("decoded: \(decodedTeams.email) stop")
                 var userDefaults = UserDefaults.standard.set(result, forKey: "user")
                 
-                let a = UserDefaults.standard.value(forKey: "user")
-                let jsonString1 = a as! String
-                let data: Data? = jsonString1.data(using: .utf8)
-                let json1 = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
-                let userRetrieve1 = DBUser(email: json1!["email"] as! String, nickname: json1!["nickname"] as! String, password: json1!["password"] as! String, socialAvatar: json1!["socialAvatar"] as! String, token: json1!["token"] as! String)
-                print(userRetrieve1.email!)
+                
+
             }else{
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "", message: result, preferredStyle: UIAlertControllerStyle.alert)

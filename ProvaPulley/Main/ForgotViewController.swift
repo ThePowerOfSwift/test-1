@@ -10,12 +10,19 @@ import UIKit
 
 class ForgotViewController: UIViewController {
 
+    @IBOutlet weak var fatto: UIButton!
+    @IBOutlet weak var cancel: UIButton!
     @IBAction func annulla(_ sender: Any) {
         self.presentingViewController!.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        fatto.layer.cornerRadius = 13.0
+        fatto.clipsToBounds = true
+        
+        cancel.layer.cornerRadius = 13.0
+        cancel.clipsToBounds = true
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Login2")!)
         // Do any additional setup after loading the view.
     }

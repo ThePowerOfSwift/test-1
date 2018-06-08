@@ -14,9 +14,12 @@ class Register2ViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
          self.presentingViewController!.dismiss(animated: true, completion: nil)
     }
+    @IBOutlet weak var indietro: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        indietro.layer.cornerRadius = 13.0
+        indietro.clipsToBounds = true
         register.layer.cornerRadius = 13.0
         register.clipsToBounds = true
         

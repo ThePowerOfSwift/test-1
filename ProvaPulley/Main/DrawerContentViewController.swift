@@ -30,6 +30,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 
     var topicBool: [Bool] = [true, false, false, false, false, false, false]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +41,14 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         self.messageTable.separatorStyle = .none
         
         self.view.addSubview(messageTable)
+        
+        AnyButton.borderColor = UIColor.gray.cgColor
+        CityInfoButton.borderColor = UIColor.gray.cgColor
+        Tourism2Button.borderColor = UIColor.gray.cgColor
+        TourismButton.borderColor = UIColor.gray.cgColor
+        ArtButton.borderColor = UIColor.gray.cgColor
+        NightLifeButton.borderColor = UIColor.gray.cgColor
+        FoodButton.borderColor = UIColor.gray.cgColor
         
         setupTable()
     }

@@ -35,6 +35,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
                 }
                 
+                var userDefaults = UserDefaults.standard
+                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userRetrieve)
+                    userDefaults.set(encodedData, forKey: "user")
+                    userDefaults.synchronize()
+                
+                let decoded  = userDefaults.object(forKey: "user") as! Data
+                let decodedTeams = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! DBUser
+                print("decoded: \(decodedTeams.email) stop")
                 
             }else{
                 DispatchQueue.main.async {
@@ -134,9 +142,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         setupTable()
     }
-    @objc func performa() {
-        self.performSegue(withIdentifier: "seguelogin", sender: self)
-    }
+    
     
     func setupTable() {
         
@@ -144,6 +150,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         
     }
+    
+    @objc func performa() {
+        self.performSegue(withIdentifier: "seguelogin", sender: self)
+    }
+    
+   
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

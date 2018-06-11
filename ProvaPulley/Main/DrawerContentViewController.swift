@@ -300,7 +300,12 @@ extension DrawerContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (SingletonServer.singleton.user?.myQuestions?.count)!
+        if(SingletonServer.singleton.user?.myQuestions != nil){
+            return (SingletonServer.singleton.user?.myQuestions?.count)!
+        }else{
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

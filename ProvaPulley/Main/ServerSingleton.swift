@@ -12,6 +12,7 @@ import Foundation
 class SingletonServer{
     static var singleton:SingletonServer = SingletonServer()
     var user:DBUser?
+    var domande:DBQuestion?
     var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
     let ipServer = "10.20.49.196"
     

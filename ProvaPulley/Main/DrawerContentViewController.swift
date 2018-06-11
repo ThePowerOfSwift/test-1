@@ -317,18 +317,18 @@ extension DrawerContentViewController: UITableViewDataSource {
         cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
         cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
         cell.backView?.layer.cornerRadius = 32.0
-        cell.descrizione?.text = SingletonServer.singleton.user?.myQuestions![indexPath.row].text
+        cell.descrizione?.text = SingletonServer.singleton.domande?.text
         cell.descrizione?.textColor = .white
         cell.nickname?.text = SingletonServer.singleton.user?.nickname
         cell.nickname?.textColor = .white
         cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
         cell.numero?.layer.cornerRadius = 12.0
         cell.numero?.clipsToBounds = true
-        cell.numero?.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].dateFine)"
+        cell.numero?.text = "\(SingletonServer.singleton.domande?.answers?.count)"
         cell.numero?.backgroundColor = .white
         cell.numero?.textColor = SingletonServer.singleton.colori[indexTopic]
         cell.numero?.textAlignment = .center
-        cell.data?.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
+        cell.data?.text =  SingletonServer.singleton.domande?.dateFine
         cell.data?.textColor = .white
         cell.backView?.addTarget(self, action: #selector(performe), for: .touchDown)
         

@@ -7,10 +7,18 @@
 
 import Foundation
 
-class DBRadar {
+class DBRadar: Codable{
     var posX:Double?
     var posY:Double?
     var range:Double?
     
-
+    init( posX:Double,posY:Double, range:Double){
+        self.posY = posY
+        self.posX = posX
+        self.range = range
+    }
+    init(){
+        
+        
+    }
 }

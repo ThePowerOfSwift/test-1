@@ -16,6 +16,8 @@ class DBUser: Codable {
     var password:String?
     var socialAvatar:String?
     var token:String?
+    var myQuestions:[DBQuestion]?
+    var myEvents:[DBEvent]?
     
     init(email:String, nickname:String, password:String, socialAvatar: String, token:String) {
         self.email = email
@@ -23,5 +25,8 @@ class DBUser: Codable {
         self.password = password
         self.socialAvatar = socialAvatar
         self.token = token
+    }
+    init() {
+        
     }
 }

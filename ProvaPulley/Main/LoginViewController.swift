@@ -18,78 +18,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var facebook: UIButton!
     
     
+    
     @IBAction func Log(_ sender: Any) {
-        
-        SingletonServer.singleton.log(email: nick.text!, password: password.text!) { (result) in
-            
+        print("CIAO")
+        SingletonServer.singleton.POST_log(email: nick.text!, password: password.text!) { (result) in
+            do{
             let jsonString = result!
             let data: Data? = jsonString.data(using: .utf8)
-            let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
-            let userRetrieve: DBUser?
-            
-            
-            
-            
-//            print(json?["email"])
-            if(json?["email"] != nil){
-                userRetrieve = DBUser(email: json!["email"] as! String, nickname: json!["nickname"] as! String, password: json!["password"] as! String, socialAvatar: json!["socialAvatar"] as! String, token: json!["token"] as! String)
-//                print("ATT")
-                DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
+            let decoder = JSONDecoder()
+            let user = try decoder.decode(DBUser.self, from: data!)
+            print("OMI2")
+            if user.email != nil{
+                        SingletonServer.singleton.saveUserState(json: jsonString, user: user)
+
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
+                        }
                 }
                 
-                var userDefaults = UserDefaults.standard.set(result, forKey: "user")
                 
-                
-
-            }else{
+            }catch{
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "", message: result, preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
             }
+
+
+           
             
         }
         
         
     }
     
-//    @IBAction func Log(_ sender: Any) {
-//        let user = DBUser()
-//        user.email = nick.text
-//        user.nickname = " nicj"
-//        user.password = "d dd"
-//        user.token = "ddd"
-//        UserDefaults.standard.set(user, forKey: "nome")
-//
-//
-//        var userDefaults = UserDefaults.standard
-//        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: user)
-//        userDefaults.set(encodedData, forKey: "user")
-//        userDefaults.synchronize()
-//
-//
-//        let decoded  = userDefaults.object(forKey: "teams") as! Data
-//        let userdec = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! DBUser
-//
-//
-//       let result = SingletonServer.singleton.login(email: nick.text!, password: password.text!)
-//
-//
-//
-//       print(userdec.email)
-//        if(userdec.email == "giorgio"){
-//
-//            self.performSegue(withIdentifier: "seguelogin", sender: self)
-//
-//        }else{
-//            let alert = UIAlertController(title: "", message: result, preferredStyle: UIAlertControllerStyle.alert)
-//
-//            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
-//    }
+
     
  
     @IBOutlet weak var imm: UIImageView!
@@ -97,21 +61,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var vista: UIView!
     
     override func viewDidAppear(_ animated: Bool) {
-//        let currentUser = DBUser()
-//        if currentUser.password != nil && currentUser.nickname != nil{
-//            loadHomeScreen()
-//        }
-        let a = UserDefaults.standard.value(forKey: "user")
-        if(a != nil){
-            let jsonString1 = a as! String
-            let data: Data? = jsonString1.data(using: .utf8)
-            let json1 = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
-            if(json1?["email"] != nil){
-                let userRetrieve1 = DBUser(email: json1!["email"] as! String, nickname: json1!["nickname"] as! String, password: json1!["password"] as! String, socialAvatar: json1!["socialAvatar"] as! String, token: json1!["token"] as! String)
-                loadHomeScreen()
-            }
+
+        let user =  SingletonServer.singleton.retrieveUserState()
+        if(user.email != nil){
+            loadHomeScreen()
+        }
+
         }
         
+    override func viewWillAppear(_ animated: Bool){
         
         
     }

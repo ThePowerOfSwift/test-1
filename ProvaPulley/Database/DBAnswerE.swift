@@ -8,10 +8,10 @@
 import Foundation
 
 
-class DBAnswerE{
+class DBAnswerE: Codable{
     var idAnswer:Int32?
     var text:String?
-    var timestamp:Any?
+    var timestamp:String?
     var event:DBEvent?
     var userOwner:DBUser?
     init(){

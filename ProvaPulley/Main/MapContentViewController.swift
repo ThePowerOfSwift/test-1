@@ -48,6 +48,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        
     }
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -81,18 +82,51 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-        DataManager.shared.messages.append(Message(author: User(nickname: "luco", imageNum: 5), message: "eskere", topic: .tourism, id: true))
-        
-        for touch in touches {
-            let touchPoint = touch.location(in: self.mappe)
-            let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
-            removeCircle(circle: self.oldCircle)
-            self.oldCircle = showCircle(coordinate: location, radius: self.raggio!)
+ 
+            DataManager.shared.messages.append(Message(author: User(nickname: "luco", imageNum: 5), message: "eskere", topic: .tourism, id: true))
+            
+            for touch in touches {
+                let radar = DBRadar()
+                let touchPoint = touch.location(in: self.mappe)
+                radar.posX = Double(1)
+                radar.posY = Double(2)
+                radar.range = 1000.0
+                SingletonServer.singleton.POST_Questions_EventsAroundPosition(radar: radar) { (result) in
+                    
+                                    let decoder = JSONDecoder()
+                                    let data = result?.data(using: .utf8)
+                                    do{
+                                        let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
+                                        SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
+                                        
+                                        if(e_o.events != nil){
+                                            for event in e_o.events!{
+                                                print(event.name)
+                    
+                                            }
+                                        }
+                                        if(e_o.questions != nil){
+                                            for question in e_o.questions!{
+                                                print(question.text)
+                                                
+                                            }
+                                        }
+                                    }catch{
+                                        print("errore di serializzazione")
+                                    }
+                    
+                    
+                                }
+                
+                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
+                removeCircle(circle: self.oldCircle)
+                self.oldCircle = showCircle(coordinate: location, radius: self.raggio!)
+            
+            
+            //            MessageTableView.messageTableView.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
         }
         
-        //            MessageTableView.messageTableView.reloadData()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

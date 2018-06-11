@@ -207,6 +207,9 @@
                     <tabBarItem key="tabBarItem" title="List" image="list" id="19a-ob-jyS"/>
                     <navigationItem key="navigationItem" title="Chat" largeTitleDisplayMode="always" id="HVU-UI-4ww"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableview" destination="gpL-5d-nt7" id="Pps-f8-clO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jif-fM-xTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

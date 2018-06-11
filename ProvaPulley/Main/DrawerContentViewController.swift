@@ -80,13 +80,34 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 
     @IBAction func askQuestion(_ sender: Any) {
         self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+        
+        
+        
     }
     
     
     @IBAction func Cancel(_ sender: Any) {
         dismissKeyboard()
 //    self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-        
+        let user = SingletonServer.singleton.retrieveUserState()
+        let radar = DBRadar(posX: 1, posY: 2, range: 100)
+        let data = dateFromTimeout(timeout: 3)
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: 1) { (result) in
+            let decoder = JSONDecoder()
+            let da = result?.data(using: .utf8)
+            do{
+                let question = try decoder.decode(DBQuestion.self, from: da!)
+                if(question.ID != nil){
+                    SingletonServer.singleton.user?.myQuestions?.append(question)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    print(question.text!)
+                }
+            }catch{
+                print("errore di serializzazione|LATOCLIENT")
+            }
+            
+            
+        }
     }
     
     @IBAction func anyButtonTap(_ sender: Any) {

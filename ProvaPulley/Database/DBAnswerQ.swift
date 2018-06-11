@@ -8,10 +8,10 @@
 import Foundation
 
 
-class DBAnswerQ{
+class DBAnswerQ: Codable{
     var text:String?
     var idAnswer:Int32?
-    var timestamp:Any?
+    var timestamp:String?
     var question: DBQuestion?
     var userOwner:DBUser?
     

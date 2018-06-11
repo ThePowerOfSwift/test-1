@@ -81,11 +81,11 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
             cell.nickname.textColor = .white
             cell.num.layer.cornerRadius = 12.0
             cell.num.clipsToBounds = true
-            cell.num.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
+            cell.num.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].dateFine)"
             cell.num.backgroundColor = .white
             cell.num.textColor = SingletonServer.singleton.colori[indexTopic]
             cell.num.textAlignment = .center
-            cell.inizio.text = "22:00"
+            cell.inizio.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
             cell.inizio.textColor = .white
             
             

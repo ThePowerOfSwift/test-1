@@ -14,6 +14,7 @@ import QuartzCore
 
 class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
     
+    @IBOutlet weak var Send: UIButton!
     @IBOutlet weak var Gripper: UIView!
     @IBOutlet weak var AskQuestionTextField: UITextField!
     
@@ -88,7 +89,9 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @IBAction func Cancel(_ sender: Any) {
         dismissKeyboard()
-//    self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+        
+        
+// self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         let user = SingletonServer.singleton.retrieveUserState()
         let radar = DBRadar(posX: 1, posY: 2, range: 100)
         let data = dateFromTimeout(timeout: 3)

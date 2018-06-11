@@ -196,10 +196,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask a question" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6" userLabel="AskQuestion">
-                                <rect key="frame" x="5" y="124" width="294" height="30"/>
+                                <rect key="frame" x="5" y="124" width="316" height="30"/>
                                 <color key="tintColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="294" id="0HT-oC-Vcw"/>
+                                    <constraint firstAttribute="width" constant="316" id="0HT-oC-Vcw"/>
                                     <constraint firstAttribute="height" constant="30" id="uO2-oQ-9N8"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -217,17 +217,6 @@
                                     <constraint firstAttribute="height" constant="6" id="Sjc-y7-lLO"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK5-a8-Klf">
-                                <rect key="frame" x="307" y="124" width="57" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="8YT-uw-Qzt"/>
-                                    <constraint firstAttribute="width" constant="57" id="rrk-94-l5Y"/>
-                                </constraints>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="Cancel:" destination="1sF-DN-zau" eventType="touchUpInside" id="HLM-Ko-KJZ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9Z-cZ-L1b">
                                 <rect key="frame" x="0.0" y="66" width="375" height="55"/>
                                 <subviews>
@@ -398,13 +387,24 @@
                                     <constraint firstItem="HAV-FF-D8J" firstAttribute="leading" secondItem="A9Z-cZ-L1b" secondAttribute="leading" id="zdP-FQ-cB4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VK5-a8-Klf">
+                                <rect key="frame" x="329" y="124" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8YT-uw-Qzt"/>
+                                    <constraint firstAttribute="width" constant="30" id="rrk-94-l5Y"/>
+                                </constraints>
+                                <state key="normal" image="send"/>
+                                <connections>
+                                    <action selector="Cancel:" destination="1sF-DN-zau" eventType="touchUpInside" id="HLM-Ko-KJZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="VK5-a8-Klf" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="80" id="3i5-is-mry"/>
                             <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="ah0-dn-Tw7" secondAttribute="trailing" constant="169" id="9jE-UJ-xxF"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="trailing" secondItem="ucl-S7-UAK" secondAttribute="trailing" id="CSh-Iu-iha"/>
-                            <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="VK5-a8-Klf" secondAttribute="trailing" constant="11" id="XXr-ly-cTo"/>
+                            <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="VK5-a8-Klf" secondAttribute="trailing" constant="16" id="XXr-ly-cTo"/>
                             <constraint firstItem="ah0-dn-Tw7" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="170" id="ifw-cb-bDo"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="top" secondItem="ah0-dn-Tw7" secondAttribute="bottom" constant="5" id="jgX-My-vYt"/>
                             <constraint firstItem="ah0-dn-Tw7" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="11" id="oSd-JT-iju"/>
@@ -426,6 +426,7 @@
                         <outlet property="FoodButton" destination="jSF-ls-d9j" id="RIz-9S-ZM2"/>
                         <outlet property="Gripper" destination="ah0-dn-Tw7" id="hW5-Cc-gIZ"/>
                         <outlet property="NightLifeButton" destination="Ga9-GL-YGu" id="iFA-zW-5Wm"/>
+                        <outlet property="Send" destination="VK5-a8-Klf" id="qMf-Up-TqE"/>
                         <outlet property="Tourism2Button" destination="QE3-Q9-bqr" id="OUq-5E-Z4V"/>
                         <outlet property="TourismButton" destination="ijn-17-LqX" id="UxV-vY-jXr"/>
                         <segue destination="vdb-e0-crL" kind="show" identifier="seguePulleyMessage" id="qIz-Pd-RJk"/>
@@ -1088,6 +1089,7 @@
         <image name="grey" width="680" height="480"/>
         <image name="map" width="30" height="30"/>
         <image name="piu" width="200" height="200"/>
+        <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nrR-kV-S66"/>

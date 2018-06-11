@@ -3,25 +3,41 @@ import AVFoundation
 
 class EventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var previewView: UIView!
+   
     @IBOutlet weak var captureImageView: UIImageView!
     
     
-    @IBOutlet weak var apriButton: UIButton!
     
     
     
     
-    @IBAction func Apri(_ sender: Any) {
-        UIView.animate(withDuration: 0.8, animations: {(self.apriButton.frame.origin.y += 140)})
-        //apriButton.frame.origin.x = 20
+//
+//    @IBAction func Apri(_ sender: Any) {
+//        UIView.animate(withDuration: 0.8, animations: {(self.apriButton.frame.origin.y += 140)})
+//        //apriButton.frame.origin.x = 20
+//
+//        UIView.animate(withDuration: 0.8, delay: 0.0,options: [],
+//
+//                       animations: ({ self.apriButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))}))
+//
+//    }
+//
+    @IBAction func photo2(_ sender: Any) {
+        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
+        self.pickerController.sourceType = .camera // scelgo il sourceType, cioè il luogo in cui pescare le immagini
         
-        UIView.animate(withDuration: 0.8, delay: 0.0,options: [],
-                       
-                       animations: ({ self.apriButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))}))
+        // visualizzo l'imagePickerController
+        present(self.pickerController, animated: true, completion: nil)
         
     }
-    
+    @IBAction func gallery2(_ sender: Any) {
+        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
+        self.pickerController.sourceType = .photoLibrary // scelgo il sourceType, cioè il luogo in cui pescare le immagini
+        
+        // visualizzo l'imagePickerController
+        present(self.pickerController, animated: true, completion: nil)
+        
+    }
     @IBAction func didTakePhoto(_ sender: Any) {
         self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
         self.pickerController.sourceType = .camera // scelgo il sourceType, cioè il luogo in cui pescare le immagini
@@ -37,8 +53,6 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         // visualizzo l'imagePickerController
         present(self.pickerController, animated: true, completion: nil)
-        
-        previewView.isHidden = !previewView.isHidden
         
     }
     @IBOutlet weak var importFromGalleryOutlet: UIButton!
@@ -64,7 +78,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        videoPreviewLayer!.frame = previewView.bounds
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,45 +89,55 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // Setup your camera here...
-        session = AVCaptureSession()
-        session!.sessionPreset = AVCaptureSession.Preset.photo
-        
-        let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
-        
-        var error: NSError?
-        var input: AVCaptureDeviceInput!
-        do {
-            input = try AVCaptureDeviceInput(device: backCamera!)
-        } catch let error1 as NSError {
-            error = error1
-            input = nil
-            print(error!.localizedDescription)
-        }
-        
-        if error == nil && session!.canAddInput(input) {
-            session!.addInput(input)
-            // ...
-            // The remainder of the session setup will go here...
-        }
-        
-        stillImageOutput = AVCaptureStillImageOutput()
-        stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecType.jpeg]
-        
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session!)
-        videoPreviewLayer!.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
-        previewView.layer.addSublayer(videoPreviewLayer!)
-        session!.startRunning()
+//        session = AVCaptureSession()
+//        session!.sessionPreset = AVCaptureSession.Preset.photo
+//
+//        let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
+//
+//        var error: NSError?
+//        var input: AVCaptureDeviceInput!
+//        do {
+//            input = try AVCaptureDeviceInput(device: backCamera!)
+//        } catch let error1 as NSError {
+//            error = error1
+//            input = nil
+//            print(error!.localizedDescription)
+//        }
+//
+//        if error == nil && session!.canAddInput(input) {
+//            session!.addInput(input)
+//            // ...
+//            // The remainder of the session setup will go here...
+//        }
+//
+//        stillImageOutput = AVCaptureStillImageOutput()
+//        stillImageOutput?.outputSettings = [AVVideoCodecKey: AVVideoCodecType.jpeg]
+//
+//        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session!)
+//        videoPreviewLayer!.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        videoPreviewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+//
+//        session!.startRunning()
     }
     
     
+    @IBOutlet weak var photo2: UIButton!
+    
+    @IBOutlet weak var gallery2: UIButton!
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        photo2.isHidden = false
+        gallery2.isHidden = false
+        importFromGalleryOutlet.isHidden = true
+        didTakePhotoOutlat.isHidden  = true
+        
+        // captureImageView.isHidden = !captureImageView.isHidden
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         captureImageView.image = image
         //captureImageView.contentMode = .scaleAspectFill
         captureImageView.contentMode = .scaleAspectFit
         picker.dismiss(animated: true, completion: nil)
+        
     }
     
     

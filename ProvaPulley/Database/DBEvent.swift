@@ -32,6 +32,89 @@ class DBEvent: Codable{
         self.address = address
         self.topic = topic
     }
+    init(name:String,description:String, media:String,address:String, radar:DBRadar, user:DBUser,mese:String, giorno:String, oraInizio:String, oraFine:String, topic:Int32){
+        
+        
+        self.name =  name
+        self.description = description
+        self.datetime = "2018-\(mese)-\(giorno) \(oraInizio):00:00"
+        self.endDate = "2018-\(mese)-\(giorno) \(oraFine):00:00"
+        self.media = media
+        self.address = address
+        self.topic = topic
+        self.ownerUser = user
+        self.myPosition = radar
+    }
+    
+    init(name:String,description:String, media:String,address:String, radar:DBRadar, user:DBUser, oraFine:String, topic:Int32){
+        let date = Date()
+        let calendar = Calendar.current
+        var month = calendar.component(.month, from: date)
+        var day = calendar.component(.day, from: date)
+        let dataFine:String
+        if month<10 && day<10{
+            dataFine = "2018-0\(month)-0\(day) \(oraFine):00:00"
+        }
+        else if month<10 {
+            dataFine = "2018-0\(month)-\(day) \(oraFine):00:00"
+        }else if day<10 {
+            dataFine = "2018-\(month)-0\(day) \(oraFine):00:00"
+        }else {
+            dataFine = "2018-\(month)-\(day) \(oraFine):00:00"
+        }
+        self.name =  name
+        self.description = description
+        
+        self.endDate = dataFine
+        self.media = media
+        self.address = address
+        self.topic = topic
+        self.ownerUser = user
+        self.myPosition = radar
+    }
+    
+    init(name:String,mese:String, giorno:String, oraInizio:String, oraFine:String, topic:Int32, radar:DBRadar, user:DBUser){
+        let dataInizio = "2018-\(mese)-\(giorno) \(oraInizio):00:00"
+        let dataFine = "2018-\(mese)-\(giorno) \(oraFine):00:00"
+        
+        self.name =  name
+        
+        self.datetime = dataInizio
+        self.endDate = dataFine
+        
+        self.topic = topic
+        self.ownerUser = user
+        self.myPosition = radar
+    }
+    
+    init(name:String, oraFine:String,radar:DBRadar, user:DBUser, topic:Int32){
+        let date = Date()
+        let calendar = Calendar.current
+        var month = calendar.component(.month, from: date)
+        var day = calendar.component(.day, from: date)
+        let dataFine:String
+        if month<10 && day<10{
+            dataFine = "2018-0\(month)-0\(day) \(oraFine):00:00"
+        }
+        else if month<10 {
+            dataFine = "2018-0\(month)-\(day) \(oraFine):00:00"
+        }else if day<10 {
+            dataFine = "2018-\(month)-0\(day) \(oraFine):00:00"
+        }else {
+            dataFine = "2018-\(month)-\(day) \(oraFine):00:00"
+        }
+        
+        
+        self.name =  name
+        
+        self.endDate = dataFine
+        
+        
+        self.topic = topic
+        self.ownerUser = user
+        self.myPosition = radar
+    }
+
     
     
     

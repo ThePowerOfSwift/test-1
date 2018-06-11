@@ -106,6 +106,50 @@ class SingletonServer{
     
     
     
+    func POST_insertNewEvent(event:DBEvent, completionHandler: @escaping(String?) -> Void){
+        
+        
+        let httpMethod = "POST"
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do{
+            let a = try encoder.encode(event)
+            let stringBody = String(data: a, encoding: .utf8)
+            
+            let httpBody : String = stringBody!
+            
+            let textUrl : String = "http://\(ipServer):8181/Event/insertNewEvent/"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            
+            var s:String?
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completionHandler(error?.localizedDescription)
+                } else {
+                    s = String(data: data!, encoding: .utf8)!
+                    completionHandler(s)
+                }
+                }.resume()
+        }catch{
+            print("Errore di serializzazione/LatoClient")
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
     func POST_insertNewQuestion(text:String, dateFine:String, userOwner:DBUser, radar:DBRadar, topic:Int32, completionHandler: @escaping(String?) -> Void){
         let question = DBQuestion(text: text, dateFine: dateFine, topic: topic, ownerUser: userOwner, myPosition: radar)
         let httpMethod = "POST"

@@ -363,6 +363,55 @@ extension DrawerContentViewController: UITableViewDataSource {
         self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
     }
     
+    func createNewQuestion(){
+        self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+        let user = SingletonServer.singleton.retrieveUserState()
+        let radar = DBRadar(posX: 1, posY: 2, range: 100)
+        let data = dateFromTimeout(timeout: 3)
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: 1) { (result) in
+            let decoder = JSONDecoder()
+            let da = result?.data(using: .utf8)
+            do{
+                let question = try decoder.decode(DBQuestion.self, from: da!)
+                if(question.ID != nil){
+                    SingletonServer.singleton.user?.myQuestions?.append(question)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    print(question.text!)
+                }
+            }catch{
+                print("errore di serializzazione|LATOCLIENT")
+            }
+            
+            
+        }
+    }
+    
+    func createNewEvent(){
+        let user = SingletonServer.singleton.user
+        let radar = DBRadar(posX: 1, posY: 2, range: 10)
+        let event = DBEvent(name: "Neasy", oraFine: "23", radar: radar, user: user!, topic: 1)
+        SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
+            let decoder = JSONDecoder()
+            let da = result?.data(using: .utf8)
+            
+            do{
+                let e = try decoder.decode(DBEvent.self, from: da!)
+                
+                if(e.id != nil){
+                    
+                    
+                    SingletonServer.singleton.user?.myEvents?.append(e)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    
+                }
+            }catch{
+                print("errore di serializzazione|LATOCLIENT")
+            }
+            
+            
+        }
+    }
+    
 }
 
 

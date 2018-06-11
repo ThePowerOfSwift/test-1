@@ -385,7 +385,7 @@
                         <color key="backgroundColor" red="0.972755776192049" green="0.96693089130467147" blue="0.97858066107942654" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="hQ3-ib-lUj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Settings" image="settings" id="RNc-zJ-RcH"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="RNc-zJ-RcH"/>
                     <navigationItem key="navigationItem" title="Settings" id="hUh-CF-lV6">
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="Dnc-Mh-duf">
                             <connections>

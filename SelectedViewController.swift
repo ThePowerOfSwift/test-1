@@ -12,7 +12,7 @@ class SelectedViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = 1
+
        
         // Do any additional setup after loading the view.
     }
@@ -23,9 +23,6 @@ class SelectedViewController: UITabBarController {
     }
     
 
-
-    
-    }
     /*
     // MARK: - Navigation
 
@@ -36,4 +33,4 @@ class SelectedViewController: UITabBarController {
     }
     */
 
-
+}

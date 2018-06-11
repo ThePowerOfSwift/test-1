@@ -64,21 +64,28 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatTableViewCell
         
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! Chat1TableViewCell
+        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
+        let indexProf = imgprof.integerValue as! Int
+        
+        let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic 
+        let indexTopic = Int(color!)
+        print(indexTopic)
+        print(indexProf)
         
 //        if indexPath.row == 0{
-            cell.improf.image = #imageLiteral(resourceName: "Lorenzo")
-            cell.sfondo.backgroundColor = .red
+            cell.improf.image = SingletonServer.singleton.logoImage[indexProf]
+            cell.sfondo.backgroundColor = SingletonServer.singleton.colori[indexTopic]
             cell.desc.text = SingletonServer.singleton.user?.myQuestions![indexPath.row].text
             cell.desc.textColor = .white
             cell.nickname.text = SingletonServer.singleton.user?.nickname
             cell.nickname.textColor = .white
             cell.num.layer.cornerRadius = 12.0
             cell.num.clipsToBounds = true
-            cell.num.text = "2"
+            cell.num.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].dateFine)"
             cell.num.backgroundColor = .white
-            cell.num.textColor = .red
+            cell.num.textColor = SingletonServer.singleton.colori[indexTopic]
             cell.num.textAlignment = .center
-            cell.inizio.text = "22:00"
+            cell.inizio.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
             cell.inizio.textColor = .white
             
             

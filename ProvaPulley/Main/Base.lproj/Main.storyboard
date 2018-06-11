@@ -60,9 +60,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrD-xT-lMY">
-                                <rect key="frame" x="309" y="20" width="40" height="40"/>
+                                <rect key="frame" x="309" y="117" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="arrow" backgroundImage="grey">
+                                <state key="normal" image="Risorsa">
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-td-Pyb">
-                                <rect key="frame" x="249" y="76" width="52" height="51"/>
+                                <rect key="frame" x="309" y="30" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="piu"/>
                                 <connections>
@@ -95,7 +95,7 @@
             <objects>
                 <viewController id="8s4-DI-KGl" customClass="EventViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="avx-ks-3VB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-0y-HDP">
@@ -113,7 +113,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="1cB-hA-ow9"/>
+                                    <action selector="Cancelac:" destination="8s4-DI-KGl" eventType="touchUpInside" id="j3L-sD-jXc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsO-v5-sxe" userLabel="Done">
@@ -125,7 +125,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8Q-W3-Gr4">
-                                <rect key="frame" x="0.0" y="113" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="220"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivv-1Y-PWb" userLabel="gallery">
                                 <rect key="frame" x="16" y="228" width="40" height="40"/>
@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-zX-bT2" userLabel="photo">
-                                <rect key="frame" x="310" y="225" width="50" height="80"/>
+                                <rect key="frame" x="310" y="225" width="50" height="100"/>
                                 <state key="normal" backgroundImage="fotocamera"/>
                                 <connections>
                                     <action selector="didTakePhoto:" destination="8s4-DI-KGl" eventType="touchUpInside" id="T9X-j0-Yy3"/>
@@ -1186,18 +1186,18 @@
         <image name="Line" width="267" height="1"/>
         <image name="Lorenzo" width="62" height="62"/>
         <image name="Luca" width="62" height="62"/>
+        <image name="Risorsa" width="1342" height="1342"/>
         <image name="Silvia" width="62" height="62"/>
         <image name="Sofia" width="62" height="62"/>
-        <image name="arrow" width="20" height="20"/>
         <image name="fotocamera" width="512" height="512"/>
         <image name="galleria" width="941" height="720"/>
-        <image name="grey" width="680" height="480"/>
         <image name="map" width="30" height="30"/>
         <image name="piu" width="200" height="200"/>
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="H8e-iB-LNf"/>
         <segue reference="nrR-kV-S66"/>
-        <segue reference="1cB-hA-ow9"/>
+        <segue reference="d3b-Za-BPX"/>
     </inferredMetricsTieBreakers>
 </document>

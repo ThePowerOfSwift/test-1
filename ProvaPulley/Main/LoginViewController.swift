@@ -86,6 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         super.viewDidLoad()
         vista.backgroundColor = .white
         
+       
 //        facebook.backgroundColor = UIColor(red: 65/255.0, green: 103/255.0, blue: 178/255.0, alpha: 1)
 //        facebook.layer.cornerRadius = 13.0
 //        facebook.clipsToBounds = true

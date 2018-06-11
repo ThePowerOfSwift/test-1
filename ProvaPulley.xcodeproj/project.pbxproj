@@ -48,28 +48,22 @@
 		A946593D20C8481800D1314F /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593C20C8481800D1314F /* MessageTableView.swift */; };
 		A946594020C974F700D1314F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593F20C974F700D1314F /* EventViewController.swift */; };
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
-		AC52146809BE34490295485D /* Pods_ProvaPulley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
-		C756986602CAAE07D50962C8 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */; };
+		D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A62161D384BE453414560D8 /* Pods_BatChat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.release.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.release.xcconfig"; sourceTree = "<group>"; };
-		34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProvaPulley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaPulley.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProvaPulley/Pods-ProvaPulley.debug.xcconfig"; sourceTree = "<group>"; };
-		5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.debug.xcconfig"; sourceTree = "<group>"; };
-		755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
+		2A62161D384BE453414560D8 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
 		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
 		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
 		81F33FAD20CAC1290015CB00 /* DBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEvent.swift; sourceTree = "<group>"; };
 		81F33FAE20CAC1290015CB00 /* DBAnswerQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerQ.swift; sourceTree = "<group>"; };
 		81F33FB520CAC12F0015CB00 /* DBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBUser.swift; sourceTree = "<group>"; };
-		84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B22C520AF0F4F00EACF41 /* BatChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BatChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		871B22C820AF0F4F00EACF41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		871B22CA20AF0F4F00EACF41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +106,8 @@
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
+		EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
+		F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,21 +116,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */,
-				AC52146809BE34490295485D /* Pods_ProvaPulley.framework in Frameworks */,
-				C756986602CAAE07D50962C8 /* Pods_BatChat.framework in Frameworks */,
+				D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1DF3BFAFBBECDC9B84BBEE33 /* Pods */ = {
+		29A7AC49F8FE3D761258B452 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				418B1BACD3D6B1A0116CBABC /* Pods-ProvaPulley.debug.xcconfig */,
-				0F3A9AA1B93DAA993485F31F /* Pods-ProvaPulley.release.xcconfig */,
-				5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */,
-				755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */,
+				F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */,
+				EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -144,8 +137,8 @@
 			children = (
 				871B22C720AF0F4F00EACF41 /* ProvaPulley */,
 				871B22C620AF0F4F00EACF41 /* Products */,
-				1DF3BFAFBBECDC9B84BBEE33 /* Pods */,
 				95F3C351F7D4ECDB14710FAD /* Frameworks */,
+				29A7AC49F8FE3D761258B452 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,8 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				872A484120B5D4C40006CB39 /* CoreLocation.framework */,
-				34A015755C81416EE41D6B77 /* Pods_ProvaPulley.framework */,
-				84C014C99F002A4D8CBA98D1 /* Pods_BatChat.framework */,
+				2A62161D384BE453414560D8 /* Pods_BatChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -259,11 +251,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 871B22D720AF0F5000EACF41 /* Build configuration list for PBXNativeTarget "BatChat" */;
 			buildPhases = (
-				A703D78C164D66EB1D51B63F /* [CP] Check Pods Manifest.lock */,
+				FF4FF82C5F8E53288070872B /* [CP] Check Pods Manifest.lock */,
 				871B22C120AF0F4F00EACF41 /* Sources */,
 				871B22C220AF0F4F00EACF41 /* Frameworks */,
 				871B22C320AF0F4F00EACF41 /* Resources */,
-				A25F0B1E476C89F6D3A5609F /* [CP] Embed Pods Frameworks */,
+				3388322530A1EAD67D486911 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,7 +315,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A25F0B1E476C89F6D3A5609F /* [CP] Embed Pods Frameworks */ = {
+		3388322530A1EAD67D486911 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,7 +339,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BatChat/Pods-BatChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A703D78C164D66EB1D51B63F /* [CP] Check Pods Manifest.lock */ = {
+		FF4FF82C5F8E53288070872B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -553,7 +545,7 @@
 		};
 		871B22D820AF0F5000EACF41 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5EF7997FD7962F592D143A7A /* Pods-BatChat.debug.xcconfig */;
+			baseConfigurationReference = F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -572,7 +564,7 @@
 		};
 		871B22D920AF0F5000EACF41 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755F6002F5B587A87AF1F7B2 /* Pods-BatChat.release.xcconfig */;
+			baseConfigurationReference = EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -587,7 +587,7 @@
         <!--Seconda Scroll View Controller-->
         <scene sceneID="23M-Ny-Zyz">
             <objects>
-                <viewController id="7b0-Io-oIB" customClass="SecondaScrollViewController" sceneMemberID="viewController">
+                <viewController id="7b0-Io-oIB" customClass="SecondaScrollViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zwi-rM-2yi" userLabel="ViewContainer">
                         <rect key="frame" x="0.0" y="0.0" width="500" height="75"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -602,7 +602,9 @@
                                                 <rect key="frame" x="103" y="20" width="100" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="NightLife"/>
+                                                <state key="normal" title="NightLife">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                         <real key="value" value="1"/>
@@ -611,12 +613,17 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="Naction:" destination="7b0-Io-oIB" eventType="touchUpInside" id="arp-Tf-cmy"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p08-mZ-hLi" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                 <rect key="frame" x="213" y="20" width="70" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Arts"/>
+                                                <state key="normal" title="Art">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                         <real key="value" value="1"/>
@@ -625,12 +632,17 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="Aaction:" destination="7b0-Io-oIB" eventType="touchUpInside" id="PGU-gY-8hD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyB-76-I2C" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                 <rect key="frame" x="293" y="20" width="85" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Shops"/>
+                                                <state key="normal" title="Shops">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="borderThickness">
                                                         <real key="value" value="1"/>
@@ -639,13 +651,18 @@
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="Saction:" destination="7b0-Io-oIB" eventType="touchUpInside" id="iuH-WD-LGh"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l04-nI-ufC" customClass="UICustomButton" customModule="BatChat" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="20" width="85" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <size key="titleShadowOffset" width="75" height="30"/>
-                                                <state key="normal" title="Food"/>
+                                                <state key="normal" title="Food">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="15"/>
@@ -654,6 +671,9 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="Faction:" destination="7b0-Io-oIB" eventType="touchUpInside" id="MUB-HI-UAr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -665,7 +685,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Tourism">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -675,6 +695,9 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="Taction:" destination="7b0-Io-oIB" eventType="touchUpInside" id="TRo-s3-TgP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -696,6 +719,13 @@
                         <viewLayoutGuide key="safeArea" id="a59-rJ-iZb"/>
                     </view>
                     <size key="freeformSize" width="500" height="75"/>
+                    <connections>
+                        <outlet property="Art" destination="p08-mZ-hLi" id="RkE-Cs-hZR"/>
+                        <outlet property="Food" destination="l04-nI-ufC" id="fLR-Dw-8O7"/>
+                        <outlet property="Nightlife" destination="fvo-gt-jEO" id="bQX-ge-Rpv"/>
+                        <outlet property="Shops" destination="YyB-76-I2C" id="dcz-BX-t8s"/>
+                        <outlet property="Tourism" destination="IVF-ZF-cV8" id="jwb-KW-oqF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ec5-sY-SeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

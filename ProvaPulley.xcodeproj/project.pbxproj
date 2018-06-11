@@ -28,6 +28,7 @@
 		871B957720C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */; };
 		871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */; };
 		871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */; };
+		871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
 		87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6A20C822EA0046DFAC /* ForgotViewController.swift */; };
@@ -81,6 +82,7 @@
 		871B957620C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella2PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		871B957820C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cella3PasswordTableViewCell.swift; sourceTree = "<group>"; };
 		871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaScrollViewController.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
 		87415E6A20C822EA0046DFAC /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				872A484320B5D5730006CB39 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
+				871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */,
 				879FC82520CA992D00DA81CD /* LoggedViewController.swift */,
 				A946593F20C974F700D1314F /* EventViewController.swift */,
 				A946593C20C8481800D1314F /* MessageTableView.swift */,
@@ -364,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */,
 				81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */,
 				871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */,
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,

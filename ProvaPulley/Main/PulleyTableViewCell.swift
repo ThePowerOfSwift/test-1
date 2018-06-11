@@ -21,11 +21,11 @@ class PulleyTableViewCell: UITableViewCell {
         
         super.init(style: UITableViewCellStyle.default, reuseIdentifier: reuseIdentifier)
         
-        nickname = UILabel(frame: CGRect(x: 85, y: 8, width: 79, height: 17))
+        nickname = UILabel(frame: CGRect(x: 85, y: 8, width: 79, height: 18))
         improf = UIImageView(frame: CGRect(x: 8, y: 6, width: 60, height: 60))
         backView = UIButton(frame: CGRect(x: 5, y: 3, width: 360, height: 65))
         
-        descrizione = UILabel(frame: CGRect(x: 85, y: 25, width: 196, height: 39))
+        descrizione = UILabel(frame: CGRect(x: 85, y: 25, width: 196, height: 40))
         data = UILabel(frame: CGRect(x: 250, y: 8, width: 50, height: 15))
         numero = UILabel(frame: CGRect(x: 325, y: 20, width: 25, height: 25))
         

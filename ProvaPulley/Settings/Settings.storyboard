@@ -366,10 +366,10 @@
                                     <action selector="button9Func:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="N9d-KR-nvD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ea-NTH" userLabel="Avatar Button">
-                                <rect key="frame" x="142" y="169" width="90" height="90"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ea-NTH" userLabel="Avatar Button">
+                                <rect key="frame" x="155" y="183" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                <state key="normal" image="anonimo"/>
                                 <connections>
                                     <action selector="avatarButtonFunc:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="LMO-wl-gSt"/>
                                 </connections>
@@ -489,6 +489,7 @@
         <image name="Luca" width="62" height="62"/>
         <image name="Silvia" width="62" height="62"/>
         <image name="Sofia" width="62" height="62"/>
+        <image name="anonimo" width="64" height="62"/>
         <image name="settings" width="30" height="30"/>
     </resources>
 </document>

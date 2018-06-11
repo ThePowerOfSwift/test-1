@@ -7,6 +7,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var captureImageView: UIImageView!
     
     
+    @IBOutlet weak var descrizione: UITextField!
     
     
     
@@ -57,6 +58,8 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     @IBOutlet weak var importFromGalleryOutlet: UIButton!
     
+    @IBOutlet weak var nomeevento: UITextField!
+    @IBOutlet weak var eventpos: UITextField!
     
     var pickerController = UIImagePickerController()
     var session: AVCaptureSession?
@@ -68,6 +71,14 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        eventpos.layer.cornerRadius = 5.0
+        eventpos.clipsToBounds = true
+        nomeevento.layer.cornerRadius = 5.0
+        nomeevento.clipsToBounds = true
+        hideKeyboardWhenTappedAround()
+        descrizione.layer.cornerRadius = 4.0
+        descrizione.clipsToBounds = true
+        captureImageView.backgroundColor = .gray
         let posizione = CGPoint(x: 300, y: 300)
         didTakePhotoOutlat.frame.origin = posizione
         importFromGalleryOutlet.frame.origin = CGPoint(x: 0, y: 300)

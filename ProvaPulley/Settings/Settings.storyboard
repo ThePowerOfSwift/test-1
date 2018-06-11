@@ -369,7 +369,7 @@
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ea-NTH" userLabel="Avatar Button">
                                 <rect key="frame" x="142" y="169" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Antonio falso"/>
+                                <color key="backgroundColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                 <connections>
                                     <action selector="avatarButtonFunc:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="LMO-wl-gSt"/>
                                 </connections>

@@ -95,7 +95,7 @@
             <objects>
                 <viewController id="8s4-DI-KGl" customClass="EventViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="avx-ks-3VB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMk-0y-HDP">
@@ -125,7 +125,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z8Q-W3-Gr4">
-                                <rect key="frame" x="0.0" y="113" width="375" height="220"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="200"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivv-1Y-PWb" userLabel="gallery">
                                 <rect key="frame" x="16" y="228" width="40" height="40"/>
@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-zX-bT2" userLabel="photo">
-                                <rect key="frame" x="310" y="225" width="50" height="100"/>
+                                <rect key="frame" x="310" y="225" width="50" height="80"/>
                                 <state key="normal" backgroundImage="fotocamera"/>
                                 <connections>
                                     <action selector="didTakePhoto:" destination="8s4-DI-KGl" eventType="touchUpInside" id="T9X-j0-Yy3"/>
@@ -1196,7 +1196,6 @@
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="H8e-iB-LNf"/>
         <segue reference="nrR-kV-S66"/>
         <segue reference="d3b-Za-BPX"/>
     </inferredMetricsTieBreakers>

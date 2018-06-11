@@ -420,8 +420,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //        end luca
 
+        avatarButton.layer.cornerRadius = 45.0
+        avatarButton.clipsToBounds = true
         nome.textAlignment = .center
-        nome.text = "Antonio Falso"
+        nome.text = SingletonServer.singleton.user?.nickname
        
         let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         navigationController?.navigationBar.titleTextAttributes = textAttributes

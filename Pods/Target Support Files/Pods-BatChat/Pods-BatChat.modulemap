@@ -1,0 +1,6 @@
+framework module Pods_BatChat {
+  umbrella header "Pods-BatChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

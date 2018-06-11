@@ -300,30 +300,35 @@ extension DrawerContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataManager.shared.messages.count
+        return (SingletonServer.singleton.user?.myQuestions?.count)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
         
+        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
+        let indexProf = imgprof.integerValue as! Int
+        
+        let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic
+        let indexTopic = Int(color!)
         //        let cell1 = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! PulleyTableViewCell1
         
         //        if indexPath.row == 0{
-        cell.improf?.image = DataManager.shared.profile[DataManager.shared.messages[indexPath.row].author.imageNum]
-        cell.backView?.backgroundColor = .red
+        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+        cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
         cell.backView?.layer.cornerRadius = 32.0
-        cell.descrizione?.text = DataManager.shared.messages[indexPath.row].message
+        cell.descrizione?.text = SingletonServer.singleton.user?.myQuestions![indexPath.row].text
         cell.descrizione?.textColor = .white
-        cell.nickname?.text = DataManager.shared.messages[indexPath.row].author.nickname
+        cell.nickname?.text = SingletonServer.singleton.user?.nickname
         cell.nickname?.textColor = .white
         cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
         cell.numero?.layer.cornerRadius = 12.0
         cell.numero?.clipsToBounds = true
-        cell.numero?.text = "2"
+        cell.numero?.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].dateFine)"
         cell.numero?.backgroundColor = .white
-        cell.numero?.textColor = .red
+        cell.numero?.textColor = SingletonServer.singleton.colori[indexTopic]
         cell.numero?.textAlignment = .center
-        cell.data?.text = "22:00"
+        cell.data?.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
         cell.data?.textColor = .white
         cell.backView?.addTarget(self, action: #selector(performe), for: .touchDown)
         

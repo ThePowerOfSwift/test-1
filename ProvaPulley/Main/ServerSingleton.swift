@@ -6,8 +6,10 @@
 //  Copyright © 2018 Lorenzo Caso. All rights reserved.
 //
 
+
 import UIKit
 import Foundation
+import MessageUI
 
 class SingletonServer{
     static var singleton:SingletonServer = SingletonServer()
@@ -35,7 +37,7 @@ class SingletonServer{
         }catch{
             print("Errore di serializzazione")
         }
-      
+        
         
         
     }
@@ -43,7 +45,7 @@ class SingletonServer{
     func saveUserState(json:String, user:DBUser){
         SingletonServer.singleton.user = user
         UserDefaults.standard.set(json, forKey: "user")
-
+        
     }
     func saveEvents_QuestionsInSpecificRadarState(json:String, e_q:Events_QuestionsInSpecificRadar){
         SingletonServer.singleton.events_questions_aroundPosition = e_q
@@ -233,7 +235,6 @@ class SingletonServer{
         
         
         var s:String?
-        //        let semaphore = DispatchSemaphore(value: 0)
         session.dataTask(with: urlRequest) {
             data, response, error in
             if error != nil {
@@ -247,7 +248,7 @@ class SingletonServer{
         
         
     }
-  
+    
     
     func POST_Questions_EventsAroundPosition(radar:DBRadar, completionHandler: @escaping(String?)->Void){
         let httpMethod = "POST"
@@ -257,9 +258,9 @@ class SingletonServer{
         do{
             let a = try encoder.encode(radar)
             let stringBody = String(data: a, encoding: .utf8)
-    
+            
             let httpBody : String = stringBody!
-        
+            
             let textUrl : String = "http://\(ipServer):8181/Radar/retrieveFromRadar/EventsAndQuestions/"
             let url : URL = URL(string: textUrl)!
             let session : URLSession = URLSession.shared
@@ -283,6 +284,59 @@ class SingletonServer{
         }catch{
             print("Errore di serializzazione/LatoClient")
         }
+        
+    }
+    func provaRegistrazione(user:DBUser, completionHandler: @escaping(String?)->Void){
+        let httpMethod = "POST"
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do{
+            let a = try encoder.encode(user)
+            let stringBody = String(data: a, encoding: .utf8)
+            
+            let httpBody : String = stringBody!
+            
+            let textUrl : String = "http://\(ipServer):8181/User/Register/Prova"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            
+            var s:String?
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completionHandler(error?.localizedDescription)
+                } else {
+                    s = String(data: data!, encoding: .utf8)!
+                    completionHandler(s)
+                }
+                }.resume()
+        }catch{
+            print("Errore di serializzazione/LatoClient")
+        }
+        //        if MFMailComposeViewController.canSendMail() {
+        //
+        //            let mail = MyMessage()
+        //            mail.messageComposeDelegate = mail
+        //
+        //
+        //           mail.recipients = ["giorgio.fari96@gmail.com,lorenzocaso335@gmial.com"]
+        //           mail.subject = "prova"
+        //            mail.body = "CIAOO"
+        //           mail.sendMessage()
+        //
+        //
+        //
+        //            } else {
+        //                print("Errore! non posso inviare email")
+        //                // INVIA UN MESSAGGIO ALL'UTENTE (AD ESEMPIO CON UNA ALERT VIEW)
+        //            }
         
     }
     
@@ -326,8 +380,8 @@ class SingletonServer{
         return s1!
     }
     
-    
 }
+
 
 struct SiteMessage : Decodable {
     var success : Bool = false
@@ -348,26 +402,59 @@ struct Events_QuestionsInSpecificRadar:Codable{
 
 
 func dateFromTimeout(timeout:Int)-> String{
-            let date = Date()
-            let calendar = Calendar.current
-            var month = calendar.component(.month, from: date)
-            var day = calendar.component(.day, from: date)
-            var ora = calendar.component(.hour, from: date)
-            var min = calendar.component(.minute, from: date)
+    let date = Date()
+    let calendar = Calendar.current
+    var month = calendar.component(.month, from: date)
+    var day = calendar.component(.day, from: date)
+    var ora = calendar.component(.hour, from: date)
+    var min = calendar.component(.minute, from: date)
     
     
-            let dataFine:String
-            if month<10 && day<10{
-                dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
-            }
-            else if month<10 {
-                dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
-            }else if day<10 {
-                dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
-            }else {
-                dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
-            }
-            print(dataFine)
-            return dataFine
+    let dataFine:String
+    if month<10 && day<10{
+        dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
+    }
+    else if month<10 {
+        dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
+    }else if day<10 {
+        dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
+    }else {
+        dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
+    }
+    print(dataFine)
+    return dataFine
     
 }
+
+class MyMessage: MFMessageComposeViewController,MFMessageComposeViewControllerDelegate{
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        switch result{
+            
+        case .cancelled:
+            print ("Invio dell'email cancellato dall'utente")
+            break
+            
+            
+            
+        case .sent:
+            print ("Email inviata correttamente")
+            break
+            
+        case .failed:
+            print ("Email non inviata, probabilmente a causa di un errore")
+            break
+            
+        default:
+            //questo caso non dovrebbe mai presentarsi!
+            break
+            
+        }
+    }
+    func sendMessage(){
+        
+    }
+    
+    
+}
+        
+

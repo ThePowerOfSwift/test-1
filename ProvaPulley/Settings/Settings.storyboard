@@ -366,6 +366,14 @@
                                     <action selector="button9Func:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="N9d-KR-nvD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ea-NTH" userLabel="Avatar Button">
+                                <rect key="frame" x="155" y="183" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="anonimo"/>
+                                <connections>
+                                    <action selector="avatarButtonFunc:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="LMO-wl-gSt"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-Ym-n6E">
                                 <rect key="frame" x="1" y="261" width="375" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -373,14 +381,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLx-Ea-NTH" userLabel="Avatar Button">
-                                <rect key="frame" x="158" y="193" width="60" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Antonio falso"/>
-                                <connections>
-                                    <action selector="avatarButtonFunc:" destination="Oua-Ax-PJZ" eventType="touchUpInside" id="LMO-wl-gSt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.972755776192049" green="0.96693089130467147" blue="0.97858066107942654" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="hQ3-ib-lUj"/>
@@ -489,6 +489,7 @@
         <image name="Luca" width="62" height="62"/>
         <image name="Silvia" width="62" height="62"/>
         <image name="Sofia" width="62" height="62"/>
+        <image name="anonimo" width="64" height="62"/>
         <image name="settings" width="30" height="30"/>
     </resources>
 </document>

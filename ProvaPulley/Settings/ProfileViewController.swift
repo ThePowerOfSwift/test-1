@@ -420,7 +420,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //        end luca
 
-        
+        avatarButton.layer.cornerRadius = 45.0
+        avatarButton.clipsToBounds = true
         nome.textAlignment = .center
         nome.text = SingletonServer.singleton.user?.nickname
        

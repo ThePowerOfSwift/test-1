@@ -1,16 +1,10 @@
-//
-//  RegisterViewController.swift
-//  BatChat
-//
-//  Created by Lorenzo Caso on 06/06/18.
-//  Copyright © 2018 Lorenzo Caso. All rights reserved.
-//
+
 
 import UIKit
 
 class RegisterViewController: UIViewController {
-
-  
+    var imgScelta:Int?
+    
     @IBOutlet weak var annull: UIButton!
     @IBAction func cancel(_ sender: Any) {
         self.presentingViewController!.dismiss(animated: true, completion: nil)
@@ -51,8 +45,8 @@ class RegisterViewController: UIViewController {
     //     Metodi
     
     @IBAction func avatarButtonFunc(_ sender: Any) {
-        
-        
+
+
 //        //     central button
 //
 //        //         flag
@@ -163,46 +157,47 @@ class RegisterViewController: UIViewController {
 //                           animations: { self.button3.alpha = 0 })
 //
 //
-//            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
-//
-//                           animations: { self.button4.alpha = 0 })
-//
-//
-//            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
-//
-//                           animations: { self.button5.alpha = 0 })
-//
-//
-//            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
-//
-//                           animations: { self.button6.alpha = 0 })
-//
-//
-//            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
-//
-//                           animations: { self.button7.alpha = 0 })
-//
-//
-//            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
-//
-//                           animations: { self.button8.alpha = 0 })
-//
-//
-//            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
-//
-//                           animations: { self.button9.alpha = 0 })
-//
-//
-//        }
-//
-//
-//
-//
+        //            UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
+        //
+        //                           animations: { self.button4.alpha = 0 })
+        //
+        //
+        //            UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
+        //
+        //                           animations: { self.button5.alpha = 0 })
+        //
+        //
+        //            UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
+        //
+        //                           animations: { self.button6.alpha = 0 })
+        //
+        //
+        //            UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
+        //
+        //                           animations: { self.button7.alpha = 0 })
+        //
+        //
+        //            UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
+        //
+        //                           animations: { self.button8.alpha = 0 })
+        //
+        //
+        //            UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
+        //
+        //                           animations: { self.button9.alpha = 0 })
+        //
+        //
+        //        }
+        //
+        //
+        //
+        //
     }
     
     
     @IBAction func button1Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Francesco"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[0], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "0"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -216,7 +211,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button2Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Antonio vero"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[1], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "1"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -230,7 +226,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button3Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Sofia"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[2], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "2"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -244,7 +241,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button4Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Giorgio"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[3], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "3"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -258,7 +256,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button5Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Hind"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[4], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "4"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -272,7 +271,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button6Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Antonio falso"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[5], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "5"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -286,7 +286,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button7Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Luca"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[6], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "6"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -300,7 +301,9 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button8Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Lorenzo"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[7], for: .normal)
+        
+        SingletonServer.singleton.user?.socialAvatar = "7"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -314,7 +317,8 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func button9Func(_ sender: Any) {
-        self.avatarButton.setBackgroundImage(#imageLiteral(resourceName: "Silvia"), for: .normal)
+        self.avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[8], for: .normal)
+        SingletonServer.singleton.user?.socialAvatar = "8"
         UIView.animate(withDuration: 0.2, delay: 0,options: [],
                        animations: { self.avatarButton.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)},completion: nil)
         
@@ -377,10 +381,12 @@ class RegisterViewController: UIViewController {
         
     }
     
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        SingletonServer.singleton.user = DBUser()
+        
         navigationController?.isNavigationBarHidden = true
         buttonAvanti.layer.cornerRadius = 13.0
         buttonAvanti.clipsToBounds = true
@@ -398,15 +404,21 @@ class RegisterViewController: UIViewController {
         button7.alpha = 0
         button8.alpha = 0
         button9.alpha = 0
-
-       
- 
+        
+        
+        
         nome.text = ""
-       
+        
         view.backgroundColor = UIColor(patternImage: UIImage(named: "Login2")!)
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(getimg), name: NSNotification.Name(rawValue: "getimg"), object: nil)
+        
     }
-
+    
+    @objc func getimg()->Int{
+        return imgScelta!
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
@@ -423,15 +435,15 @@ class RegisterViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

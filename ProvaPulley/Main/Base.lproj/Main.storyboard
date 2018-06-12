@@ -1127,6 +1127,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                 </state>
+                                <connections>
+                                    <action selector="registerFunc:" destination="ksP-bz-0Ru" eventType="touchUpInside" id="jlm-YQ-Nk9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1136,8 +1139,13 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="9kP-V4-amA"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="email" destination="uvI-Cf-f1W" id="Uai-0M-GEd"/>
                         <outlet property="indietro" destination="d98-u2-Rc2" id="icl-gA-Bc0"/>
+                        <outlet property="nickname" destination="Zx4-sc-mDb" id="xyK-Rm-pR7"/>
+                        <outlet property="password" destination="ehh-wc-nie" id="Ynq-yq-iNx"/>
+                        <outlet property="rPassword" destination="kGt-Wu-b4k" id="hTo-id-LLA"/>
                         <outlet property="register" destination="FNl-Vu-GIY" id="NhE-Xk-03X"/>
+                        <segue destination="wAj-yI-6or" kind="show" identifier="segueRegister" id="33U-9H-Yhx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK6-CC-jnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1197,7 +1205,7 @@
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nrR-kV-S66"/>
+        <segue reference="33U-9H-Yhx"/>
         <segue reference="d3b-Za-BPX"/>
     </inferredMetricsTieBreakers>
 </document>

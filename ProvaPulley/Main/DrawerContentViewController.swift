@@ -95,6 +95,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         let user = SingletonServer.singleton.retrieveUserState()
         let radar = DBRadar(posX: 1, posY: 2, range: 100)
         let data = dateFromTimeout(timeout: 3)
+        self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: 1) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
@@ -104,9 +105,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                     SingletonServer.singleton.user?.myQuestions?.append(question)
                     SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
                     print(question.text!)
+                    
                 }
             }catch{
                 print("errore di serializzazione|LATOCLIENT")
+               
             }
             
             

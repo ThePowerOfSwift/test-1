@@ -12,16 +12,12 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var tableview: UITableView!
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
 //        let user = SingletonServer.singleton.retrieveUser()
 //        if(user.email != nil){
 //            updateMyQuestions_MyEventsWithCorrispectiveAnswers(email: user.email!)
 //        }
         self.tableview.reloadData()
-        
-
     }
     
 //    func updateMyQuestions_MyEventsWithCorrispectiveAnswers(email:String){

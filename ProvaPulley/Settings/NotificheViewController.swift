@@ -27,7 +27,7 @@ class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        messaggio.text = "If you disable all the notifications you will not able to help the community and to ask questions."
+        messaggio.text = "If you disable all the notifications you will not be able to help the community and to ask questions."
        
         self.title = "Notifications"
         

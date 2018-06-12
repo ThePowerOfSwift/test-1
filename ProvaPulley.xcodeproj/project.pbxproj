@@ -31,6 +31,7 @@
 		871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		872A484420B5D5730006CB39 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A484320B5D5730006CB39 /* MapContentViewController.swift */; };
+		8736D9F620D0272D008FEAA1 /* ConversazionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8736D9F520D0272D008FEAA1 /* ConversazionViewController.swift */; };
 		87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6A20C822EA0046DFAC /* ForgotViewController.swift */; };
 		87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6C20C827140046DFAC /* RegisterViewController.swift */; };
 		87415E6F20C834800046DFAC /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6E20C834800046DFAC /* Register2ViewController.swift */; };
@@ -52,7 +53,6 @@
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
-		BDF8245B20D005AE00B070AB /* ConversazionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8245A20D005AD00B070AB /* ConversazionViewController.swift */; };
 		BDF8245F20D0086900B070AB /* ConversazionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8245E20D0086900B070AB /* ConversazionCell.swift */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
@@ -87,6 +87,7 @@
 		871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaScrollViewController.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		872A484320B5D5730006CB39 /* MapContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
+		8736D9F520D0272D008FEAA1 /* ConversazionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversazionViewController.swift; path = ../../../../Downloads/ConversazionViewController.swift; sourceTree = "<group>"; };
 		87415E6A20C822EA0046DFAC /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		87415E6C20C827140046DFAC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		87415E6E20C834800046DFAC /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
-		BDF8245A20D005AD00B070AB /* ConversazionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConversazionViewController.swift; path = /Users/sofiapassarelli/Documents/test/ProvaPulley/List/ConversazionViewController.swift; sourceTree = "<absolute>"; };
 		BDF8245E20D0086900B070AB /* ConversazionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversazionCell.swift; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
 				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
 				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
-				BDF8245A20D005AD00B070AB /* ConversazionViewController.swift */,
+				8736D9F520D0272D008FEAA1 /* ConversazionViewController.swift */,
 				BDF8245E20D0086900B070AB /* ConversazionCell.swift */,
 			);
 			path = List;
@@ -399,7 +399,6 @@
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				81F33FB320CAC12A0015CB00 /* DBEvent.swift in Sources */,
 				81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */,
-				BDF8245B20D005AE00B070AB /* ConversazionViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				81F33FB620CAC1300015CB00 /* DBUser.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,
@@ -415,6 +414,7 @@
 				87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */,
 				81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */,
 				879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */,
+				8736D9F620D0272D008FEAA1 /* ConversazionViewController.swift in Sources */,
 				A946594020C974F700D1314F /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

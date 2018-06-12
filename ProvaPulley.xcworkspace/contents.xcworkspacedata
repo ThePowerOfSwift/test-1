@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/sofiapassarelli/Documents/test/ProvaPulley/List/ConversazionViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:Pods/../ProvaPulley.xcodeproj">
    </FileRef>
    <FileRef

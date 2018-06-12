@@ -80,6 +80,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         eventpos.layer.cornerRadius = 5.0
         eventpos.clipsToBounds = true
         nomeevento.layer.cornerRadius = 5.0
@@ -96,6 +97,8 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.pickerController.delegate = self
     }
     
+    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
@@ -140,6 +143,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
 //        session!.startRunning()
     }
     
+    @IBOutlet weak var pickerData: UIDatePicker!
     
     @IBOutlet weak var photo2: UIButton!
     
@@ -166,6 +170,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.dismiss(animated: true, completion: nil)
     }
     
+   
     
 }
 

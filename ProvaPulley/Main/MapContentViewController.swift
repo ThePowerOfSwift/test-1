@@ -77,7 +77,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         marker.title = "SI STRUNZ"
         
         mappe.addAnnotation(marker)
-        
+        mappe.removeAnnotation(marker)
 //        self.oldCircle = showCircle(coordinate: myLocation, radius: self.raggio!)
     }
     

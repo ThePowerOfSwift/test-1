@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E85279A20D1303E0004E00A /* ConversazionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85279920D1303D0004E00A /* ConversazionViewController.swift */; };
 		81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAA20CAC1290015CB00 /* DBQuestion.swift */; };
 		81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAB20CAC1290015CB00 /* DBRadar.swift */; };
 		81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */; };
@@ -50,8 +51,9 @@
 		A946594020C974F700D1314F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593F20C974F700D1314F /* EventViewController.swift */; };
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
-		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
+		BD22808A20BEEC16005E3919 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* PasswordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
+		BDF8245F20D0086900B070AB /* ConversazionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8245E20D0086900B070AB /* ConversazionCell.swift */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
 		D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A62161D384BE453414560D8 /* Pods_BatChat.framework */; };
@@ -59,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		2A62161D384BE453414560D8 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E85279920D1303D0004E00A /* ConversazionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversazionViewController.swift; sourceTree = "<group>"; };
 		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
 		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
 		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
@@ -104,8 +107,9 @@
 		A946593F20C974F700D1314F /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = SOURCE_ROOT; };
 		A9D8611E20BEE50400F2EC9E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
+		BD22808920BEEC16005E3919 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		BDF8245E20D0086900B070AB /* ConversazionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversazionCell.swift; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
 		EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,7 +212,7 @@
 				871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */,
 				C558478E20C0532A008978D4 /* ProfileViewController.swift */,
 				871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */,
-				BD22808920BEEC16005E3919 /* passwordViewController.swift */,
+				BD22808920BEEC16005E3919 /* PasswordViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -221,6 +225,8 @@
 				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
 				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
 				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
+				BDF8245E20D0086900B070AB /* ConversazionCell.swift */,
+				5E85279920D1303D0004E00A /* ConversazionViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -375,7 +381,7 @@
 				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
-				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
+				BD22808A20BEEC16005E3919 /* PasswordViewController.swift in Sources */,
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				871B957120C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift in Sources */,
@@ -393,10 +399,12 @@
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				81F33FB320CAC12A0015CB00 /* DBEvent.swift in Sources */,
 				81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */,
+				5E85279A20D1303E0004E00A /* ConversazionViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				81F33FB620CAC1300015CB00 /* DBUser.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,
 				878CDCB720C1A0AF00F78BC8 /* ChatTableViewCell.swift in Sources */,
+				BDF8245F20D0086900B070AB /* ConversazionCell.swift in Sources */,
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
 				871B957520C5773B0035C3A2 /* CellaPasswordTableViewCell.swift in Sources */,
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,

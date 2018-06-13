@@ -16,14 +16,15 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     @IBOutlet weak var mappe: MKMapView!
     var oldCircle = MKCircle()
     var raggio = CLLocationDistance(exactly: 1000)
-    let manager = CLLocationManager()
     
+    let manager = CLLocationManager()
+    var count=0
     override func viewDidLoad() {
         super.viewDidLoad()
         mappe.delegate = self
         manager.delegate = self
         
-       
+        
         navigationController?.isNavigationBarHidden = true
 //        per ottenere la miglior location dell'user
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -61,7 +62,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         //        store la posizione dello user
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        
+        print("LOCATION LON:\(location.coordinate.latitude) LATI\(location.coordinate.longitude)")
+        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: 10)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         
         mappe.setRegion(region, animated: true)
@@ -81,51 +83,71 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //        self.oldCircle = showCircle(coordinate: myLocation, radius: self.raggio!)
     }
     
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
- 
-            DataManager.shared.messages.append(Message(author: User(nickname: "luco", imageNum: 5), message: "eskere", topic: .tourism, id: true))
-            
+        print("TOUCHES\(touches.count)")
             for touch in touches {
-                let radar = DBRadar()
-                let touchPoint = touch.location(in: self.mappe)
-                radar.posX = Double(1)
-                radar.posY = Double(2)
-                radar.range = 1000.0
-                SingletonServer.singleton.POST_Questions_EventsAroundPosition(radar: radar) { (result) in
-                    
-                                    let decoder = JSONDecoder()
-                                    let data = result?.data(using: .utf8)
-                                    do{
-                                        let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
-                                        SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
-                                        
-                                        if(e_o.events != nil){
-                                            for event in e_o.events!{
-                                                print(event.name)
-                    
-                                            }
-                                        }
-                                        if(e_o.questions != nil){
-                                            for question in e_o.questions!{
-                                                print(question.text)
-                                                
-                                            }
-                                        }
-                                    }catch{
-                                        print("errore di serializzazione")
-                                    }
-                    
-                    
-                                }
-                
-                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
-                removeCircle(circle: self.oldCircle)
-                self.oldCircle = showCircle(coordinate: location, radius: self.raggio!)
-            
-            
-            //            MessageTableView.messageTableView.reloadData()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-        }
+                print("COUNT:\(touch.tapCount)")
+              print(count)
+                        if(touch.tapCount==3){
+                            
+                                let touchPoint = touch.location(in: self.mappe)
+                            print("TOUCH POINT:\(touchPoint.x) e \(touchPoint.y)")
+                                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
+                            print("LAT e LONG:\(location.latitude) e \(location.longitude)")
+                                let t:CGPoint = CGPoint(x: touchPoint.x+1000, y: touchPoint.y+1000)
+                                let loc1 = self.mappe.convert(t, toCoordinateFrom: self.mappe)
+                                let rangelat = location.latitude-loc1.latitude
+                                print("RANGE:\(rangelat)")
+                                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: 1/111)
+                            print("DOUBLE:\(Double(1/111))")
+                                print("RAGGIOOO:\(self.raggio!)")
+                            
+                                
+                                
+                                SingletonServer.singleton.POST_Questions_EventsAroundPosition(radar: (SingletonServer.singleton.user?.posFit!)!) { (result) in
+                                    
+                                                    let decoder = JSONDecoder()
+                                                    let data = result?.data(using: .utf8)
+                                                    do{
+                                                        let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
+                                                        SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
+                                                        DispatchQueue.main.async {
+                                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                                                            self.removeCircle(circle: self.oldCircle)
+                                                            self.oldCircle = self.showCircle(coordinate: location, radius: self.raggio!)
+
+                                                        }
+                                                        
+                                                        if(e_o.events != nil){
+                                                            for event in e_o.events!{
+                                                                print(event.name)
+                                    
+                                                            }
+                                                        }
+                                                        if(e_o.questions != nil){
+                                                            for question in e_o.questions!{
+                                                                print(question.text)
+                                                                
+                                                            }
+                                                        }
+                                                    }catch{
+                                                        print("errore di serializzazione")
+                                                    }
+                                    
+                                    
+                                                }
+                                
+                               
+                            
+                                
+                            
+                            //            MessageTableView.messageTableView.reloadData()
+                            
+                }
+                count = count+1
+                }
+         count = 0
         
     }
     

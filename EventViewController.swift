@@ -4,6 +4,7 @@ import AVFoundation
 class EventViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
    
+   
     @IBAction func Cancelac(_ sender: Any) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate = UIApplication.shared.delegate
@@ -13,6 +14,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         
     }
+    
     @IBOutlet weak var captureImageView: UIImageView!
     
     
@@ -69,12 +71,55 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var nomeevento: UITextField!
     @IBOutlet weak var eventpos: UITextField!
+    @IBOutlet weak var pickerDataInizio: UIDatePicker!
     
     var pickerController = UIImagePickerController()
     var session: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
+    
+    
+    @IBAction func done(_ sender: Any) {
+       
+        var dataInizio = pickerDataInizio.date.description
+        var dataFine = pickerData.date.description
+        for _ in 1...6 {
+            dataInizio = String(dataInizio.dropLast())
+            dataFine = String(dataFine.dropLast())
+        }
+        
+       let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: 1)
+        createNewEvent(event: event)
+        
+        
+        
+        
+    }
+    func createNewEvent(event:DBEvent){
+        
+        SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
+            let decoder = JSONDecoder()
+            let da = result?.data(using: .utf8)
+            
+            do{
+                let e = try decoder.decode(DBEvent.self, from: da!)
+                
+                if(e.id != 0){
+                    
+                    print("CIAOO")
+                    SingletonServer.singleton.user?.myEvents?.append(e)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    SingletonServer.singleton.events_questions_aroundPosition?.events?.append(e)
+                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                }
+            }catch{
+                print("errore di serializzazione|LATOCLIENT")
+            }
+            
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -42,6 +42,22 @@ class SingletonServer{
         
     }
     
+    func saveEvents_QuestionsInSpecificRadarState(e_q:Events_QuestionsInSpecificRadar){
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do{
+            let data = try encoder.encode(e_q)
+            let string = String(data: data, encoding: .utf8)
+            saveEvents_QuestionsInSpecificRadarState(json: string!, e_q: e_q)
+        }catch{
+            print("Errore di serializzazione")
+        }
+        
+        
+        
+    }
+    
+    
     func saveUserState(json:String, user:DBUser){
         SingletonServer.singleton.user = user
         UserDefaults.standard.set(json, forKey: "user")
@@ -391,6 +407,8 @@ struct Events_QuestionsInSpecificRadar:Codable{
     var questions:[DBQuestion]?
     var events:[DBEvent]?
     init(){
+        questions = [DBQuestion]()
+        events = [DBEvent]()
         
     }
     init(questions:[DBQuestion],events:[DBEvent]){

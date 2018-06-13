@@ -32,13 +32,14 @@ class DBEvent: Codable{
         self.address = address
         self.topic = topic
     }
-    init(name:String,description:String, media:String,address:String, radar:DBRadar, user:DBUser,mese:String, giorno:String, oraInizio:String, oraFine:String, topic:Int32){
+    init(name:String,description:String, media:String,address:String, radar:DBRadar, user:DBUser,datetime:String, endDate:String,//mese:String, giorno:String, oraInizio:String, oraFine:String,
+        topic:Int32){
         
         
         self.name =  name
         self.description = description
-        self.datetime = "2018-\(mese)-\(giorno) \(oraInizio):00:00"
-        self.endDate = "2018-\(mese)-\(giorno) \(oraFine):00:00"
+        self.datetime = datetime//"2018-\(mese)-\(giorno) \(oraInizio):00:00"
+        self.endDate = endDate//"2018-\(mese)-\(giorno) \(oraFine):00:00"
         self.media = media
         self.address = address
         self.topic = topic

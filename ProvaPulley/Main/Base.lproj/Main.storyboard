@@ -121,6 +121,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
+                                    <action selector="done:" destination="8s4-DI-KGl" eventType="touchUpInside" id="36p-zV-Cnh"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="d3b-Za-BPX"/>
                                 </connections>
                             </button>
@@ -208,6 +209,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="550485173.81269097">
                                     <!--2018-06-12 08:32:53 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="en"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ao5-Xm-Oh1">
                                 <rect key="frame" x="22" y="439" width="36" height="26"/>
@@ -257,6 +259,7 @@
                         <outlet property="nomeevento" destination="LPi-bq-w4t" id="r9J-Ap-AiR"/>
                         <outlet property="photo2" destination="zl0-lQ-SMv" id="Yvz-fZ-PRA"/>
                         <outlet property="pickerData" destination="tbU-rr-U4M" id="IOP-DN-Fuj"/>
+                        <outlet property="pickerDataInizio" destination="Jyc-uv-5gg" id="WBl-mu-vJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kmv-3n-cR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1145,7 +1148,7 @@
                         <outlet property="password" destination="ehh-wc-nie" id="Ynq-yq-iNx"/>
                         <outlet property="rPassword" destination="kGt-Wu-b4k" id="hTo-id-LLA"/>
                         <outlet property="register" destination="FNl-Vu-GIY" id="NhE-Xk-03X"/>
-                        <segue destination="wAj-yI-6or" kind="show" identifier="segueRegister" id="33U-9H-Yhx"/>
+                        <segue destination="t2t-hw-Hyd" kind="show" identifier="segueRegister" id="ReT-eZ-oLK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NK6-CC-jnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1205,7 +1208,7 @@
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="33U-9H-Yhx"/>
+        <segue reference="l01-Al-VzX"/>
         <segue reference="d3b-Za-BPX"/>
     </inferredMetricsTieBreakers>
 </document>

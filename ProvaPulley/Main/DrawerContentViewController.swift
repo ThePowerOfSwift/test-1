@@ -70,6 +70,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @objc func reload() {
         self.messageTable.reloadData()
+        print("CIAO££kdkskksk")
         dismissKeyboard()
         
     }
@@ -92,11 +93,12 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
         
 // self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-        let user = SingletonServer.singleton.retrieveUserState()
-        let radar = DBRadar(posX: 1, posY: 2, range: 100)
+        let user = SingletonServer.singleton.user
+        let radar = SingletonServer.singleton.user?.posFit
         let data = dateFromTimeout(timeout: 3)
+        print(data)
         self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: 1) { (result) in
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar!, topic: 1) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
             do{
@@ -104,6 +106,9 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 if(question.ID != nil){
                     SingletonServer.singleton.user?.myQuestions?.append(question)
                     SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
+                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                    
                     print(question.text!)
                     
                 }
@@ -303,8 +308,8 @@ extension DrawerContentViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(SingletonServer.singleton.user?.myQuestions != nil){
-            return (SingletonServer.singleton.user?.myQuestions?.count)!
+        if(SingletonServer.singleton.events_questions_aroundPosition?.events != nil){
+            return (SingletonServer.singleton.events_questions_aroundPosition?.events?.count)!
         }else{
             return 0
         }
@@ -317,28 +322,28 @@ extension DrawerContentViewController: UITableViewDataSource {
         let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
         let indexProf = imgprof.integerValue as! Int
         
-        let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic
-        let indexTopic = Int(color!)
+//        let color = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].topic!
+//        let indexTopic = Int(color!)
         //        let cell1 = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! PulleyTableViewCell1
         
         //        if indexPath.row == 0{
-        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-        cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
-        cell.backView?.layer.cornerRadius = 32.0
-        cell.descrizione?.text = SingletonServer.singleton.domande?.text
-        cell.descrizione?.textColor = .white
-        cell.nickname?.text = SingletonServer.singleton.user?.nickname
-        cell.nickname?.textColor = .white
-        cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
-        cell.numero?.layer.cornerRadius = 12.0
-        cell.numero?.clipsToBounds = true
-        cell.numero?.text = "\(SingletonServer.singleton.domande?.answers?.count)"
-        cell.numero?.backgroundColor = .white
-        cell.numero?.textColor = SingletonServer.singleton.colori[indexTopic]
-        cell.numero?.textAlignment = .center
-        cell.data?.text =  SingletonServer.singleton.domande?.dateFine
-        cell.data?.textColor = .white
-        cell.backView?.addTarget(self, action: #selector(performe), for: .touchDown)
+//        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+//        cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
+//        cell.backView?.layer.cornerRadius = 32.0
+        cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].name
+//        cell.descrizione?.textColor = .white
+//        cell.nickname?.text = SingletonServer.singleton.user?.nickname
+//        cell.nickname?.textColor = .white
+//        cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+//        cell.numero?.layer.cornerRadius = 12.0
+//        cell.numero?.clipsToBounds = true
+//        cell.numero?.text = "\(SingletonServer.singleton.domande?.answers?.count)"
+//        cell.numero?.backgroundColor = .white
+//        cell.numero?.textColor = SingletonServer.singleton.colori[indexTopic]
+//        cell.numero?.textAlignment = .center
+//        cell.data?.text =  SingletonServer.singleton.domande?.dateFine
+//        cell.data?.textColor = .white
+//        cell.backView?.addTarget(self, action: #selector(performe), for: .touchDown)
         
         
         
@@ -369,14 +374,15 @@ extension DrawerContentViewController: UITableViewDataSource {
     
     @objc func performe(){
         self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
+        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
     }
     
     func createNewQuestion(){
         self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         let user = SingletonServer.singleton.retrieveUserState()
-        let radar = DBRadar(posX: 1, posY: 2, range: 100)
+        let radar = SingletonServer.singleton.user?.posFit
         let data = dateFromTimeout(timeout: 3)
-        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: 1) { (result) in
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar!, topic: 1) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
             do{
@@ -394,31 +400,7 @@ extension DrawerContentViewController: UITableViewDataSource {
         }
     }
     
-    func createNewEvent(){
-        let user = SingletonServer.singleton.user
-        let radar = DBRadar(posX: 1, posY: 2, range: 10)
-        let event = DBEvent(name: "Neasy", oraFine: "23", radar: radar, user: user!, topic: 1)
-        SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
-            let decoder = JSONDecoder()
-            let da = result?.data(using: .utf8)
-            
-            do{
-                let e = try decoder.decode(DBEvent.self, from: da!)
-                
-                if(e.id != nil){
-                    
-                    
-                    SingletonServer.singleton.user?.myEvents?.append(e)
-                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    
-                }
-            }catch{
-                print("errore di serializzazione|LATOCLIENT")
-            }
-            
-            
-        }
-    }
+    
     
 }
 

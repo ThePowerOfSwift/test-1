@@ -10,6 +10,6 @@ import UIKit
 
 class MessageTableView: UITableView {
     
-    static var messageTableView = MessageTableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
+//    static var messageTableView = MessageTableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
     
 }

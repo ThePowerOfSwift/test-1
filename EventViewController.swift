@@ -92,11 +92,14 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: 1)
         createNewEvent(event: event)
         
-        
-        
-        
     }
+    
+    
     func createNewEvent(event:DBEvent){
+        
+        let touchp = CGPoint(x: (SingletonServer.singleton.user?.posFit?.posX!)!, y: (SingletonServer.singleton.user?.posFit?.posY!)!)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: touchp, userInfo: nil)
         
         SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
             let decoder = JSONDecoder()

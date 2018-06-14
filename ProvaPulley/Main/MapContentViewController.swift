@@ -12,7 +12,8 @@ import CoreLocation
 
 class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
 
-   
+    static  var annotationEventVett: [EventAnnotation] = [EventAnnotation]()
+    
     @IBOutlet weak var mappe: MKMapView!
     var oldCircle = MKCircle()
     var raggio = CLLocationDistance(exactly: 1000)
@@ -24,7 +25,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         mappe.delegate = self
         manager.delegate = self
         
-        
         navigationController?.isNavigationBarHidden = true
 //        per ottenere la miglior location dell'user
         manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -34,6 +34,37 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //        chiede al manager di aggiornare la posizione
         manager.startUpdatingLocation()
         // Do any additional setup after loading the view.
+       
+        NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
+        
+        
+        
+        
+        
+    }
+    
+    @objc func createAnnotation(not:Notification){
+        let touchp = not.object
+        
+        guard (touchp as? CGPoint ) != nil else {
+            print("non fun<")
+            return
+        }
+        
+        print("FUNZIONA?:\((touchp as! CGPoint).x)")
+        let location =  CLLocationCoordinate2D(latitude: (CLLocationDegrees((touchp as! CGPoint).x)), longitude: CLLocationDegrees((touchp as! CGPoint).y))
+        //        self.mappe.setRegion(MKCoordinateRegionMakeWithDistance(location, 100, 100), animated: true)
+        
+        
+        let marker = EventAnnotation(coordinate: location)
+        
+        marker.image = UIImage(named: "FOOD.png")
+        print( marker.coordinate)
+        
+        MapContentViewController.annotationEventVett.append(marker)
+        
+        
+        
     }
     
 
@@ -42,6 +73,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         mappe.add(circle)
         return circle
     }
+    
     func removeCircle(circle:MKCircle) {
         
         mappe.remove(circle)
@@ -49,6 +81,16 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        print("GIRO")
+//
+//        let point = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40.839905244526754, longitude: 14.326757450415244))
+//        point.image = UIImage(named: "FOOD.png")
+        for a in MapContentViewController.annotationEventVett{
+            self.mappe.addAnnotation(a)
+            print("GIRO")
+        }
+       
+        
         
     }
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata

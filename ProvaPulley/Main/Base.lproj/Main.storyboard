@@ -813,7 +813,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
-                                    <segue destination="wAj-yI-6or" kind="show" id="l01-Al-VzX"/>
+                                    <action selector="skipFunc:" destination="t2t-hw-Hyd" eventType="touchUpInside" id="PHn-uD-Dit"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2s-Xs-XIv">
@@ -1208,7 +1208,6 @@
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="l01-Al-VzX"/>
         <segue reference="d3b-Za-BPX"/>
     </inferredMetricsTieBreakers>
 </document>

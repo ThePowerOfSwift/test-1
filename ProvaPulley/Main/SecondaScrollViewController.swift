@@ -14,6 +14,7 @@ class SecondaScrollViewController: UIViewController {
     
     
     @IBAction func Taction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 6
         if !topicBool[6] {
             if topicBool[0] {
                
@@ -27,36 +28,41 @@ class SecondaScrollViewController: UIViewController {
             topicBool[6] = false
         }
     }
-    @IBAction func Saction(_ sender: Any) {
-        if !topicBool[1] {
-            if topicBool[0] {
-               
-                topicBool[0] = false
-            }
-            buttonOn(button: Shops, topicNum: 1)
-            topicBool[1] = true
-        }
-        else {
-            buttonOff(button: Shops)
-            topicBool[1] = false
-        }
-    }
     
-    @IBAction func Aaction(_ sender: Any) {
+    @IBAction func Saction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 4
         if !topicBool[4] {
             if topicBool[0] {
                
                 topicBool[0] = false
             }
-            buttonOn(button: Art, topicNum: 4)
+            buttonOn(button: Shops, topicNum: 4)
             topicBool[4] = true
         }
         else {
-            buttonOff(button: Art)
+            buttonOff(button: Shops)
             topicBool[4] = false
         }
     }
+    
+    @IBAction func Aaction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 3
+        if !topicBool[3] {
+            if topicBool[0] {
+               
+                topicBool[0] = false
+            }
+            buttonOn(button: Art, topicNum: 3)
+            topicBool[3] = true
+        }
+        else {
+            buttonOff(button: Art)
+            topicBool[3] = false
+        }
+    }
+    
     @IBAction func Naction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 2
         if !topicBool[2] {
             if topicBool[0] {
                
@@ -72,17 +78,18 @@ class SecondaScrollViewController: UIViewController {
     }
     
     @IBAction func Faction(_ sender: Any) {
-        if !topicBool[3] {
+        SingletonServer.singleton.chosenTopic = 1
+        if !topicBool[1] {
             if topicBool[0] {
                
                 topicBool[0] = false
             }
-            buttonOn(button: Food, topicNum: 3)
-            topicBool[3] = true
+            buttonOn(button: Food, topicNum: 1)
+            topicBool[1] = true
         }
         else {
             buttonOff(button: Food)
-            topicBool[3] = false
+            topicBool[1] = false
         }
         
     }

@@ -12,6 +12,13 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButtonDelegate {
 
+    @IBAction func skipFunc(_ sender: Any) {
+        SingletonServer.singleton.user = DBUser()
+//        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
+        }
+    }
     
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var register: UIButton!
@@ -32,7 +39,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             let user = try decoder.decode(DBUser.self, from: data!)
             print("OMI2")
             if user.email != nil{
-                        SingletonServer.singleton.saveUserState(json: jsonString, user: user)
+                       SingletonServer.singleton.saveUserState(json: jsonString, user: user)
 
                         DispatchQueue.main.async {
                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)

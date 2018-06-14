@@ -13,64 +13,79 @@ import MessageUI
 
 class SingletonServer{
     static var singleton:SingletonServer = SingletonServer()
+    
+    
+    // topic selezionato nella creazione di domande o eventi
+    var chosenTopic: Int = 0
+    var retrieveTopic:[Int] = []
+    
     var user:DBUser?
-    var domande:DBQuestion?
-    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
-    let ipServer = "10.20.49.196"
+   
+    var eventiOrdinatiPerTopic:[[DBEvent]] = [[DBEvent]]()
+    var domandeOrdinatePerTopic:[[DBQuestion]] = [[DBQuestion]]()
+    
+    
+//    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
+    let ipServer = "192.168.1.101"
     
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Lorenzo"),#imageLiteral(resourceName: "Giorgio"),#imageLiteral(resourceName: "Hind"),#imageLiteral(resourceName: "Luca"),#imageLiteral(resourceName: "Sofia"),#imageLiteral(resourceName: "Antonio vero"),#imageLiteral(resourceName: "Antonio falso"),#imageLiteral(resourceName: "Francesco"),#imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
     
     init() {
         //sendMessagePOST(x:13,y:13)
+        domandeOrdinatePerTopic = [[DBQuestion]]()
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        
+        eventiOrdinatiPerTopic = [[DBEvent]]()
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        
+       
         
     }
     
-    
-    func saveUserState(user:DBUser){
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let data = try encoder.encode(user)
-            let string = String(data: data, encoding: .utf8)
-            saveUserState(json: string!, user: user)
-        }catch{
-            print("Errore di serializzazione")
+    func ordinaDomande(domande:[DBQuestion]){
+        domandeOrdinatePerTopic = [[DBQuestion]]()
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
+        
+        for domanda in domande{
+            domandeOrdinatePerTopic[Int(domanda.topic!) ].append(domanda)
+            domandeOrdinatePerTopic[0].append(domanda)
         }
-        
-        
-        
     }
     
-    func saveEvents_QuestionsInSpecificRadarState(e_q:Events_QuestionsInSpecificRadar){
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let data = try encoder.encode(e_q)
-            let string = String(data: data, encoding: .utf8)
-            saveEvents_QuestionsInSpecificRadarState(json: string!, e_q: e_q)
-        }catch{
-            print("Errore di serializzazione")
+    
+    func ordinaEventi(eventi:[DBEvent]){
+        
+        eventiOrdinatiPerTopic = [[DBEvent]]()
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        eventiOrdinatiPerTopic.append([DBEvent]())
+        
+        for evento in eventi{
+            eventiOrdinatiPerTopic[Int(evento.topic!) ].append(evento)
+            eventiOrdinatiPerTopic[0].append(evento)
         }
-        
-        
-        
     }
-    
-    
-    func saveUserState(json:String, user:DBUser){
-        SingletonServer.singleton.user = user
-        UserDefaults.standard.set(json, forKey: "user")
         
-    }
-    func saveEvents_QuestionsInSpecificRadarState(json:String, e_q:Events_QuestionsInSpecificRadar){
-        SingletonServer.singleton.events_questions_aroundPosition = e_q
-        UserDefaults.standard.set(json, forKey: "events_questions_aroundPosition")
-        
-    }
-    
-    
-    
+
     func retrieveUserState()->DBUser{
         let a = UserDefaults.standard.value(forKey: "user")
         if(a != nil){
@@ -88,23 +103,9 @@ class SingletonServer{
             return DBUser()
         }
     }
-    func retrieveEvents_QuestionsInSpecificRadarState()->Events_QuestionsInSpecificRadar{
-        let a = UserDefaults.standard.value(forKey: "events_questions_aroundPosition")
-        if(a != nil){
-            let jsonString1 = a as! String
-            let data: Data? = jsonString1.data(using: .utf8)
-            let decoder = JSONDecoder()
-            do{
-                let e_q = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
-                SingletonServer.singleton.events_questions_aroundPosition = e_q
-                return e_q
-            }catch{
-                return Events_QuestionsInSpecificRadar()
-            }
-        }else{
-            return Events_QuestionsInSpecificRadar()
-        }
-    }
+    
+    
+
     
     
     
@@ -112,16 +113,32 @@ class SingletonServer{
         SingletonServer.singleton.user = DBUser()
         UserDefaults.standard.removeObject(forKey: "user")
     }
-    func removeEvents_QuestionsInSpecificRadarState(){
-        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
-        UserDefaults.standard.removeObject(forKey: "events_questions_aroundPosition")
+
+    
+    
+    
+    
+    
+    func saveUserState(user:DBUser){
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do{
+            let data = try encoder.encode(user)
+            let string = String(data: data, encoding: .utf8)
+            saveUserState(json: string!, user: user)
+        }catch{
+            print("Errore di serializzazione")
+        }
+        
+        
+        
     }
     
-    
-    
-    
-    
-    
+    func saveUserState(json:String, user:DBUser){
+        SingletonServer.singleton.user = user
+        UserDefaults.standard.set(json, forKey: "user")
+        
+    }
     
     
     func POST_insertNewEvent(event:DBEvent, completionHandler: @escaping(String?) -> Void){
@@ -336,23 +353,7 @@ class SingletonServer{
         }catch{
             print("Errore di serializzazione/LatoClient")
         }
-        //        if MFMailComposeViewController.canSendMail() {
-        //
-        //            let mail = MyMessage()
-        //            mail.messageComposeDelegate = mail
-        //
-        //
-        //           mail.recipients = ["giorgio.fari96@gmail.com,lorenzocaso335@gmial.com"]
-        //           mail.subject = "prova"
-        //            mail.body = "CIAOO"
-        //           mail.sendMessage()
-        //
-        //
-        //
-        //            } else {
-        //                print("Errore! non posso inviare email")
-        //                // INVIA UN MESSAGGIO ALL'UTENTE (AD ESEMPIO CON UNA ALERT VIEW)
-        //            }
+
         
     }
     
@@ -476,3 +477,48 @@ class MyMessage: MFMessageComposeViewController,MFMessageComposeViewControllerDe
 }
         
 
+//    func saveEvents_QuestionsInSpecificRadarState(json:String, e_q:Events_QuestionsInSpecificRadar){
+//        SingletonServer.singleton.events_questions_aroundPosition = e_q
+//        UserDefaults.standard.set(json, forKey: "events_questions_aroundPosition")
+//
+//    }
+//
+//
+//    func removeEvents_QuestionsInSpecificRadarState(){
+//        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
+//        UserDefaults.standard.removeObject(forKey: "events_questions_aroundPosition")
+//    }
+//    func retrieveEvents_QuestionsInSpecificRadarState()->Events_QuestionsInSpecificRadar{
+//        let a = UserDefaults.standard.value(forKey: "events_questions_aroundPosition")
+//        if(a != nil){
+//            let jsonString1 = a as! String
+//            let data: Data? = jsonString1.data(using: .utf8)
+//            let decoder = JSONDecoder()
+//            do{
+//                let e_q = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
+//                SingletonServer.singleton.events_questions_aroundPosition = e_q
+//                return e_q
+//            }catch{
+//                return Events_QuestionsInSpecificRadar()
+//            }
+//        }else{
+//            return Events_QuestionsInSpecificRadar()
+//        }
+//    }
+//
+//    func saveEvents_QuestionsInSpecificRadarState(e_q:Events_QuestionsInSpecificRadar){
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        do{
+//            let data = try encoder.encode(e_q)
+//            let string = String(data: data, encoding: .utf8)
+//            saveEvents_QuestionsInSpecificRadarState(json: string!, e_q: e_q)
+//        }catch{
+//            print("Errore di serializzazione")
+//        }
+//
+//
+//
+//    }
+//
+//

@@ -19,6 +19,10 @@ class DBQuestion:Codable{
     var myPosition: DBRadar?
     var answers: [DBAnswerQ]?
     
+    init(){
+        
+    }
+    
     init(ID:Int32, text:String, dateFine:String, timestamp:String, topic:Int32) {
         self.ID = ID
         self.text = text

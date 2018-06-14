@@ -67,6 +67,7 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
         present(self.pickerController, animated: true, completion: nil)
         
     }
+    
     @IBOutlet weak var importFromGalleryOutlet: UIButton!
     
     @IBOutlet weak var nomeevento: UITextField!
@@ -89,15 +90,19 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
             dataFine = String(dataFine.dropLast())
         }
         
-       let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: 1)
+        let topic = SingletonServer.singleton.chosenTopic
+        SingletonServer.singleton.chosenTopic = 0
+        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
         createNewEvent(event: event)
-        
-        
-        
-        
     }
+    
+    
     func createNewEvent(event:DBEvent){
         
+        let touchp = CGPoint(x: (SingletonServer.singleton.user?.posFit?.posX!)!, y: (SingletonServer.singleton.user?.posFit?.posY!)!)
+        
+        NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: touchp, userInfo: nil)
+
         SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
@@ -108,10 +113,14 @@ class EventViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 if(e.id != 0){
                     
                     print("CIAOO")
+//                    SingletonServer.singleton.user?.myEvents?.append(e)
+//                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+//                    SingletonServer.singleton.events_questions_aroundPosition?.events?.append(e)
+//                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                    
                     SingletonServer.singleton.user?.myEvents?.append(e)
-                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    SingletonServer.singleton.events_questions_aroundPosition?.events?.append(e)
-                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                    SingletonServer.singleton.eventiOrdinatiPerTopic[Int(e.topic!)].append(e)
+                    
                 }
             }catch{
                 print("errore di serializzazione|LATOCLIENT")

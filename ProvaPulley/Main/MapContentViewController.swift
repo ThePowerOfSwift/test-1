@@ -11,14 +11,26 @@ import MapKit
 import CoreLocation
 
 class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
-
+    
+    
    
+    
     @IBOutlet weak var mappe: MKMapView!
     var oldCircle = MKCircle()
     var raggio = CLLocationDistance(exactly: 1000)
-    
+    var anntVett: [MKPointAnnotation] = [MKPointAnnotation]()
     let manager = CLLocationManager()
     var count=0
+    var range:Double = 1/111
+    
+
+    
+    
+   
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mappe.delegate = self
@@ -34,8 +46,40 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //        chiede al manager di aggiornare la posizione
         manager.startUpdatingLocation()
         // Do any additional setup after loading the view.
+        
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
+       
     }
     
+    
+    @objc func createAnnotation(not:Notification){
+        let touchp = not.object
+        
+        guard (touchp as? CGPoint ) != nil else {
+            print("non fun<")
+            return
+        }
+        
+        print("FUNZIONA?:\((touchp as! CGPoint).x)")
+        let location =  CLLocationCoordinate2D(latitude: (CLLocationDegrees((touchp as! CGPoint).x)), longitude: CLLocationDegrees((touchp as! CGPoint).y))
+//        self.mappe.setRegion(MKCoordinateRegionMakeWithDistance(location, 100, 100), animated: true)
+        
+     
+            let marker = MKPointAnnotation()
+            
+            marker.coordinate = location
+            print( marker.coordinate)
+            marker.title = "3"
+            self.anntVett.append(marker)
+            print("APPEND")
+        
+        
+        
+        
+        
+    }
 
     func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
         let circle = MKCircle(center: coordinate, radius: radius)
@@ -49,8 +93,12 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        
+  
     }
+    
+    
+    
+    
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -62,8 +110,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         //        store la posizione dello user
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        print("LOCATION LON:\(location.coordinate.latitude) LATI\(location.coordinate.longitude)")
-        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: 10)
+       
+//        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         
         mappe.setRegion(region, animated: true)
@@ -71,89 +119,109 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         //        questa riga mi miostra il pallino blu sulla mappa
         self.mappe.showsUserLocation = true
+        
+        
+        let radar = DBRadar(posX: myLocation.latitude, posY: myLocation.longitude, range: self.range)
+        retrieveQuestionsAndEventsAroundRadar(radar: radar)
+        
         manager.stopUpdatingLocation()
-        
-        let marker = MKPointAnnotation()
-        
-        marker.coordinate = myLocation
-        marker.title = "SI STRUNZ"
-        
-        mappe.addAnnotation(marker)
-        
-//        self.oldCircle = showCircle(coordinate: myLocation, radius: self.raggio!)
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("TOUCHES\(touches.count)")
+     
+        
+        
+        
             for touch in touches {
-                print("COUNT:\(touch.tapCount)")
-              print(count)
+               
+                
                         if(touch.tapCount==3){
                             
                                 let touchPoint = touch.location(in: self.mappe)
-                            print("TOUCH POINT:\(touchPoint.x) e \(touchPoint.y)")
                                 let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
-                            print("LAT e LONG:\(location.latitude) e \(location.longitude)")
-                                let t:CGPoint = CGPoint(x: touchPoint.x+1000, y: touchPoint.y+1000)
-                                let loc1 = self.mappe.convert(t, toCoordinateFrom: self.mappe)
-                                let rangelat = location.latitude-loc1.latitude
-                                print("RANGE:\(rangelat)")
-                                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: 1/111)
-                            print("DOUBLE:\(Double(1/111))")
-                                print("RAGGIOOO:\(self.raggio!)")
-                            
-                                
-                                
-                                SingletonServer.singleton.POST_Questions_EventsAroundPosition(radar: (SingletonServer.singleton.user?.posFit!)!) { (result) in
-                                    
-                                                    let decoder = JSONDecoder()
-                                                    let data = result?.data(using: .utf8)
-                                                    do{
-                                                        let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
-                                                        SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
-                                                        DispatchQueue.main.async {
-                                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-                                                            self.removeCircle(circle: self.oldCircle)
-                                                            self.oldCircle = self.showCircle(coordinate: location, radius: self.raggio!)
-
-                                                        }
-                                                        
-                                                        if(e_o.events != nil){
-                                                            for event in e_o.events!{
-                                                                print(event.name)
-                                    
-                                                            }
-                                                        }
-                                                        if(e_o.questions != nil){
-                                                            for question in e_o.questions!{
-                                                                print(question.text)
-                                                                
-                                                            }
-                                                        }
-                                                    }catch{
-                                                        print("errore di serializzazione")
-                                                    }
-                                    
-                                    
-                                                }
-                                
-                               
-                            
-                                
-                            
-                            //            MessageTableView.messageTableView.reloadData()
+                                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: self.range)
+                                retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
                             
                 }
-                count = count+1
+              
                 }
-         count = 0
+   
         
     }
+    
+    
+    func retrieveQuestionsAndEventsAroundRadar(radar:DBRadar){
+        SingletonServer.singleton.POST_Questions_EventsAroundPosition(radar: radar) { (result) in
+            
+            let decoder = JSONDecoder()
+            let data = result?.data(using: .utf8)
+            do{
+                
+                let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
+//                SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
+               
+                if(e_o.events != nil){
+                SingletonServer.singleton.ordinaEventi(eventi: e_o.events!)
+                }
+                if(e_o.questions != nil){
+                    SingletonServer.singleton.ordinaDomande(domande: e_o.questions!)
+                }
+                DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    self.removeCircle(circle: self.oldCircle)
+                    self.oldCircle = self.showCircle(coordinate: CLLocationCoordinate2D(latitude: radar.posX!, longitude: radar.posY!), radius: self.raggio!)
+                    self.removeAnnotationEvents()
+                    self.addAnnotationEvents()
+                    
+
+                    
+                }
+                
+//                if(e_o.events != nil){
+//                    for event in e_o.events!{
+//                        print(event.name)
+//                        print(event.topic)
+//
+//                    }
+//                }
+//                if(e_o.questions != nil){
+//                    for question in e_o.questions!{
+//                        print(question.text)
+//
+//                    }
+//                }
+            }catch{
+                print("errore di serializzazione")
+            }
+            
+            
+        }
+    }
+    
+    
+    func addAnnotationEvents(){
+        for e in SingletonServer.singleton.eventiOrdinatiPerTopic[1]{
+            let marker = MKPointAnnotation()
+            
+            marker.coordinate = CLLocationCoordinate2D(latitude: (e.myPosition?.posX)!, longitude: (e.myPosition?.posY)!)
+            
+            marker.title = "\(e.name!)"
+            self.mappe.addAnnotation(marker)
+            
+        }
+    }
+    
+    
+    func removeAnnotationEvents(){
+        self.mappe.removeAnnotations(self.mappe.annotations)
+    }
+    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         // If you want to include other shapes, then this check is needed. If you only want circles, then remove it.
         //        if let circleOverlay = overlay as? MKCircle {
+        
         let circleOverlay = overlay as? MKCircle
         let circleRenderer = MKCircleRenderer(overlay: circleOverlay!)
         circleRenderer.fillColor = UIColor.black
@@ -171,11 +239,22 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let annotationView = MKAnnotationView()
-        annotationView.image = UIImage(named: "arrow2")
-//        let transform = CGAffineTransform(scaleX: 10, y: 10)
-//        annotationView.transform = transform
-        return annotationView
+        if(annotation.title == "1"){
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "arrow2")
+            //        let transform = CGAffineTransform(scaleX: 10, y: 10)
+            //        annotationView.transform = transform
+            return annotationView
+        }else if(annotation.title == "2"){
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "arrow2")
+            //        let transform = CGAffineTransform(scaleX: 10, y: 10)
+            //        annotationView.transform = transform
+            return annotationView
+        }
+        
+        return nil
+        
     }
 
   

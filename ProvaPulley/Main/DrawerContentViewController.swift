@@ -14,6 +14,8 @@ import QuartzCore
 
 class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
     
+    var topic = 0
+    
     @IBOutlet weak var Send: UIButton!
     @IBOutlet weak var Gripper: UIView!
     @IBOutlet weak var AskQuestionTextField: UITextField!
@@ -30,7 +32,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
 
     var topicBool: [Bool] = [true, false, false, false, false, false, false]
-    
+    var tableCount:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,17 +84,12 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 
     @IBAction func askQuestion(_ sender: Any) {
         self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
-        
-        
-        
     }
     
     
     @IBAction func Cancel(_ sender: Any) {
         dismissKeyboard()
         
-        
-// self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         let user = SingletonServer.singleton.user
         let radar = SingletonServer.singleton.user?.posFit
         let data = dateFromTimeout(timeout: 3)
@@ -104,11 +101,14 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
             do{
                 let question = try decoder.decode(DBQuestion.self, from: da!)
                 if(question.ID != nil){
-                    SingletonServer.singleton.user?.myQuestions?.append(question)
-                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
-                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+//                    SingletonServer.singleton.user?.myQuestions?.append(question)
+//                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+//                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
+//                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
                     
+                    SingletonServer.singleton.user?.myQuestions?.append(question)
+                    SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+//
                     print(question.text!)
                     
                 }
@@ -121,7 +121,10 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
+    
     @IBAction func anyButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 0
+        self.messageTable.reloadData()
         if !topicBool[0] {
             for i in 1...6 {
                 self.topicBool[i] = false
@@ -138,22 +141,27 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
     }
     
-    @IBAction func tourismButtonTap(_ sender: Any) {
+    @IBAction func foodButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 1
+       
+        self.messageTable.reloadData()
         if !topicBool[1] {
             if topicBool[0] {
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: TourismButton, topicNum: 1)
+            buttonOn(button: FoodButton, topicNum: 1)
             topicBool[1] = true
         }
         else {
-            buttonOff(button: TourismButton)
+            buttonOff(button: FoodButton)
             topicBool[1] = false
         }
     }
     
     @IBAction func nightlifeButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 2
+        self.messageTable.reloadData()
         if !topicBool[2] {
             if topicBool[0] {
                 buttonOff(button: AnyButton)
@@ -168,37 +176,45 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
-    @IBAction func foodButtonTap(_ sender: Any) {
+    @IBAction func artButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 3
+       self.messageTable.reloadData()
         if !topicBool[3] {
             if topicBool[0] {
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: FoodButton, topicNum: 3)
+            buttonOn(button: ArtButton, topicNum: 3)
             topicBool[3] = true
         }
         else {
-            buttonOff(button: FoodButton)
+            buttonOff(button: ArtButton)
             topicBool[3] = false
         }
     }
     
-    @IBAction func artButtonTap(_ sender: Any) {
+    @IBAction func Tourism2Tap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 4
+        self.messageTable.reloadData()
         if !topicBool[4] {
             if topicBool[0] {
                 buttonOff(button: AnyButton)
                 topicBool[0] = false
             }
-            buttonOn(button: ArtButton, topicNum: 4)
+            buttonOn(button: Tourism2Button, topicNum: 4)
             topicBool[4] = true
         }
         else {
-            buttonOff(button: ArtButton)
+            buttonOff(button: Tourism2Button)
             topicBool[4] = false
         }
     }
     
+    
     @IBAction func cityinfoButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 5
+       self.messageTable.reloadData()
+        
         if !topicBool[5] {
             if topicBool[0] {
                 buttonOff(button: AnyButton)
@@ -213,21 +229,22 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
-    @IBAction func Tourism2Tap(_ sender: Any) {
-        
-            if !topicBool[6] {
-                if topicBool[0] {
-                    buttonOff(button: AnyButton)
-                    topicBool[0] = false
-                }
-                buttonOn(button: Tourism2Button, topicNum: 6)
-                topicBool[6] = true
+    @IBAction func tourismButtonTap(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 6
+        self.messageTable.reloadData()
+        if !topicBool[6] {
+            if topicBool[0] {
+                buttonOff(button: AnyButton)
+                topicBool[0] = false
             }
-            else {
-                buttonOff(button: Tourism2Button)
-                topicBool[6] = false
-            }
+            buttonOn(button: TourismButton, topicNum: 6)
+            topicBool[6] = true
         }
+        else {
+            buttonOff(button: TourismButton)
+            topicBool[6] = false
+        }
+    }
     
 }
 extension DrawerContentViewController {
@@ -302,94 +319,181 @@ extension DrawerContentViewController {
     
 }
 
+
 extension DrawerContentViewController: UITableViewDataSource {
+    
+    
+    func switchTopic(topic:Int)->Int{
+        var count = 0
+ 
+                count = (SingletonServer.singleton.eventiOrdinatiPerTopic[topic].count)
+                
+
+                count = count+(SingletonServer.singleton.domandeOrdinatePerTopic[topic].count)
+
+        
+        self.tableCount = count
+        return count
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
     
+    
+    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(SingletonServer.singleton.events_questions_aroundPosition?.events != nil){
-            return (SingletonServer.singleton.events_questions_aroundPosition?.events?.count)!
-        }else{
-            return 0
-        }
-        
+        topic = SingletonServer.singleton.chosenTopic
+        let count = switchTopic(topic: topic)
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
+        if(indexPath.row<SingletonServer.singleton.domandeOrdinatePerTopic[topic].count){
+                        let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+                        let indexProf = imgprof.integerValue as! Int
+                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
+                        cell.backView?.backgroundColor = SingletonServer.singleton.colori[topic]
+                        cell.backView?.layer.cornerRadius = 32.0
+                        cell.descrizione?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
+                        cell.descrizione?.textColor = .white
+                        cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
+                        cell.nickname?.textColor = .white
+                        cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+                        cell.numero?.layer.cornerRadius = 12.0
+                        cell.numero?.clipsToBounds = true
+                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
+                        cell.numero?.backgroundColor = .white
+                        cell.numero?.textColor = SingletonServer.singleton.colori[topic]
+                        cell.numero?.textAlignment = .center
+                        cell.data?.text =  SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine
+                        cell.data?.textColor = .white
+            
+                        cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+            return cell
+        }else{
+            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+            let indexProf = imgprof.integerValue as! Int
+            cell.improf?.image = SingletonServer.singleton.logoImage[topic]
+            cell.backView?.backgroundColor = SingletonServer.singleton.colori[topic]
+            cell.backView?.layer.cornerRadius = 32.0
+            cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].description
+            cell.descrizione?.textColor = .white
+            cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
+            cell.nickname?.textColor = .white
+            cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+            cell.numero?.layer.cornerRadius = 12.0
+            cell.numero?.clipsToBounds = true
+//            cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
+            cell.numero?.backgroundColor = .white
+            cell.numero?.textColor = SingletonServer.singleton.colori[topic]
+            cell.numero?.textAlignment = .center
+            cell.data?.text =  SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].endDate
+            cell.data?.textColor = .white
+            
+            cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+            
+        }
+        return cell
+    }
         
-        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
-        let indexProf = imgprof.integerValue as! Int
-        
+//        //        var questCount = (SingletonServer.singleton.events_questions_aroundPosition?.questions?.count)!
+//        var questCount = 0
+//        if(SingletonServer.singleton.events_questions_aroundPosition?.questions != nil){
+//            questCount = (SingletonServer.singleton.events_questions_aroundPosition?.questions?.count)!
+//
+//        }
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
+//
 //        let color = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].topic!
 //        let indexTopic = Int(color!)
-        //        let cell1 = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! PulleyTableViewCell1
+//        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
+//        let indexProf = imgprof.integerValue as! Int
+//
+//        if indexPath.row < questCount {
+//            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+//            cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
+//            cell.backView?.layer.cornerRadius = 32.0
+//            cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].name
+//            cell.descrizione?.textColor = .white
+//            cell.title?.text = SingletonServer.singleton.user?.nickname
+//            cell.title?.textColor = .white
+//            cell.title?.font = UIFont.boldSystemFont(ofSize: 16.0)
+//            cell.numMessages?.layer.cornerRadius = 12.0
+//            cell.numMessages?.clipsToBounds = true
+//            cell.numMessages?.text = "\(String(describing: SingletonServer.singleton.domande?.answers?.count))"
+//            cell.numMessages?.backgroundColor = .white
+//            cell.numMessages?.textColor = SingletonServer.singleton.colori[indexTopic]
+//            cell.numMessages?.textAlignment = .center
+//            cell.date?.text =  SingletonServer.singleton.domande?.dateFine
+//            cell.date?.textColor = .white
+//
+//            cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+//
+//        }
+//        else {
+//            //            cell.improf?.image = SingletonServer.singleton.events_questions_aroundPosition?.events[indexPath.row - questCount]
+//            print("\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].datetime)) - \(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].endDate))")
+//            cell.date?.text = "\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].datetime)) - \(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].endDate))"
+//            cell.date?.textColor = .black
+//            cell.numMessages?.text = "\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].answers?.count))"
+//            cell.numMessages?.textColor = .white
+//            cell.numMessages?.backgroundColor = .black
+//            cell.numMessages?.textAlignment = .center
+//            cell.numMessages?.layer.cornerRadius = 12.0
+//            cell.numMessages?.clipsToBounds = true
+//            cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].description
+//            cell.descrizione?.textColor = .black
+//            cell.title?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].name
+//            cell.title?.textColor = .black
+//            cell.backView?.layer.borderWidth = 1
+//            cell.backView?.layer.borderColor = UIColor(red: 0/255, green: 90/255, blue: 50/255, alpha: 1.0).cgColor
+//            cell.backView?.layer.cornerRadius = 32.0
+//
+//            //            cell.backView?.addTarget(self, action: #selector(performeEvent), for: .touchDown)
+//
+//        }
+//
+//        return cell
         
-        //        if indexPath.row == 0{
-//        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-//        cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
-//        cell.backView?.layer.cornerRadius = 32.0
-        cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].name
-//        cell.descrizione?.textColor = .white
-//        cell.nickname?.text = SingletonServer.singleton.user?.nickname
-//        cell.nickname?.textColor = .white
-//        cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
-//        cell.numero?.layer.cornerRadius = 12.0
-//        cell.numero?.clipsToBounds = true
-//        cell.numero?.text = "\(SingletonServer.singleton.domande?.answers?.count)"
-//        cell.numero?.backgroundColor = .white
-//        cell.numero?.textColor = SingletonServer.singleton.colori[indexTopic]
-//        cell.numero?.textAlignment = .center
-//        cell.data?.text =  SingletonServer.singleton.domande?.dateFine
-//        cell.data?.textColor = .white
-//        cell.backView?.addTarget(self, action: #selector(performe), for: .touchDown)
-        
-        
-        
-        return cell
-        //        }else{
-        //            cell1.improf1.image = #imageLiteral(resourceName: "Giorgio")
-        //            cell1.inizio1.text = "22:00"
-        //            cell1.inizio1.textColor = .black
-        //            cell1.num1.text = "14"
-        //            cell1.num1.textColor = .white
-        //            cell1.num1.backgroundColor = .black
-        //            cell1.num1.textAlignment = .center
-        //            cell1.num1.layer.cornerRadius = 12.0
-        //            cell1.num1.clipsToBounds = true
-        //            cell1.desc1.text = "O DRAGGGGGGGGGGGGGGGGGGGGGGGG"
-        //            cell1.desc1.textColor = .black
-        //            cell1.nick1.text = "Giorgia"
-        //            cell1.nick1.textColor = .black
-        //            cell1.divisore.text = "-"
-        //            cell1.divisore.textColor = .black
-        //            cell1.sfondo1.layer.borderWidth = 1
-        //            cell1.fine.text = "2:00"
-        //            cell1.fine.textColor = .black
-        //            cell1.sfondo1.layer.borderColor = UIColor(red: 0/255, green: 90/255, blue: 50/255, alpha: 1.0).cgColor
-        //            return cell1
-        //        }
-    }
     
-    @objc func performe(){
+    
+    @objc func performeQuest(){
         self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
         self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
     }
+    
+    @objc func performeEvent(){
+        self.performSegue(withIdentifier: "seguePulleyEvent", sender: nil)
+        self.pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+    }
+    
+ 
     
     func createNewQuestion(){
         self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         let user = SingletonServer.singleton.retrieveUserState()
         let radar = SingletonServer.singleton.user?.posFit
         let data = dateFromTimeout(timeout: 3)
-        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar!, topic: 1) { (result) in
+        let topic = SingletonServer.singleton.chosenTopic
+        SingletonServer.singleton.chosenTopic = 0
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar!, topic: Int32(topic)) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
             do{
                 let question = try decoder.decode(DBQuestion.self, from: da!)
                 if(question.ID != nil){
+                    
+                    
+//                    SingletonServer.singleton.user?.myQuestions?.append(question)
+//                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    
+                    
                     SingletonServer.singleton.user?.myQuestions?.append(question)
-                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+                    
                     print(question.text!)
                 }
             }catch{

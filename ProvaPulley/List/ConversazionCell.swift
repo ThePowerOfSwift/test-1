@@ -12,6 +12,8 @@ class ConversazionCell: UITableViewCell {
 
     @IBOutlet weak var vricevi: UIView!
     
+    @IBOutlet weak var imminvio: UIImageView!
+    @IBOutlet weak var immagine: UIImageView!
     @IBOutlet weak var vinvio: UIView!
     @IBOutlet weak var lblMessaggio: UILabel!
     @IBOutlet weak var lblData: UILabel!

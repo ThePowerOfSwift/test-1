@@ -108,6 +108,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.clipsToBounds = true
             cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
             cell.vricevi.backgroundColor = DataManager.shared.sfondoColor
+            
 //            print(cell.vricevi.backgroundColor)
            
             return cell
@@ -121,7 +122,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.vinvio.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
             cell.imminvio.image = SingletonServer.singleton.logoImage[indexProf]
-            
+            cell.vinvio.backgroundColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
             return cell
         }
     }

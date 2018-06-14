@@ -8,6 +8,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     var messaggi: [(String,Bool)] = [("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false)]
     
     
+  
     @IBOutlet weak var tableview: UITableView!
     
     
@@ -83,6 +84,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
+        let indexProf = imgprof.integerValue as! Int
         let messaggio = messaggi[indexPath.row]
         if messaggio.1 {
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellinviato", for: indexPath) as! ConversazionCell
@@ -92,7 +96,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.lblMessaggio.text = messaggio.0
             cell.vricevi.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
-            
+            cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
             print("inviato")
             return cell
             
@@ -104,6 +108,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.lblMessaggio.text = messaggio.0
             cell.vinvio.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
+            cell.imminvio.image = SingletonServer.singleton.logoImage[indexProf]
             print("ricevuto")
             return cell
         }

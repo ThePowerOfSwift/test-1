@@ -26,7 +26,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         textView.delegate = self
     tableview.rowHeight = UITableViewAutomaticDimension
-        tableview.estimatedRowHeight = 90   // Do any additional setup after loading the view.
+        tableview.estimatedRowHeight = 100   // Do any additional setup after loading the view.
        
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = "ciao come va?"
@@ -34,6 +34,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         textView.clipsToBounds = true
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1).cgColor
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,11 +53,14 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func send(_ sender: UIButton) {
         if textView.text != "" {
             messaggi.append((textView.text, true))
-            let indice = IndexPath.init(row: messaggi.count - 1, section: 0)
-            tableview.insertRows(at: [indice], with: .automatic)
-            self.tableview.scrollToRow(at: indice, at: .top, animated: false)
+            let indice = NSIndexPath.init(row: messaggi.count - 1, section: 0)
+            tableview.insertRows(at: [indice as IndexPath], with: .automatic)
+            self.tableview.scrollToRow(at: indice as IndexPath, at: .top, animated: false)
             textView.text = ""
-            textViewDidChange(textView)        }
+            
+            textViewDidChange(textView)
+            
+        }
 //        if textView.isFirstResponder {
 //            textView.resignFirstResponder()
 //        }
@@ -88,7 +92,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic
+        let indexTopic = Int(color!)
+
         let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
         let indexProf = imgprof.integerValue as! Int
         let messaggio = messaggi[indexPath.row]
@@ -101,7 +107,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.vricevi.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
             cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
-            print("inviato")
+            cell.vricevi.backgroundColor = DataManager.shared.sfondoColor
+//            print(cell.vricevi.backgroundColor)
+           
             return cell
             
         } else {
@@ -113,7 +121,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.vinvio.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
             cell.imminvio.image = SingletonServer.singleton.logoImage[indexProf]
-            print("ricevuto")
+            
             return cell
         }
     }
@@ -142,7 +150,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         
         UIView.animate (withDuration: durataAnimazione, delay: 0, options:
             .curveEaseInOut, animations: {
-            let dimensioneTastiera = self.view.convert ( fineTastiera, to:nil)
+            let dimensioneTastiera = self.view.convert (fineTastiera, to:nil)
             let spostamentoVerticale = dimensioneTastiera.size.height * (su ? -1 : 1)
             self.view.frame = self.view.frame.offsetBy( dx: 0, dy: spostamentoVerticale)
                 self.tastieraSu = !self.tastieraSu

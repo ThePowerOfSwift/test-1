@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="n6G-N6-j7u" customClass="ChatTableViewCell" customModule="BatChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="n6G-N6-j7u" customClass="ChatTableViewCell" customModule="BatChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6G-N6-j7u" id="WSK-P4-PgX">
@@ -60,7 +60,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <segue destination="TI3-Yc-DSm" kind="show" id="tP1-K8-jQ6"/>
+                                                        <action selector="clicco:" destination="n6G-N6-j7u" eventType="touchUpInside" id="4EM-7j-jX2"/>
+                                                        <segue destination="TI3-Yc-DSm" kind="show" id="FLw-b9-uNb"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-6j-a51">
@@ -111,7 +112,7 @@
                                             <outlet property="sfondo" destination="tju-oI-0Gf" id="NXb-ho-WBq"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="70" id="T8C-Rm-5kR" customClass="Chat1TableViewCell" customModule="BatChat" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell1" rowHeight="70" id="T8C-Rm-5kR" customClass="Chat1TableViewCell" customModule="BatChat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="120" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T8C-Rm-5kR" id="TR2-iu-4d9">
@@ -126,9 +127,6 @@
                                                             <real key="value" value="32"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="TI3-Yc-DSm" kind="show" id="eb3-pe-wqU"/>
-                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mCz-J6-cuk">
                                                     <rect key="frame" x="10" y="3" width="60" height="60"/>
@@ -336,7 +334,7 @@
                                             <action selector="send:" destination="TI3-Yc-DSm" eventType="touchUpInside" id="odN-Gd-v5i"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-77-zu7">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-77-zu7">
                                         <rect key="frame" x="16" y="17" width="284" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -388,7 +386,4 @@
         <image name="list" width="30" height="30"/>
         <image name="send1" width="34" height="34"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tP1-K8-jQ6"/>
-    </inferredMetricsTieBreakers>
 </document>

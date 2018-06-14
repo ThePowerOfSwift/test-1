@@ -65,10 +65,12 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic 
         let indexTopic = Int(color!)
-        print(indexTopic)
-        print(indexProf)
         
-//        if indexPath.row == 0{
+        
+        
+        
+        
+            //        if indexPath.row == 0{
             cell.improf.image = SingletonServer.singleton.logoImage[indexProf]
             cell.sfondo.backgroundColor = SingletonServer.singleton.colori[indexTopic]
             cell.desc.text = SingletonServer.singleton.user?.myQuestions![indexPath.row].text
@@ -83,7 +85,8 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
             cell.num.textAlignment = .center
             cell.inizio.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
             cell.inizio.textColor = .white
-            
+        
+        
             
             
             return cell
@@ -113,6 +116,16 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //            }
         
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+        print("ciiii")
+//        DataManager.shared.sfondoColor = Int((SingletonServer.singleton.user?.myQuestions![indexPath.row].topic!)!)
+//        print("CIIII\(DataManager.shared.sfondoColor)")
+  
+    }
+    
+   
     
 
     override func viewDidLoad() {

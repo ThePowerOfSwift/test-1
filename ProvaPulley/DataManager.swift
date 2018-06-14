@@ -29,6 +29,8 @@ final class DataManager {
     let tourismColor = UIColor(red: 197.0/255.0, green: 162.0/255.0, blue: 241.0/255.0, alpha: 1)
     
     var profile = [#imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Silvia"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Francesco"), #imageLiteral(resourceName: "Hind")]
+    
+    var sfondoColor = UIColor.white
 
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food, id: true),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art, id: false),

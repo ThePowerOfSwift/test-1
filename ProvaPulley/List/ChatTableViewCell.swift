@@ -16,6 +16,13 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var improf: UIImageView!
     @IBOutlet weak var sfondo: UICustomButton!
+    
+    
+    @IBAction func clicco(_ sender: Any) {
+        DataManager.shared.sfondoColor = sfondo.backgroundColor!
+            
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

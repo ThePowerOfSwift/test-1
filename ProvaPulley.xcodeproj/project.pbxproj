@@ -61,7 +61,6 @@
 
 /* Begin PBXFileReference section */
 		2A62161D384BE453414560D8 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E85279920D1303D0004E00A /* ConversazionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversazionViewController.swift; sourceTree = "<group>"; };
 		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
 		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
 		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
@@ -228,7 +227,6 @@
 				BD38257B20D1564900780C98 /* ConversazionViewController.swift */,
 				878CDCB420C19F5600F78BC8 /* ChatViewController.swift */,
 				BDF8245E20D0086900B070AB /* ConversazionCell.swift */,
-				5E85279920D1303D0004E00A /* ConversazionViewController.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";

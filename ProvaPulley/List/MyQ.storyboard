@@ -223,7 +223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HA5-CG-oFe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HA5-CG-oFe">
                                 <rect key="frame" x="0.0" y="64" width="375" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -231,11 +231,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z02-G2-hRU" id="Nm5-Pf-Oun">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-gt-cQB">
-                                                    <rect key="frame" x="0.0" y="-7" width="227" height="80"/>
+                                                    <rect key="frame" x="15" y="19" width="227" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-Ee-HzP">
@@ -260,17 +260,18 @@
                                         <connections>
                                             <outlet property="lblData" destination="Fh5-eA-W30" id="N1T-26-T0v"/>
                                             <outlet property="lblMessaggio" destination="wEM-Ee-HzP" id="Prh-5f-bOd"/>
+                                            <outlet property="vricevi" destination="iVl-gt-cQB" id="zlT-fW-748"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellricevuto" rowHeight="90" id="bOo-t9-KFC" customClass="ConversazionCell" customModule="BatChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="375" height="90"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellricevuto" rowHeight="100" id="bOo-t9-KFC" customClass="ConversazionCell" customModule="BatChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="128" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOo-t9-KFC" id="4Ec-ep-qP8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-JT-ggq" userLabel="Conversazione cell">
-                                                    <rect key="frame" x="148" y="-17" width="227" height="80"/>
+                                                    <rect key="frame" x="133" y="11" width="227" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkX-Tz-K41">
                                                             <rect key="frame" x="8" y="8" width="219" height="21"/>
@@ -291,15 +292,16 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GsC-JT-ggq" firstAttribute="leading" secondItem="4Ec-ep-qP8" secondAttribute="leading" constant="148" id="2jL-Pa-fCu"/>
-                                                <constraint firstAttribute="bottom" secondItem="GsC-JT-ggq" secondAttribute="bottom" constant="-2.5" id="DW7-0Z-1E3"/>
-                                                <constraint firstAttribute="trailing" secondItem="GsC-JT-ggq" secondAttribute="trailing" id="bOg-LJ-WWY"/>
-                                                <constraint firstItem="GsC-JT-ggq" firstAttribute="top" secondItem="4Ec-ep-qP8" secondAttribute="top" constant="-4" id="sO1-eb-GMo"/>
+                                                <constraint firstItem="GsC-JT-ggq" firstAttribute="leading" secondItem="4Ec-ep-qP8" secondAttribute="leading" constant="133" id="2jL-Pa-fCu"/>
+                                                <constraint firstAttribute="bottom" secondItem="GsC-JT-ggq" secondAttribute="bottom" constant="17" id="DW7-0Z-1E3"/>
+                                                <constraint firstAttribute="trailing" secondItem="GsC-JT-ggq" secondAttribute="trailing" constant="15" id="bOg-LJ-WWY"/>
+                                                <constraint firstItem="GsC-JT-ggq" firstAttribute="top" secondItem="4Ec-ep-qP8" secondAttribute="top" constant="11" id="sO1-eb-GMo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lblData" destination="Wb7-oR-7Wt" id="uRK-Em-HiV"/>
                                             <outlet property="lblMessaggio" destination="wkX-Tz-K41" id="zuk-Mq-3xp"/>
+                                            <outlet property="vinvio" destination="GsC-JT-ggq" id="ICS-TA-wbe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

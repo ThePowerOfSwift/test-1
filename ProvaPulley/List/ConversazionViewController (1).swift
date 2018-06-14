@@ -26,6 +26,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         textView.delegate = self
     tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 90   // Do any additional setup after loading the view.
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +86,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellinviato", for: indexPath) as! ConversazionCell
             cell.lblData.text = "\(NSDate())"
             cell.lblMessaggio.text = messaggio.0
+            cell.vricevi.layer.cornerRadius = 30.0
+            cell.clipsToBounds = true
+            
             print("inviato")
             return cell
             
@@ -92,11 +96,16 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellricevuto", for: indexPath) as! ConversazionCell
             cell.lblData.text = "\(NSDate())"
             cell.lblMessaggio.text = messaggio.0
+            cell.vinvio.layer.cornerRadius = 30.0
+            cell.clipsToBounds = true
             print("ricevuto")
             return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     @objc func tastieraDentro (notifica: Notification) {
         tastieraInOut (su:false, notifica: notifica)
     }

@@ -214,7 +214,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //    funzione per cambiare l'immagine del pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView()
-        let image: UIImage = UIImage(named: "Food.pdf")!
+        let image: UIImage = UIImage(named: "FOOD")!
         annotationView.image = image
         
 //        let transform = CGAffineTransform(scaleX: 10, y: 10)

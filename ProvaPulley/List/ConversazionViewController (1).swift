@@ -27,9 +27,13 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         textView.delegate = self
     tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 90   // Do any additional setup after loading the view.
-        hideKeyboardWhenTappedAround()
+       
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = "ciao come va?"
+        textView.layer.cornerRadius = 15.0
+        textView.clipsToBounds = true
+        textView.layer.borderWidth = 1.0
+        textView.layer.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1).cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,9 +57,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             self.tableview.scrollToRow(at: indice, at: .top, animated: false)
             textView.text = ""
             textViewDidChange(textView)        }
-        if textView.isFirstResponder {
-            textView.resignFirstResponder()
-        }
+//        if textView.isFirstResponder {
+//            textView.resignFirstResponder()
+//        }
     }
     
     // gestione textview per scrivere

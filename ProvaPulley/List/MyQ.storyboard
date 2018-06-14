@@ -275,7 +275,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-JT-ggq" userLabel="Conversazione cell">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-JT-ggq" userLabel="Conversazione cell">
                                                     <rect key="frame" x="133" y="11" width="227" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:59" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb7-oR-7Wt">
@@ -302,7 +302,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="GsC-JT-ggq" firstAttribute="leading" secondItem="4Ec-ep-qP8" secondAttribute="leading" constant="133" id="2jL-Pa-fCu"/>
-                                                <constraint firstAttribute="bottom" secondItem="GsC-JT-ggq" secondAttribute="bottom" constant="17" id="DW7-0Z-1E3"/>
+                                                <constraint firstAttribute="bottom" secondItem="GsC-JT-ggq" secondAttribute="bottom" constant="9" id="DW7-0Z-1E3"/>
                                                 <constraint firstAttribute="trailing" secondItem="GsC-JT-ggq" secondAttribute="trailing" constant="15" id="bOg-LJ-WWY"/>
                                                 <constraint firstItem="GsC-JT-ggq" firstAttribute="top" secondItem="4Ec-ep-qP8" secondAttribute="top" constant="11" id="sO1-eb-GMo"/>
                                             </constraints>
@@ -323,21 +323,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTC-xM-POt">
                                 <rect key="frame" x="0.0" y="598" width="375" height="69"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cc-nv-j4L">
-                                        <rect key="frame" x="308" y="17" width="67" height="35"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cc-nv-j4L">
+                                        <rect key="frame" x="313" y="17" width="48" height="35"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="SGf-2A-Bte"/>
-                                            <constraint firstAttribute="width" constant="67" id="Y1h-re-UWi"/>
+                                            <constraint firstAttribute="width" constant="48" id="Y1h-re-UWi"/>
                                             <constraint firstAttribute="height" constant="35" id="wH0-iH-vba"/>
                                         </constraints>
-                                        <state key="normal" title="invia"/>
+                                        <state key="normal" image="send1"/>
                                         <connections>
                                             <action selector="send:" destination="TI3-Yc-DSm" eventType="touchUpInside" id="odN-Gd-v5i"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-77-zu7">
-                                        <rect key="frame" x="16" y="17" width="274" height="33"/>
+                                        <rect key="frame" x="16" y="17" width="284" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="Qox-8z-GTV"/>
@@ -346,16 +346,16 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="3Cc-nv-j4L" firstAttribute="top" secondItem="XTC-xM-POt" secondAttribute="top" constant="17" id="0dY-Eq-pWa"/>
                                     <constraint firstAttribute="bottom" secondItem="JYZ-77-zu7" secondAttribute="bottom" constant="19" id="3ma-zl-kq0"/>
-                                    <constraint firstItem="3Cc-nv-j4L" firstAttribute="leading" secondItem="JYZ-77-zu7" secondAttribute="trailing" constant="18" id="8uh-9m-OjQ"/>
+                                    <constraint firstItem="3Cc-nv-j4L" firstAttribute="leading" secondItem="JYZ-77-zu7" secondAttribute="trailing" constant="13" id="8uh-9m-OjQ"/>
                                     <constraint firstItem="JYZ-77-zu7" firstAttribute="leading" secondItem="XTC-xM-POt" secondAttribute="leading" constant="16" id="Mhz-eO-gd8"/>
                                     <constraint firstAttribute="bottom" secondItem="3Cc-nv-j4L" secondAttribute="bottom" constant="17" id="V2r-Zr-ZQU"/>
                                     <constraint firstItem="JYZ-77-zu7" firstAttribute="leading" secondItem="XTC-xM-POt" secondAttribute="leading" constant="16" id="VP7-c1-jEz"/>
                                     <constraint firstAttribute="bottom" secondItem="3Cc-nv-j4L" secondAttribute="bottom" constant="17" id="qPk-GV-ZYI"/>
-                                    <constraint firstAttribute="trailing" secondItem="3Cc-nv-j4L" secondAttribute="trailing" id="rEg-N6-Zgn"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Cc-nv-j4L" secondAttribute="trailing" constant="14" id="rEg-N6-Zgn"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -386,6 +386,7 @@
     </scenes>
     <resources>
         <image name="list" width="30" height="30"/>
+        <image name="send1" width="34" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tP1-K8-jQ6"/>

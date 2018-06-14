@@ -57,7 +57,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         
         let marker = EventAnnotation(coordinate: location)
-        
         marker.image = UIImage(named: "FOOD.png")
         print( marker.coordinate)
         
@@ -212,9 +211,10 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         manager.startUpdatingLocation()
     }
     
+//    funzione per cambiare l'immagine del pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKAnnotationView()
-        annotationView.image = UIImage(named: "arrow2")
+        annotationView.image = UIImage(named: "FOOD.png")
 //        let transform = CGAffineTransform(scaleX: 10, y: 10)
 //        annotationView.transform = transform
         return annotationView

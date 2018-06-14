@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E85279A20D1303E0004E00A /* ConversazionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E85279920D1303D0004E00A /* ConversazionViewController.swift */; };
 		81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAA20CAC1290015CB00 /* DBQuestion.swift */; };
 		81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAB20CAC1290015CB00 /* DBRadar.swift */; };
 		81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */; };
@@ -214,7 +213,7 @@
 				871B956020C536480035C3A2 /* Cella2SettingsTableViewCell.swift */,
 				C558478E20C0532A008978D4 /* ProfileViewController.swift */,
 				871B955E20C531260035C3A2 /* Cella1SettingsTableViewCell.swift */,
-				BD22808920BEEC16005E3919 /* PasswordViewController.swift */,
+				BD22808920BEEC16005E3919 /* passwordViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -384,7 +383,7 @@
 				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
 				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
-				BD22808A20BEEC16005E3919 /* PasswordViewController.swift in Sources */,
+				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				871B957120C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift in Sources */,
@@ -564,7 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4SJ286CKV5;
+				DEVELOPMENT_TEAM = 9ZUZHE8FZA;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,7 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4SJ286CKV5;
+				DEVELOPMENT_TEAM = 9ZUZHE8FZA;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

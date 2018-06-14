@@ -27,6 +27,8 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 90   // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = "ciao come va?"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,7 +86,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         let messaggio = messaggi[indexPath.row]
         if messaggio.1 {
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellinviato", for: indexPath) as! ConversazionCell
-            cell.lblData.text = "\(NSDate())"
+            var dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .short
+            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
             cell.lblMessaggio.text = messaggio.0
             cell.vricevi.layer.cornerRadius = 30.0
             cell.clipsToBounds = true
@@ -94,7 +98,9 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             
         } else {
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellricevuto", for: indexPath) as! ConversazionCell
-            cell.lblData.text = "\(NSDate())"
+            var dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .short
+            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
             cell.lblMessaggio.text = messaggio.0
             cell.vinvio.layer.cornerRadius = 30.0
             cell.clipsToBounds = true

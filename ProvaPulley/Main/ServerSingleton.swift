@@ -26,7 +26,7 @@ class SingletonServer{
     
     
 //    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
-    let ipServer = "192.168.1.101"
+    let ipServer = "10.20.49.178"
     
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Lorenzo"),#imageLiteral(resourceName: "Giorgio"),#imageLiteral(resourceName: "Hind"),#imageLiteral(resourceName: "Luca"),#imageLiteral(resourceName: "Sofia"),#imageLiteral(resourceName: "Antonio vero"),#imageLiteral(resourceName: "Antonio falso"),#imageLiteral(resourceName: "Francesco"),#imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]

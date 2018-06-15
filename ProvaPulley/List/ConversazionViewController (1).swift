@@ -5,6 +5,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     
     var tastieraSu = false
     
+    @IBOutlet weak var testoView: UIView!
     var messaggi: [(String,Bool)] = [("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false)]
     
     

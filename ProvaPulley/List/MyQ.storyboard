@@ -236,7 +236,7 @@
                                                     <rect key="frame" x="15" y="19" width="227" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-Ee-HzP">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="aaa" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-Ee-HzP">
                                                             <rect key="frame" x="76" y="28" width="93" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -287,7 +287,7 @@
                                                             <rect key="frame" x="159" y="10" width="60" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkX-Tz-K41">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkX-Tz-K41">
                                                             <rect key="frame" x="43" y="29" width="108" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -325,7 +325,6 @@
                                         <rect key="frame" x="313" y="17" width="48" height="35"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="SGf-2A-Bte"/>
                                             <constraint firstAttribute="width" constant="48" id="Y1h-re-UWi"/>
                                             <constraint firstAttribute="height" constant="35" id="wH0-iH-vba"/>
                                         </constraints>
@@ -334,7 +333,7 @@
                                             <action selector="send:" destination="TI3-Yc-DSm" eventType="touchUpInside" id="odN-Gd-v5i"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-77-zu7">
+                                    <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-77-zu7">
                                         <rect key="frame" x="16" y="17" width="284" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -350,9 +349,6 @@
                                     <constraint firstAttribute="bottom" secondItem="JYZ-77-zu7" secondAttribute="bottom" constant="19" id="3ma-zl-kq0"/>
                                     <constraint firstItem="3Cc-nv-j4L" firstAttribute="leading" secondItem="JYZ-77-zu7" secondAttribute="trailing" constant="13" id="8uh-9m-OjQ"/>
                                     <constraint firstItem="JYZ-77-zu7" firstAttribute="leading" secondItem="XTC-xM-POt" secondAttribute="leading" constant="16" id="Mhz-eO-gd8"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Cc-nv-j4L" secondAttribute="bottom" constant="17" id="V2r-Zr-ZQU"/>
-                                    <constraint firstItem="JYZ-77-zu7" firstAttribute="leading" secondItem="XTC-xM-POt" secondAttribute="leading" constant="16" id="VP7-c1-jEz"/>
-                                    <constraint firstAttribute="bottom" secondItem="3Cc-nv-j4L" secondAttribute="bottom" constant="17" id="qPk-GV-ZYI"/>
                                     <constraint firstAttribute="trailing" secondItem="3Cc-nv-j4L" secondAttribute="trailing" constant="14" id="rEg-N6-Zgn"/>
                                 </constraints>
                             </view>
@@ -374,6 +370,7 @@
                     <connections>
                         <outlet property="constraintAltezzaText" destination="Qox-8z-GTV" id="hj3-nM-98H"/>
                         <outlet property="tableview" destination="HA5-CG-oFe" id="nfR-4s-a4p"/>
+                        <outlet property="testoView" destination="XTC-xM-POt" id="2Gp-89-qhm"/>
                         <outlet property="textView" destination="JYZ-77-zu7" id="S40-gA-uU5"/>
                     </connections>
                 </viewController>

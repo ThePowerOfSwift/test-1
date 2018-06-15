@@ -225,18 +225,18 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellinviato" rowHeight="68" id="z02-G2-hRU" userLabel="cellinviato" customClass="ConversazionCell" customModule="BatChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellinviato" id="z02-G2-hRU" userLabel="cellinviato" customClass="ConversazionCell" customModule="BatChat" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z02-G2-hRU" id="Nm5-Pf-Oun">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-gt-cQB">
-                                                    <rect key="frame" x="184" y="11" width="176" height="54"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-gt-cQB">
+                                                    <rect key="frame" x="184" y="0.0" width="177" height="39"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="aaa" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEM-Ee-HzP">
-                                                            <rect key="frame" x="8" y="12" width="140" height="30"/>
+                                                            <rect key="frame" x="8" y="12" width="24.5" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -244,20 +244,18 @@
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wEM-Ee-HzP" secondAttribute="trailing" constant="28" id="UgS-Um-zWZ"/>
-                                                        <constraint firstItem="wEM-Ee-HzP" firstAttribute="top" secondItem="iVl-gt-cQB" secondAttribute="top" constant="12" id="W5s-0X-EjM"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wEM-Ee-HzP" secondAttribute="bottom" constant="12" id="tSa-rB-m1a"/>
-                                                        <constraint firstItem="wEM-Ee-HzP" firstAttribute="leading" secondItem="iVl-gt-cQB" secondAttribute="leading" constant="8" id="tdT-1v-Sd6"/>
+                                                        <constraint firstItem="wEM-Ee-HzP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iVl-gt-cQB" secondAttribute="leading" constant="8" id="5Wk-ud-jLY"/>
+                                                        <constraint firstItem="wEM-Ee-HzP" firstAttribute="top" secondItem="iVl-gt-cQB" secondAttribute="top" constant="12" id="H90-xT-y7q"/>
+                                                        <constraint firstAttribute="bottom" secondItem="wEM-Ee-HzP" secondAttribute="bottom" constant="9" id="lh4-5Q-dfj"/>
+                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wEM-Ee-HzP" secondAttribute="trailing" constant="8" id="zuQ-LE-w1L"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="iVl-gt-cQB" secondAttribute="trailing" constant="15" id="Kip-Fa-Aas"/>
-                                                <constraint firstItem="iVl-gt-cQB" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Nm5-Pf-Oun" secondAttribute="leading" constant="184" id="WcQ-QZ-0gG"/>
-                                                <constraint firstItem="iVl-gt-cQB" firstAttribute="top" secondItem="Nm5-Pf-Oun" secondAttribute="top" constant="11" id="YSL-2s-rOe"/>
-                                                <constraint firstAttribute="bottom" secondItem="iVl-gt-cQB" secondAttribute="bottom" constant="3" id="g1p-fd-9qY"/>
-                                                <constraint firstItem="iVl-gt-cQB" firstAttribute="top" secondItem="Nm5-Pf-Oun" secondAttribute="top" constant="11" id="vc7-QD-iqg"/>
-                                                <constraint firstAttribute="trailing" secondItem="iVl-gt-cQB" secondAttribute="trailing" constant="15" id="wvA-Tf-frj"/>
+                                                <constraint firstAttribute="bottom" secondItem="iVl-gt-cQB" secondAttribute="bottom" constant="5" id="1hO-zY-dI3"/>
+                                                <constraint firstItem="iVl-gt-cQB" firstAttribute="top" secondItem="Nm5-Pf-Oun" secondAttribute="top" id="iT4-UL-OEt"/>
+                                                <constraint firstAttribute="trailing" secondItem="iVl-gt-cQB" secondAttribute="trailing" constant="14" id="ivp-bi-v81"/>
+                                                <constraint firstItem="iVl-gt-cQB" firstAttribute="leading" secondItem="Nm5-Pf-Oun" secondAttribute="leading" constant="184" id="oaV-vl-4yK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -266,7 +264,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellricevuto" id="bOo-t9-KFC" customClass="ConversazionCell" customModule="BatChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bOo-t9-KFC" id="4Ec-ep-qP8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -275,8 +273,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsC-JT-ggq" userLabel="Conversazione cell">
                                                     <rect key="frame" x="23" y="0.0" width="205" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkX-Tz-K41">
-                                                            <rect key="frame" x="8" y="12" width="181" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkX-Tz-K41">
+                                                            <rect key="frame" x="8" y="12" width="37.5" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

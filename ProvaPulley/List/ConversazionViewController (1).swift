@@ -93,8 +93,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic
-        let indexTopic = Int(color!)
+
 
         let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
         let indexProf = imgprof.integerValue as! Int
@@ -110,7 +109,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.clipsToBounds = true
 //            cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
             cell.vricevi.backgroundColor = DataManager.shared.sfondoColor
-            cell.vricevi.autoresizesSubviews = true
+//            cell.vricevi.autoresizesSubviews = true
             
 //            print(cell.vricevi.backgroundColor)
            

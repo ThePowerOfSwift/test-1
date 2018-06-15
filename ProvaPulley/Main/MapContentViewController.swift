@@ -47,7 +47,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         // Do any additional setup after loading the view.
         
         
-        
+        mappe.showsCompass = false
         NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
        
     }

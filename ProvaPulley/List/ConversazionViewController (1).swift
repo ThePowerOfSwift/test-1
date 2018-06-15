@@ -108,6 +108,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             cell.clipsToBounds = true
             cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
             cell.vricevi.backgroundColor = DataManager.shared.sfondoColor
+            cell.vricevi.autoresizesSubviews = true
             
 //            print(cell.vricevi.backgroundColor)
            

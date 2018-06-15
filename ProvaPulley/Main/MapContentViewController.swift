@@ -54,31 +54,11 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     
     @objc func createAnnotation(not:Notification){
-        let touchp = not.object
-        
-        guard (touchp as? CGPoint ) != nil else {
-            print("non fun<")
-            return
-        }
-        
-        print("FUNZIONA?:\((touchp as! CGPoint).x)")
-        let location =  CLLocationCoordinate2D(latitude: (CLLocationDegrees((touchp as! CGPoint).x)), longitude: CLLocationDegrees((touchp as! CGPoint).y))
-//        self.mappe.setRegion(MKCoordinateRegionMakeWithDistance(location, 100, 100), animated: true)
-        
-     
-            let marker = MKPointAnnotation()
-            
-            marker.coordinate = location
-            print( marker.coordinate)
-            marker.title = "3"
-            self.anntVett.append(marker)
-            print("APPEND")
-        
-        
-        
-        
+        self.removeAnnotationEvents()
+        self.addAnnotationEvents()
         
     }
+    
 
     func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
         let circle = MKCircle(center: coordinate, radius: radius)
@@ -161,8 +141,10 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
                 let e_o = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
 //                SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(json: result!, e_q: e_o)
                
+                
                 if(e_o.events != nil){
                 SingletonServer.singleton.ordinaEventi(eventi: e_o.events!)
+                
                 }
                 if(e_o.questions != nil){
                     SingletonServer.singleton.ordinaDomande(domande: e_o.questions!)
@@ -201,7 +183,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     
     func addAnnotationEvents(){
-        for e in SingletonServer.singleton.eventiOrdinatiPerTopic[1]{
+        
+        for e in SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic]{
             let marker = MKPointAnnotation()
             
             marker.coordinate = CLLocationCoordinate2D(latitude: (e.myPosition?.posX)!, longitude: (e.myPosition?.posY)!)

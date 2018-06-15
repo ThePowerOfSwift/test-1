@@ -20,13 +20,13 @@ class SingletonServer{
     var retrieveTopic:[Int] = []
     
     var user:DBUser?
-   
+    
     var eventiOrdinatiPerTopic:[[DBEvent]] = [[DBEvent]]()
     var domandeOrdinatePerTopic:[[DBQuestion]] = [[DBQuestion]]()
     
     
-//    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
-    let ipServer = "10.20.49.196"
+    //    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
+    let ipServer = "10.20.49.178"
     
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Lorenzo"),#imageLiteral(resourceName: "Giorgio"),#imageLiteral(resourceName: "Hind"),#imageLiteral(resourceName: "Luca"),#imageLiteral(resourceName: "Sofia"),#imageLiteral(resourceName: "Antonio vero"),#imageLiteral(resourceName: "Antonio falso"),#imageLiteral(resourceName: "Francesco"),#imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
@@ -40,6 +40,7 @@ class SingletonServer{
         domandeOrdinatePerTopic.append([DBQuestion]())
         domandeOrdinatePerTopic.append([DBQuestion]())
         domandeOrdinatePerTopic.append([DBQuestion]())
+        domandeOrdinatePerTopic.append([DBQuestion]())
         
         eventiOrdinatiPerTopic = [[DBEvent]]()
         eventiOrdinatiPerTopic.append([DBEvent]())
@@ -49,476 +50,474 @@ class SingletonServer{
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
         
-       
+        
         
     }
-    
-    func ordinaDomande(domande:[DBQuestion]){
-        domandeOrdinatePerTopic = [[DBQuestion]]()
-        domandeOrdinatePerTopic.append([DBQuestion]())
-        domandeOrdinatePerTopic.append([DBQuestion]())
-        domandeOrdinatePerTopic.append([DBQuestion]())
-        domandeOrdinatePerTopic.append([DBQuestion]())
-        domandeOrdinatePerTopic.append([DBQuestion]())
-        domandeOrdinatePerTopic.append([DBQuestion]())
+    func coloroOn( topicNum: Int)->UIColor {
         
-        for domanda in domande{
-            domandeOrdinatePerTopic[Int(domanda.topic!) ].append(domanda)
-            domandeOrdinatePerTopic[0].append(domanda)
+        switch topicNum {
+        case 0:
+            return DataManager.shared.mainColor
+        case 1:
+            return DataManager.shared.foodColor
+        case 2:
+            return DataManager.shared.nightlifeColor
+        case 3:
+            return DataManager.shared.artColor
+        case 4:
+            return DataManager.shared.shopsColor
+        case 5:
+            return DataManager.shared.cityInfoColor
+        case 6:
+            return DataManager.shared.tourismColor
+        default:
+            print("")
+            return UIColor.white
         }
+        
     }
-    
-    
-    func ordinaEventi(eventi:[DBEvent]){
         
-        eventiOrdinatiPerTopic = [[DBEvent]]()
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        eventiOrdinatiPerTopic.append([DBEvent]())
-        
-        for evento in eventi{
-            eventiOrdinatiPerTopic[Int(evento.topic!) ].append(evento)
-            eventiOrdinatiPerTopic[0].append(evento)
+        func ordinaDomande(domande:[DBQuestion]){
+            domandeOrdinatePerTopic = [[DBQuestion]]()
+            domandeOrdinatePerTopic.append([DBQuestion]())
+            domandeOrdinatePerTopic.append([DBQuestion]())
+            domandeOrdinatePerTopic.append([DBQuestion]())
+            domandeOrdinatePerTopic.append([DBQuestion]())
+            domandeOrdinatePerTopic.append([DBQuestion]())
+            domandeOrdinatePerTopic.append([DBQuestion]())
+             domandeOrdinatePerTopic.append([DBQuestion]())
+            
+            for domanda in domande{
+                domandeOrdinatePerTopic[Int(domanda.topic!) ].append(domanda)
+                domandeOrdinatePerTopic[0].append(domanda)
+            }
         }
-    }
         
-
-    func retrieveUserState()->DBUser{
-        let a = UserDefaults.standard.value(forKey: "user")
-        if(a != nil){
-            let jsonString1 = a as! String
-            let data: Data? = jsonString1.data(using: .utf8)
-            let decoder = JSONDecoder()
-            do{
-                let user = try decoder.decode(DBUser.self, from: data!)
-                SingletonServer.singleton.user = user
-                return user
-            }catch{
+        
+        func ordinaEventi(eventi:[DBEvent]){
+            
+            eventiOrdinatiPerTopic = [[DBEvent]]()
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            eventiOrdinatiPerTopic.append([DBEvent]())
+            
+            for evento in eventi{
+                eventiOrdinatiPerTopic[Int(evento.topic!) ].append(evento)
+                eventiOrdinatiPerTopic[0].append(evento)
+            }
+        }
+        
+        
+        func retrieveUserState()->DBUser{
+            let a = UserDefaults.standard.value(forKey: "user")
+            if(a != nil){
+                let jsonString1 = a as! String
+                let data: Data? = jsonString1.data(using: .utf8)
+                let decoder = JSONDecoder()
+                do{
+                    let user = try decoder.decode(DBUser.self, from: data!)
+                    SingletonServer.singleton.user = user
+                    return user
+                }catch{
+                    return DBUser()
+                }
+            }else{
                 return DBUser()
             }
-        }else{
-            return DBUser()
-        }
-    }
-    
-    
-
-    
-    
-    
-    func removeUserState(){
-        SingletonServer.singleton.user = DBUser()
-        UserDefaults.standard.removeObject(forKey: "user")
-    }
-
-    
-    
-    
-    
-    
-    func saveUserState(user:DBUser){
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let data = try encoder.encode(user)
-            let string = String(data: data, encoding: .utf8)
-            saveUserState(json: string!, user: user)
-        }catch{
-            print("Errore di serializzazione")
         }
         
         
         
-    }
-    
-    func saveUserState(json:String, user:DBUser){
-        SingletonServer.singleton.user = user
-        UserDefaults.standard.set(json, forKey: "user")
-        
-    }
-    
-    
-    func POST_insertNewEvent(event:DBEvent, completionHandler: @escaping(String?) -> Void){
         
         
-        let httpMethod = "POST"
         
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let a = try encoder.encode(event)
-            let stringBody = String(data: a, encoding: .utf8)
-            
-            let httpBody : String = stringBody!
-            
-            let textUrl : String = "http://\(ipServer):8181/Event/insertNewEvent/"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
-            
-            
-            var s:String?
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
-        }catch{
-            print("Errore di serializzazione/LatoClient")
+        func removeUserState(){
+            SingletonServer.singleton.user = DBUser()
+            UserDefaults.standard.removeObject(forKey: "user")
         }
         
         
-    }
-    
-    
-    
-    
-    
-    func POST_insertNewQuestion(text:String, dateFine:String, userOwner:DBUser, radar:DBRadar, topic:Int32, completionHandler: @escaping(String?) -> Void){
-        let question = DBQuestion(text: text, dateFine: dateFine, topic: topic, ownerUser: userOwner, myPosition: radar)
-        let httpMethod = "POST"
-        
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let a = try encoder.encode(question)
-            let stringBody = String(data: a, encoding: .utf8)
-            
-            let httpBody : String = stringBody!
-            
-            let textUrl : String = "http://\(ipServer):8181/Question/insertNewQuestion/"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
-            
-            
-            var s:String?
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
-        }catch{
-            print("Errore di serializzazione/LatoClient")
-        }
         
         
-    }
-    
-    
-    func POST_log(email: String, password: String, completionHandler: @escaping(String?) -> Void) {
-        let httpMethod = "POST"
-        let httpBody : String = password
-        
-        let textUrl : String = "http://\(ipServer):8181/User/login/\(email)/"
-        let url : URL = URL(string: textUrl)!
-        let session : URLSession = URLSession.shared
-        
-        var urlRequest : URLRequest = URLRequest(url: url)
-        urlRequest.httpBody = httpBody.data(using: .utf8)
-        urlRequest.httpMethod = httpMethod
         
         
-        var s:String?
-        //        let semaphore = DispatchSemaphore(value: 0)
-        session.dataTask(with: urlRequest) {
-            data, response, error in
-            if error != nil {
-                print(error?.localizedDescription)
-                completionHandler(error?.localizedDescription)
-            } else {
-                s = String(data: data!, encoding: .utf8)!
-                completionHandler(s)
+        func saveUserState(user:DBUser){
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                let data = try encoder.encode(user)
+                let string = String(data: data, encoding: .utf8)
+                saveUserState(json: string!, user: user)
+            }catch{
+                print("Errore di serializzazione")
             }
-            }.resume()
-        
-        
-    }
-    
-    func POST_MyQuestions_Events(email: String, completionHandler: @escaping(String?) -> Void) {
-        let httpMethod = "POST"
-        let httpBody : String = ""
-        
-        let textUrl : String = "http://\(ipServer):8181/User/MyQuestions/\(email)/"
-        let url : URL = URL(string: textUrl)!
-        let session : URLSession = URLSession.shared
-        
-        var urlRequest : URLRequest = URLRequest(url: url)
-        urlRequest.httpBody = httpBody.data(using: .utf8)
-        urlRequest.httpMethod = httpMethod
-        
-        
-        var s:String?
-        session.dataTask(with: urlRequest) {
-            data, response, error in
-            if error != nil {
-                print(error?.localizedDescription)
-                completionHandler(error?.localizedDescription)
-            } else {
-                s = String(data: data!, encoding: .utf8)!
-                completionHandler(s)
-            }
-            }.resume()
-        
-        
-    }
-    
-    
-    func POST_Questions_EventsAroundPosition(radar:DBRadar, completionHandler: @escaping(String?)->Void){
-        let httpMethod = "POST"
-        
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let a = try encoder.encode(radar)
-            let stringBody = String(data: a, encoding: .utf8)
-            
-            let httpBody : String = stringBody!
-            
-            let textUrl : String = "http://\(ipServer):8181/Radar/retrieveFromRadar/EventsAndQuestions/"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
             
             
-            var s:String?
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
-        }catch{
-            print("Errore di serializzazione/LatoClient")
+            
         }
         
-    }
-    func provaRegistrazione(user:DBUser, completionHandler: @escaping(String?)->Void){
-        let httpMethod = "POST"
-        
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let a = try encoder.encode(user)
-            let stringBody = String(data: a, encoding: .utf8)
+        func saveUserState(json:String, user:DBUser){
+            SingletonServer.singleton.user = user
+            UserDefaults.standard.set(json, forKey: "user")
             
-            let httpBody : String = stringBody!
-            
-            let textUrl : String = "http://\(ipServer):8181/User/Register/Prova"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
-            
-            
-            var s:String?
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
-        }catch{
-            print("Errore di serializzazione/LatoClient")
         }
-
         
-    }
-    
-    
-    func sendMessagePOST(x:Double,y:Double,userEmail:String)->String{
         
-        let httpMethod = "POST"
-        let httpBody : String = userEmail
-        
-        let textUrl : String = "http://\(ipServer):8181/\(x)/\(y)"
-        let url : URL = URL(string: textUrl)!
-        let session : URLSession = URLSession.shared
-        
-        var urlRequest : URLRequest = URLRequest(url: url)
-        urlRequest.httpBody = httpBody.data(using: .utf8)
-        urlRequest.httpMethod = httpMethod
-        
-        var s:String?
-        var s1:String?
-        
-        session.dataTask(with: urlRequest) {
-            data, response, error in
+        func POST_insertNewEvent(event:DBEvent, completionHandler: @escaping(String?) -> Void){
             
-            guard error == nil else {
-                print(error)
-                return
-            }
-            DispatchQueue.main.async {
-                s = String(data: data!, encoding: .utf8)!
-                // print(s)
+            
+            let httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                let a = try encoder.encode(event)
+                let stringBody = String(data: a, encoding: .utf8)
                 
-                let decoder : JSONDecoder = JSONDecoder()
-                do {
-                    s1 = try decoder.decode(SiteMessage.self, from: data!).message
-                    //                    print(s1)
-                } catch {
+                let httpBody : String = stringBody!
+                
+                let textUrl : String = "http://\(ipServer):8181/Event/insertNewEvent/"
+                let url : URL = URL(string: textUrl)!
+                let session : URLSession = URLSession.shared
+                
+                var urlRequest : URLRequest = URLRequest(url: url)
+                urlRequest.httpBody = httpBody.data(using: .utf8)
+                urlRequest.httpMethod = httpMethod
+                
+                
+                var s:String?
+                session.dataTask(with: urlRequest) {
+                    data, response, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        completionHandler(error?.localizedDescription)
+                    } else {
+                        s = String(data: data!, encoding: .utf8)!
+                        completionHandler(s)
+                    }
+                    }.resume()
+            }catch{
+                print("Errore di serializzazione/LatoClient")
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
+        func POST_insertNewQuestion(text:String, dateFine:String, userOwner:DBUser, radar:DBRadar, topic:Int32, completionHandler: @escaping(String?) -> Void){
+            let question = DBQuestion(text: text, dateFine: dateFine, topic: topic, ownerUser: userOwner, myPosition: radar)
+            let httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                let a = try encoder.encode(question)
+                let stringBody = String(data: a, encoding: .utf8)
+                
+                let httpBody : String = stringBody!
+                
+                let textUrl : String = "http://\(ipServer):8181/Question/insertNewQuestion/"
+                let url : URL = URL(string: textUrl)!
+                let session : URLSession = URLSession.shared
+                
+                var urlRequest : URLRequest = URLRequest(url: url)
+                urlRequest.httpBody = httpBody.data(using: .utf8)
+                urlRequest.httpMethod = httpMethod
+                
+                
+                var s:String?
+                session.dataTask(with: urlRequest) {
+                    data, response, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        completionHandler(error?.localizedDescription)
+                    } else {
+                        s = String(data: data!, encoding: .utf8)!
+                        completionHandler(s)
+                    }
+                    }.resume()
+            }catch{
+                print("Errore di serializzazione/LatoClient")
+            }
+            
+            
+        }
+        
+        
+        func POST_log(email: String, password: String, completionHandler: @escaping(String?) -> Void) {
+            let httpMethod = "POST"
+            let httpBody : String = password
+            
+            let textUrl : String = "http://\(ipServer):8181/User/login/\(email)/"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            
+            var s:String?
+            //        let semaphore = DispatchSemaphore(value: 0)
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completionHandler(error?.localizedDescription)
+                } else {
+                    s = String(data: data!, encoding: .utf8)!
+                    completionHandler(s)
+                }
+                }.resume()
+            
+            
+        }
+        
+        func POST_MyQuestions_Events(email: String, completionHandler: @escaping(String?) -> Void) {
+            let httpMethod = "POST"
+            let httpBody : String = ""
+            
+            let textUrl : String = "http://\(ipServer):8181/User/MyQuestions/\(email)/"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            
+            var s:String?
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completionHandler(error?.localizedDescription)
+                } else {
+                    s = String(data: data!, encoding: .utf8)!
+                    completionHandler(s)
+                }
+                }.resume()
+            
+            
+        }
+        
+        
+        func POST_Questions_EventsAroundPosition(radar:DBRadar, completionHandler: @escaping(String?)->Void){
+            let httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                let a = try encoder.encode(radar)
+                let stringBody = String(data: a, encoding: .utf8)
+                
+                let httpBody : String = stringBody!
+                
+                let textUrl : String = "http://\(ipServer):8181/Radar/retrieveFromRadar/EventsAndQuestions/"
+                let url : URL = URL(string: textUrl)!
+                let session : URLSession = URLSession.shared
+                
+                var urlRequest : URLRequest = URLRequest(url: url)
+                urlRequest.httpBody = httpBody.data(using: .utf8)
+                urlRequest.httpMethod = httpMethod
+                
+                
+                var s:String?
+                session.dataTask(with: urlRequest) {
+                    data, response, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        completionHandler(error?.localizedDescription)
+                    } else {
+                        s = String(data: data!, encoding: .utf8)!
+                        completionHandler(s)
+                    }
+                    }.resume()
+            }catch{
+                print("Errore di serializzazione/LatoClient")
+            }
+            
+        }
+        func provaRegistrazione(user:DBUser, completionHandler: @escaping(String?)->Void){
+            let httpMethod = "POST"
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                let a = try encoder.encode(user)
+                let stringBody = String(data: a, encoding: .utf8)
+                
+                let httpBody : String = stringBody!
+                
+                let textUrl : String = "http://\(ipServer):8181/User/Register/Prova"
+                let url : URL = URL(string: textUrl)!
+                let session : URLSession = URLSession.shared
+                
+                var urlRequest : URLRequest = URLRequest(url: url)
+                urlRequest.httpBody = httpBody.data(using: .utf8)
+                urlRequest.httpMethod = httpMethod
+                
+                
+                var s:String?
+                session.dataTask(with: urlRequest) {
+                    data, response, error in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        completionHandler(error?.localizedDescription)
+                    } else {
+                        s = String(data: data!, encoding: .utf8)!
+                        completionHandler(s)
+                    }
+                    }.resume()
+            }catch{
+                print("Errore di serializzazione/LatoClient")
+            }
+            
+            
+        }
+        
+        
+        func sendMessagePOST(x:Double,y:Double,userEmail:String)->String{
+            
+            let httpMethod = "POST"
+            let httpBody : String = userEmail
+            
+            let textUrl : String = "http://\(ipServer):8181/\(x)/\(y)"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            var s:String?
+            var s1:String?
+            
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                
+                guard error == nil else {
+                    print(error)
                     return
                 }
-            }
-            }.resume()
-        return s1!
-    }
-    
-}
-
-
-struct SiteMessage : Decodable {
-    var success : Bool = false
-    var message : String = ""
-}
-struct Events_QuestionsInSpecificRadar:Codable{
-    var questions:[DBQuestion]?
-    var events:[DBEvent]?
-    init(){
-        questions = [DBQuestion]()
-        events = [DBEvent]()
-        
-    }
-    init(questions:[DBQuestion],events:[DBEvent]){
-        self.questions = questions
-        self.events = events
-    }
-    
-}
-
-
-func dateFromTimeout(timeout:Int)-> String{
-    let date = Date()
-    let calendar = Calendar.current
-    var month = calendar.component(.month, from: date)
-    var day = calendar.component(.day, from: date)
-    var ora = calendar.component(.hour, from: date)
-    var min = calendar.component(.minute, from: date)
-    
-    
-    let dataFine:String
-    if month<10 && day<10{
-        dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
-    }
-    else if month<10 {
-        dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
-    }else if day<10 {
-        dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
-    }else {
-        dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
-    }
-    print(dataFine)
-    return dataFine
-    
-}
-
-class MyMessage: MFMessageComposeViewController,MFMessageComposeViewControllerDelegate{
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        switch result{
-            
-        case .cancelled:
-            print ("Invio dell'email cancellato dall'utente")
-            break
-            
-            
-            
-        case .sent:
-            print ("Email inviata correttamente")
-            break
-            
-        case .failed:
-            print ("Email non inviata, probabilmente a causa di un errore")
-            break
-            
-        default:
-            //questo caso non dovrebbe mai presentarsi!
-            break
-            
+                DispatchQueue.main.async {
+                    s = String(data: data!, encoding: .utf8)!
+                    // print(s)
+                    
+                    let decoder : JSONDecoder = JSONDecoder()
+                    do {
+                        s1 = try decoder.decode(SiteMessage.self, from: data!).message
+                        //                    print(s1)
+                    } catch {
+                        return
+                    }
+                }
+                }.resume()
+            return s1!
         }
     }
-    func sendMessage(){
+    
+    
+    
+    struct SiteMessage : Decodable {
+        var success : Bool = false
+        var message : String = ""
+    }
+    struct Events_QuestionsInSpecificRadar:Codable{
+        var questions:[DBQuestion]?
+        var events:[DBEvent]?
+        init(){
+            questions = [DBQuestion]()
+            events = [DBEvent]()
+            
+        }
+        init(questions:[DBQuestion],events:[DBEvent]){
+            self.questions = questions
+            self.events = events
+        }
         
     }
     
     
-}
+    
+    func dateFromTimeout(timeout:Int)-> String{
+        let date = Date()
+        let calendar = Calendar.current
+        var month = calendar.component(.month, from: date)
+        var day = calendar.component(.day, from: date)
+        var ora = calendar.component(.hour, from: date)
+        var min = calendar.component(.minute, from: date)
         
+        
+        let dataFine:String
+        if month<10 && day<10{
+            dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
+        }
+        else if month<10 {
+            dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
+        }else if day<10 {
+            dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
+        }else {
+            dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
+        }
+        print(dataFine)
+        return dataFine
+        
+    }
+    
+    
 
-//    func saveEvents_QuestionsInSpecificRadarState(json:String, e_q:Events_QuestionsInSpecificRadar){
-//        SingletonServer.singleton.events_questions_aroundPosition = e_q
-//        UserDefaults.standard.set(json, forKey: "events_questions_aroundPosition")
-//
-//    }
-//
-//
-//    func removeEvents_QuestionsInSpecificRadarState(){
-//        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
-//        UserDefaults.standard.removeObject(forKey: "events_questions_aroundPosition")
-//    }
-//    func retrieveEvents_QuestionsInSpecificRadarState()->Events_QuestionsInSpecificRadar{
-//        let a = UserDefaults.standard.value(forKey: "events_questions_aroundPosition")
-//        if(a != nil){
-//            let jsonString1 = a as! String
-//            let data: Data? = jsonString1.data(using: .utf8)
-//            let decoder = JSONDecoder()
-//            do{
-//                let e_q = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
-//                SingletonServer.singleton.events_questions_aroundPosition = e_q
-//                return e_q
-//            }catch{
-//                return Events_QuestionsInSpecificRadar()
-//            }
-//        }else{
-//            return Events_QuestionsInSpecificRadar()
-//        }
-//    }
-//
-//    func saveEvents_QuestionsInSpecificRadarState(e_q:Events_QuestionsInSpecificRadar){
-//        let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//        do{
-//            let data = try encoder.encode(e_q)
-//            let string = String(data: data, encoding: .utf8)
-//            saveEvents_QuestionsInSpecificRadarState(json: string!, e_q: e_q)
-//        }catch{
-//            print("Errore di serializzazione")
-//        }
-//
-//
-//
-//    }
-//
-//
+    //    func saveEvents_QuestionsInSpecificRadarState(json:String, e_q:Events_QuestionsInSpecificRadar){
+    //        SingletonServer.singleton.events_questions_aroundPosition = e_q
+    //        UserDefaults.standard.set(json, forKey: "events_questions_aroundPosition")
+    //
+    //    }
+    //
+    //
+    //    func removeEvents_QuestionsInSpecificRadarState(){
+    //        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
+    //        UserDefaults.standard.removeObject(forKey: "events_questions_aroundPosition")
+    //    }
+    //    func retrieveEvents_QuestionsInSpecificRadarState()->Events_QuestionsInSpecificRadar{
+    //        let a = UserDefaults.standard.value(forKey: "events_questions_aroundPosition")
+    //        if(a != nil){
+    //            let jsonString1 = a as! String
+    //            let data: Data? = jsonString1.data(using: .utf8)
+    //            let decoder = JSONDecoder()
+    //            do{
+    //                let e_q = try decoder.decode(Events_QuestionsInSpecificRadar.self, from: data!)
+    //                SingletonServer.singleton.events_questions_aroundPosition = e_q
+    //                return e_q
+    //            }catch{
+    //                return Events_QuestionsInSpecificRadar()
+    //            }
+    //        }else{
+    //            return Events_QuestionsInSpecificRadar()
+    //        }
+    //    }
+    //
+    //    func saveEvents_QuestionsInSpecificRadarState(e_q:Events_QuestionsInSpecificRadar){
+    //        let encoder = JSONEncoder()
+    //        encoder.outputFormatting = .prettyPrinted
+    //        do{
+    //            let data = try encoder.encode(e_q)
+    //            let string = String(data: data, encoding: .utf8)
+    //            saveEvents_QuestionsInSpecificRadarState(json: string!, e_q: e_q)
+    //        }catch{
+    //            print("Errore di serializzazione")
+    //        }
+    //
+    //
+    //
+    //    }
+    //
+    //
+    
+    
+

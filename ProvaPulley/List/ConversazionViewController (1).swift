@@ -6,7 +6,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
     var tastieraSu = false
     
     @IBOutlet weak var testoView: UIView!
-    var messaggi: [(String,Bool)] = [("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false)]
+    var messaggi: [(String,Bool)] = [("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono io", false),("ciao", true),("sono iooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo", false)]
     
     
   
@@ -27,7 +27,7 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         textView.delegate = self
     tableview.rowHeight = UITableViewAutomaticDimension
-        tableview.estimatedRowHeight = 100   // Do any additional setup after loading the view.
+        tableview.estimatedRowHeight = 40   // Do any additional setup after loading the view.
        
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = "ciao come va?"
@@ -101,13 +101,14 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
         let messaggio = messaggi[indexPath.row]
         if messaggio.1 {
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellinviato", for: indexPath) as! ConversazionCell
-            var dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .short
-            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
+//            var dateFormatter = DateFormatter()
+//            dateFormatter.timeStyle = .short
+//            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
             cell.lblMessaggio.text = messaggio.0
-            cell.vricevi.layer.cornerRadius = 30.0
+            cell.lblMessaggio.sizeToFit()
+            cell.vricevi.layer.cornerRadius = 15.0
             cell.clipsToBounds = true
-            cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
+//            cell.immagine.image = SingletonServer.singleton.logoImage[indexProf]
             cell.vricevi.backgroundColor = DataManager.shared.sfondoColor
             cell.vricevi.autoresizesSubviews = true
             
@@ -117,20 +118,21 @@ class ConversazionViewController: UIViewController, UITableViewDelegate, UITable
             
         } else {
             let cell = tableview.dequeueReusableCell(withIdentifier: "cellricevuto", for: indexPath) as! ConversazionCell
-            var dateFormatter = DateFormatter()
-            dateFormatter.timeStyle = .short
-            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
+//            var dateFormatter = DateFormatter()
+//            dateFormatter.timeStyle = .short
+//            cell.lblData.text = "\(dateFormatter.string(from: NSDate() as Date))"
             cell.lblMessaggio.text = messaggio.0
-            cell.vinvio.layer.cornerRadius = 30.0
+            cell.lblMessaggio.sizeToFit()
+            cell.vinvio.layer.cornerRadius = 15.0
             cell.clipsToBounds = true
-            cell.imminvio.image = SingletonServer.singleton.logoImage[indexProf]
+//            cell.imminvio.image = SingletonServer.singleton.logoImage[indexProf]
             cell.vinvio.backgroundColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableViewAutomaticDimension
     }
     @objc func tastieraDentro (notifica: Notification) {
         tastieraInOut (su:false, notifica: notifica)

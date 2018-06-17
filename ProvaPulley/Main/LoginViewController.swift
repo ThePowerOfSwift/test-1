@@ -14,6 +14,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
 
     @IBAction func skipFunc(_ sender: Any) {
         SingletonServer.singleton.user = DBUser()
+        SingletonServer.singleton.skipper = true
 //        SingletonServer.singleton.events_questions_aroundPosition = Events_QuestionsInSpecificRadar()
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)

@@ -419,8 +419,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         button9.alpha = 0
         
         //        end luca
-
-        avatarButton.layer.cornerRadius = 45.0
+        
+        if let skip = SingletonServer.singleton.skipper {
+            if skip {
+                avatarButton.setBackgroundImage(#imageLiteral(resourceName: "anonimo"), for: .normal)
+                avatarButton.isEnabled = false
+            }
+        } else {
+            avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[Int((SingletonServer.singleton.user?.socialAvatar)!)!], for: .normal)
+        }
+        avatarButton.layer.cornerRadius = 35
         avatarButton.clipsToBounds = true
         nome.textAlignment = .center
         nome.text = SingletonServer.singleton.user?.nickname

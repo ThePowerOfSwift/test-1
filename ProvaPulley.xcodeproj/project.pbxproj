@@ -55,6 +55,7 @@
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
 		BDF8245F20D0086900B070AB /* ConversazionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8245E20D0086900B070AB /* ConversazionCell.swift */; };
+		C54D028020D7CBFA003B108F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54D027F20D7CBFA003B108F /* UserNotifications.framework */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
 		D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A62161D384BE453414560D8 /* Pods_BatChat.framework */; };
@@ -112,6 +113,8 @@
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
 		BDF8245E20D0086900B070AB /* ConversazionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversazionCell.swift; sourceTree = "<group>"; };
+		C54D027F20D7CBFA003B108F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		C54D028120D7CF14003B108F /* BatChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BatChat.entitlements; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
 		EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C54D028020D7CBFA003B108F /* UserNotifications.framework in Frameworks */,
 				872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */,
 				D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */,
 			);
@@ -143,6 +147,7 @@
 		871B22BC20AF0F4F00EACF41 = {
 			isa = PBXGroup;
 			children = (
+				C54D028120D7CF14003B108F /* BatChat.entitlements */,
 				871B22C720AF0F4F00EACF41 /* ProvaPulley */,
 				871B22C620AF0F4F00EACF41 /* Products */,
 				95F3C351F7D4ECDB14710FAD /* Frameworks */,
@@ -250,6 +255,7 @@
 		95F3C351F7D4ECDB14710FAD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C54D027F20D7CBFA003B108F /* UserNotifications.framework */,
 				872A484120B5D4C40006CB39 /* CoreLocation.framework */,
 				2A62161D384BE453414560D8 /* Pods_BatChat.framework */,
 			);
@@ -290,6 +296,11 @@
 				TargetAttributes = {
 					871B22C420AF0F4F00EACF41 = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -564,8 +575,9 @@
 			baseConfigurationReference = F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 4G53MCT3NM;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,8 +595,9 @@
 			baseConfigurationReference = EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X77UFX3DVY;
+				DEVELOPMENT_TEAM = 4G53MCT3NM;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

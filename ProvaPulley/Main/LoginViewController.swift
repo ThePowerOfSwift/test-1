@@ -55,13 +55,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
                     self.present(alert, animated: true, completion: nil)
                 }
             }
-
-
-           
-            
         }
-        
-        
+        SingletonServer.singleton.skipper = false
     }
     
 

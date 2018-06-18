@@ -577,13 +577,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G53MCT3NM;
+				DEVELOPMENT_TEAM = K4J698459X;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley88;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -597,13 +597,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G53MCT3NM;
+				DEVELOPMENT_TEAM = K4J698459X;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley88;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

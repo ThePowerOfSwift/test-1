@@ -10,86 +10,84 @@ import UIKit
 
 class SecondaScrollViewController: UIViewController {
 
-    var topicBool: [Bool] = [true, false, false, false, false, false, false]
+    var topicBool: [Bool] = [true, false, false, false, false]
     
     
     @IBAction func Taction(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 6
-        if !topicBool[6] {
+        if !topicBool[4] {
             if topicBool[0] {
-               
                 topicBool[0] = false
             }
             buttonOn(button: Tourism, topicNum: 6)
-            topicBool[6] = true
+            topicBool[4] = true
         }
         else {
             buttonOff(button: Tourism)
-            topicBool[6] = false
+            topicBool[4] = false
         }
     }
     
     @IBAction func Saction(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 4
-        if !topicBool[4] {
+        if !topicBool[3] {
             if topicBool[0] {
-               
                 topicBool[0] = false
             }
             buttonOn(button: Shops, topicNum: 4)
-            topicBool[4] = true
+            topicBool[3] = true
         }
         else {
             buttonOff(button: Shops)
-            topicBool[4] = false
+            topicBool[3] = false
         }
     }
     
     @IBAction func Aaction(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 3
-        if !topicBool[3] {
-            if topicBool[0] {
-               
-                topicBool[0] = false
-            }
-            buttonOn(button: Art, topicNum: 3)
-            topicBool[3] = true
-        }
-        else {
-            buttonOff(button: Art)
-            topicBool[3] = false
-        }
-    }
-    
-    @IBAction func Naction(_ sender: Any) {
-        SingletonServer.singleton.chosenTopic = 2
         if !topicBool[2] {
             if topicBool[0] {
                
                 topicBool[0] = false
             }
-            buttonOn(button: Nightlife, topicNum: 2)
+            buttonOn(button: Art, topicNum: 3)
             topicBool[2] = true
         }
         else {
-            buttonOff(button: Nightlife)
+            buttonOff(button: Art)
             topicBool[2] = false
         }
     }
     
-    @IBAction func Faction(_ sender: Any) {
-        SingletonServer.singleton.chosenTopic = 1
+    @IBAction func Naction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 2
         if !topicBool[1] {
             if topicBool[0] {
                
                 topicBool[0] = false
             }
-            buttonOn(button: Food, topicNum: 1)
+            buttonOn(button: Nightlife, topicNum: 2)
             topicBool[1] = true
         }
         else {
-            buttonOff(button: Food)
+            buttonOff(button: Nightlife)
             topicBool[1] = false
+        }
+    }
+    
+    @IBAction func Faction(_ sender: Any) {
+        SingletonServer.singleton.chosenTopic = 1
+        if !topicBool[0] {
+            if topicBool[0] {
+               
+                topicBool[0] = false
+            }
+            buttonOn(button: Food, topicNum: 1)
+            topicBool[0] = true
+        }
+        else {
+            buttonOff(button: Food)
+            topicBool[0] = false
         }
         
     }

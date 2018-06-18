@@ -106,36 +106,37 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     @IBAction func Cancel(_ sender: Any) {
-        dismissKeyboard()
         
-        let user = SingletonServer.singleton.user
-        let radar = SingletonServer.singleton.user?.posFit
-        let data = dateFromTimeout(timeout: 3)
-        print(data)
-        self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar!, topic: 1) { (result) in
-            let decoder = JSONDecoder()
-            let da = result?.data(using: .utf8)
-            do{
-                let question = try decoder.decode(DBQuestion.self, from: da!)
-                if(question.ID != nil){
-                    //                    SingletonServer.singleton.user?.myQuestions?.append(question)
-                    //                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    //                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
-                    //                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
-                    
-                    SingletonServer.singleton.user?.myQuestions?.append(question)
-                    SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
-                    //
-                    print(question.text!)
+        if !SingletonServer.singleton.skipper && self.AskQuestionTextField.text != "" {
+            dismissKeyboard()
+            
+            let user = SingletonServer.singleton.user
+            let radar = SingletonServer.singleton.user?.posFit
+            let data = dateFromTimeout(timeout: 3)
+            print(data)
+            self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar!, topic: 1) { (result) in
+                let decoder = JSONDecoder()
+                let da = result?.data(using: .utf8)
+                do{
+                    let question = try decoder.decode(DBQuestion.self, from: da!)
+                    if(question.ID != nil){
+                        //                    SingletonServer.singleton.user?.myQuestions?.append(question)
+                        //                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                        //                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
+                        //                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                        
+                        SingletonServer.singleton.user?.myQuestions?.append(question)
+                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+                        //
+                        print(question.text!)
+                        
+                    }
+                }catch{
+                    print("errore di serializzazione|LATOCLIENT")
                     
                 }
-            }catch{
-                print("errore di serializzazione|LATOCLIENT")
-                
             }
-            
-            
         }
     }
     

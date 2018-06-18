@@ -85,7 +85,23 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     @IBAction func askQuestion(_ sender: Any) {
-        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+        if SingletonServer.singleton.skipper {
+            let signInAlert = UIAlertController(title: "Jump in!", message: "Only registered users can ask something or reply to other users. Do you want to register/sign in?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            signInAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil) //declare the storyboard
+                let profile = storyboard.instantiateViewController(withIdentifier: "10") //after assigning an id to  LoginViewController in order to be identified, we instanciaite and return a LoginViewController
+                self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented
+            }))
+            
+            signInAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
+    
+            }))
+            
+            present(signInAlert, animated: true, completion: nil)
+        } else {
+            self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+        }
     }
     
     
@@ -295,7 +311,7 @@ extension DrawerContentViewController: UITableViewDataSource {
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
         if indexPath.row < questNum{
-            print("cazzo!")
+//            print("cazzo!")
             let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
             let indexProf = imgprof.integerValue
             cell.improf?.image = SingletonServer.singleton.logoImage[topic]

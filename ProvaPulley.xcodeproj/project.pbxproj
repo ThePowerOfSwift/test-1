@@ -50,7 +50,6 @@
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
 		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
 		A946593D20C8481800D1314F /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593C20C8481800D1314F /* MessageTableView.swift */; };
-		A946594020C974F700D1314F /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593F20C974F700D1314F /* EventViewController.swift */; };
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
@@ -108,7 +107,6 @@
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
 		A946593C20C8481800D1314F /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
-		A946593F20C974F700D1314F /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = SOURCE_ROOT; };
 		A9D8611E20BEE50400F2EC9E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
 				873586EB20D7C61500564B37 /* loriViewController.swift */,
 				871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */,
-				A946593F20C974F700D1314F /* EventViewController.swift */,
 				879FC82520CA992D00DA81CD /* LoggedViewController.swift */,
 				A946593C20C8481800D1314F /* MessageTableView.swift */,
 				879FC80320C849D100DA81CD /* SelectedViewController.swift */,
@@ -423,7 +420,6 @@
 				87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */,
 				81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */,
 				879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */,
-				A946594020C974F700D1314F /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

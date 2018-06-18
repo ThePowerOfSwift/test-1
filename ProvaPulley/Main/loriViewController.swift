@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loriViewController: UIViewController {
+class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     var open = false
@@ -28,6 +28,7 @@ class loriViewController: UIViewController {
     @IBOutlet weak var greyView: UIView!
     
     
+    @IBOutlet weak var captureImageView: UIImageView!
     
     
     
@@ -43,10 +44,79 @@ class loriViewController: UIViewController {
         timePickerStart.alpha = 0
         timePickerEnd.alpha = 0
         
+        hideKeyboardWhenTappedAround()
+        
+        self.pickerController = UIImagePickerController()
+        self.pickerController.delegate = self
 
         
     }
 
+//    @IBAction func done(_ sender: Any) {
+//        
+//        var dataInizio = pickerDataInizio.date.description
+//        var dataFine = pickerData.date.description
+//        for _ in 1...6 {
+//            dataInizio = String(dataInizio.dropLast())
+//            dataFine = String(dataFine.dropLast())
+//        }
+//        
+//        let topic = SingletonServer.singleton.chosenTopic
+//        SingletonServer.singleton.chosenTopic = 0
+//        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
+//        createNewEvent(event: event)
+//    }
+    
+    @IBAction func didTakePhoto(_ sender: Any) {
+        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
+        self.pickerController.sourceType = .camera // scelgo il sourceType, cioè il luogo in cui pescare le immagini
+        
+        // visualizzo l'imagePickerController
+        present(self.pickerController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func importoFromGalleryButton(_ sender: Any) {
+        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
+        self.pickerController.sourceType = .photoLibrary // scelgo il sourceType, cioè il luogo in cui pescare le immagini
+        
+        // visualizzo l'imagePickerController
+        present(self.pickerController, animated: true, completion: nil)
+        
+    }
+    var pickerController = UIImagePickerController()
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        let rect: CGRect = CGRect(x: 0, y: 0, width: 5000, height: 5000)
+        
+        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
+        
+        let croppedImage:UIImage = UIImage(cgImage: imageRef)
+        
+        captureImageView.image = croppedImage
+        
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func Cancelac(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.shared.delegate
+        
+        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! SelectedViewController
+        appDelegate?.window??.rootViewController = initViewController
+        
+        
+    }
+    @IBAction func cancpicker(_ sender: Any) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.shared.delegate
+        
+        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "loriViewController") as! loriViewController
+        appDelegate?.window??.rootViewController = initViewController
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        

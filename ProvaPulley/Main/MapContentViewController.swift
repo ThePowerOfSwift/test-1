@@ -68,6 +68,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         marker6.topic = 6
         self.mappe.addAnnotation(marker6)
        
+        
+        
     }
     
     
@@ -100,6 +102,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     //    questa funzione è chiamata ogni volta che la posizione è aggiornata
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        
         //        primo elemento dell'array che corrisponde alla posizione più recente
         let location = locations[0]
         
@@ -108,7 +111,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         //        store la posizione dello user
         let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-       
+        
+        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
 //        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         

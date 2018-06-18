@@ -115,15 +115,18 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @IBAction func Cancel(_ sender: Any) {
         
-        if !SingletonServer.singleton.skipper && self.AskQuestionTextField.text != "" {
+        if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
             dismissKeyboard()
             
             let user = SingletonServer.singleton.user
-            let radar = SingletonServer.singleton.user?.posFit
+            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+            if  let r = SingletonServer.singleton.user?.posFit {
+                radar = r
+            }
             let data = dateFromTimeout(timeout: 3)
             print(data)
             self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar!, topic: 1) { (result) in
+            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar, topic: Int32(SingletonServer.singleton.chosenTopic)) { (result) in
                 let decoder = JSONDecoder()
                 let da = result?.data(using: .utf8)
                 do{
@@ -186,11 +189,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     @IBAction func Tourism2Tap(_ sender: Any) {
-        SingletonServer.singleton.chosenTopic = 4
+        SingletonServer.singleton.chosenTopic = 6
         self.messageTable.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
-        self.allButtonsOff(i: 4)
-        coloroOn(topicNum: 4)
+        self.allButtonsOff(i: 6)
+        coloroOn(topicNum: 6)
     }
     
     
@@ -204,11 +207,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     @IBAction func tourismButtonTap(_ sender: Any) {
-        SingletonServer.singleton.chosenTopic = 6
+        SingletonServer.singleton.chosenTopic = 4
         self.messageTable.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
-        self.allButtonsOff(i: 6)
-        coloroOn(topicNum: 6)
+        self.allButtonsOff(i: 4)
+        coloroOn(topicNum: 4)
     }
     
     

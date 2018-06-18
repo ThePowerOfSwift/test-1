@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t2t-hw-Hyd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t2t-hw-Hyd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1278,8 +1278,11 @@
                         <outlet property="button" destination="ADo-HC-R99" id="VLz-lt-GcC"/>
                         <outlet property="buttonNow" destination="IBZ-Ka-TPu" id="I6K-DK-0NK"/>
                         <outlet property="captureImageView" destination="Way-vh-N1I" id="Fhy-Gy-Jzy"/>
+                        <outlet property="descrizione" destination="hSD-6k-xKf" id="5Iu-Gn-Mzw"/>
+                        <outlet property="eventopos" destination="d0r-sB-8iW" id="bEv-wT-oB0"/>
                         <outlet property="greyView" destination="pMt-9Q-6yl" id="6Fe-6i-BWd"/>
                         <outlet property="moreInfoView" destination="Zpu-Si-0Sn" id="HfM-mD-BGK"/>
+                        <outlet property="nomeevento" destination="esM-lp-cCh" id="JYw-pS-jyk"/>
                         <outlet property="timePickerEnd" destination="RNZ-7v-Ebx" id="3Ak-iV-R0u"/>
                         <outlet property="timePickerStart" destination="Hpu-eC-jyc" id="eCy-e2-stu"/>
                         <outlet property="viewDellaPicker" destination="yrq-eZ-JyW" id="dLU-aP-xN0"/>

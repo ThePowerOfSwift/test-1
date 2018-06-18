@@ -25,7 +25,10 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var timePickerEnd: UIDatePicker!
     
+    @IBOutlet weak var descrizione: UITextField!
+    @IBOutlet weak var eventopos: UITextField!
     @IBOutlet weak var greyView: UIView!
+    @IBOutlet weak var nomeevento: UITextField!
     
     
     @IBOutlet weak var captureImageView: UIImageView!
@@ -52,20 +55,67 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
 
-//    @IBAction func done(_ sender: Any) {
-//        
-//        var dataInizio = pickerDataInizio.date.description
-//        var dataFine = pickerData.date.description
-//        for _ in 1...6 {
-//            dataInizio = String(dataInizio.dropLast())
-//            dataFine = String(dataFine.dropLast())
-//        }
-//        
-//        let topic = SingletonServer.singleton.chosenTopic
-//        SingletonServer.singleton.chosenTopic = 0
-//        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: "medi", address: eventpos.text!, radar: (SingletonServer.singleton.user?.posFit)!, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
-//        createNewEvent(event: event)
-//    }
+    @IBAction func done(_ sender: Any) {
+        
+        var dataInizio = timePickerStart.date.description
+        var dataFine = timePickerEnd.date.description
+        for _ in 1...6 {
+            dataInizio = String(dataInizio.dropLast())
+            dataFine = String(dataFine.dropLast())
+        }
+        
+        let topic = SingletonServer.singleton.chosenTopic
+        SingletonServer.singleton.chosenTopic = 0
+        let image = #imageLiteral(resourceName: "Giorgio")
+        let data: Data = UIImagePNGRepresentation(image)!
+        let string = data.base64EncodedString(options: .lineLength64Characters)
+        
+        var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+        if  let r = SingletonServer.singleton.user?.posFit {
+            radar = r
+        }
+        
+        
+        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(dataFine) \(string)")
+        
+        
+        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
+        createNewEvent(event: event)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func createNewEvent(event:DBEvent){
+        
+        
+       
+        
+        SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
+            let decoder = JSONDecoder()
+            let da = result?.data(using: .utf8)
+            
+            do{
+                let e = try decoder.decode(DBEvent.self, from: da!)
+                
+                if(e.id != 0){
+                    
+                    print("CIAOO")
+                    //                    SingletonServer.singleton.user?.myEvents?.append(e)
+                    //                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    //                    SingletonServer.singleton.events_questions_aroundPosition?.events?.append(e)
+                    //                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                    
+                    SingletonServer.singleton.user?.myEvents?.append(e)
+                    SingletonServer.singleton.eventiOrdinatiPerTopic[Int(e.topic!)].append(e)
+                    
+                }
+            }catch{
+                print("errore di serializzazione|LATOCLIENT")
+            }
+            
+            
+        }
+    }
     
     @IBAction func didTakePhoto(_ sender: Any) {
         self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video

@@ -406,6 +406,7 @@
                         <outlet property="button8" destination="MFH-Vz-siG" id="FNf-qD-IsM"/>
                         <outlet property="button9" destination="hLR-Ok-T80" id="DSn-8e-32D"/>
                         <outlet property="nome" destination="cmQ-Ym-n6E" id="zK1-y9-iRZ"/>
+                        <outlet property="signButton" destination="Dnc-Mh-duf" id="zIW-sT-il8"/>
                         <outlet property="table1" destination="SWA-h8-EKc" id="cgo-qk-n5H"/>
                         <outlet property="table2" destination="kb9-KO-jCH" id="TaC-OB-85r"/>
                     </connections>

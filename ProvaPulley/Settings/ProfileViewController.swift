@@ -39,6 +39,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var button9: UIButton!
     
+    @IBOutlet weak var signButton: UIBarButtonItem!
+    
+    
     //     Metodi
     
     @IBAction func avatarButtonFunc(_ sender: Any) {
@@ -286,21 +289,24 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     //    Fine /Luca <<<<<<<<<<<<<
     
     @IBAction func Signout(_ sender: Any) {
-       
         
-        let alert = UIAlertController(title: "", message: "Are you sure that you want to exit?", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (ACTION)
-            in
-            SingletonServer.singleton.removeUserState()
-            let storyboard = UIStoryboard(name: "Main", bundle: nil) //decare the storyboard
+        if SingletonServer.singleton.skipper {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) //declare the storyboard
             let profile = storyboard.instantiateViewController(withIdentifier: "10") //after assigning an id to  LoginViewController in order to be identified, we instanciaite and return a LoginViewController
             self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented
-
-    }))
-        
-        
-        self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "", message: "Are you sure that you want to exit?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (ACTION)
+                in
+                SingletonServer.singleton.removeUserState()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil) //declare the storyboard
+                let profile = storyboard.instantiateViewController(withIdentifier: "10") //after assigning an id to  LoginViewController in order to be identified, we instanciaite and return a LoginViewController
+                self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 
@@ -421,6 +427,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         //        end luca
         
         if SingletonServer.singleton.skipper {
+            signButton.title = "Sign in"
             avatarButton.setBackgroundImage(#imageLiteral(resourceName: "anonimo"), for: .normal)
             avatarButton.isEnabled = false
         } else {

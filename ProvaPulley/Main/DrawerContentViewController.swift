@@ -326,7 +326,7 @@ extension DrawerContentViewController: UITableViewDataSource {
 //            print("cazzo!")
             let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
             let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[topic]
+            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
             cell.backView?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.backView?.layer.cornerRadius = 32.0
             cell.descrizione?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
@@ -336,7 +336,11 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
-            cell.numero?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
+            if let _ = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count {
+                cell.numero?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
+                } else {
+                    cell.numero?.text = "0"
+                }
             cell.numero?.backgroundColor = .white
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
@@ -449,11 +453,15 @@ extension DrawerContentViewController: UITableViewDataSource {
     func createNewQuestion(){
         self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
         let user = SingletonServer.singleton.retrieveUserState()
-        let radar = SingletonServer.singleton.user?.posFit
+        var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+        if let r = SingletonServer.singleton.user?.posFit{
+            radar = (SingletonServer.singleton.user?.posFit)!
+        }
         let data = dateFromTimeout(timeout: 3)
         let topic = SingletonServer.singleton.chosenTopic
         SingletonServer.singleton.chosenTopic = 0
-        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar!, topic: Int32(topic)) { (result) in
+        
+        SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user, radar: radar, topic: Int32(topic)) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
             do{

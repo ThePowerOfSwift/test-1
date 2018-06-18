@@ -29,12 +29,12 @@ class SingletonServer{
     
     
     //    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
-    let ipServer = "10.20.49.196"
+    let ipServer = "10.20.49.178"
     
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Francesco"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Hind"), #imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
     
-    init() {
+    func inizializza() {
         //sendMessagePOST(x:13,y:13)
         domandeOrdinatePerTopic = [[DBQuestion]]()
         domandeOrdinatePerTopic.append([DBQuestion]())
@@ -53,6 +53,7 @@ class SingletonServer{
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
+        print("PORCO D")
     }
     
     
@@ -89,6 +90,13 @@ class SingletonServer{
             domandeOrdinatePerTopic.append([DBQuestion]())
             domandeOrdinatePerTopic.append([DBQuestion]())
              domandeOrdinatePerTopic.append([DBQuestion]())
+//            domandeOrdinatePerTopic[0] = []
+//            domandeOrdinatePerTopic[1] = []
+//            domandeOrdinatePerTopic[2] = []
+//            domandeOrdinatePerTopic[3] = []
+//            domandeOrdinatePerTopic[4] = []
+//            domandeOrdinatePerTopic[5] = []
+//            domandeOrdinatePerTopic[6] = []
             
             for domanda in domande{
                 domandeOrdinatePerTopic[Int(domanda.topic!) ].append(domanda)
@@ -106,6 +114,12 @@ class SingletonServer{
             eventiOrdinatiPerTopic.append([DBEvent]())
             eventiOrdinatiPerTopic.append([DBEvent]())
             eventiOrdinatiPerTopic.append([DBEvent]())
+//            eventiOrdinatiPerTopic[0] = []
+//            eventiOrdinatiPerTopic[1] = []
+//            eventiOrdinatiPerTopic[2] = []
+//            eventiOrdinatiPerTopic[3] = []
+//            eventiOrdinatiPerTopic[4] = []
+//            eventiOrdinatiPerTopic[5] = []
             
             for evento in eventi{
                 eventiOrdinatiPerTopic[Int(evento.topic!) ].append(evento)

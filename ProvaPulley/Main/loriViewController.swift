@@ -66,20 +66,20 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let topic = SingletonServer.singleton.chosenTopic
         SingletonServer.singleton.chosenTopic = 0
-        let image = #imageLiteral(resourceName: "Giorgio")
-        let data: Data = UIImagePNGRepresentation(image)!
-        let string = data.base64EncodedString(options: .lineLength64Characters)
-        
+//        let image = #imageLiteral(resourceName: "Giorgio")
+//        let data: Data = UIImagePNGRepresentation(image)!
+//        let string = data.base64EncodedString(options: .lineLength64Characters)
+        let a = "PORCO"
         var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
         if  let r = SingletonServer.singleton.user?.posFit {
             radar = r
         }
         
         
-        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(dataFine) \(string)")
+        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(dataFine) \(a)")
         
         
-        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
+        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: a, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
         createNewEvent(event: event)
         
         self.dismiss(animated: true, completion: nil)

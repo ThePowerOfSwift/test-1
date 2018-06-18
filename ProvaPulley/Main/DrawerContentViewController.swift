@@ -132,10 +132,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 do{
                     let question = try decoder.decode(DBQuestion.self, from: da!)
                     if(question.ID != nil){
-                        //                    SingletonServer.singleton.user?.myQuestions?.append(question)
-                        //                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                        //                    SingletonServer.singleton.events_questions_aroundPosition?.questions?.append(question)
-                        //                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
+                 
                         
                         SingletonServer.singleton.user?.myQuestions?.append(question)
                         SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)

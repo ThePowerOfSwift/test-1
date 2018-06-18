@@ -65,6 +65,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         let topic = SingletonServer.singleton.chosenTopic
+        print("TOPIC:\(topic)")
         SingletonServer.singleton.chosenTopic = 0
 //        let image = #imageLiteral(resourceName: "Giorgio")
 //        let data: Data = UIImagePNGRepresentation(image)!

@@ -9,10 +9,22 @@
 import UIKit
 
 class EventoPulleyViewController: UIViewController {
-
+    @IBAction func Cancel(_ sender: Any) {
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let appDelegate = UIApplication.shared.delegate
+//
+//        let initViewController: UIViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! SelectedViewController
+//        appDelegate?.window??.rootViewController = initViewController
+        navigationController?.popViewController(animated: true)
+        self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.backBarButtonItem?.title = "Back"
         self.pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
         // Do any additional setup after loading the view.
     }

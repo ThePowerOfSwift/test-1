@@ -23,12 +23,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     var count=0
     var range:Double = 1/111
     
-
-    
-    
-   
-    
-    
     
     
     override func viewDidLoad() {
@@ -49,6 +43,30 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         mappe.showsCompass = false
         NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
+        
+        let marker = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40.836643, longitude: 14.306065))
+        marker.topic = 1
+        self.mappe.addAnnotation(marker)
+        
+        let marker2 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 12))
+        marker2.topic = 2
+        self.mappe.addAnnotation(marker2)
+        
+        let marker3 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 13))
+        marker3.topic = 3
+        self.mappe.addAnnotation(marker3)
+        
+        let marker4 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 14))
+        marker4.topic = 4
+        self.mappe.addAnnotation(marker4)
+        
+        let marker5 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 15))
+        marker5.topic = 5
+        self.mappe.addAnnotation(marker5)
+        
+        let marker6 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 16))
+        marker6.topic = 6
+        self.mappe.addAnnotation(marker6)
        
     }
     
@@ -223,22 +241,39 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
 //    funzione per cambiare l'immagine del pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if(annotation.title == "1"){
+        let a = annotation as? EventAnnotation
+        if (a?.topic == 1) {
             let annotationView = MKAnnotationView()
-            annotationView.image = UIImage(named: "arrow2")
-            //        let transform = CGAffineTransform(scaleX: 10, y: 10)
-            //        annotationView.transform = transform
+            annotationView.image = UIImage(named: "food")
+           
             return annotationView
-        }else if(annotation.title == "2"){
+        } else if (a?.topic == 2) {
             let annotationView = MKAnnotationView()
-            annotationView.image = UIImage(named: "arrow2")
-            //        let transform = CGAffineTransform(scaleX: 10, y: 10)
-            //        annotationView.transform = transform
+            annotationView.image = UIImage(named: "nightlife")
+            
+            return annotationView
+        } else if (a?.topic == 3) {
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "art")
+           
+            return annotationView
+        } else if (a?.topic == 4) {
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "shopping")
+            
+            return annotationView
+        } else if (a?.topic == 5) {
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "cityinfo")
+           
+            return annotationView
+        } else if (a?.topic == 6) {
+            let annotationView = MKAnnotationView()
+            annotationView.image = UIImage(named: "tourism")
+          
             return annotationView
         }
-        
         return nil
-        
     }
 
   

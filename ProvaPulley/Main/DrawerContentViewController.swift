@@ -62,19 +62,27 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         FoodButton.borderColor = UIColor.gray.cgColor
         
         setupTable()
+        setupEvent()
+    }
+    
+    func setupEvent() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadEvent), name: NSNotification.Name(rawValue: "event"), object: nil)
+        print("A2")
+        
     }
     
     
     func setupTable() {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: nil)
-        
-        
+    }
+    
+    @objc func reloadEvent() {
+        print("AAAAAAAAAAAAAA")
+        performSegue(withIdentifier: "evpulley", sender: nil)
     }
     
     @objc func reload() {
         self.messageTable.reloadData()
-        print("CIAO££kdkskksk")
         dismissKeyboard()
         
     }

@@ -332,6 +332,7 @@
                         <outlet property="Tourism2Button" destination="QE3-Q9-bqr" id="OUq-5E-Z4V"/>
                         <outlet property="TourismButton" destination="ijn-17-LqX" id="3pT-wT-br2"/>
                         <segue destination="vdb-e0-crL" kind="show" identifier="seguePulleyMessage" id="qIz-Pd-RJk"/>
+                        <segue destination="bQc-vg-WaQ" kind="show" identifier="evpulley" id="gGA-C9-KfM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmg-Jv-qT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -351,7 +352,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PsH-sJ-bOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5215" y="772"/>
+            <point key="canvasLocation" x="5215" y="568"/>
+        </scene>
+        <!--Evento Pulley View Controller-->
+        <scene sceneID="wzx-1B-vYK">
+            <objects>
+                <viewController storyboardIdentifier="eventoPulley" id="bQc-vg-WaQ" customClass="EventoPulleyViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="shc-PN-vlD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qBP-su-eHS"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1KE-2e-zuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5214" y="1126"/>
         </scene>
         <!--Selected View Controller-->
         <scene sceneID="3Dc-Mx-M0d">
@@ -1048,7 +1064,7 @@
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-zX-bT2" userLabel="photo">
-                                <rect key="frame" x="310" y="260" width="30" height="30"/>
+                                <rect key="frame" x="319" y="278" width="48" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
@@ -1056,12 +1072,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ivv-1Y-PWb" userLabel="gallery">
-                                <rect key="frame" x="30" y="260" width="30" height="30"/>
+                                <rect key="frame" x="9" y="277" width="48" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="J3g-hz-ywE"/>
+                                    <constraint firstAttribute="height" constant="40" id="J3g-hz-ywE"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="TbE-As-fgU"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="X4q-07-iNm"/>
-                                    <constraint firstAttribute="width" constant="30" id="lnP-AT-T0l"/>
+                                    <constraint firstAttribute="width" constant="48" id="lnP-AT-T0l"/>
                                 </constraints>
                                 <state key="normal" image="add picture"/>
                                 <connections>
@@ -1234,8 +1250,8 @@
                             <constraint firstItem="MMk-0y-HDP" firstAttribute="top" secondItem="GGI-tF-rgu" secondAttribute="top" constant="30" id="9PY-Hw-plD"/>
                             <constraint firstItem="esM-lp-cCh" firstAttribute="top" secondItem="Way-vh-N1I" secondAttribute="bottom" constant="13" id="Aep-8f-ALh"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="trailing" secondItem="GGI-tF-rgu" secondAttribute="trailing" id="BxA-V6-QAy"/>
-                            <constraint firstItem="Ivv-1Y-PWb" firstAttribute="top" secondItem="MMk-0y-HDP" secondAttribute="bottom" constant="145" id="Ewi-WG-wHw"/>
-                            <constraint firstItem="GGI-tF-rgu" firstAttribute="trailing" secondItem="Ivv-1Y-PWb" secondAttribute="trailing" constant="315" id="F8f-n5-K2p"/>
+                            <constraint firstItem="Ivv-1Y-PWb" firstAttribute="top" secondItem="MMk-0y-HDP" secondAttribute="bottom" constant="162" id="Ewi-WG-wHw"/>
+                            <constraint firstItem="GGI-tF-rgu" firstAttribute="trailing" secondItem="Ivv-1Y-PWb" secondAttribute="trailing" constant="318" id="F8f-n5-K2p"/>
                             <constraint firstItem="Ei3-2V-0u1" firstAttribute="top" secondItem="GGI-tF-rgu" secondAttribute="top" id="FiW-nA-hd7"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="MMk-0y-HDP" secondAttribute="bottom" constant="1" id="HTD-AM-oqg"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="MMk-0y-HDP" secondAttribute="bottom" constant="1" id="Ng8-6c-kB8"/>
@@ -1248,13 +1264,13 @@
                             <constraint firstItem="Zpu-Si-0Sn" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" id="Zkg-mQ-UAp"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="FHV-Z9-MbY" secondAttribute="bottom" constant="63" id="cu0-al-Uia"/>
                             <constraint firstItem="Zpu-Si-0Sn" firstAttribute="top" secondItem="esM-lp-cCh" secondAttribute="bottom" constant="8" id="dNC-ul-cQT"/>
-                            <constraint firstItem="Ivv-1Y-PWb" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="30" id="dPP-zZ-gcE"/>
+                            <constraint firstItem="Ivv-1Y-PWb" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="9" id="dPP-zZ-gcE"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="Ei3-2V-0u1" secondAttribute="bottom" constant="63" id="hH5-kZ-ydz"/>
                             <constraint firstItem="FHV-Z9-MbY" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="10" id="hTR-sW-XQw"/>
                             <constraint firstAttribute="bottom" secondItem="Zpu-Si-0Sn" secondAttribute="bottom" constant="-24" id="iHq-2X-oxN"/>
                             <constraint firstItem="FHV-Z9-MbY" firstAttribute="top" secondItem="GGI-tF-rgu" secondAttribute="top" id="ji5-C7-nkW"/>
                             <constraint firstItem="Zpu-Si-0Sn" firstAttribute="trailing" secondItem="GGI-tF-rgu" secondAttribute="trailing" id="v00-JJ-GuC"/>
-                            <constraint firstItem="esM-lp-cCh" firstAttribute="top" secondItem="Ivv-1Y-PWb" secondAttribute="bottom" constant="50" id="zeM-pk-teV"/>
+                            <constraint firstItem="esM-lp-cCh" firstAttribute="top" secondItem="Ivv-1Y-PWb" secondAttribute="bottom" constant="23" id="zeM-pk-teV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GGI-tF-rgu"/>
                     </view>

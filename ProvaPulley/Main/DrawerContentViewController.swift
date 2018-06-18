@@ -26,7 +26,6 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBOutlet weak var FoodButton: UICustomButton!
     @IBOutlet weak var ArtButton: UICustomButton!
     @IBOutlet weak var CityInfoButton: UICustomButton!
-    
     @IBOutlet weak var Tourism2Button: UICustomButton!
     
     
@@ -173,11 +172,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBAction func cityinfoButtonTap(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 5
         self.messageTable.reloadData()
-        
         NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
         self.allButtonsOff(i: 5)
         coloroOn(topicNum: 5)
     }
+    
     
     @IBAction func tourismButtonTap(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 6
@@ -186,6 +185,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         self.allButtonsOff(i: 6)
         coloroOn(topicNum: 6)
     }
+    
     
 }
 extension DrawerContentViewController {
@@ -284,7 +284,6 @@ extension DrawerContentViewController: UITableViewDataSource {
         
         count = (SingletonServer.singleton.eventiOrdinatiPerTopic[topic].count)
         
-        
         count = count+(SingletonServer.singleton.domandeOrdinatePerTopic[topic].count)
         
         return count
@@ -298,7 +297,7 @@ extension DrawerContentViewController: UITableViewDataSource {
         if indexPath.row < questNum{
             print("cazzo!")
             let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue as! Int
+            let indexProf = imgprof.integerValue
             cell.improf?.image = SingletonServer.singleton.logoImage[topic]
             cell.backView?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.backView?.layer.cornerRadius = 32.0

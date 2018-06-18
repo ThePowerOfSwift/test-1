@@ -420,11 +420,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         //        end luca
         
-        if let skip = SingletonServer.singleton.skipper {
-            if skip {
-                avatarButton.setBackgroundImage(#imageLiteral(resourceName: "anonimo"), for: .normal)
-                avatarButton.isEnabled = false
-            }
+        if SingletonServer.singleton.skipper {
+            avatarButton.setBackgroundImage(#imageLiteral(resourceName: "anonimo"), for: .normal)
+            avatarButton.isEnabled = false
         } else {
             avatarButton.setBackgroundImage(SingletonServer.singleton.logoImage[Int((SingletonServer.singleton.user?.socialAvatar)!)!], for: .normal)
         }

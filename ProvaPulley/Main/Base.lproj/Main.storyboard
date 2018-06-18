@@ -274,7 +274,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="383"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask a question" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6" userLabel="AskQuestion">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask something" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6" userLabel="AskQuestion">
                                 <rect key="frame" x="6" y="124" width="324" height="30"/>
                                 <color key="tintColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -417,7 +417,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="tourismButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="0Cq-hY-gSx"/>
+                                                            <action selector="tourismButtonTap:" destination="1sF-DN-zau" eventType="touchUpInside" id="MsF-Iy-oac"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -507,7 +507,7 @@
                         <outlet property="NightLifeButton" destination="Ga9-GL-YGu" id="iFA-zW-5Wm"/>
                         <outlet property="Send" destination="VK5-a8-Klf" id="qMf-Up-TqE"/>
                         <outlet property="Tourism2Button" destination="QE3-Q9-bqr" id="OUq-5E-Z4V"/>
-                        <outlet property="TourismButton" destination="ijn-17-LqX" id="UxV-vY-jXr"/>
+                        <outlet property="TourismButton" destination="ijn-17-LqX" id="3pT-wT-br2"/>
                         <segue destination="vdb-e0-crL" kind="show" identifier="seguePulleyMessage" id="qIz-Pd-RJk"/>
                     </connections>
                 </viewController>

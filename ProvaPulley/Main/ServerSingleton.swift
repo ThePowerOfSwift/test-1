@@ -22,7 +22,7 @@ class SingletonServer{
     var user:DBUser?
     
     //if it's a skipper (anonimous user)
-    var skipper: Bool?
+    var skipper: Bool = false
     
     var eventiOrdinatiPerTopic:[[DBEvent]] = [[DBEvent]]()
     var domandeOrdinatePerTopic:[[DBQuestion]] = [[DBQuestion]]()
@@ -52,10 +52,10 @@ class SingletonServer{
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
-        
-        
-        
+        eventiOrdinatiPerTopic.append([DBEvent]())
     }
+    
+    
     func coloroOn( topicNum: Int)->UIColor {
         
         switch topicNum {
@@ -406,7 +406,7 @@ class SingletonServer{
                 data, response, error in
                 
                 guard error == nil else {
-                    print(error)
+                    print(error!)
                     return
                 }
                 DispatchQueue.main.async {

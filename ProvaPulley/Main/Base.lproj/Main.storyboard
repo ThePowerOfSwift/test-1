@@ -58,22 +58,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="752"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrD-xT-lMY">
-                                <rect key="frame" x="309" y="117" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-td-Pyb">
+                                <rect key="frame" x="308" y="35" width="43" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="arrow1">
+                                <state key="normal" image="piu" backgroundImage="piu"/>
+                                <connections>
+                                    <segue destination="KMs-4r-GOb" kind="show" id="g3b-eI-2aa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrD-xT-lMY">
+                                <rect key="frame" x="308" y="101" width="41" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pos">
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="pos:" destination="aMu-Sp-8bW" eventType="touchUpInside" id="YZV-fz-StL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-td-Pyb">
-                                <rect key="frame" x="309" y="30" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="piu"/>
-                                <connections>
-                                    <segue destination="KMs-4r-GOb" kind="show" id="g3b-eI-2aa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5E-zA-40s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3553" y="-98"/>
+            <point key="canvasLocation" x="3552.8000000000002" y="-98.50074962518741"/>
         </scene>
         <!--Drawer Content View Controller-->
         <scene sceneID="2vq-qR-900">
@@ -1369,11 +1369,11 @@
         <image name="Sofia" width="62" height="62"/>
         <image name="X" width="48" height="48"/>
         <image name="add picture" width="292" height="240"/>
-        <image name="arrow1" width="48" height="48"/>
         <image name="camera" width="288" height="230"/>
         <image name="map" width="30" height="30"/>
         <image name="mor" width="51" height="51"/>
-        <image name="piu" width="200" height="200"/>
+        <image name="piu" width="40" height="54"/>
+        <image name="pos" width="88" height="88"/>
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>

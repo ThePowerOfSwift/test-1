@@ -20,7 +20,7 @@ final class DataManager {
     
     static let shared = DataManager()
     
-    let mainColor = UIColor.blue
+    let mainColor = UIColor(red: 51.0/255.0, green: 120.0/255.0, blue: 244.0/255.0, alpha: 1)
     let foodColor = UIColor(red: 239.0/255.0, green: 139.0/255.0, blue: 95.0/255.0, alpha: 1)
     let nightlifeColor = UIColor(red: 233.0/255.0, green: 118.0/255.0, blue: 219.0/255.0, alpha: 1)
     let artColor = UIColor(red: 139.0/255.0, green: 149.0/255.0, blue: 215.0/255.0, alpha: 1)

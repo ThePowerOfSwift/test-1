@@ -83,6 +83,7 @@ extension DentroLaChatViewController {
         self.senderId = currentUser.id
         self.senderDisplayName = SingletonServer.singleton.user?.nickname
         
+        
         self.navigationItem.title = DataManager.shared.titolo
     
     

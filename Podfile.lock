@@ -9,10 +9,14 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.33.0):
     - FBSDKCoreKit
+  - JSQMessagesViewController (7.3.5):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Pulley (2.4.0)
 
 DEPENDENCIES:
   - FBSDKLoginKit
+  - JSQMessagesViewController
   - Pulley
 
 SPEC REPOS:
@@ -20,14 +24,18 @@ SPEC REPOS:
     - Bolts
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - JSQMessagesViewController
+    - JSQSystemSoundPlayer
     - Pulley
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
   FBSDKLoginKit: 88cb456349cfb3b554427ce4f8b43729d85dfb40
+  JSQMessagesViewController: 6587f56aedbcb150a8ba1d968e1ef58b1bc758b7
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Pulley: 604066ea5d24339a8701b0167a2c8131a589e705
 
-PODFILE CHECKSUM: c9e0e53ffb5f783d4e6f141116a44a00bfd47990
+PODFILE CHECKSUM: 3942c030db595276d834f0569bbfe722930e3d17
 
 COCOAPODS: 1.5.2

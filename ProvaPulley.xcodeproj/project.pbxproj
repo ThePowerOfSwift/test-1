@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E2D618D20D2719900978021 /* EventAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D618C20D2719900978021 /* EventAnnotation.swift */; };
-		5E74D7DD20D90E4A001FBB3D /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D7DC20D90E49001FBB3D /* MapContentViewController.swift */; };
 		81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAA20CAC1290015CB00 /* DBQuestion.swift */; };
 		81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAB20CAC1290015CB00 /* DBRadar.swift */; };
 		81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */; };
@@ -34,6 +33,8 @@
 		871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */; };
 		872197FF20D8F27900432914 /* ingressoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872197FE20D8F27900432914 /* ingressoViewController.swift */; };
 		8721980120D8F72900432914 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980020D8F72900432914 /* Helper.swift */; };
+		8721980520D929BC00432914 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980420D929BC00432914 /* MapContentViewController.swift */; };
+		8721980720D932F600432914 /* DentroLaChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980620D932F600432914 /* DentroLaChatViewController.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
 		873586EC20D7C61500564B37 /* loriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873586EB20D7C61500564B37 /* loriViewController.swift */; };
 		87415E6B20C822EA0046DFAC /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6A20C822EA0046DFAC /* ForgotViewController.swift */; };
@@ -67,7 +68,6 @@
 /* Begin PBXFileReference section */
 		2A62161D384BE453414560D8 /* Pods_BatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2D618C20D2719900978021 /* EventAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAnnotation.swift; sourceTree = "<group>"; };
-		5E74D7DC20D90E49001FBB3D /* MapContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapContentViewController.swift; path = ../../../../../Downloads/MapContentViewController.swift; sourceTree = "<group>"; };
 		81F33FAA20CAC1290015CB00 /* DBQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQuestion.swift; sourceTree = "<group>"; };
 		81F33FAB20CAC1290015CB00 /* DBRadar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRadar.swift; sourceTree = "<group>"; };
 		81F33FAC20CAC1290015CB00 /* DBAnswerE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBAnswerE.swift; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaScrollViewController.swift; sourceTree = "<group>"; };
 		872197FE20D8F27900432914 /* ingressoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingressoViewController.swift; sourceTree = "<group>"; };
 		8721980020D8F72900432914 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		8721980420D929BC00432914 /* MapContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapContentViewController.swift; path = ../../../../Downloads/MapContentViewController.swift; sourceTree = "<group>"; };
+		8721980620D932F600432914 /* DentroLaChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DentroLaChatViewController.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		873586EB20D7C61500564B37 /* loriViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loriViewController.swift; sourceTree = "<group>"; };
 		87415E6A20C822EA0046DFAC /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +195,7 @@
 				5E2D618C20D2719900978021 /* EventAnnotation.swift */,
 				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
 				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
-				5E74D7DC20D90E49001FBB3D /* MapContentViewController.swift */,
+				8721980420D929BC00432914 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
 				87BDA0BE20D7E9EB00CD1C11 /* EventoPulleyViewController.swift */,
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
+				8721980620D932F600432914 /* DentroLaChatViewController.swift */,
 				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
 				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
 				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
@@ -357,6 +360,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -364,6 +369,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,12 +404,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				87038C9520D2667D006CDDA3 /* ConversazionViewController (1).swift in Sources */,
-				5E74D7DD20D90E4A001FBB3D /* MapContentViewController.swift in Sources */,
 				871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */,
 				81F33FB120CAC12A0015CB00 /* DBRadar.swift in Sources */,
 				871B95C420C6DE4C0035C3A2 /* LoginViewController.swift in Sources */,
 				871B956920C5549F0035C3A2 /* NotificheViewController.swift in Sources */,
 				BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */,
+				8721980720D932F600432914 /* DentroLaChatViewController.swift in Sources */,
 				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				872197FF20D8F27900432914 /* ingressoViewController.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
@@ -434,6 +441,7 @@
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
 				873586EC20D7C61500564B37 /* loriViewController.swift in Sources */,
 				87BDA0BF20D7E9EB00CD1C11 /* EventoPulleyViewController.swift in Sources */,
+				8721980520D929BC00432914 /* MapContentViewController.swift in Sources */,
 				871B957520C5773B0035C3A2 /* CellaPasswordTableViewCell.swift in Sources */,
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,
@@ -589,13 +597,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VW836T2T62;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley22;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -609,13 +617,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VW836T2T62;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley22;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

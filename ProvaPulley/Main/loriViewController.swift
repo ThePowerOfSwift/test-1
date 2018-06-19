@@ -33,6 +33,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     @IBOutlet weak var captureImageView: UIImageView!
     
+    @IBOutlet weak var hours: UIButton!
     
     
     override func viewDidLoad() {
@@ -58,18 +59,26 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func done(_ sender: Any) {
         
         var dataInizio = timePickerStart.date.description
-        var dataFine = timePickerEnd.date.description
+//        var dataFine = timePickerEnd.date.description
+  let calendar = Calendar.current
+        let d = calendar.date(byAdding: DateComponents(calendar: calendar, hour: 4, minute: 00, second: 00), to: timePickerEnd.date)
+        
+        var dataFine = d?.description
         for _ in 1...6 {
             dataInizio = String(dataInizio.dropLast())
-            dataFine = String(dataFine.dropLast())
+            dataFine = String((dataFine?.dropLast())!)
         }
-        
+//        print ("DATA INIZIO: \(dataInizio) e \(dataFine!)")
         let topic = SingletonServer.singleton.chosenTopic
         print("TOPIC:\(topic)")
         SingletonServer.singleton.chosenTopic = 0
-//        let image = #imageLiteral(resourceName: "Giorgio")
-//        let data: Data = UIImagePNGRepresentation(image)!
-//        let string = data.base64EncodedString(options: .lineLength64Characters)
+        let image = #imageLiteral(resourceName: "Giorgio")
+        let data: Data = UIImagePNGRepresentation(image)!
+        let string = data.base64EncodedString(options: .lineLength64Characters)
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        let s = encoder.encode(image)
+        print("FOTO:\(string) OP")
         let a = "PORCO"
         var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
         if  let r = SingletonServer.singleton.user?.posFit {
@@ -80,7 +89,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(dataFine) \(a)")
         
         
-        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: a, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine, topic: Int32(topic))
+        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: a, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine!, topic: Int32(topic))
         createNewEvent(event: event)
         
         self.dismiss(animated: true, completion: nil)
@@ -209,9 +218,23 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
 
 //        oppure creamo un action dal sender del timePickerstart e uno diverso dal timepickerend
-        
-        
 
+        
+            
+        let calendarStart = Calendar.current
+        let monthStart = calendarStart.component(.month, from: timePickerStart.date)
+        let dayStart = calendarStart.component(.day, from: timePickerStart.date)
+        let hourStart = calendarStart.component(.hour, from: timePickerStart.date)
+        
+        let monthEnd = calendarStart.component(.month, from: timePickerEnd.date)
+        let dayEnd = calendarStart.component(.day, from: timePickerEnd.date)
+        let hourEnd = calendarStart.component(.hour, from: timePickerEnd.date)
+       
+        
+        
+        hours.titleLabel?.text = "\((monthEnd-monthStart)*24*30 + (dayEnd-dayStart)*24 + (hourEnd-hourStart))+"
+        
+        
         closeViewDellaPicker()
         
 

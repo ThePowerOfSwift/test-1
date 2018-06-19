@@ -66,14 +66,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     @IBOutlet var vista: UIView!
     
-    override func viewDidAppear(_ animated: Bool) {
-
-        let user =  SingletonServer.singleton.retrieveUserState()
-        if(user.email != nil){
-            loadHomeScreen()
-        }
-
-        }
+//    override func viewDidAppear(_ animated: Bool) {
+//
+//        let user =  SingletonServer.singleton.retrieveUserState()
+//        if(user.email != nil){
+//            loadHomeScreen()
+//        }
+//
+//        }
         
     override func viewWillAppear(_ animated: Bool){
         

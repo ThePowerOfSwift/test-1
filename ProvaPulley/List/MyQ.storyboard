@@ -203,7 +203,9 @@
                         <viewLayoutGuide key="safeArea" id="nRe-kO-YY7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Recent" image="list" id="19a-ob-jyS"/>
-                    <navigationItem key="navigationItem" title="Recent" largeTitleDisplayMode="always" id="HVU-UI-4ww"/>
+                    <navigationItem key="navigationItem" title="Recent" largeTitleDisplayMode="always" id="HVU-UI-4ww">
+                        <barButtonItem key="backBarButtonItem" title="   " id="Xs9-Pu-YVT"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableview" destination="gpL-5d-nt7" id="Pps-f8-clO"/>

@@ -85,6 +85,8 @@ extension DentroLaChatViewController {
         
         self.navigationItem.title = DataManager.shared.titolo
     
+    
+
         
 //        self.messages = getMessages()
     }

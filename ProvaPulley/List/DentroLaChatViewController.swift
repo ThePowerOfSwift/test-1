@@ -81,24 +81,26 @@ extension DentroLaChatViewController {
         // tell JSQMessagesViewController
         // who is the current user
         self.senderId = currentUser.id
-        self.senderDisplayName = currentUser.name
+        self.senderDisplayName = SingletonServer.singleton.user?.nickname
         
+        self.navigationItem.title = DataManager.shared.titolo
+    
         
-        self.messages = getMessages()
+//        self.messages = getMessages()
     }
 }
 
-extension DentroLaChatViewController {
-    func getMessages() -> [JSQMessage] {
-        var messages = [JSQMessage]()
-        
-        let message1 = JSQMessage(senderId: "1", displayName: "Steve", text: "Hey Tim how are you?")
-        let message2 = JSQMessage(senderId: "2", displayName: "Tim", text: "Fine thanks, and you?")
-        
-        messages.append(message1!)
-        messages.append(message2!)
-        
-        return messages
-    }
-}
+//extension DentroLaChatViewController {
+//    func getMessages() -> [JSQMessage] {
+//        var messages = [JSQMessage]()
+//
+//        let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
+//        let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
+//
+//        messages.append(message1!)
+//        messages.append(message2!)
+//
+//        return messages
+//    }
+//}
 

@@ -32,6 +32,9 @@ final class DataManager {
     
     var sfondoColor = UIColor.white
 
+    var titolo = ""
+    
+    var nomeUtente = ""
     var messages = [Message(author: User(nickname: "toni", imageNum: 2), message: "Blablablablabla", topic: .food, id: true),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "bebebebebe", topic: .art, id: false),
                     Message(author: User(nickname: "toni", imageNum: 2), message: "Dove posso bebebebe", topic: .cityLife, id: false),

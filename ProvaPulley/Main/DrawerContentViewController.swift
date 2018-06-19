@@ -76,8 +76,12 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: nil)
     }
     
-    @objc func reloadEvent() {
+    @objc func reloadEvent(not: Notification) {
         print("AAAAAAAAAAAAAA")
+        
+        let event = not.object as! EventAnnotation
+        print("EVENTO SELEZIONATO:\(event.name)")
+        SingletonServer.singleton.eventoSelezionato = event
         performSegue(withIdentifier: "evpulley", sender: nil)
     }
     

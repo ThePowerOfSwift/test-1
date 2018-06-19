@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -406,7 +406,11 @@
                         <viewLayoutGuide key="safeArea" id="qBP-su-eHS"/>
                     </view>
                     <connections>
+                        <outlet property="Indirizzo" destination="6Av-GB-3V6" id="M4v-Tf-B1V"/>
                         <outlet property="grip" destination="b7N-t5-yjO" id="mH0-LS-R9Z"/>
+                        <outlet property="imgView" destination="aJu-8S-5ES" id="5Gn-Rf-6xr"/>
+                        <outlet property="nomeEvent" destination="ZlQ-ue-BgU" id="VZd-4N-XfO"/>
+                        <outlet property="startEnd" destination="oen-Lt-QD5" id="cHd-hs-9Ob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KE-2e-zuf" userLabel="First Responder" sceneMemberID="firstResponder"/>

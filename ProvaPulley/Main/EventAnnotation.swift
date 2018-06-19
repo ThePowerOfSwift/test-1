@@ -16,6 +16,20 @@ class EventAnnotation: NSObject, MKAnnotation {
     var image: UIImage!
     var topic:Int?
     
+    
+    var id:Int32?
+    var name:String?
+    var descri: String?
+    var datetime:String?
+    var endDate:String?
+    var media:String?
+    var address:String?
+    
+    var subscribers:[DBUser]?
+    var answers: [DBAnswerE]?
+    var ownerUser:DBUser?
+    var myPosition:DBRadar?
+    
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate
     }

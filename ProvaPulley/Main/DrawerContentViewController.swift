@@ -261,7 +261,7 @@ extension DrawerContentViewController {
         
         UIView.animate(withDuration: 0.25,
                        
-                       animations: ({self.vetButtons[i].layer.borderColor = UIColor.gray.cgColor}))
+                       animations: ({self.vetButtons[i].layer.borderColor = UIColor.lightGray.cgColor}))
         
         
         UIView.animate(withDuration: 0.25,

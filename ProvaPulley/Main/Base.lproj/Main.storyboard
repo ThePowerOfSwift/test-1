@@ -58,22 +58,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="752"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-td-Pyb">
-                                <rect key="frame" x="308" y="35" width="43" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="piu" backgroundImage="piu"/>
-                                <connections>
-                                    <segue destination="KMs-4r-GOb" kind="show" id="g3b-eI-2aa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrD-xT-lMY">
-                                <rect key="frame" x="308" y="101" width="41" height="40"/>
+                                <rect key="frame" x="326" y="94" width="30" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="pos">
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="pos:" destination="aMu-Sp-8bW" eventType="touchUpInside" id="YZV-fz-StL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIE-td-Pyb">
+                                <rect key="frame" x="325" y="34" width="32" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="piu" backgroundImage="piu"/>
+                                <connections>
+                                    <segue destination="KMs-4r-GOb" kind="show" id="g3b-eI-2aa"/>
                                 </connections>
                             </button>
                         </subviews>

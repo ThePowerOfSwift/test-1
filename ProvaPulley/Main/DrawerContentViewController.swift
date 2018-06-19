@@ -52,6 +52,10 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
         self.view.addSubview(messageTable)
         
+        AnyButton.backgroundColor = DataManager.shared.mainColor
+        AnyButton.layer.borderColor = UIColor.white.cgColor
+        AnyButton.setTitleColor(.white, for: .normal)
+        
         //      topic buttons
         AnyButton.borderColor = UIColor.gray.cgColor
         CityInfoButton.borderColor = UIColor.gray.cgColor

@@ -36,6 +36,8 @@ class EventoPulleyViewController: UIViewController {
         Event = SingletonServer.singleton.eventoSelezionato
         nomeEvent.text = Event?.name
         coment.layer.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: (Event?.topic)!).cgColor
+        coment.borderColor = UIColor.white.cgColor
+        coment.titleLabel?.text = "33 Comments"
         Indirizzo.text = Event?.address
         descriz.text = Event?.descri
         startEnd.text = Event?.datetime

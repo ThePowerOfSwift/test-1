@@ -6,6 +6,7 @@ target 'BatChat' do
   use_frameworks!
 pod 'Pulley'
 pod 'JSQMessagesViewController'
+pod 'SJSegmentedScrollView'
 
   # Pods for ProvaPulley
 

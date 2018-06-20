@@ -58,7 +58,6 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         AnyButton.setTitleColor(.white, for: .normal)
         
         //      topic buttons
-        AnyButton.borderColor = UIColor.gray.cgColor
         CityInfoButton.borderColor = UIColor.gray.cgColor
         Tourism2Button.borderColor = UIColor.gray.cgColor
         TourismButton.borderColor = UIColor.gray.cgColor
@@ -199,8 +198,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         SingletonServer.singleton.chosenTopic = 6
         self.messageTable.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
-        self.allButtonsOff(i: 6)
-        coloroOn(topicNum: 6)
+        self.allButtonsOff(i: 4)
+        coloroOn(topicNum: 4)
     }
     
     
@@ -217,8 +216,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         SingletonServer.singleton.chosenTopic = 4
         self.messageTable.reloadData()
         NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
-        self.allButtonsOff(i: 4)
-        coloroOn(topicNum: 4)
+        self.allButtonsOff(i: 6)
+        coloroOn(topicNum: 6)
     }
     
     
@@ -336,6 +335,8 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
             cell.backView?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.backView?.layer.cornerRadius = 32.0
+            cell.backView?.layer.borderWidth = 1
+            cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
             cell.descrizione?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
             cell.descrizione?.textColor = .white
             cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
@@ -365,9 +366,9 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.backView?.layer.borderWidth = 1
             cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
             cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].description
-            cell.descrizione?.textColor = .white
+            cell.descrizione?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
-            cell.nickname?.textColor = .white
+            cell.nickname?.textColor = .black
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
@@ -376,74 +377,13 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
             cell.data?.text =  "\(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime) - \(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate)"
-            cell.data?.textColor = .white
+            cell.data?.textColor = .black
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             
         }
         return cell
     }
-    
-    //        //        var questCount = (SingletonServer.singleton.events_questions_aroundPosition?.questions?.count)!
-    //        var questCount = 0
-    //        if(SingletonServer.singleton.events_questions_aroundPosition?.questions != nil){
-    //            questCount = (SingletonServer.singleton.events_questions_aroundPosition?.questions?.count)!
-    //
-    //        }
-    //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
-    //
-    //        let color = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].topic!
-    //        let indexTopic = Int(color!)
-    //        let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
-    //        let indexProf = imgprof.integerValue as! Int
-    //
-    //        if indexPath.row < questCount {
-    //            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-    //            cell.backView?.backgroundColor = SingletonServer.singleton.colori[indexTopic]
-    //            cell.backView?.layer.cornerRadius = 32.0
-    //            cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row].name
-    //            cell.descrizione?.textColor = .white
-    //            cell.title?.text = SingletonServer.singleton.user?.nickname
-    //            cell.title?.textColor = .white
-    //            cell.title?.font = UIFont.boldSystemFont(ofSize: 16.0)
-    //            cell.numMessages?.layer.cornerRadius = 12.0
-    //            cell.numMessages?.clipsToBounds = true
-    //            cell.numMessages?.text = "\(String(describing: SingletonServer.singleton.domande?.answers?.count))"
-    //            cell.numMessages?.backgroundColor = .white
-    //            cell.numMessages?.textColor = SingletonServer.singleton.colori[indexTopic]
-    //            cell.numMessages?.textAlignment = .center
-    //            cell.date?.text =  SingletonServer.singleton.domande?.dateFine
-    //            cell.date?.textColor = .white
-    //
-    //            cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
-    //
-    //        }
-    //        else {
-    //            //            cell.improf?.image = SingletonServer.singleton.events_questions_aroundPosition?.events[indexPath.row - questCount]
-    //            print("\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].datetime)) - \(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].endDate))")
-    //            cell.date?.text = "\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].datetime)) - \(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].endDate))"
-    //            cell.date?.textColor = .black
-    //            cell.numMessages?.text = "\(String(describing: SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].answers?.count))"
-    //            cell.numMessages?.textColor = .white
-    //            cell.numMessages?.backgroundColor = .black
-    //            cell.numMessages?.textAlignment = .center
-    //            cell.numMessages?.layer.cornerRadius = 12.0
-    //            cell.numMessages?.clipsToBounds = true
-    //            cell.descrizione?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].description
-    //            cell.descrizione?.textColor = .black
-    //            cell.title?.text = SingletonServer.singleton.events_questions_aroundPosition?.events![indexPath.row - questCount].name
-    //            cell.title?.textColor = .black
-    //            cell.backView?.layer.borderWidth = 1
-    //            cell.backView?.layer.borderColor = UIColor(red: 0/255, green: 90/255, blue: 50/255, alpha: 1.0).cgColor
-    //            cell.backView?.layer.cornerRadius = 32.0
-    //
-    //            //            cell.backView?.addTarget(self, action: #selector(performeEvent), for: .touchDown)
-    //
-    //        }
-    //
-    //        return cell
-    
-    
     
     @objc func performeQuest(){
         self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)

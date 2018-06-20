@@ -470,6 +470,70 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        
+        
+        
+        //          riappare nome e tableview
+        
+        UIView.animate(withDuration: 0.2, delay: 1.9,options: [],
+                       
+                       animations: { self.nome.alpha = 1 })
+        
+        //          button telefono animation chiudi
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.1,options: [],
+                       
+                       animations: { self.button1.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.3,options: [],
+                       
+                       animations: { self.button2.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.5,options: [],
+                       
+                       animations: { self.button3.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.7,options: [],
+                       
+                       animations: { self.button4.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 0.9,options: [],
+                       
+                       animations: { self.button5.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.1,options: [],
+                       
+                       animations: { self.button6.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.3,options: [],
+                       
+                       animations: { self.button7.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.5,options: [],
+                       
+                       animations: { self.button8.alpha = 0 })
+        
+        
+        UIView.animate(withDuration: 0.5, delay: 1.7,options: [],
+                       
+                       animations: { self.button9.alpha = 0 })
+        
+        buttonOpen = false
+        
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -62,6 +62,8 @@
 		BDF8245F20D0086900B070AB /* ConversazionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8245E20D0086900B070AB /* ConversazionCell.swift */; };
 		C54D028020D7CBFA003B108F /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54D027F20D7CBFA003B108F /* UserNotifications.framework */; };
 		C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C558478E20C0532A008978D4 /* ProfileViewController.swift */; };
+		C574174720DAA0BF00B16CD2 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574174620DAA0BF00B16CD2 /* SegmentedViewController.swift */; };
+		C574174920DAA0C300B16CD2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574174820DAA0C300B16CD2 /* SecondViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
 		D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A62161D384BE453414560D8 /* Pods_BatChat.framework */; };
 /* End PBXBuildFile section */
@@ -126,6 +128,8 @@
 		C54D027F20D7CBFA003B108F /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		C54D028120D7CF14003B108F /* BatChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BatChat.entitlements; sourceTree = "<group>"; };
 		C558478E20C0532A008978D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C574174620DAA0BF00B16CD2 /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
+		C574174820DAA0C300B16CD2 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
 		EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
 		F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
 				8721980620D932F600432914 /* DentroLaChatViewController.swift */,
 				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
+				C574174820DAA0C300B16CD2 /* SecondViewController.swift */,
+				C574174620DAA0BF00B16CD2 /* SegmentedViewController.swift */,
 				878CDCB820C1A2E000F78BC8 /* Chat1TableViewCell.swift */,
 				878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */,
 				87038C9420D2667C006CDDA3 /* ConversazionViewController (1).swift */,
@@ -366,6 +372,7 @@
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
+				"${BUILT_PRODUCTS_DIR}/SJSegmentedScrollView/SJSegmentedScrollView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -375,6 +382,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SJSegmentedScrollView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,6 +445,7 @@
 				878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */,
 				81F33FB320CAC12A0015CB00 /* DBEvent.swift in Sources */,
 				81F33FB220CAC12A0015CB00 /* DBAnswerE.swift in Sources */,
+				C574174920DAA0C300B16CD2 /* SecondViewController.swift in Sources */,
 				871B22C920AF0F4F00EACF41 /* AppDelegate.swift in Sources */,
 				81F33FB620CAC1300015CB00 /* DBUser.swift in Sources */,
 				871B957920C5795D0035C3A2 /* Cella3PasswordTableViewCell.swift in Sources */,
@@ -447,6 +456,7 @@
 				87BDA0BF20D7E9EB00CD1C11 /* EventoPulleyViewController.swift in Sources */,
 				871B957520C5773B0035C3A2 /* CellaPasswordTableViewCell.swift in Sources */,
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
+				C574174720DAA0BF00B16CD2 /* SegmentedViewController.swift in Sources */,
 				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,
 				8723763520D9705500A7AA1B /* qualcosanonfunzionaViewController.swift in Sources */,
 				5E2D618D20D2719900978021 /* EventAnnotation.swift in Sources */,
@@ -601,13 +611,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VW836T2T62;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley33;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,13 +631,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BatChat.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VW836T2T62;
+				DEVELOPMENT_TEAM = X77UFX3DVY;
 				INFOPLIST_FILE = ProvaPulley/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley33;
+				PRODUCT_BUNDLE_IDENTIFIER = lorenzocaso.ProvaPulley23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

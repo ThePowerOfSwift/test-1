@@ -8,8 +8,9 @@
 
 import UIKit
 
-class qualcosanonfunzionaViewController: UIViewController {
+class qualcosanonfunzionaViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var testovista: UITextView!
     @IBOutlet weak var limite: UIView!
     @IBAction func send(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
@@ -31,6 +32,29 @@ class qualcosanonfunzionaViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         limite.backgroundColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1)
         // Do any additional setup after loading the view.
+        testovista.layer.borderWidth = 1.0
+        testovista.layer.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1).cgColor
+        testovista.layer.cornerRadius = 5.0
+        testovista.clipsToBounds = true
+        
+        testovista.delegate = self
+        
+        testovista.text = "Enter your comments"
+        testovista.textColor = UIColor.lightGray
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if testovista.textColor == UIColor.lightGray {
+            testovista.text = nil
+            testovista.textColor = UIColor.black
+        }
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+    if testovista.text.isEmpty {
+    testovista.text = "Enter your comments"
+    testovista.textColor = UIColor.lightGray
+    }
     }
 
     override func didReceiveMemoryWarning() {

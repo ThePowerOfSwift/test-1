@@ -329,12 +329,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         if tableView == self.table2{
             if indexPath.row == 0{
                 let alert = UIAlertController(title: "Report A Problem", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Something doesn't work", style: .default, handler: qualcosa))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
     }
     
+    func qualcosa(alert: UIAlertAction!){
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil) //declare the storyboard
+        let profile = storyboard.instantiateViewController(withIdentifier: "qualcosa") as! qualcosanonfunzionaViewController
+        self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented))
+    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let vm = UIView()
         

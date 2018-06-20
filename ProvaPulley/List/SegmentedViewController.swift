@@ -23,7 +23,7 @@ class SegmentedViewController: SJSegmentedViewController {
 			firstViewController.title = "My Activities"
 
             let secondViewController = storyboard
-                .instantiateViewController(withIdentifier: "SecondViewController")
+                .instantiateViewController(withIdentifier: "Secondcontroller")
             secondViewController.title = "Others"
 
 

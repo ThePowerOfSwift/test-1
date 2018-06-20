@@ -326,6 +326,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == self.table1{
+            if indexPath.row == 0{
+                let alert = UIAlertController(title: "Notifications", message: "If you disable all the notifications you will not be able to help the community and to ask questions.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: qualcosa2))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
         if tableView == self.table2{
             if indexPath.row == 0{
                 let alert = UIAlertController(title: "Report A Problem", message: "", preferredStyle: UIAlertControllerStyle.alert)
@@ -337,11 +346,19 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func qualcosa2(alert: UIAlertAction!){
+        if let url = URL(string:UIApplicationOpenSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
     func qualcosa(alert: UIAlertAction!){
         let storyboard = UIStoryboard(name: "Settings", bundle: nil) //declare the storyboard
         let profile = storyboard.instantiateViewController(withIdentifier: "qualcosa") as! qualcosanonfunzionaViewController
         self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented))
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let vm = UIView()
         

@@ -58,6 +58,10 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBAction func done(_ sender: Any) {
         
+        let topic = SingletonServer.singleton.chosenTopic
+        
+        if (nomeevento.text != "")  && (topic != 0) {
+        
         var dataInizio = timePickerStart.date.description
 //        var dataFine = timePickerEnd.date.description
         let calendar = Calendar.current
@@ -81,7 +85,6 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let data: Data = UIImageJPEGRepresentation(image!, 0.5)!
             string = data.base64EncodedString(options: .lineLength64Characters)
         }
-        
         
         
         
@@ -109,8 +112,20 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine!, topic: Int32(topic))
         createNewEvent(event: event)
         
-        self.dismiss(animated: true, completion: nil)
-    }
+        navigationController?.popToRootViewController(animated: true)
+            
+        } else {
+            print ("nulla")
+//            qua <<<
+            let alert = UIAlertController(title: "", message: "Please choose one Topic and add an Event Name", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+   }
     
     func createNewEvent(event:DBEvent){
         

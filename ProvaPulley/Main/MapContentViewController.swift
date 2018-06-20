@@ -14,6 +14,9 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     
     
+    let image: UIImage = UIImage(named: "radar")!
+    lazy var imageView = UIImageView(image: image)
+    
     
     @IBOutlet weak var mappe: MKMapView!
     var oldCircle = MKCircle()
@@ -42,48 +45,38 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         mappe.showsCompass = false
         NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
         
-//        let marker = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 11))
-//        marker.topic = 1
-//        self.mappe.addAnnotation(marker)
-//
-//        let marker2 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 12))
-//        marker2.topic = 2
-//        self.mappe.addAnnotation(marker2)
-//
-//        let marker3 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 13))
-//        marker3.topic = 3
-//        self.mappe.addAnnotation(marker3)
-//
-//        let marker4 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 14))
-//        marker4.topic = 4
-//        self.mappe.addAnnotation(marker4)
-//
-//        let marker5 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 15))
-//        marker5.topic = 5
-//        self.mappe.addAnnotation(marker5)
-//
-//        let marker6 = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: 40, longitude: 16))
-//        marker6.topic = 6
-//        self.mappe.addAnnotation(marker6)
-        
         SingletonServer.singleton.inizializza()
-        
-        
         
         print("entro")
         
+        let frameMappa = mappe.frame.size
+        imageView.frame = CGRect(x: 0, y: frameMappa.height/8, width: frameMappa.width, height: frameMappa.width)
+//        rotateRadar(imageView: imageView, aCircleTime: 2.0)
+//        self.mappe.addSubview(imageView)
+//        print("SONOQUIIIIIIIIII")
+        
     }
+    
     
     
     @objc func createAnnotation(not:Notification){
         self.removeAnnotationEvents()
         self.addAnnotationEvents()
         
-        
-        
-        
-        
-        
+    }
+    
+//    Funzione che fa sparire la view del radar quando si muove la mappa
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        print("Mi sto muovendo sulla mappapppppp")
+        self.imageView.removeFromSuperview()
+    }
+    
+//    funzione che fa comparire la view del radar quando si ferma la mappa e la anima
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        self.view.addSubview(imageView)
+        rotateRadar(imageView: imageView, aCircleTime: 2.0)
+        print("Ho finito di muovevermi")
         
     }
     
@@ -100,7 +93,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        
+        rotateRadar(imageView: imageView, aCircleTime: 2.0)
     }
     
     
@@ -133,17 +126,12 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
        print("UPDATE")
         manager.stopUpdatingLocation()
+
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
-        
-        
         for touch in touches {
-            
-            
             if(touch.tapCount==3){
                 
                 let touchPoint = touch.location(in: self.mappe)
@@ -152,10 +140,19 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
                 retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
                 
             }
-            
         }
+    }
+    
+    //    Funzione che anima la rotazione del radar simulando che funzioni
+    
+    func rotateRadar(imageView: UIImageView, aCircleTime: Double) { //CABasicAnimation
         
-        
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi * 2 //Minus can be Direction
+        rotationAnimation.duration = aCircleTime
+        rotationAnimation.repeatCount = .infinity
+        imageView.layer.add(rotationAnimation, forKey: nil)
     }
     
     
@@ -214,8 +211,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
             marker.myPosition = e.myPosition
             marker.name = e.name
             
-            
-           
             marker.topic = Int(e.topic!)
          
             self.mappe.addAnnotation(marker)
@@ -344,6 +339,8 @@ extension MapContentViewController {
         
         return newImage!
     }
+    
+    
 }
 
 //extension MapContentViewController: MKMapViewDelegate {

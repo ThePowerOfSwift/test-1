@@ -12,8 +12,10 @@ class EventoPulleyViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nomeEvent: UILabel!
     
+    @IBOutlet weak var descriz: UILabel!
     @IBOutlet weak var Indirizzo: UILabel!
     
+    @IBOutlet weak var coment: UICustomButton!
     @IBOutlet weak var startEnd: UILabel!
     
     var Event:EventAnnotation?
@@ -33,6 +35,10 @@ class EventoPulleyViewController: UIViewController {
         
         Event = SingletonServer.singleton.eventoSelezionato
         nomeEvent.text = Event?.name
+        coment.layer.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: (Event?.topic)!).cgColor
+        Indirizzo.text = Event?.address
+        descriz.text = Event?.descri
+        startEnd.text = Event?.datetime
         if(Event?.media?.count != 1){
             let data1 = Data(base64Encoded: (Event?.media)!, options:  .init(rawValue: 1))
             imgView.image = UIImage(data: data1!)

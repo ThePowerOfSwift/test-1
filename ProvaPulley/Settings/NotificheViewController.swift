@@ -8,7 +8,9 @@
 
 import UIKit
 
-class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    var myInd = 0
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -23,14 +25,24 @@ class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDa
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+ 
+        print("lorenzoooooo")
+        
+        if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) {
+            UIApplication.shared.openURL(settingsURL as URL)
+        }
+            
+        
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         messaggio.text = "If you disable all the notifications you will not be able to help the community and to ask questions."
-       
+        self.tabella.delegate = self 
         self.title = "Notifications"
-        
+        tabella.allowsSelection = true
         messaggio.textColor = UIColor.lightGray
         // Do any additional setup after loading the view.
     }

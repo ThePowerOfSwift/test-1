@@ -78,7 +78,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     func setupTable() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: self)
     }
     
     @objc func reloadEvent(not: Notification) {
@@ -88,6 +88,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         print("EVENTO SELEZIONATO:\(event.name)")
         SingletonServer.singleton.eventoSelezionato = event
         performSegue(withIdentifier: "evpulley", sender: nil)
+        
     }
     
     @objc func reload() {

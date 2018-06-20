@@ -39,7 +39,7 @@ class EventoPulleyViewController: UIViewController {
         } else {
             switch (Event?.media!){
             case "1":
-                imgView.image = #imageLiteral(resourceName: "FOOD")
+                imgView.image = #imageLiteral(resourceName: "food")
             case "2":
                 imgView.image = #imageLiteral(resourceName: "nightlife")
             case "3":

@@ -60,7 +60,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         var dataInizio = timePickerStart.date.description
 //        var dataFine = timePickerEnd.date.description
-  let calendar = Calendar.current
+        let calendar = Calendar.current
         let d = calendar.date(byAdding: DateComponents(calendar: calendar, hour: 4, minute: 00, second: 00), to: timePickerEnd.date)
         
         var dataFine = d?.description
@@ -103,7 +103,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         
-        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(dataFine) \(a)")
+        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(String(describing: dataFine)) \(a)")
         
         
         let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine!, topic: Int32(topic))

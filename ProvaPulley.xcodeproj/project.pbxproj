@@ -33,7 +33,6 @@
 		871E326C20CEFCBA001A7FAA /* SecondaScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */; };
 		872197FF20D8F27900432914 /* ingressoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872197FE20D8F27900432914 /* ingressoViewController.swift */; };
 		8721980120D8F72900432914 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980020D8F72900432914 /* Helper.swift */; };
-		8721980520D929BC00432914 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980420D929BC00432914 /* MapContentViewController.swift */; };
 		8721980720D932F600432914 /* DentroLaChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721980620D932F600432914 /* DentroLaChatViewController.swift */; };
 		8723763520D9705500A7AA1B /* qualcosanonfunzionaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8723763420D9705500A7AA1B /* qualcosanonfunzionaViewController.swift */; };
 		872A484220B5D4C40006CB39 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872A484120B5D4C40006CB39 /* CoreLocation.framework */; };
@@ -54,6 +53,7 @@
 		87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */; };
 		87D55F1A20BED73B008C0C34 /* MyQ.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D55F1920BED73B008C0C34 /* MyQ.storyboard */; };
 		87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC365720B4325E001F945B /* DrawerContentViewController.swift */; };
+		87F2BF2A20DA88000002C009 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F2BF2920DA88000002C009 /* MapContentViewController.swift */; };
 		A946593D20C8481800D1314F /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593C20C8481800D1314F /* MessageTableView.swift */; };
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
@@ -96,7 +96,6 @@
 		871E326B20CEFCBA001A7FAA /* SecondaScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaScrollViewController.swift; sourceTree = "<group>"; };
 		872197FE20D8F27900432914 /* ingressoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ingressoViewController.swift; sourceTree = "<group>"; };
 		8721980020D8F72900432914 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		8721980420D929BC00432914 /* MapContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapContentViewController.swift; path = ../../../../Downloads/MapContentViewController.swift; sourceTree = "<group>"; };
 		8721980620D932F600432914 /* DentroLaChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DentroLaChatViewController.swift; sourceTree = "<group>"; };
 		8723763420D9705500A7AA1B /* qualcosanonfunzionaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qualcosanonfunzionaViewController.swift; sourceTree = "<group>"; };
 		872A484120B5D4C40006CB39 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -117,6 +116,7 @@
 		87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
 		87D55F1920BED73B008C0C34 /* MyQ.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyQ.storyboard; sourceTree = "<group>"; };
 		87EC365720B4325E001F945B /* DrawerContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerContentViewController.swift; sourceTree = "<group>"; };
+		87F2BF2920DA88000002C009 /* MapContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
 		A946593C20C8481800D1314F /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
 		A9D8611E20BEE50400F2EC9E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 				5E2D618C20D2719900978021 /* EventAnnotation.swift */,
 				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
 				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
-				8721980420D929BC00432914 /* MapContentViewController.swift */,
+				87F2BF2920DA88000002C009 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
 				871B22CC20AF0F4F00EACF41 /* Main.storyboard */,
 				87BDA0BE20D7E9EB00CD1C11 /* EventoPulleyViewController.swift */,
@@ -421,6 +421,7 @@
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
 				871B957120C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift in Sources */,
+				87F2BF2A20DA88000002C009 /* MapContentViewController.swift in Sources */,
 				87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */,
 				A946593D20C8481800D1314F /* MessageTableView.swift in Sources */,
 				8721980120D8F72900432914 /* Helper.swift in Sources */,
@@ -444,7 +445,6 @@
 				878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */,
 				873586EC20D7C61500564B37 /* loriViewController.swift in Sources */,
 				87BDA0BF20D7E9EB00CD1C11 /* EventoPulleyViewController.swift in Sources */,
-				8721980520D929BC00432914 /* MapContentViewController.swift in Sources */,
 				871B957520C5773B0035C3A2 /* CellaPasswordTableViewCell.swift in Sources */,
 				878CDCBB20C1A3FA00F78BC8 /* Segue1ViewController.swift in Sources */,
 				871B956B20C554C40035C3A2 /* CellaNotificheTableViewCell.swift in Sources */,

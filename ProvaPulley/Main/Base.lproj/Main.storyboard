@@ -406,7 +406,11 @@
                         <viewLayoutGuide key="safeArea" id="qBP-su-eHS"/>
                     </view>
                     <connections>
+                        <outlet property="Indirizzo" destination="6Av-GB-3V6" id="M4v-Tf-B1V"/>
                         <outlet property="grip" destination="b7N-t5-yjO" id="mH0-LS-R9Z"/>
+                        <outlet property="imgView" destination="aJu-8S-5ES" id="5Gn-Rf-6xr"/>
+                        <outlet property="nomeEvent" destination="ZlQ-ue-BgU" id="VZd-4N-XfO"/>
+                        <outlet property="startEnd" destination="oen-Lt-QD5" id="cHd-hs-9Ob"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KE-2e-zuf" userLabel="First Responder" sceneMemberID="firstResponder"/>

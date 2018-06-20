@@ -20,6 +20,7 @@ class SingletonServer{
     var retrieveTopic:[Int] = []
     
     var user:DBUser?
+    var eventoSelezionato: EventAnnotation?
     
     //if it's a skipper (anonimous user)
     var skipper: Bool = false

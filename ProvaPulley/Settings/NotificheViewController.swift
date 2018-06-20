@@ -27,10 +27,10 @@ class NotificheViewController: UIViewController, UITabBarDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
  
-        print("lorenzoooooo")
-        
-        if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) {
-            UIApplication.shared.openURL(settingsURL as URL)
+        if let url = URL(string:UIApplicationOpenSettingsURLString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
             
         

@@ -765,13 +765,13 @@ JSQMessagesKeyboardControllerDelegate>
     if (toolbar.sendButtonOnRight) {
         [self didPressAccessoryButton:sender];
     }
-    else {
+    
         [self didPressSendButton:sender
                  withMessageText:[self jsq_currentlyComposedMessageText]
                         senderId:self.senderId
                senderDisplayName:self.senderDisplayName
                             date:[NSDate date]];
-    }
+    
 }
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender

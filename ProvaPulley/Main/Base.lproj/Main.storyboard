@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -295,7 +295,7 @@
                                     <constraint firstAttribute="height" constant="30" id="8YT-uw-Qzt"/>
                                     <constraint firstAttribute="width" constant="30" id="rrk-94-l5Y"/>
                                 </constraints>
-                                <state key="normal" image="send"/>
+                                <state key="normal" image="paper-plane"/>
                                 <connections>
                                     <action selector="Cancel:" destination="1sF-DN-zau" eventType="touchUpInside" id="HLM-Ko-KJZ"/>
                                 </connections>
@@ -1402,9 +1402,9 @@
         <image name="camera" width="288" height="230"/>
         <image name="map" width="30" height="30"/>
         <image name="mor" width="51" height="51"/>
+        <image name="paper-plane" width="60" height="60"/>
         <image name="piu" width="40" height="54"/>
         <image name="pos" width="88" height="88"/>
-        <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ReT-eZ-oLK"/>

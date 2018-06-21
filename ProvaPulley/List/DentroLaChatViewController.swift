@@ -55,7 +55,7 @@ extension DentroLaChatViewController {
         return NSAttributedString(string: messageUsername!)
     }
     
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message: JSQMessage = self.messages[indexPath.item]
         
         return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
@@ -106,24 +106,24 @@ extension DentroLaChatViewController {
     
         
         
-//        self.messages = getMessages()
+        self.messages = getMessages()
     }
 }
 
-//extension DentroLaChatViewController {
-//    func getMessages() -> [JSQMessage] {
-//        var messages = [JSQMessage]()
-//
-//        let date = Date()
-//        let mess3 = JSQMessage(senderId: "1", senderDisplayName: SingletonServer.singleton.user?.nickname, date: date, text: "questa è ritardata")
-//        let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
-//        let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
-//
-//        messages.append(message1!)
-//        messages.append(message2!)
-//
-//        messages.append(mess3!)
-//        return messages
-//    }
-//}
+extension DentroLaChatViewController {
+    func getMessages() -> [JSQMessage] {
+        var messages = [JSQMessage]()
+
+        let date = Date()
+        let mess3 = JSQMessage(senderId: "1", senderDisplayName: SingletonServer.singleton.user?.nickname, date: date, text: "questa è ritardata")
+        let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
+        let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
+
+        messages.append(message1!)
+        messages.append(message2!)
+
+        messages.append(mess3!)
+        return messages
+    }
+}
 

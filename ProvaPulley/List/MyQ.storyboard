@@ -196,7 +196,7 @@
         <!--Dentro La Chat View Controller-->
         <scene sceneID="H6f-EG-eQb">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="NMx-Z4-pSL" customClass="DentroLaChatViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dentro" hidesBottomBarWhenPushed="YES" id="NMx-Z4-pSL" customClass="DentroLaChatViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uiT-c3-rab">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, UIViewControllerPreviewingDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -126,11 +126,36 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     }
     
    
+    func detailViewController(for index: Int) -> DentroLaChatViewController {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "dentro") as? DentroLaChatViewController else {
+            fatalError("Couldn't load detail view controller")
+        }
+        
+       
+        return vc
+    }
     
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let indexPath = tableview.indexPathForRow(at: location) {
+            previewingContext.sourceRect = tableview.rectForRow(at: indexPath)
+            return detailViewController(for: indexPath.row)
+        }
+        
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+    
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = detailViewController(for: indexPath.row)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerForPreviewing(with: self, sourceView: tableview)
  
     }
 

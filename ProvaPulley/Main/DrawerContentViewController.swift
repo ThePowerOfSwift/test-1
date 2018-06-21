@@ -12,7 +12,7 @@ import QuartzCore
 
 
 
-class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
+class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, UITextFieldDelegate {
     
     var topic = 0
     
@@ -93,7 +93,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @objc func reload() {
         self.messageTable.reloadData()
-        dismissKeyboard()
+        self.dismissKeyboard()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +158,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        Cancel((Any).self)
+        return false
+    }
     
     @IBAction func anyButtonTap(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 0
@@ -298,15 +303,9 @@ extension DrawerContentViewController {
 
 extension DrawerContentViewController: UITableViewDataSource {
     
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.topic = SingletonServer.singleton.chosenTopic
@@ -365,7 +364,8 @@ extension DrawerContentViewController: UITableViewDataSource {
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             return cell
-        }else{
+        }
+        else {
             //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
             //            _ = imgprof.integerValue as! Int
             //            cell.improf?.image = SingletonServer.singleton.logoImage[topic]
@@ -444,13 +444,8 @@ extension DrawerContentViewController: UITableViewDataSource {
             }catch{
                 print("errore di serializzazione|LATOCLIENT")
             }
-            
-            
         }
     }
-    
-    
-    
 }
 
 

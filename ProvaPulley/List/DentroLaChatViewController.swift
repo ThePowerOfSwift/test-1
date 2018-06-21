@@ -39,6 +39,14 @@ extension DentroLaChatViewController {
         finishSendingMessage()
     }
     
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellTopLabelAt indexPath: IndexPath!) -> CGFloat{
+        
+        return 14.0
+    }
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForCellBottomLabelAt indexPath: IndexPath!) -> CGFloat{
+        
+        return 13
+    }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
         let message = messages[indexPath.row]
         let messageUsername = message.senderDisplayName
@@ -46,6 +54,13 @@ extension DentroLaChatViewController {
         
         return NSAttributedString(string: messageUsername!)
     }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellBottomLabelAt indexPath: IndexPath!) -> NSAttributedString! {
+        let message: JSQMessage = self.messages[indexPath.item]
+        
+        return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+    }
+
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
         return 15
@@ -89,27 +104,26 @@ extension DentroLaChatViewController {
     
         self.navigationItem.title = DataManager.shared.titolo
     
-    
-
         
-        self.messages = getMessages()
+        
+//        self.messages = getMessages()
     }
 }
 
-extension DentroLaChatViewController {
-    func getMessages() -> [JSQMessage] {
-        var messages = [JSQMessage]()
-    
-        let date = Date()
-        let mess3 = JSQMessage(senderId: "1", senderDisplayName: SingletonServer.singleton.user?.nickname, date: date, text: "questa è ritardata")
-        let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
-        let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
-
-        messages.append(message1!)
-        messages.append(message2!)
-
-        messages.append(mess3!)
-        return messages
-    }
-}
+//extension DentroLaChatViewController {
+//    func getMessages() -> [JSQMessage] {
+//        var messages = [JSQMessage]()
+//
+//        let date = Date()
+//        let mess3 = JSQMessage(senderId: "1", senderDisplayName: SingletonServer.singleton.user?.nickname, date: date, text: "questa è ritardata")
+//        let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
+//        let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
+//
+//        messages.append(message1!)
+//        messages.append(message2!)
+//
+//        messages.append(mess3!)
+//        return messages
+//    }
+//}
 

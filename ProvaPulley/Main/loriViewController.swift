@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     
     var open = false
@@ -49,11 +49,19 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         timePickerEnd.alpha = 0
         
         hideKeyboardWhenTappedAround()
+        self.nomeevento.delegate = self
+        self.descrizione.delegate = self
+        self.eventopos.delegate = self
         
         self.pickerController = UIImagePickerController()
         self.pickerController.delegate = self
 
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     @IBAction func done(_ sender: Any) {

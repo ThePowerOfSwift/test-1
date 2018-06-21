@@ -12,7 +12,7 @@ import QuartzCore
 
 
 
-class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate{
+class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableViewDelegate, UITextFieldDelegate {
     
     var topic = 0
     
@@ -93,7 +93,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @objc func reload() {
         self.messageTable.reloadData()
-        dismissKeyboard()
+        self.dismissKeyboard()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +158,11 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        Cancel((Any).self)
+        return false
+    }
     
     @IBAction func anyButtonTap(_ sender: Any) {
         SingletonServer.singleton.chosenTopic = 0
@@ -298,15 +303,9 @@ extension DrawerContentViewController {
 
 extension DrawerContentViewController: UITableViewDataSource {
     
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.topic = SingletonServer.singleton.chosenTopic
@@ -353,12 +352,20 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.backgroundColor = .white
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
-            cell.data?.text =  SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine
+            
+            cell.dataEvent?.isHidden = true
+            cell.data?.isHidden = false
+            let dataFormat: String = String(String(SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine!.dropFirst(11)).dropLast(3))
+            
+            print("ORARIO VEDI QUI \(dataFormat)")
+    
+            cell.data?.text = dataFormat
             cell.data?.textColor = .white
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             return cell
-        }else{
+        }
+        else {
             //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
             //            _ = imgprof.integerValue as! Int
             //            cell.improf?.image = SingletonServer.singleton.logoImage[topic]
@@ -374,11 +381,19 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
 //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-            cell.numero?.backgroundColor = .white
+            cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
-            cell.data?.text =  "\(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime) - \(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate)"
-            cell.data?.textColor = .black
+            
+            cell.dataEvent?.isHidden = false
+            cell.data?.isHidden = true
+            
+             let dataInitFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime!.dropFirst(11)).dropLast(3))
+            
+            let dataEndFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate!.dropFirst(11)).dropLast(3))
+            
+            cell.dataEvent?.text =  "\(dataInitFormat) - \(dataEndFormat)"
+            cell.dataEvent?.textColor = .black
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             
@@ -429,13 +444,8 @@ extension DrawerContentViewController: UITableViewDataSource {
             }catch{
                 print("errore di serializzazione|LATOCLIENT")
             }
-            
-            
         }
     }
-    
-    
-    
 }
 
 

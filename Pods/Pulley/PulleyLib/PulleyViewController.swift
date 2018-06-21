@@ -1373,7 +1373,6 @@ extension PulleyViewController: UIScrollViewDelegate {
                 if drawerPosition == .open
                 {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-                    print("open")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
@@ -1385,7 +1384,6 @@ extension PulleyViewController: UIScrollViewDelegate {
                 if drawerPosition == .partiallyRevealed
                 {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-                    print("open")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
@@ -1397,7 +1395,6 @@ extension PulleyViewController: UIScrollViewDelegate {
                 if drawerPosition == .collapsed
                 {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-                    print("open")
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }

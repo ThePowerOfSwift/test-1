@@ -77,7 +77,7 @@ extension DentroLaChatViewController {
         let message = messages[indexPath.row]
         
         if currentUser.id == message.senderId {
-            return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1))
+            return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
         } else {
             return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
         }
@@ -102,6 +102,7 @@ extension DentroLaChatViewController {
         self.senderDisplayName = SingletonServer.singleton.user?.nickname
         
     
+        
         self.navigationItem.title = DataManager.shared.titolo
     
         

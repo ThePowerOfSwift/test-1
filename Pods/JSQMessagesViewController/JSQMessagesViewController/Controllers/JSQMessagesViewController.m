@@ -377,10 +377,10 @@ JSQMessagesKeyboardControllerDelegate>
     NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
 }
 
-//- (void)didPressAccessoryButton:(UIButton *)sender
-//{
-//    NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
-//}
+- (void)didPressAccessoryButton:(UIButton *)sender
+{
+    NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
+}
 
 - (void)finishSendingMessage
 {
@@ -762,9 +762,9 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressLeftBarButton:(UIButton *)sender
 {
-//    if (toolbar.sendButtonOnRight) {
-//        [self didPressAccessoryButton:sender];
-//    }
+    if (toolbar.sendButtonOnRight) {
+        [self didPressAccessoryButton:sender];
+    }
     
         [self didPressSendButton:sender
                  withMessageText:[self jsq_currentlyComposedMessageText]
@@ -784,7 +784,7 @@ JSQMessagesKeyboardControllerDelegate>
                             date:[NSDate date]];
     }
     else {
-//        [self didPressAccessoryButton:sender];
+        [self didPressAccessoryButton:sender];
     }
 }
 

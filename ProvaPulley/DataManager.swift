@@ -32,6 +32,7 @@ final class DataManager {
     
     var sfondoColor = UIColor.white
 
+    var avatar = UIImage()
     var titolo = ""
     
     var nomeUtente = ""

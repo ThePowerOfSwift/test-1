@@ -22,6 +22,7 @@ class ChatTableViewCell: UITableViewCell {
         DataManager.shared.sfondoColor = sfondo.backgroundColor!
             DataManager.shared.titolo = desc.text!
         DataManager.shared.nomeUtente = nickname.text!
+        DataManager.shared.avatar = improf.image!
     }
     
     override func awakeFromNib() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 import JSQMessagesViewController
 
@@ -31,7 +32,7 @@ class DentroLaChatViewController: JSQMessagesViewController {
 extension DentroLaChatViewController {
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
+        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
         
         messages.append(message!)
         
@@ -42,6 +43,7 @@ extension DentroLaChatViewController {
         let message = messages[indexPath.row]
         let messageUsername = message.senderDisplayName
         
+        
         return NSAttributedString(string: messageUsername!)
     }
     
@@ -50,7 +52,8 @@ extension DentroLaChatViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
+        let image = JSQMessagesAvatarImage(avatarImage: DataManager.shared.avatar, highlightedImage: DataManager.shared.avatar, placeholderImage: DataManager.shared.avatar)
+        return image
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -96,13 +99,16 @@ extension DentroLaChatViewController {
 extension DentroLaChatViewController {
     func getMessages() -> [JSQMessage] {
         var messages = [JSQMessage]()
-
+    
+        let date = Date()
+        let mess3 = JSQMessage(senderId: "1", senderDisplayName: SingletonServer.singleton.user?.nickname, date: date, text: "questa è ritardata")
         let message1 = JSQMessage(senderId: "1", displayName: SingletonServer.singleton.user?.nickname, text: "Hey Tim how are you?")
         let message2 = JSQMessage(senderId: "2", displayName: DataManager.shared.nomeUtente, text: "Fine thanks, and you?")
 
         messages.append(message1!)
         messages.append(message2!)
 
+        messages.append(mess3!)
         return messages
     }
 }

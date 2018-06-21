@@ -353,7 +353,14 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.backgroundColor = .white
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
-            cell.data?.text =  SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine
+            
+            cell.dataEvent?.isHidden = true
+            cell.data?.isHidden = false
+            let dataFormat: String = String(String(SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine!.dropFirst(11)).dropLast(3))
+            
+            print("ORARIO VEDI QUI \(dataFormat)")
+    
+            cell.data?.text = dataFormat
             cell.data?.textColor = .white
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
@@ -374,11 +381,19 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
 //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-            cell.numero?.backgroundColor = .white
+            cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.numero?.textColor = SingletonServer.singleton.colori[topic]
             cell.numero?.textAlignment = .center
-            cell.data?.text =  "\(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime) - \(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate)"
-            cell.data?.textColor = .black
+            
+            cell.dataEvent?.isHidden = false
+            cell.data?.isHidden = true
+            
+             let dataInitFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime!.dropFirst(11)).dropLast(3))
+            
+            let dataEndFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate!.dropFirst(11)).dropLast(3))
+            
+            cell.dataEvent?.text =  "\(dataInitFormat) - \(dataEndFormat)"
+            cell.dataEvent?.textColor = .black
             
             cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             

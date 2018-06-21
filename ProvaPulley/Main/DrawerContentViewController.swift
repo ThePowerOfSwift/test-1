@@ -39,7 +39,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.vetButtons = [self.AnyButton, self.FoodButton, self.NightLifeButton, self.ArtButton, self.Tourism2Button, self.CityInfoButton, self.TourismButton]
-        
+        AskQuestionTextField.layer.cornerRadius = 5.0
+        AskQuestionTextField.clipsToBounds = true
         self.Gripper.layer.cornerRadius = 3
         
         //      tableView

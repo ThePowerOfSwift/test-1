@@ -98,10 +98,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ask something" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uXU-mJ-Wn6" userLabel="AskQuestion">
-                                <rect key="frame" x="6" y="124" width="324" height="30"/>
+                                <rect key="frame" x="10" y="124" width="324" height="30"/>
                                 <color key="tintColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="324" id="0HT-oC-Vcw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="324" id="0HT-oC-Vcw"/>
                                     <constraint firstAttribute="height" constant="30" id="uO2-oQ-9N8"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -112,10 +112,10 @@
                                 </connections>
                             </textField>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-dn-Tw7" userLabel="Gripper" customClass="UIButton">
-                                <rect key="frame" x="170" y="55" width="36" height="6"/>
+                                <rect key="frame" x="169" y="55" width="37" height="6"/>
                                 <color key="backgroundColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="H0W-Lp-6bz"/>
+                                    <constraint firstAttribute="width" constant="37" id="H0W-Lp-6bz"/>
                                     <constraint firstAttribute="height" constant="6" id="Sjc-y7-lLO"/>
                                 </constraints>
                             </view>
@@ -305,14 +305,15 @@
                         <constraints>
                             <constraint firstItem="VK5-a8-Klf" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="80" id="3i5-is-mry"/>
                             <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="ah0-dn-Tw7" secondAttribute="trailing" constant="169" id="9jE-UJ-xxF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uXU-mJ-Wn6" secondAttribute="trailing" constant="20" symbolic="YES" id="C8M-Bo-XUS"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="trailing" secondItem="ucl-S7-UAK" secondAttribute="trailing" id="CSh-Iu-iha"/>
                             <constraint firstItem="ucl-S7-UAK" firstAttribute="trailing" secondItem="VK5-a8-Klf" secondAttribute="trailing" constant="8" id="XXr-ly-cTo"/>
-                            <constraint firstItem="ah0-dn-Tw7" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="170" id="ifw-cb-bDo"/>
+                            <constraint firstItem="ah0-dn-Tw7" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="169" id="ifw-cb-bDo"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="top" secondItem="ah0-dn-Tw7" secondAttribute="bottom" constant="5" id="jgX-My-vYt"/>
                             <constraint firstItem="ah0-dn-Tw7" firstAttribute="top" secondItem="ucl-S7-UAK" secondAttribute="top" constant="11" id="oSd-JT-iju"/>
                             <constraint firstItem="A9Z-cZ-L1b" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" id="qj1-eQ-eAB"/>
                             <constraint firstItem="uXU-mJ-Wn6" firstAttribute="top" secondItem="A9Z-cZ-L1b" secondAttribute="bottom" constant="3" id="qsq-fz-SQ0"/>
-                            <constraint firstItem="uXU-mJ-Wn6" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="6" id="y7e-QL-kai"/>
+                            <constraint firstItem="uXU-mJ-Wn6" firstAttribute="leading" secondItem="ucl-S7-UAK" secondAttribute="leading" constant="10" id="y7e-QL-kai"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ucl-S7-UAK"/>
                     </view>
@@ -947,7 +948,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-6L-Oa4">
-                                <rect key="frame" x="12" y="31" width="73" height="33"/>
+                                <rect key="frame" x="8" y="31" width="73" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -1406,6 +1407,6 @@
         <image name="send" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oSP-Zf-EdI"/>
+        <segue reference="ReT-eZ-oLK"/>
     </inferredMetricsTieBreakers>
 </document>

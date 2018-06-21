@@ -168,8 +168,9 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     @IBAction func didTakePhoto(_ sender: Any) {
-        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
+//        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video
         self.pickerController.sourceType = .camera // scelgo il sourceType, cioè il luogo in cui pescare le immagini
+        pickerController.delegate = self
         
         // visualizzo l'imagePickerController
         present(self.pickerController, animated: true, completion: nil)
@@ -186,22 +187,37 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     var pickerController = UIImagePickerController()
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        let image = UIImage(cgImage: info[UIImagePickerControllerOriginalImage] as! CGImage, scale: 1, orientation: .up)
-        let rect: CGRect = CGRect(x: 0, y: 0, width: 5000, height: 5000)
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
         
-//        let croppedImage:UIImage = UIImage(cgImage: imageRef)
-        let croppedImage = UIImage(cgImage: imageRef as! CGImage, scale: 1, orientation: .up)
-
-        captureImageView.image = croppedImage
-//        captureImageView.transform = captureImageView.transform.rotated(by: CGFloat.pi/2)
+        captureImageView.image = image
         
+        captureImageView.contentMode = .scaleAspectFit
+//        captureImageView.contentMode = .scaleAspectFill
+//        captureImageView.contentMode = .scaleToFill
         picker.dismiss(animated: true, completion: nil)
     }
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+////        let image = UIImage(cgImage: info[UIImagePickerControllerOriginalImage] as! CGImage, scale: 1, orientation: .up)
+//
+//        let rect: CGRect = CGRect(x: 0, y: 0, width: 5000, height: 5000)
+//
+//        let imageRef:CGImage = image.cgImage!.cropping(to: rect)!
+//
+////        let croppedImage:UIImage = UIImage(cgImage: imageRef)
+//        let croppedImage = UIImage(cgImage: imageRef as! CGImage, scale: 1, orientation: .down)
+//
+//        captureImageView.image = croppedImage
+////        captureImageView.transform = captureImageView.transform.rotated(by: CGFloat.pi/2)
+//
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+    
+    
+    
     @IBAction func Cancelac(_ sender: Any) {
 //        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 //        let appDelegate = UIApplication.shared.delegate

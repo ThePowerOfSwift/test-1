@@ -30,6 +30,9 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         super.viewDidLoad()
         mappe.delegate = self
         manager.delegate = self
+        print("-------------")
+        
+        
         
         navigationController?.isNavigationBarHidden = true
         //        per ottenere la miglior location dell'user
@@ -183,8 +186,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
                     self.removeAnnotationEvents()
                     self.addAnnotationEvents()
                     
-                    
-                    
                 }
                 
                
@@ -291,6 +292,15 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "event"), object: event)
     }
+    
+    
+//    fa scomparire il pallino della posizione dell'utente
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        if let userLocation = mapView.view(for: mapView.userLocation) {
+            userLocation.isHidden = true
+        }
+    }
+
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "eventoPulley" {

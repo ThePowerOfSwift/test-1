@@ -56,6 +56,7 @@
 		87F2BF2A20DA88000002C009 /* MapContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F2BF2920DA88000002C009 /* MapContentViewController.swift */; };
 		A946593D20C8481800D1314F /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946593C20C8481800D1314F /* MessageTableView.swift */; };
 		A9D8611F20BEE50400F2EC9E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D8611E20BEE50400F2EC9E /* DataManager.swift */; };
+		B9D6E4E420DD45BA00AEAAEC /* ChatHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D6E4E320DD45BA00AEAAEC /* ChatHandler.swift */; };
 		BD1A298920BED4C900F1F98B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD1A298820BED4C900F1F98B /* Settings.storyboard */; };
 		BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD22808920BEEC16005E3919 /* passwordViewController.swift */; };
 		BD6488D120B82497002D34F2 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6488D020B82497002D34F2 /* UICustomButton.swift */; };
@@ -121,6 +122,7 @@
 		87F2BF2920DA88000002C009 /* MapContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContentViewController.swift; sourceTree = "<group>"; };
 		A946593C20C8481800D1314F /* MessageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
 		A9D8611E20BEE50400F2EC9E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		B9D6E4E320DD45BA00AEAAEC /* ChatHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHandler.swift; sourceTree = "<group>"; };
 		BD1A298820BED4C900F1F98B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		BD22808920BEEC16005E3919 /* passwordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordViewController.swift; sourceTree = "<group>"; };
 		BD6488D020B82497002D34F2 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */,
 				5E2D618C20D2719900978021 /* EventAnnotation.swift */,
 				BD6488D020B82497002D34F2 /* UICustomButton.swift */,
+				B9D6E4E320DD45BA00AEAAEC /* ChatHandler.swift */,
 				87CF18C720B842F500627FBA /* UIViewController+PulleyViewController.swift */,
 				87F2BF2920DA88000002C009 /* MapContentViewController.swift */,
 				87EC365720B4325E001F945B /* DrawerContentViewController.swift */,
@@ -428,6 +431,7 @@
 				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,
+				B9D6E4E420DD45BA00AEAAEC /* ChatHandler.swift in Sources */,
 				871B957120C56FA50035C3A2 /* Cella4SettingsTableViewCell.swift in Sources */,
 				87F2BF2A20DA88000002C009 /* MapContentViewController.swift in Sources */,
 				87CF18C820B842F600627FBA /* UIViewController+PulleyViewController.swift in Sources */,

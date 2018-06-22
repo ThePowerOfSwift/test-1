@@ -17,8 +17,7 @@ class DBRadar: Codable{
         self.posX = posX
         self.range = range
     }
-    init(){
-        
-        
-    }
+    
+    
+    init(){}
 }

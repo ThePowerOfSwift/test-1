@@ -15,5 +15,7 @@ class DBAnswerQ: Codable{
     var question: DBQuestion?
     var userOwner:DBUser?
     
+    
+    init() {}
 
 }

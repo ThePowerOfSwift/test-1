@@ -103,59 +103,113 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     @IBAction func askQuestion(_ sender: Any) {
+       
         if SingletonServer.singleton.skipper {
             let signInAlert = UIAlertController(title: "Jump in!", message: "Only registered users can ask something or reply to other users. Do you want to register/sign in?", preferredStyle: UIAlertControllerStyle.alert)
-            
+
             signInAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 let storyboard = UIStoryboard(name: "Main", bundle: nil) //declare the storyboard
                 let profile = storyboard.instantiateViewController(withIdentifier: "10") //after assigning an id to  LoginViewController in order to be identified, we instanciaite and return a LoginViewController
                 self.present(profile, animated: true, completion: nil) //here the LoginViewController is presented
             }))
-            
+
             signInAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction!) in
-    
+
             }))
-            
+
             present(signInAlert, animated: true, completion: nil)
         } else {
             self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
         }
+    
+    
+    }
+    func POST_ADDAnswerQ(text:String,questionID:Int32, email:String, completionHandler: @escaping(String?) -> Void){
+        let a = DBAnswerQ()
+        a.text = text
+        
+        a.question = DBQuestion()
+        a.question?.ID = questionID
+        a.userOwner = DBUser()
+        a.userOwner?.email = email
+        let httpMethod = "POST"
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        do{
+            let data = try encoder.encode(a)
+            let string = String(data:data, encoding: .utf8)
+            
+            let httpBody : String = string!
+            
+            let textUrl : String = "http://10.20.49.178:8181/Question/Answers/add/"
+            let url : URL = URL(string: textUrl)!
+            let session : URLSession = URLSession.shared
+            
+            var urlRequest : URLRequest = URLRequest(url: url)
+            urlRequest.httpBody = httpBody.data(using: .utf8)
+            urlRequest.httpMethod = httpMethod
+            
+            
+            var s:String?
+            session.dataTask(with: urlRequest) {
+                data, response, error in
+                if error != nil {
+                    print(error?.localizedDescription)
+                    completionHandler(error?.localizedDescription)
+                } else {
+                    s = String(data: data!, encoding: .utf8)!
+                    completionHandler(s)
+                }
+                }.resume()
+            
+        }catch{
+            print("errore di serializzazione")
+        }
+        
+        
+        
+        
     }
     
-    
     @IBAction func Cancel(_ sender: Any) {
-        
-        if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
-            dismissKeyboard()
-            
-            let user = SingletonServer.singleton.user
-            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
-            if  let r = SingletonServer.singleton.user?.posFit {
-                radar = r
-            }
-            let data = dateFromTimeout(timeout: 3)
-            print(data)
-            self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar, topic: Int32(SingletonServer.singleton.chosenTopic)) { (result) in
-                let decoder = JSONDecoder()
-                let da = result?.data(using: .utf8)
-                do{
-                    let question = try decoder.decode(DBQuestion.self, from: da!)
-                    if(question.ID != nil){
-                 
-                        
-                        SingletonServer.singleton.user?.myQuestions?.append(question)
-                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
-                        //
-                        print(question.text!)
-                        
-                    }
-                }catch{
-                    print("errore di serializzazione|LATOCLIENT")
-                    
-                }
+        POST_ADDAnswerQ(text: "BUONASERAA", questionID: 93, email: "admin") { (result) in
+            print("ALLORA?")
+            if (result=="1"){
+                print("OK TUTT APPOST")
             }
         }
+        print("ALLORAss?")
+//        if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
+//            dismissKeyboard()
+//
+//            let user = SingletonServer.singleton.user
+//            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+//            if  let r = SingletonServer.singleton.user?.posFit {
+//                radar = r
+//            }
+//            let data = dateFromTimeout(timeout: 3)
+//            print(data)
+//            self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+//            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar, topic: Int32(SingletonServer.singleton.chosenTopic)) { (result) in
+//                let decoder = JSONDecoder()
+//                let da = result?.data(using: .utf8)
+//                do{
+//                    let question = try decoder.decode(DBQuestion.self, from: da!)
+//                    if(question.ID != nil){
+//
+//
+//                        SingletonServer.singleton.user?.myQuestions?.append(question)
+//                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+//                        //
+//                        print(question.text!)
+//
+//                    }
+//                }catch{
+//                    print("errore di serializzazione|LATOCLIENT")
+//
+//                }
+//            }
+//        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

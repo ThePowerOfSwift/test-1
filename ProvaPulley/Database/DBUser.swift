@@ -28,7 +28,6 @@ class DBUser: Codable {
         self.socialAvatar = socialAvatar
         self.token = token
     }
-    init() {
-        
-    }
+    
+    init() {}
 }

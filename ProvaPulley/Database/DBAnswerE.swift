@@ -14,8 +14,8 @@ class DBAnswerE: Codable{
     var timestamp:String?
     var event:DBEvent?
     var userOwner:DBUser?
-    init(){
-        
-    }
+    
+    
+    init(){}
    
 }

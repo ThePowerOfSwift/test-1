@@ -30,8 +30,8 @@ class Register2ViewController: UIViewController {
                 if((password.text?.count)!>0 && (password.text?.count)!<lenPassword){
                     
                     if(password.text! == rPassword.text!){
-                        
-                        let user = DBUser(email: email.text!, nickname: nickname.text!, password: password.text!, socialAvatar:(SingletonServer.singleton.user?.socialAvatar!)! , token: "SILVIA")
+                        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+                        let user = DBUser(email: email.text!, nickname: nickname.text!, password: password.text!, socialAvatar:(SingletonServer.singleton.user?.socialAvatar!)! , token: (appDelegate?.returnToken())!)
                         SingletonServer.singleton.provaRegistrazione(user: user) { (result) in
                             if(result == "ok"){
                                 print("registrazione effettuata con successo")

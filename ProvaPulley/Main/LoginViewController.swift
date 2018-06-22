@@ -27,11 +27,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     @IBOutlet weak var logi: UIButton!
     @IBOutlet weak var facebook: UIButton!
     let loginButton = FBSDKLoginButton()
-    
+    var activity = UIActivityIndicatorView()
     
     
     @IBAction func Log(_ sender: Any) {
-        print("CIAO")
+                print("CIAO")
         SingletonServer.singleton.POST_log(email: nick.text!, password: password.text!) { (result) in
             do{
             let jsonString = result!
@@ -39,10 +39,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
             let decoder = JSONDecoder()
             let user = try decoder.decode(DBUser.self, from: data!)
             print("OMI2")
+               
             if user.email != nil{
+                
+
                        SingletonServer.singleton.saveUserState(json: jsonString, user: user)
 
                         DispatchQueue.main.async {
+                            self.activity.startAnimating()
+
                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfse"), object: nil)
                         }
                 }
@@ -89,6 +94,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
         super.viewDidLoad()
         vista.backgroundColor = .white
         
+        activity.center = self.view.center
+        activity.hidesWhenStopped = true
+        activity.activityIndicatorViewStyle = .gray
+        self.view.addSubview(activity)
        
 //        facebook.backgroundColor = UIColor(red: 65/255.0, green: 103/255.0, blue: 178/255.0, alpha: 1)
 //        facebook.layer.cornerRadius = 13.0

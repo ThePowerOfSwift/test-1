@@ -126,7 +126,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         let radar = DBRadar(posX: myLocation.latitude, posY: myLocation.longitude, range: self.range)
 //        retrieveQuestionsAndEventsAroundRadar(radar: radar)
-        SingletonServer.singleton.user?.posReal = DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
+        SingletonServer.singleton.user?.posReal = radar //DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
        print("UPDATE")
         manager.stopUpdatingLocation()
 
@@ -243,8 +243,10 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     @IBAction func pos(_ sender: Any) {
+        
         manager.startUpdatingLocation()
-        SingletonServer.singleton.user?.posFit! = (SingletonServer.singleton.user?.posReal!)!
+        print((SingletonServer.singleton.user?.posReal!)!.posX)
+        SingletonServer.singleton.user?.posFit = (SingletonServer.singleton.user?.posReal!)!
         retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
     }
     

@@ -187,6 +187,10 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     @IBAction func Cancel(_ sender: Any) {
+//        sender animazione quando si manda un messaggio
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "animazione"), object: nil)
+        
+        
         POST_ADDAnswerQ(text: "BUONASERAA", questionID: 93, email: "admin") { (result) in
             print("ALLORA?")
             if (result=="1"){

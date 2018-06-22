@@ -81,6 +81,21 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         rotateRadar(imageView: imageView, aCircleTime: 2.0)
         print("Ho finito di muovevermi")
         
+        let puntoA = CGPoint(x: mappe.frame.width/2, y: mappe.frame.height/2)
+        let puntoB = CGPoint(x: mappe.frame.width, y: mappe.frame.height/2)
+        
+        
+        
+        let locationA = self.mappe.convert(puntoA, toCoordinateFrom: self.mappe)
+        //        print("LOCATION A", locationA)
+        let locationB = self.mappe.convert(puntoB, toCoordinateFrom: self.mappe)
+        //        print("LOCATION B", locationB)
+        let range = abs(locationA.longitude - locationB.longitude)
+        
+        //        print("RANGEEEE ", range)
+        SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(locationA.latitude), posY: Double(locationA.longitude), range: range)
+        retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
+        
     }
     
     func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
@@ -133,18 +148,18 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            if(touch.tapCount==3){
-                
-                let touchPoint = touch.location(in: self.mappe)
-                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
-                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: self.range)
-                retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
-                
-            }
-        }
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        for touch in touches {
+//            if(touch.tapCount==3){
+//                
+//                let touchPoint = touch.location(in: self.mappe)
+//                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
+//                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: self.range)
+//                retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
+//                
+//            }
+//        }
+//    }
     
     //    Funzione che anima la rotazione del radar simulando che funzioni
     
@@ -350,6 +365,21 @@ extension MapContentViewController {
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+    
+    //    listener per quando premi invio in un messaggio crea un' animazione
+    
+    func setupAnimazioneAggiungiMessaggio(){
+        NotificationCenter.default.addObserver(self, selector: #selector(animazioneAggiungiMessaggio), name: NSNotification.Name(rawValue: "animazione"), object: nil)
+        print("animazioneAggiungiEvento")
+    }
+    
+    @objc func animazioneAggiungiMessaggio() {
+        print("questa è UN' ANIMANIZIONE SULLA MAPPA")
+        
+        //            self.view.addSubview(imageView2)
+        //            resizeAddMessage(imageView: imageView2, aCircleTime: 2)
+        
     }
     
     

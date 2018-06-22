@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     
     var open = false
@@ -25,7 +25,8 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var timePickerEnd: UIDatePicker!
     
-    @IBOutlet weak var descrizione: UITextField!
+   
+    @IBOutlet weak var descrizione: UITextView!
     @IBOutlet weak var eventopos: UITextField!
     @IBOutlet weak var greyView: UIView!
     @IBOutlet weak var nomeevento: UITextField!
@@ -56,7 +57,28 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.pickerController = UIImagePickerController()
         self.pickerController.delegate = self
 
+        descrizione.layer.borderWidth = 1.0
+        descrizione.layer.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1).cgColor
+        descrizione.layer.cornerRadius = 5.0
+        descrizione.clipsToBounds = true
+    
         
+        descrizione.text = "Enter your description"
+        descrizione.textColor = UIColor.lightGray
+        
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descrizione.textColor == UIColor.lightGray {
+            descrizione.text = nil
+            descrizione.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descrizione.text.isEmpty {
+            descrizione.text = "Enter your description"
+            descrizione.textColor = UIColor.lightGray
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

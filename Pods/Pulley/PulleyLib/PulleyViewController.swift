@@ -1348,7 +1348,7 @@ extension PulleyViewController: PulleyPassthroughScrollViewDelegate {
 }
 
 extension PulleyViewController: UIScrollViewDelegate {
-
+   
     public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         if scrollView == drawerScrollView
@@ -1372,7 +1372,9 @@ extension PulleyViewController: UIScrollViewDelegate {
                 
                 if drawerPosition == .open
                 {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    
+                     // Allows dismissal of keyboard on tap anywhere on screen besides the keyboard itself
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pulley"), object: nil)
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
@@ -1383,7 +1385,7 @@ extension PulleyViewController: UIScrollViewDelegate {
                 
                 if drawerPosition == .partiallyRevealed
                 {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pulley"), object: nil)
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }
@@ -1394,7 +1396,7 @@ extension PulleyViewController: UIScrollViewDelegate {
                 
                 if drawerPosition == .collapsed
                 {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "pulley"), object: nil)
                     currentDrawerPositionStop = drawerStops.last!
                 }
             }

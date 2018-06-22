@@ -40,7 +40,8 @@ class EventoPulleyViewController: UIViewController {
         coment.titleLabel?.text = "33 Comments"
         Indirizzo.text = Event?.address
         descriz.text = Event?.descri
-        startEnd.text = Event?.datetime
+        let dataFormat: String = String(String((Event?.datetime!.dropFirst(11))!).dropLast(3))
+        startEnd.text = dataFormat
         if(Event?.media?.count != 1){
             let data1 = Data(base64Encoded: (Event?.media)!, options:  .init(rawValue: 1))
             imgView.image = UIImage(data: data1!)

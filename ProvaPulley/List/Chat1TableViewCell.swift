@@ -18,6 +18,7 @@ class Chat1TableViewCell: UITableViewCell {
     @IBOutlet weak var nick1: UILabel!
     @IBOutlet weak var improf1: UIImageView!
     @IBOutlet weak var sfondo1: UICustomButton!
+    var id: Int32?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

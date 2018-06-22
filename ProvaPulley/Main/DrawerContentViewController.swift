@@ -68,6 +68,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
         setupTable()
         setupEvent()
+        setupPulley()
     }
     
     func setupEvent() {
@@ -76,9 +77,17 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
     }
     
+    func setupPulley() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pulleyMove(notification:)), name: NSNotification.Name(rawValue: "pulley"), object: nil)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        AskQuestionTextField.text = ""
+    }
     
     func setupTable() {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: self)
+        print("LORENZOOOOOOOO")
     }
     
     @objc func reloadEvent(not: Notification) {
@@ -90,11 +99,17 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         performSegue(withIdentifier: "evpulley", sender: nil)
         
     }
+   
+    @objc func pulleyMove(notification: NSNotification) {
+        print("pulleyMove")
+        dismissKeyboard()
+    }
     
-    @objc func reload() {
+    @objc func reload(notification: NSNotification) {
         self.messageTable.reloadData()
+        print("dismissooooo")
         self.dismissKeyboard()
-        
+
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true

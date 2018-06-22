@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class loriViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     
     var open = false
@@ -25,22 +25,59 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     @IBOutlet weak var timePickerEnd: UIDatePicker!
     
-    @IBOutlet weak var descrizione: UITextField!
+   
+    @IBOutlet weak var descrizione: UITextView!
     @IBOutlet weak var eventopos: UITextField!
     @IBOutlet weak var greyView: UIView!
     @IBOutlet weak var nomeevento: UITextField!
-    
+    var tastieraSu = false
     
     @IBOutlet weak var captureImageView: UIImageView!
     
     @IBOutlet weak var hours: UIButton!
     
+    @objc func tastieraDentro (notifica: Notification) {
+        tastieraInOut (su:false, notifica: notifica)
+    }
     
+    @objc func tastieraFuori (notifica: Notification) {
+        tastieraInOut (su:true, notifica: notifica)
+    }
+    
+    func tastieraInOut (su:Bool,  notifica:Notification) {
+        guard su != tastieraSu else {
+            return
+            
+        }
+        let info = notifica.userInfo
+        let fineTastiera: CGRect = ((info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue)!
+        
+        let durataAnimazione: TimeInterval = info? [UIKeyboardAnimationDurationUserInfoKey] as! Double
+        
+        UIView.animate (withDuration: durataAnimazione, delay: 0, options:
+            .curveEaseInOut, animations: {
+                let dimensioneTastiera = self.view.convert (fineTastiera, to:nil)
+                let spostamentoVerticale = dimensioneTastiera.size.height * (su ? -1 : 1)
+                self.view.frame = self.view.frame.offsetBy( dx: 0, dy: spostamentoVerticale)
+                self.tastieraSu = !self.tastieraSu
+        }, completion:
+            { success in
+                if !self.tastieraSu {
+//                    let indice = IndexPath.init(row: self.messaggi.count - 1, section: 0)
+//                    self.tableview.scrollToRow(at: indice, at: .top, animated: true)
+                }
+        }
+            
+        )
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // fa sparire tutte le view
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ConversazionViewController.tastieraFuori(notifica:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ConversazionViewController.tastieraDentro(notifica:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         viewDellaPicker.alpha = 0
         viewDellaPicker.layer.cornerRadius = 15
         viewDellaPicker.frame.origin.y = 680
@@ -56,7 +93,28 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.pickerController = UIImagePickerController()
         self.pickerController.delegate = self
 
+        descrizione.layer.borderWidth = 1.0
+        descrizione.layer.borderColor = UIColor(red: 229/255.0, green: 229/255.0, blue: 231/255.0, alpha: 1).cgColor
+        descrizione.layer.cornerRadius = 5.0
+        descrizione.clipsToBounds = true
+    
         
+        descrizione.text = "Enter your description"
+        descrizione.textColor = UIColor.lightGray
+        
+    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descrizione.textColor == UIColor.lightGray {
+            descrizione.text = nil
+            descrizione.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descrizione.text.isEmpty {
+            descrizione.text = "Enter your description"
+            descrizione.textColor = UIColor.lightGray
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

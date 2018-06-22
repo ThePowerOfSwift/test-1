@@ -76,6 +76,9 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        AskQuestionTextField.text = ""
+    }
     
     func setupTable() {
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: self)
@@ -127,7 +130,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         
         if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
             dismissKeyboard()
-            
+            self.textFieldDidEndEditing(self.AskQuestionTextField)
             let user = SingletonServer.singleton.user
             var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
             if  let r = SingletonServer.singleton.user?.posFit {

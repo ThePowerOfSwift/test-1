@@ -17,12 +17,24 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var improf: UIImageView!
     @IBOutlet weak var sfondo: UICustomButton!
     
+    var questionSelezionata:QSelezionata?
+    
     
     @IBAction func clicco(_ sender: Any) {
         DataManager.shared.sfondoColor = sfondo.backgroundColor!
             DataManager.shared.titolo = desc.text!
         DataManager.shared.nomeUtente = nickname.text!
         DataManager.shared.avatar = improf.image!
+        if(questionSelezionata?.id! != nil){
+            SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = retrieveAnswersOfAQuestion(id: (questionSelezionata?.id!)!)
+            SingletonServer.singleton.questionSelezionata? = QSelezionata(id: (questionSelezionata?.id)! , index: (questionSelezionata?.index)!)
+            
+            
+        }
+        
+        //QUA DEVI FARE IL PERFORM SEGUE
+        
+        
     }
     
     override func awakeFromNib() {
@@ -36,5 +48,36 @@ class ChatTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
+    func retrieveAnswersOfAQuestion(id:Int32)->[DBAnswerQ]{
+//        se vuoi lavorare sincronizzato alla richiesta al server
+        print(id)
+        var answers:[DBAnswerQ] = []
+        SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: id) { (result) in
+            
+            let data  = result?.data(using: .utf8)
+            let decoder = JSONDecoder()
+            do{
+                answers = try decoder.decode([DBAnswerQ].self, from: data!)
+                
+            }catch{
+                print("Errore di serializzazione")
+                
+            }
+            
+        }
+        return answers
+        
+        
+    }
 
+}
+
+struct QSelezionata {
+    var id: Int32?
+    var index: Int?
+    init(id: Int32, index: Int) {
+        self.id = id
+        self.index = index
+    }
 }

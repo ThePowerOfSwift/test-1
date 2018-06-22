@@ -22,7 +22,9 @@ class DBEvent: Codable{
     var ownerUser:DBUser?
     var myPosition:DBRadar?
     
-    
+    init() {
+        
+    }
     
     
     init( id:Int32, name:String, description:String, datetime:String, endDate:String, media:String, address:String, topic:Int32?){

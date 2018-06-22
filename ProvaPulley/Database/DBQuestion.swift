@@ -23,6 +23,7 @@ class DBQuestion:Codable{
         
     }
     
+    
     init(ID:Int32, text:String, dateFine:String, timestamp:String, topic:Int32) {
         self.ID = ID
         self.text = text

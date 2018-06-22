@@ -269,30 +269,46 @@ class SingletonServer{
         
         
         func POST_log(email: String, password: String, completionHandler: @escaping(String?) -> Void) {
-            let httpMethod = "POST"
-            let httpBody : String = password
-            
-            let textUrl : String = "http://\(ipServer):8181/User/login/\(email)/"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
-            
-            
-            var s:String?
-            //        let semaphore = DispatchSemaphore(value: 0)
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
+            let user = DBUser()
+            user.email = email
+            // get a reference to the app delegate
+            let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+            user.token = appDelegate?.returnToken()
+            print("TOKEN: \(user.token!)")
+            user.password = password
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            do{
+                    let data = try encoder.encode(user)
+                    let string = String(data: data, encoding: .utf8)
+                    let httpMethod = "POST"
+                    let httpBody : String = string!
+                
+                
+                    let textUrl : String = "http://\(ipServer):8181/User/login/"
+                    let url : URL = URL(string: textUrl)!
+                    let session : URLSession = URLSession.shared
+                
+                    var urlRequest : URLRequest = URLRequest(url: url)
+                    urlRequest.httpBody = httpBody.data(using: .utf8)
+                    urlRequest.httpMethod = httpMethod
+                
+                
+                    var s:String?
+                    //        let semaphore = DispatchSemaphore(value: 0)
+                    session.dataTask(with: urlRequest) {
+                        data, response, error in
+                        if error != nil {
+                            print(error?.localizedDescription)
+                            completionHandler(error?.localizedDescription)
+                        } else {
+                            s = String(data: data!, encoding: .utf8)!
+                            completionHandler(s)
+                        }
+                        }.resume()
+            }catch{
+                print("Errore di serializzazione")
+            }
             
             
         }

@@ -26,7 +26,7 @@ class DBEvent: Codable{
         
     }
     
-    init() {}
+
     
     init( id:Int32, name:String, description:String, datetime:String, endDate:String, media:String, address:String, topic:Int32?){
         self.id = id

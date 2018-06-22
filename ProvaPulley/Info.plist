@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>app download contents in response to push notifications</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -50,6 +46,10 @@
 	<string></string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Would like to access your location</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>app download contents in response to push notifications</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>

@@ -85,7 +85,7 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
             cell.num.textAlignment = .center
             cell.inizio.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
             cell.inizio.textColor = .white
-//            cell.questionSelezionata = QSelezionata(id: SingletonServer.singleton.user?.myQuestions![indexPath.row].ID, index: indexPath.row)
+            cell.questionSelezionata = QSelezionata(id: (SingletonServer.singleton.user?.myQuestions![indexPath.row].ID)!, index: indexPath.row)
         
        
         

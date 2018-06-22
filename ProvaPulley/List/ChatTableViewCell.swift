@@ -25,11 +25,26 @@ class ChatTableViewCell: UITableViewCell {
             DataManager.shared.titolo = desc.text!
         DataManager.shared.nomeUtente = nickname.text!
         DataManager.shared.avatar = improf.image!
-        if(questionSelezionata?.id! != nil){
-            SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = retrieveAnswersOfAQuestion(id: (questionSelezionata?.id!)!)
+        
+//        for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
+//            print ("RISPOSTA:\(a.text)")
+        
+//        }
+        
+        
+        if(questionSelezionata?.id != nil){
+            for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
+                print ("RISPOSTA:\(a.text)")
+            }
+            print("INDEX:\(questionSelezionata?.index)")
             SingletonServer.singleton.questionSelezionata? = QSelezionata(id: (questionSelezionata?.id)! , index: (questionSelezionata?.index)!)
             
+            SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = retrieveAnswersOfAQuestion(id: (questionSelezionata?.id!)!, email: (SingletonServer.singleton.user?.email)!, index:(questionSelezionata?.index)!)
             
+            
+            print("CIAO")
+            
+                   
         }
         
         //QUA DEVI FARE IL PERFORM SEGUE
@@ -49,27 +64,27 @@ class ChatTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func retrieveAnswersOfAQuestion(id:Int32)->[DBAnswerQ]{
-//        se vuoi lavorare sincronizzato alla richiesta al server
-        print(id)
-        var answers:[DBAnswerQ] = []
-        SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: id) { (result) in
-            
-            let data  = result?.data(using: .utf8)
-            let decoder = JSONDecoder()
-            do{
-                answers = try decoder.decode([DBAnswerQ].self, from: data!)
-                
-            }catch{
-                print("Errore di serializzazione")
-                
-            }
-            
-        }
-        return answers
-        
-        
-    }
+//    func retrieveAnswersOfAQuestion(id:Int32)->[DBAnswerQ]{
+////        se vuoi lavorare sincronizzato alla richiesta al server
+//        print(id)
+//        var answers:[DBAnswerQ] = []
+//        SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: id) { (result) in
+//
+//            let data  = result?.data(using: .utf8)
+//            let decoder = JSONDecoder()
+//            do{
+//                answers = try decoder.decode([DBAnswerQ].self, from: data!)
+//
+//            }catch{
+//                print("Errore di serializzazione")
+//
+//            }
+//
+//        }
+//        return answers
+//
+//
+//    }
 
 }
 

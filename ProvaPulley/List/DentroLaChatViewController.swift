@@ -26,7 +26,9 @@ class DentroLaChatViewController: JSQMessagesViewController {
     }
     
     // all messages of users1, users2
-    var messages =  [JSQMessage]()
+//    var index = SingletonServer.singleton.questionSelezionata?.index
+    var messages = SingletonServer.singleton.user?.myQuestions![ (SingletonServer.singleton.questionSelezionata?.index!)!].answers
+    
 }
 
 extension DentroLaChatViewController {
@@ -56,15 +58,17 @@ extension DentroLaChatViewController {
         return 13
     }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let message = messages[indexPath.row]
-        let messageUsername = message.senderDisplayName
+        let message = messages![indexPath.row]
+        let messageUsername = message.userOwner?.nickname
         
         
         return NSAttributedString(string: messageUsername!)
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let message: JSQMessage = self.messages[indexPath.item]
+     
+        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.item].userOwner!.email, senderDisplayName: messages![indexPath.item].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.item].text)
+        
         
         return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
     }
@@ -82,9 +86,9 @@ extension DentroLaChatViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         
-        let message = messages[indexPath.row]
+        let message = messages![indexPath.row]
         
-        if currentUser.id == message.senderId {
+        if currentUser.id == message.userOwner?.email {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
         } else {
             return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
@@ -92,11 +96,12 @@ extension DentroLaChatViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages.count
+        return messages!.count
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return messages[indexPath.row]
+        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.row].userOwner!.email, senderDisplayName: messages![indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.row].text)
+        return message
     }
 }
 

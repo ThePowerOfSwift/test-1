@@ -160,16 +160,19 @@ func POST_ADDAnswerE(text:String,eventID:Int32, email:String, completionHandler:
 }
 
 
-func retrieveAnswersOfAQuestion(id:Int32, email:String)->[DBAnswerQ]{
+func retrieveAnswersOfAQuestion(id:Int32, email:String, index:Int)->[DBAnswerQ]{
     
     print(id)
     var answers:[DBAnswerQ] = []
     GET_RichiediChatQuestion(idQuestion: id, email: email) { (result) in
-        
+       
         let data  = result?.data(using: .utf8)
         let decoder = JSONDecoder()
         do{
             answers = try decoder.decode([DBAnswerQ].self, from: data!)
+            DispatchQueue.main.async {
+                SingletonServer.singleton.user?.myQuestions![index].answers = answers
+            }
             
         }catch{
             print("Errore di serializzazione")

@@ -33,7 +33,7 @@ class SingletonServer{
     
     
     //    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
-    let ipServer = "10.20.49.178"
+    let ipServer = "151.73.41.110"
     
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Francesco"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Hind"), #imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
@@ -51,6 +51,7 @@ class SingletonServer{
         domandeOrdinatePerTopic.append([DBQuestion]())
         
         eventiOrdinatiPerTopic = [[DBEvent]]()
+        eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
         eventiOrdinatiPerTopic.append([DBEvent]())
@@ -113,6 +114,7 @@ class SingletonServer{
         func ordinaEventi(eventi:[DBEvent]){
             
             eventiOrdinatiPerTopic = [[DBEvent]]()
+            eventiOrdinatiPerTopic.append([DBEvent]())
             eventiOrdinatiPerTopic.append([DBEvent]())
             eventiOrdinatiPerTopic.append([DBEvent]())
             eventiOrdinatiPerTopic.append([DBEvent]())

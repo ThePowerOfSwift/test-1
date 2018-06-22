@@ -40,6 +40,8 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         tastieraInOut (su:false, notifica: notifica)
     }
     
+    
+    
     @objc func tastieraFuori (notifica: Notification) {
         tastieraInOut (su:true, notifica: notifica)
     }
@@ -76,6 +78,11 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // fa sparire tutte le view
         
+        if nomeevento.isEditing == true{
+            open = true
+        }else{
+            open = true
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(ConversazionViewController.tastieraFuori(notifica:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ConversazionViewController.tastieraDentro(notifica:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         viewDellaPicker.alpha = 0

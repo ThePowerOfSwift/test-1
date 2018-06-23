@@ -1116,15 +1116,14 @@
                                     <segue destination="7b0-Io-oIB" kind="embed" id="lwv-BR-KhA"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sfondofoto" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
                                 <rect key="frame" x="0.0" y="116" width="375" height="211"/>
-                                <color key="backgroundColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="HLi-ZN-Mjc"/>
                                     <constraint firstAttribute="width" constant="375" id="POR-FU-qpS"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="esM-lp-cCh" userLabel="Event Name ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the name of the event" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="esM-lp-cCh" userLabel="Event Name ">
                                 <rect key="frame" x="15" y="340" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="345" id="47r-7z-xXO"/>
@@ -1134,13 +1133,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT2-ky-eu6">
-                                <rect key="frame" x="0.0" y="200" width="373" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS1-zX-bT2" userLabel="photo">
                                 <rect key="frame" x="319" y="278" width="48" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1381,6 +1373,7 @@
         <image name="paper-plane" width="60" height="60"/>
         <image name="piu" width="40" height="54"/>
         <image name="pos" width="88" height="88"/>
+        <image name="sfondofoto" width="590" height="298"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ReT-eZ-oLK"/>

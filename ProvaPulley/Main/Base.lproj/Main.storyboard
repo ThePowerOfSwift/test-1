@@ -340,10 +340,10 @@
             </objects>
             <point key="canvasLocation" x="4277.6000000000004" y="772.26386806596713"/>
         </scene>
-        <!--Segue View Controller-->
+        <!--Dentro La Chat View Controller-->
         <scene sceneID="poV-cq-G6m">
             <objects>
-                <viewController id="vdb-e0-crL" customClass="SegueViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vdb-e0-crL" customClass="DentroLaChatViewController" customModule="BatChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2oy-7g-kxI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1373,7 +1373,7 @@
         <image name="paper-plane" width="60" height="60"/>
         <image name="piu" width="40" height="54"/>
         <image name="pos" width="88" height="88"/>
-        <image name="sfondofoto" width="586" height="286"/>
+        <image name="sfondofoto" width="293" height="143"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ReT-eZ-oLK"/>

@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // Override point for customization after application launch.
         registerForPushNotifications()
+        
         return true
     }
 

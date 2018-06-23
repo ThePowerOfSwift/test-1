@@ -41,7 +41,6 @@
 		87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6C20C827140046DFAC /* RegisterViewController.swift */; };
 		87415E6F20C834800046DFAC /* Register2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87415E6E20C834800046DFAC /* Register2ViewController.swift */; };
 		878CDCAB20C172F900F78BC8 /* PulleyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */; };
-		878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAC20C1890200F78BC8 /* SegueViewController.swift */; };
 		878CDCAF20C18C0300F78BC8 /* PulleyTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */; };
 		878CDCB520C19F5600F78BC8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB420C19F5600F78BC8 /* ChatViewController.swift */; };
 		878CDCB720C1A0AF00F78BC8 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */; };
@@ -107,7 +106,6 @@
 		87415E6C20C827140046DFAC /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		87415E6E20C834800046DFAC /* Register2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register2ViewController.swift; sourceTree = "<group>"; };
 		878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell.swift; sourceTree = "<group>"; };
-		878CDCAC20C1890200F78BC8 /* SegueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueViewController.swift; sourceTree = "<group>"; };
 		878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulleyTableViewCell1.swift; sourceTree = "<group>"; };
 		878CDCB420C19F5600F78BC8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		878CDCB620C1A0AF00F78BC8 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 				87415E6A20C822EA0046DFAC /* ForgotViewController.swift */,
 				871B95C320C6DE4C0035C3A2 /* LoginViewController.swift */,
 				878CDCAE20C18C0300F78BC8 /* PulleyTableViewCell1.swift */,
-				878CDCAC20C1890200F78BC8 /* SegueViewController.swift */,
 				878CDCAA20C172F900F78BC8 /* PulleyTableViewCell.swift */,
 			);
 			path = Main;
@@ -427,7 +424,6 @@
 				C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */,
 				872197FF20D8F27900432914 /* ingressoViewController.swift in Sources */,
 				871B956120C536480035C3A2 /* Cella2SettingsTableViewCell.swift in Sources */,
-				878CDCAD20C1890200F78BC8 /* SegueViewController.swift in Sources */,
 				BD22808A20BEEC16005E3919 /* passwordViewController.swift in Sources */,
 				C558478F20C0532A008978D4 /* ProfileViewController.swift in Sources */,
 				87EC365820B4325E001F945B /* DrawerContentViewController.swift in Sources */,

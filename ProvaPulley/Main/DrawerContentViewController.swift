@@ -306,11 +306,11 @@ extension DrawerContentViewController {
         case 3:
             UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.artColor}))
         case 4:
-            UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.shopsColor}))
+            UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.tourismColor}))
         case 5:
             UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.cityInfoColor}))
         case 6:
-            UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.tourismColor}))
+            UIView.animate(withDuration: 0.3, animations: ({self.vetButtons[topicNum].backgroundColor = DataManager.shared.shopsColor}))
         default:
             print("")
         }

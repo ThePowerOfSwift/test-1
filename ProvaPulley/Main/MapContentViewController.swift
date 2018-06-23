@@ -40,6 +40,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
     }
 
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, FBSDKLoginButt
     
     
     @IBAction func Log(_ sender: Any) {
-        
+        self.dismissKeyboard()
                 print("CIAO")
         SingletonServer.singleton.POST_log(email: nick.text!, password: password.text!) { (result) in
             do{

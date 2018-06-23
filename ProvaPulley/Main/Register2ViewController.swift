@@ -22,6 +22,7 @@ class Register2ViewController: UIViewController {
     @IBOutlet weak var rPassword: UITextField!
     
     @IBAction func registerFunc(_ sender: Any) {
+        self.dismissKeyboard()
         
         if((email.text?.count)!>0 && (email.text?.count)!<lenEmail){
             

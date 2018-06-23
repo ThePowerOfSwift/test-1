@@ -28,6 +28,7 @@ class SingletonServer{
     //if it's a skipper (anonimous user)
     var skipper: Bool = false
     
+    
     var eventiOrdinatiPerTopic:[[DBEvent]] = [[DBEvent]]()
     var domandeOrdinatePerTopic:[[DBQuestion]] = [[DBQuestion]]()
     

@@ -26,6 +26,21 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     var count=0
     var range:Double = 1/111
     
+    //oggetto timer
+    var timer = Timer()
+    
+    
+    //avvia il timer
+    func runTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(retrieveAll)), userInfo: nil, repeats: false)
+    }
+    
+    @objc func retrieveAll(longitude: Double, latitude: Double) {
+        //retieve di domande ed eventi
+        retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mappe.delegate = self
@@ -72,6 +87,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         print("Mi sto muovendo sulla mappapppppp")
+        //fermo il timer
+        self.timer.invalidate()
         self.imageView.removeFromSuperview()
     }
     
@@ -84,8 +101,6 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         let puntoA = CGPoint(x: mappe.frame.width/2, y: mappe.frame.height/2)
         let puntoB = CGPoint(x: mappe.frame.width, y: mappe.frame.height/2)
         
-        
-        
         let locationA = self.mappe.convert(puntoA, toCoordinateFrom: self.mappe)
         //        print("LOCATION A", locationA)
         let locationB = self.mappe.convert(puntoB, toCoordinateFrom: self.mappe)
@@ -94,7 +109,10 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         //        print("RANGEEEE ", range)
         SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(locationA.latitude), posY: Double(locationA.longitude), range: range)
-        retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
+        
+        //avvio il timer
+        self.runTimer()
+//        retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
         
     }
     
@@ -196,8 +214,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
                 }
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-                    self.removeCircle(circle: self.oldCircle)
-                    self.oldCircle = self.showCircle(coordinate: CLLocationCoordinate2D(latitude: radar.posX!, longitude: radar.posY!), radius: self.raggio!)
+//                    self.removeCircle(circle: self.oldCircle)
+//                    self.oldCircle = self.showCircle(coordinate: CLLocationCoordinate2D(latitude: radar.posX!, longitude: radar.posY!), radius: self.raggio!)
                     self.removeAnnotationEvents()
                     self.addAnnotationEvents()
                     
@@ -392,4 +410,6 @@ extension MapContentViewController {
 //    }
 //}
 //
+
+
 

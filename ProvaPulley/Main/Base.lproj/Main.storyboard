@@ -1116,7 +1116,7 @@
                                     <segue destination="7b0-Io-oIB" kind="embed" id="lwv-BR-KhA"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sfondofoto" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sfondofoto" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
                                 <rect key="frame" x="0.0" y="116" width="375" height="211"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="HLi-ZN-Mjc"/>
@@ -1373,7 +1373,7 @@
         <image name="paper-plane" width="60" height="60"/>
         <image name="piu" width="40" height="54"/>
         <image name="pos" width="88" height="88"/>
-        <image name="sfondofoto" width="590" height="298"/>
+        <image name="sfondofoto" width="586" height="286"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ReT-eZ-oLK"/>

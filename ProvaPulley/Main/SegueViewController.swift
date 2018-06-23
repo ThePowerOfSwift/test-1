@@ -16,12 +16,18 @@ class SegueViewController: UIViewController {
         super.viewDidLoad()
         
 //        self.navigationItem.hidesBackButton = true
-//        let newBackButton = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SegueViewController.back(sender:)))
+//        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SegueViewController.back(sender:)))
+//        
 //        self.navigationItem.leftBarButtonItem = newBackButton
-        
+        if (self.isMovingFromParentViewController || self.isBeingDismissed) {
+            // Do your stuff here
+            self.pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
+
+        }
         // Do any additional setup after loading the view.
     }
     
+   
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }

@@ -16,6 +16,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     var tableCount:Int = 0
+    var countQuestion:Int?
     var topic = 0
     override func viewWillAppear(_ animated: Bool) {
 //        let user = SingletonServer.singleton.retrieveUser()
@@ -34,20 +35,19 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.topic = SingletonServer.singleton.chosenTopic
-        let count = switchTopic(topic: topic)
+        var count = 0
+        countQuestion = 0
+        if( SingletonServer.singleton.user?.myQuestions != nil){
+            count = (SingletonServer.singleton.user?.myQuestions?.count)!
+            countQuestion = count
+        }
+        if( SingletonServer.singleton.user?.myEvents != nil){
+            count = count + (SingletonServer.singleton.user?.myEvents?.count)!
+        }
         return count
     }
     
-    func switchTopic(topic:Int)->Int{
-        var count = 0
-        
-        count = (SingletonServer.singleton.eventiOrdinatiPerTopic[topic].count)
-        
-        count = count+(SingletonServer.singleton.domandeOrdinatePerTopic[topic].count)
-        
-        return count
-    }
+    
     
    
     
@@ -65,42 +65,47 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.view.addSubview(messageTable)
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
-        if indexPath.row < questNum{
-         
-            let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-            cell.sfondo?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
-            cell.sfondo?.layer.cornerRadius = 32.0
-            cell.sfondo?.layer.borderWidth = 1
-            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.desc?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
-            cell.desc?.textColor = .white
-            cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
-            cell.nickname?.textColor = .white
-            cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
-            cell.num?.layer.cornerRadius = 12.0
-            cell.num?.clipsToBounds = true
-            if let _ = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count {
-                cell.num?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
-            } else {
-                cell.num?.text = "0"
-            }
-            cell.num?.backgroundColor = .white
-            cell.num?.textColor = SingletonServer.singleton.coloroOn(topicNum: topic)
-            cell.num?.textAlignment = .center
+       
+        if(indexPath.row<countQuestion!){
+                let question = SingletonServer.singleton.user?.myQuestions![indexPath.row]
+                let imgprof = SingletonServer.singleton.user?.myQuestions![indexPath.row].ownerUser?.socialAvatar as! NSString
+                let indexProf = imgprof.integerValue
+                cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+                cell.sfondo?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
+                cell.sfondo?.layer.cornerRadius = 32.0
+                cell.sfondo?.layer.borderWidth = 1
+                cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!)).cgColor
+                cell.desc?.text = question?.text
+                cell.desc?.textColor = .white
+                cell.nickname?.text = question?.ownerUser?.nickname
+                cell.nickname?.textColor = .white
+                cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+                cell.num?.layer.cornerRadius = 12.0
+                cell.num?.clipsToBounds = true
+                if let _ = question?.answers?.count {
+                    cell.num?.text = "\(String(describing: question?.answers?.count))"
+                } else {
+                    cell.num?.text = "0"
+                }
+                cell.num?.backgroundColor = .white
+                cell.num?.textColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
+                cell.num?.textAlignment = .center
+                
+                cell.inizio?.isHidden = true
+                cell.inizio?.isHidden = false
+                let dataFormat: String = String(String(question!.dateFine!.dropFirst(11)).dropLast(3))
+                
+                print("ORARIO VEDI QUI \(dataFormat)")
+                
+                cell.inizio?.text = dataFormat
+                cell.inizio?.textColor = .white
+                
             
-            cell.inizio?.isHidden = true
-            cell.inizio?.isHidden = false
-            let dataFormat: String = String(String(SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].dateFine!.dropFirst(11)).dropLast(3))
-            
-            print("ORARIO VEDI QUI \(dataFormat)")
-            
-            cell.inizio?.text = dataFormat
-            cell.inizio?.textColor = .white
+        }else{
+        
          
        
-        }else {
+       
 //            //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
 //            //            _ = imgprof.integerValue as! Int
 //            //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]

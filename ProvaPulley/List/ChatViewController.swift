@@ -99,7 +99,7 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
                         
                         let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
                         let indexProf = imgprof.integerValue
-                        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+                        cell1.improf1.image = SingletonServer.singleton.logoImage[indexProf]
                         cell1.sfondo1.backgroundColor = UIColor.white
                         cell1.sfondo1?.layer.cornerRadius = 32.0
                         cell1.sfondo1?.layer.borderWidth = 1

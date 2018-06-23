@@ -61,7 +61,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         
         mappe.showsCompass = false
-        NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation(not:)), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(createAnnotation), name: NSNotification.Name(rawValue: "createAnnotation"), object: nil)
         
         SingletonServer.singleton.inizializza()
         
@@ -77,10 +77,10 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     
     
-    @objc func createAnnotation(not:Notification){
+    @objc func createAnnotation(){
         self.removeAnnotationEvents()
         self.addAnnotationEvents()
-        
+        print("ooooooo")
     }
     
 //    Funzione che fa sparire la view del radar quando si muove la mappa
@@ -214,8 +214,8 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
                 }
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
-//                    self.removeCircle(circle: self.oldCircle)
-//                    self.oldCircle = self.showCircle(coordinate: CLLocationCoordinate2D(latitude: radar.posX!, longitude: radar.posY!), radius: self.raggio!)
+                    self.removeCircle(circle: self.oldCircle)
+                    self.oldCircle = self.showCircle(coordinate: CLLocationCoordinate2D(latitude: radar.posX!, longitude: radar.posY!), radius: self.raggio!)
                     self.removeAnnotationEvents()
                     self.addAnnotationEvents()
                     

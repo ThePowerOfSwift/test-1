@@ -86,7 +86,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     func setupTable() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(DrawerContentViewController.reload), name: NSNotification.Name(rawValue: "data"), object: self)
         print("LORENZOOOOOOOO")
     }
     
@@ -188,47 +188,39 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     @IBAction func Cancel(_ sender: Any) {
 //        sender animazione quando si manda un messaggio
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "animazione"), object: nil)
-        
-        
-        POST_ADDAnswerQ(text: "BUONASERAA", questionID: 93, email: "admin") { (result) in
-            print("ALLORA?")
-            if (result=="1"){
-                print("OK TUTT APPOST")
+      
+        textFieldDidEndEditing(AskQuestionTextField)
+        if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
+            dismissKeyboard()
+
+            let user = SingletonServer.singleton.user
+            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+            if  let r = SingletonServer.singleton.user?.posFit {
+                radar = r
+            }
+            let data = dateFromTimeout(timeout: 3)
+            print(data)
+            self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
+            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar, topic: Int32(SingletonServer.singleton.chosenTopic)) { (result) in
+                let decoder = JSONDecoder()
+                let da = result?.data(using: .utf8)
+                do{
+                    let question = try decoder.decode(DBQuestion.self, from: da!)
+                    if(question.ID != nil){
+
+
+                        SingletonServer.singleton.user?.myQuestions?.append(question)
+                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+                        //
+                        print(question.text!)
+
+                    }
+                }catch{
+                    print("errore di serializzazione|LATOCLIENT")
+
+                }
             }
         }
-        print("ALLORAss?")
-//        if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
-//            dismissKeyboard()
-//
-//            let user = SingletonServer.singleton.user
-//            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
-//            if  let r = SingletonServer.singleton.user?.posFit {
-//                radar = r
-//            }
-//            let data = dateFromTimeout(timeout: 3)
-//            print(data)
-//            self.pulleyViewController?.setDrawerPosition(position: .collapsed, animated: true)
-//            SingletonServer.singleton.POST_insertNewQuestion(text: AskQuestionTextField.text!, dateFine: data, userOwner: user!, radar: radar, topic: Int32(SingletonServer.singleton.chosenTopic)) { (result) in
-//                let decoder = JSONDecoder()
-//                let da = result?.data(using: .utf8)
-//                do{
-//                    let question = try decoder.decode(DBQuestion.self, from: da!)
-//                    if(question.ID != nil){
-//
-//
-//                        SingletonServer.singleton.user?.myQuestions?.append(question)
-//                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
-//                        //
-//                        print(question.text!)
-//
-//                    }
-//                }catch{
-//                    print("errore di serializzazione|LATOCLIENT")
-//
-//                }
-//            }
-//        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -398,7 +390,7 @@ extension DrawerContentViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
-        
+        tableView.isScrollEnabled = true
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
         if indexPath.row < questNum{
@@ -423,7 +415,7 @@ extension DrawerContentViewController: UITableViewDataSource {
                     cell.numero?.text = "0"
                 }
             cell.numero?.backgroundColor = .white
-            cell.numero?.textColor = SingletonServer.singleton.colori[topic]
+            cell.numero?.textColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.numero?.textAlignment = .center
             
             cell.dataEvent?.isHidden = true
@@ -455,7 +447,7 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.numero?.clipsToBounds = true
 //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
             cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
-            cell.numero?.textColor = SingletonServer.singleton.colori[topic]
+            cell.numero?.textColor = .white
             cell.numero?.textAlignment = .center
             
             cell.dataEvent?.isHidden = false

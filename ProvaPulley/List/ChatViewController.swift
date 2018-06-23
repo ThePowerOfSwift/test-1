@@ -49,6 +49,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return count
     }
     
+   
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatTableViewCell
         tableView.isScrollEnabled = true
@@ -64,18 +66,17 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
         if indexPath.row < questNum{
-            //            print("cazzo!")
-//            let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-//            let indexProf = imgprof.integerValue
-//            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+         
+            let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+            let indexProf = imgprof.integerValue
+            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
             cell.sfondo?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
             cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.desc?.text = "Ciao"
-    //                SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
+            cell.desc?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
             cell.desc?.textColor = .white
-//            cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
+            cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
             cell.nickname?.textColor = .white
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.num?.layer.cornerRadius = 12.0

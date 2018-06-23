@@ -40,7 +40,7 @@ class ChatTableViewCell: UITableViewCell {
             SingletonServer.singleton.questionSelezionata = QSelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!)
             print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
             
-            SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = retrieveAnswersOfAQuestion(id: (questionSelezionata?.id!)!, email: (SingletonServer.singleton.user?.email)!, index:(questionSelezionata?.index)!)
+            retrieveAnswersOfMYQuestion(id: (questionSelezionata?.id!)!, email: (SingletonServer.singleton.user?.email)!, index:(questionSelezionata?.index)!)
             
             
             print("CIAO")

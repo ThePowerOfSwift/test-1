@@ -290,7 +290,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         if (a?.topic == 1) {
             let annotationView = MKAnnotationView()
             annotationView.annotation = annotation
-            annotationView.image = UIImage(named: "food")
+            annotationView.image = #imageLiteral(resourceName: "FOOD")
             return annotationView
         } else if (a?.topic == 2) {
             let annotationView = MKAnnotationView()

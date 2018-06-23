@@ -29,7 +29,7 @@ class ingressoViewController: UIViewController {
     }
     
     func pushTo(viewController: ViewControllerType)  {
-        sleep(2)
+        sleep(1)
         switch viewController {
         case .autenticazione:
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "10") as! LoginViewController

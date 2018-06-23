@@ -12,6 +12,8 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBOutlet weak var tableview: UITableView!
     
+    
+    var topic = 0
     override func viewWillAppear(_ animated: Bool) {
 //        let user = SingletonServer.singleton.retrieveUser()
 //        if(user.email != nil){
@@ -62,7 +64,7 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
         let cell1 = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! Chat1TableViewCell
         let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
         let indexProf = imgprof.integerValue as! Int
-        
+        let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         let color = SingletonServer.singleton.user?.myQuestions![indexPath.row].topic 
         let indexTopic = Int(color!)
         
@@ -70,8 +72,11 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         
         
-            //        if indexPath.row == 0{
-            cell.improf.image = SingletonServer.singleton.logoImage[indexProf]
+                    if indexPath.row == 0{
+                        let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+                        let indexProf = imgprof.integerValue
+                        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+            
             cell.sfondo.backgroundColor = SingletonServer.singleton.colori[indexTopic]
             cell.desc.text = SingletonServer.singleton.user?.myQuestions![indexPath.row].text
             cell.desc.textColor = .white
@@ -86,38 +91,46 @@ class ChatViewController: UIViewController, UITableViewDataSource,UITableViewDel
             cell.inizio.text = "\(SingletonServer.singleton.user?.myQuestions![indexPath.row].answers?.count)"
             cell.inizio.textColor = .white
             cell.questionSelezionata = QSelezionata(id: (SingletonServer.singleton.user?.myQuestions![indexPath.row].ID)!, index: indexPath.row)
-        
-       
-        
-        
-            
-            
+
             return cell
             
             
-//            }else{
-//            cell1.improf1.image = #imageLiteral(resourceName: "Giorgio")
-//            cell1.inizio1.text = "22:00"
-//            cell1.inizio1.textColor = .black
-//            cell1.num1.text = "14"
-//            cell1.num1.textColor = .white
-//            cell1.num1.backgroundColor = .black
-//            cell1.num1.textAlignment = .center
-//            cell1.num1.layer.cornerRadius = 12.0
-//            cell1.num1.clipsToBounds = true
-//            cell1.desc1.text = "O DRAGGGGGGGGGGGGGGGGGGGGGGGG"
-//            cell1.desc1.textColor = .black
-//            cell1.nick1.text = "Giorgia"
-//            cell1.nick1.textColor = .black
-//            cell1.divisore.text = "-"
-//            cell1.divisore.textColor = .black
-//            cell1.sfondo1.layer.borderWidth = 1
-//            cell1.fine.text = "2:00"
-//            cell1.fine.textColor = .black
-//            cell1.sfondo1.layer.borderColor = UIColor(red: 0/255, green: 90/255, blue: 50/255, alpha: 1.0).cgColor
-//            return cell1
-//            }
-        
+    }else{
+                        
+                        let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+                        let indexProf = imgprof.integerValue
+                        cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+                        cell1.sfondo1.backgroundColor = UIColor.white
+                        cell1.sfondo1?.layer.cornerRadius = 32.0
+                        cell1.sfondo1?.layer.borderWidth = 1
+                        cell1.sfondo1.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
+                        cell1.desc1.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].description
+                        cell1.desc1.textColor = .black
+                        cell1.nick1.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
+                        cell1.nick1.textColor = .black
+                        cell1.nick1.font = UIFont.boldSystemFont(ofSize: 16.0)
+                        cell1.num1.layer.cornerRadius = 12.0
+                        cell1.num1.clipsToBounds = true
+                        //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
+                        cell1.num1.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
+                        cell1.num1.textColor = .white
+                        cell1.num1.textAlignment = .center
+                        
+//                        cell.dataEvent?.isHidden = false
+//                        cell.data?.isHidden = true
+                        
+                        let dataInitFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime!.dropFirst(11)).dropLast(3))
+                        
+                        let dataEndFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate!.dropFirst(11)).dropLast(3))
+                        
+                        cell1.inizio1.text =  "\(dataInitFormat) - \(dataEndFormat)"
+                        cell1.inizio1.textColor = .black
+                        
+                       
+
+            return cell1
+            }
+    
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

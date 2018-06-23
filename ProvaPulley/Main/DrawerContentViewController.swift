@@ -31,7 +31,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     var vetButtons: [UICustomButton] = []
-    var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 500))
+    var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 458))
     
     //    var topicBool: [Bool] = [true, false, false, false, false, false, false]
     var tableCount:Int = 0
@@ -391,6 +391,7 @@ extension DrawerContentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PulleyTableViewCell
         tableView.isScrollEnabled = true
+        
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
         if indexPath.row < questNum{

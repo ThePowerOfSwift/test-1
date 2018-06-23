@@ -11,12 +11,14 @@ import Foundation
 
 import JSQMessagesViewController
 
+
 struct User3 {
     let id: String
     let name: String
 }
 
 class DentroLaChatViewController: JSQMessagesViewController {
+    
     let user1 = User3(id: "1", name: "Steve")
     let user2 = User3(id: "2", name: "Tim")
     let rispostaQ = DBAnswerQ()
@@ -67,7 +69,7 @@ extension DentroLaChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
      
-        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.item].userOwner!.email, senderDisplayName: messages![indexPath.item].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.item].text)
+        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.row].userOwner!.email, senderDisplayName: messages![indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.row].text)
         
         
         return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
@@ -101,6 +103,7 @@ extension DentroLaChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         let message: JSQMessage = JSQMessage(senderId: messages![indexPath.row].userOwner!.email, senderDisplayName: messages![indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.row].text)
+       print(message.description)
         return message
     }
 }
@@ -109,18 +112,23 @@ extension DentroLaChatViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // tell JSQMessagesViewController
-        // who is the current user
+//        // tell JSQMessagesViewController
+//        // who is the current user
         self.senderId = currentUser.id
         self.senderDisplayName = SingletonServer.singleton.user?.nickname
-        
-    
-        
+//
+//
+//
         self.navigationItem.title = DataManager.shared.titolo
+//
+//
+//
+////        self.messages = getMessages()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadDataCollectionView), name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+    }
     
-        
-        
-//        self.messages = getMessages()
+    @objc func reloadDataCollectionView(){
+        self.collectionView.reloadData()
     }
 }
 

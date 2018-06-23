@@ -97,6 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func returnToken() -> String {
+        if token == nil {
+            token = "1"
+        }
         return token!
     }
     

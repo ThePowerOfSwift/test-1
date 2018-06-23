@@ -91,13 +91,13 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         self.timer.invalidate()
         self.imageView.removeFromSuperview()
     }
-    
+
 //    funzione che fa comparire la view del radar quando si ferma la mappa e la anima
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         self.view.addSubview(imageView)
         rotateRadar(imageView: imageView, aCircleTime: 2.0)
         print("Ho finito di muovevermi")
-        
+
         let puntoA = CGPoint(x: mappe.frame.width/2, y: mappe.frame.height/2)
         let puntoB = CGPoint(x: mappe.frame.width, y: mappe.frame.height/2)
         
@@ -106,14 +106,14 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         let locationB = self.mappe.convert(puntoB, toCoordinateFrom: self.mappe)
         //        print("LOCATION B", locationB)
         let range = abs(locationA.longitude - locationB.longitude)
-        
+
         //        print("RANGEEEE ", range)
         SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(locationA.latitude), posY: Double(locationA.longitude), range: range)
-        
+
         //avvio il timer
         self.runTimer()
 //        retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
-        
+
     }
     
     func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
@@ -169,12 +169,12 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        for touch in touches {
 //            if(touch.tapCount==3){
-//                
+//
 //                let touchPoint = touch.location(in: self.mappe)
 //                let location = self.mappe.convert(touchPoint, toCoordinateFrom: self.mappe)
 //                SingletonServer.singleton.user?.posFit = DBRadar(posX: Double(location.latitude), posY: Double(location.longitude), range: self.range)
 //                retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
-//                
+//
 //            }
 //        }
 //    }
@@ -234,7 +234,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     func addAnnotationEvents(){
         for e in SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic]{
             let marker = EventAnnotation(coordinate: CLLocationCoordinate2D(latitude: (e.myPosition?.posX)!, longitude: (e.myPosition?.posY)!))
-            
+            print("NOME EVENTO:\(e.name)")
             marker.address = e.address
             marker.answers = e.answers
             marker.datetime = e.datetime

@@ -113,7 +113,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        self.allButtonsOff(i: 0)
+//        self.allButtonsOff(i: 0)
         
     }
     
@@ -189,7 +189,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBAction func Cancel(_ sender: Any) {
 //        sender animazione quando si manda un messaggio
       
-        textFieldDidEndEditing(AskQuestionTextField)
+        
         if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
             dismissKeyboard()
 
@@ -221,6 +221,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 }
             }
         }
+        textFieldDidEndEditing(AskQuestionTextField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -403,7 +404,7 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1
             cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.descrizione?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
+            cell.descrizione?.text =               SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
             cell.descrizione?.textColor = .white
             cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
             cell.nickname?.textColor = .white
@@ -435,9 +436,9 @@ extension DrawerContentViewController: UITableViewDataSource {
 //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
 //            _ = imgprof.integerValue as! Int
 //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
-            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+//            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
+//            let indexProf = imgprof.integerValue
+//            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
             cell.backView?.backgroundColor = UIColor.white
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1

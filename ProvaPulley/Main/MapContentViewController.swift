@@ -35,7 +35,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(retrieveAll)), userInfo: nil, repeats: false)
     }
     
-    @objc func retrieveAll(longitude: Double, latitude: Double) {
+    @objc func retrieveAll() {
         //retieve di domande ed eventi
         retrieveQuestionsAndEventsAroundRadar(radar:  (SingletonServer.singleton.user?.posFit!)!)
     }

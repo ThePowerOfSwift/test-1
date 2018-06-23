@@ -1048,7 +1048,7 @@ open class PulleyViewController: UIViewController, PulleyDrawerViewControllerDel
             stopToMoveTo = collapsedHeight + 50
             
         case .partiallyRevealed:
-            stopToMoveTo = partialRevealHeight + 50
+            stopToMoveTo = partialRevealHeight + 10
             
         case .open:
             stopToMoveTo = (self.drawerScrollView.bounds.height)

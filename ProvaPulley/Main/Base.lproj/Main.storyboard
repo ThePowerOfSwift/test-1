@@ -1116,15 +1116,14 @@
                                     <segue destination="7b0-Io-oIB" kind="embed" id="lwv-BR-KhA"/>
                                 </connections>
                             </containerView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sfondofoto" translatesAutoresizingMaskIntoConstraints="NO" id="Way-vh-N1I">
                                 <rect key="frame" x="0.0" y="116" width="375" height="211"/>
-                                <color key="backgroundColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="211" id="HLi-ZN-Mjc"/>
                                     <constraint firstAttribute="width" constant="375" id="POR-FU-qpS"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="esM-lp-cCh" userLabel="Event Name ">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the name of the event" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="esM-lp-cCh" userLabel="Event Name ">
                                 <rect key="frame" x="15" y="340" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="345" id="47r-7z-xXO"/>
@@ -1201,26 +1200,6 @@
                                     <action selector="showEndPicker:" destination="KMs-4r-GOb" eventType="touchUpInside" id="kKq-Pb-8fH"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpu-Si-0Sn" userLabel="moreInfoView">
-                                <rect key="frame" x="0.0" y="378" width="375" height="293"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADo-HC-R99">
-                                        <rect key="frame" x="163" y="0.0" width="49" height="49"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="mor">
-                                            <color key="titleColor" red="0.58008790180000003" green="1" blue="0.36218114890000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="move:" destination="KMs-4r-GOb" eventType="touchUpInside" id="MhN-ak-EsJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Ffe-vW-BxO"/>
-                                    <constraint firstAttribute="height" constant="293" id="SFI-Wo-nFk"/>
-                                </constraints>
-                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pMt-9Q-6yl" userLabel="GreyView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1314,7 +1293,6 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Zpu-Si-0Sn" firstAttribute="top" secondItem="esM-lp-cCh" secondAttribute="bottom" constant="8" id="2ux-nB-WuF"/>
                             <constraint firstItem="esM-lp-cCh" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="15" id="3sE-RR-wVo"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" id="4bP-a2-tu9"/>
                             <constraint firstItem="esM-lp-cCh" firstAttribute="top" secondItem="Way-vh-N1I" secondAttribute="bottom" constant="13" id="8wO-XJ-w28"/>
@@ -1332,28 +1310,22 @@
                             <constraint firstItem="GGI-tF-rgu" firstAttribute="trailing" secondItem="Ei3-2V-0u1" secondAttribute="trailing" constant="7" id="Uep-0Y-eJ0"/>
                             <constraint firstItem="Ei3-2V-0u1" firstAttribute="leading" secondItem="FHV-Z9-MbY" secondAttribute="trailing" constant="262" id="YvD-Wf-adr"/>
                             <constraint firstItem="Ei3-2V-0u1" firstAttribute="leading" secondItem="FHV-Z9-MbY" secondAttribute="trailing" constant="262" id="YyW-bV-cWN"/>
-                            <constraint firstItem="Zpu-Si-0Sn" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" id="Zkg-mQ-UAp"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="FHV-Z9-MbY" secondAttribute="bottom" constant="63" id="cu0-al-Uia"/>
-                            <constraint firstItem="Zpu-Si-0Sn" firstAttribute="top" secondItem="esM-lp-cCh" secondAttribute="bottom" constant="8" id="dNC-ul-cQT"/>
                             <constraint firstItem="Ivv-1Y-PWb" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="9" id="dPP-zZ-gcE"/>
                             <constraint firstItem="Way-vh-N1I" firstAttribute="top" secondItem="Ei3-2V-0u1" secondAttribute="bottom" constant="63" id="hH5-kZ-ydz"/>
                             <constraint firstItem="FHV-Z9-MbY" firstAttribute="leading" secondItem="GGI-tF-rgu" secondAttribute="leading" constant="10" id="hTR-sW-XQw"/>
-                            <constraint firstAttribute="bottom" secondItem="Zpu-Si-0Sn" secondAttribute="bottom" constant="-24" id="iHq-2X-oxN"/>
                             <constraint firstItem="FHV-Z9-MbY" firstAttribute="top" secondItem="GGI-tF-rgu" secondAttribute="top" id="ji5-C7-nkW"/>
-                            <constraint firstItem="Zpu-Si-0Sn" firstAttribute="trailing" secondItem="GGI-tF-rgu" secondAttribute="trailing" id="v00-JJ-GuC"/>
                             <constraint firstItem="esM-lp-cCh" firstAttribute="top" secondItem="Ivv-1Y-PWb" secondAttribute="bottom" constant="23" id="zeM-pk-teV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GGI-tF-rgu"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="ADo-HC-R99" id="VLz-lt-GcC"/>
                         <outlet property="buttonNow" destination="IBZ-Ka-TPu" id="I6K-DK-0NK"/>
                         <outlet property="captureImageView" destination="Way-vh-N1I" id="Fhy-Gy-Jzy"/>
                         <outlet property="descrizione" destination="xva-ri-cbH" id="rkJ-tf-OiB"/>
                         <outlet property="eventopos" destination="d0r-sB-8iW" id="bEv-wT-oB0"/>
                         <outlet property="greyView" destination="pMt-9Q-6yl" id="6Fe-6i-BWd"/>
                         <outlet property="hours" destination="wrs-i2-GHk" id="XIH-DZ-8Nq"/>
-                        <outlet property="moreInfoView" destination="Zpu-Si-0Sn" id="HfM-mD-BGK"/>
                         <outlet property="nomeevento" destination="esM-lp-cCh" id="JYw-pS-jyk"/>
                         <outlet property="timePickerEnd" destination="RNZ-7v-Ebx" id="3Ak-iV-R0u"/>
                         <outlet property="timePickerStart" destination="Hpu-eC-jyc" id="eCy-e2-stu"/>
@@ -1398,10 +1370,10 @@
         <image name="add picture" width="292" height="240"/>
         <image name="camera" width="288" height="230"/>
         <image name="map" width="30" height="30"/>
-        <image name="mor" width="51" height="51"/>
         <image name="paper-plane" width="60" height="60"/>
         <image name="piu" width="40" height="54"/>
         <image name="pos" width="88" height="88"/>
+        <image name="sfondofoto" width="586" height="286"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ReT-eZ-oLK"/>

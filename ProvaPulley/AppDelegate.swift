@@ -66,8 +66,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard granted else { return }
             // 2. Attempt registration for remote notifications on the main thread
             DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
+//                UIApplication.shared.registerForRemoteNotifications()
+                 self.getNotificationSettings()
             }
+        }
+    }
+    
+    
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
     
@@ -76,7 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         // 1. Convert device token to string
         let tokenParts = deviceToken.map { data -> String in
-            
             return String(format: "%02.2hhx", data)
         }
         let token = tokenParts.joined()
@@ -87,7 +97,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func returnToken() -> String {
+        if token == nil {
+            token = "1"
+        }
         return token!
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        
+        print("Failed to register: \(error)")
     }
     
     

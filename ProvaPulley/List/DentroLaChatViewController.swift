@@ -32,8 +32,11 @@ class DentroLaChatViewController: JSQMessagesViewController {
 
     
     
-    func appendAnswer(answer: DBAnswerQ) {
+    func appendAnswerQ(answer: DBAnswerQ) {
         SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+    }
+    func appendAnswerE(answer: DBAnswerE) {
+        SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers?.append(answer)
     }
     
 }
@@ -45,32 +48,66 @@ extension DentroLaChatViewController {
         //let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
         print("PREMUTO SEND")
         
-        let message =  DBAnswerQ()
-        message.text = text
-        message.userOwner = DBUser()
-        message.userOwner?.email = SingletonServer.singleton.user?.email
-        message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
-        message.timestamp = Date(timeIntervalSinceNow: 0).description
-        self.appendAnswer(answer: message)
-        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-        self.collectionView.reloadData()
-        finishSendingMessage()
-        
-        
-        POST_ADDAnswerQ(text: text, questionID: (SingletonServer
-            .singleton.questionSelezionata?.id)!) { (result) in
-            if(result != "0"){
-                print("OK Add message")
-                DispatchQueue.main.async {
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            print("1")
+            let message =  DBAnswerQ()
+            message.text = text
+            message.userOwner = DBUser()
+            message.userOwner?.email = SingletonServer.singleton.user?.email
+            message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            self.appendAnswerQ(answer: message)
+            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+            self.collectionView.reloadData()
+            finishSendingMessage()
+            
+            
+            POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+                .singleton.questionSelezionata?.id)!) { (result) in
+                    if(result != "0"){
+                        print("OK Add message")
+                        DispatchQueue.main.async {
+                            
+                            
+                        }
+                        
+                        
+                    }
                     
-                    
-                }
-                
-                
             }
-        
+
+            
+            
+        }else{
+            let message =  DBAnswerE()
+            message.text = text
+            message.userOwner = DBUser()
+            message.userOwner?.email = SingletonServer.singleton.user?.email
+            message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            self.appendAnswerE(answer: message)
+            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+            self.collectionView.reloadData()
+            finishSendingMessage()
+            
+            
+            POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+                .singleton.questionSelezionata?.id)!) { (result) in
+                    if(result != "0"){
+                        print("OK Add message")
+                        DispatchQueue.main.async {
+                            
+                            
+                        }
+                        
+                        
+                    }
+                    
+            }
+            
         }
-        self.view.endEditing(true)
+        
+                self.view.endEditing(true)
     }
         
         

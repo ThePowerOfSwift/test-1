@@ -46,7 +46,7 @@ class ChatTableViewCell: UITableViewCell {
                 print("INDEX:\(questionSelezionata?.index)")
                 SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue, indexReal: (questionSelezionata?.indexReal)!)
                 print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
+               
 
                 richiediChatQuestion(idQuestion:(questionSelezionata?.id)!)
                 
@@ -60,10 +60,9 @@ class ChatTableViewCell: UITableViewCell {
                     print ("RISPOSTA:\(a.text)")
                 }
                 print("INDEX:\(questionSelezionata?.index)")
-                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue, indexReal: (questionSelezionata?.indexReal)!)
+                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myevents.hashValue, indexReal: (questionSelezionata?.indexReal)!)
                 print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
-                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
-                richiediChatEvent(idEvent: (questionSelezionata?.id)!)
+                
                
                 
                 

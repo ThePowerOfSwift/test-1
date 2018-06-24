@@ -139,7 +139,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.num?.text = "0"
             }
             //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-//            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
+            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
             cell.num?.textColor = .white
             cell.num?.textAlignment = .center
             

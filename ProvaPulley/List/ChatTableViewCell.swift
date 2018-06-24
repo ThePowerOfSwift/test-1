@@ -21,10 +21,10 @@ class ChatTableViewCell: UITableViewCell {
     
     
     @IBAction func clicco(_ sender: Any) {
-        DataManager.shared.sfondoColor = sfondo.backgroundColor!
-            DataManager.shared.titolo = desc.text!
-        DataManager.shared.nomeUtente = nickname.text!
-        DataManager.shared.avatar = improf.image!
+//        DataManager.shared.sfondoColor = sfondo.backgroundColor!
+//            DataManager.shared.titolo = desc.text!
+//        DataManager.shared.nomeUtente = nickname.text!
+//        DataManager.shared.avatar = improf.image!
         
 //        for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
 //            print ("RISPOSTA:\(a.text)")

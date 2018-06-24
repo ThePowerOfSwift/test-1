@@ -31,7 +31,12 @@ class DentroLaChatViewController: JSQMessagesViewController {
 //    var index = SingletonServer.singleton.questionSelezionata?.index
     
     func returnAnswers() -> [DBAnswerQ] {
-        return (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers)!
+        let answers: [DBAnswerQ] = []
+        if(SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!] != nil){
+            return (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers)!
+        }
+        return answers
+        
     }
     
     func appendAnswer(answer: DBAnswerQ) {
@@ -54,8 +59,9 @@ extension DentroLaChatViewController {
         message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
         message.timestamp = Date(timeIntervalSinceNow: 0).description
         self.appendAnswer(answer: message)
+        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
         self.collectionView.reloadData()
-        SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index)!].answers?.append(message)
+        
         
         SingletonServer.singleton.POST_ADDAnswerQ(text: text, questionID: (SingletonServer
             .singleton.questionSelezionata?.id)!, email: (SingletonServer.singleton.user?.email)!) { (result) in

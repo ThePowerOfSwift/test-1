@@ -23,6 +23,18 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        if(user.email != nil){
 //            updateMyQuestions_MyEventsWithCorrispectiveAnswers(email: user.email!)
 //        }
+        if(SingletonServer.singleton.questionSelezionata != nil){
+            if((SingletonServer.singleton.questionSelezionata?.index)! < countQuestion!){
+                POST_UnsubscribeToQuestion(id: (SingletonServer.singleton.questionSelezionata?.id)!) { (result) in
+                    
+                }
+            }else{
+                //unsubscribe di un evento
+                
+            }
+        }
+        
+        
         self.tableview.reloadData()
     }
     
@@ -99,7 +111,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 cell.inizio?.text = dataFormat
                 cell.inizio?.textColor = .white
-                cell.questionSelezionata = QSelezionata(id: (question?.ID)!, index: indexPath.row)
+            cell.questionSelezionata = QESelezionata(id: (question?.ID)!, index: indexPath.row, tipo:tipoChat.myquestions.hashValue)
                 
             
         }else{

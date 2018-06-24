@@ -45,6 +45,24 @@ let ipServer = SingletonServer.singleton.ipServer
 //}
 
 
+struct QESelezionata {
+    var id: Int32?
+    var index: Int?
+    var tipo :Int?
+    init(id: Int32, index: Int, tipo:Int) {
+        self.id = id
+        self.index = index
+        self.tipo = tipo
+    }
+}
+
+enum tipoChat{
+    case myquestions
+    case myevents
+    case pulleyquestions
+    case pulleyevents
+}
+
 
 
 func GET_RichiediChatEvent(idEvent:Int32,email:String, completionHandler: @escaping(String?) -> Void){
@@ -75,7 +93,7 @@ func GET_RichiediChatEvent(idEvent:Int32,email:String, completionHandler: @escap
 }
 
 
-func POST_ADDAnswerQ(text:String,questionID:Int32, email:String, completionHandler: @escaping(String?) -> Void){
+func POST_ADDAnswerQ(text:String,questionID:Int32, completionHandler: @escaping(String?) -> Void){
     let a = DBAnswerQ()
     a.text = text
     
@@ -191,6 +209,62 @@ func POST_SendPositionOfUser(email:String, x:Double,y:Double, completionHandler:
         }.resume()
    
     
+}
+
+
+
+func POST_UnsubscribeToQuestion(id:Int32, completionHandler: @escaping(String?) -> Void){
+    let httpMethod = "POST"
+    
+    
+    let httpBody : String = ""
+    
+    let textUrl : String = "http://\(ipServer):8181/Question/Unsubscribe/\((SingletonServer.singleton.user?.email!)!)/\(id)/"
+    let url : URL = URL(string: textUrl)!
+    let session : URLSession = URLSession.shared
+    
+    var urlRequest : URLRequest = URLRequest(url: url)
+    urlRequest.httpBody = httpBody.data(using: .utf8)
+    urlRequest.httpMethod = httpMethod
+    var s:String?
+    session.dataTask(with: urlRequest) {
+        data, response, error in
+        if error != nil {
+            print(error?.localizedDescription)
+            completionHandler(error?.localizedDescription)
+        } else {
+            s = String(data: data!, encoding: .utf8)!
+            completionHandler(s)
+        }
+        }.resume()
+}
+
+
+
+func POST_UnsubscribeToEvent(id:Int32, completionHandler: @escaping(String?) -> Void){
+    let httpMethod = "POST"
+    
+    
+    let httpBody : String = ""
+    
+    let textUrl : String = "http://\(ipServer):8181/Event/Unsubscribe/\((SingletonServer.singleton.user?.email!)!)/\(id)/"
+    let url : URL = URL(string: textUrl)!
+    let session : URLSession = URLSession.shared
+    
+    var urlRequest : URLRequest = URLRequest(url: url)
+    urlRequest.httpBody = httpBody.data(using: .utf8)
+    urlRequest.httpMethod = httpMethod
+    var s:String?
+    session.dataTask(with: urlRequest) {
+        data, response, error in
+        if error != nil {
+            print(error?.localizedDescription)
+            completionHandler(error?.localizedDescription)
+        } else {
+            s = String(data: data!, encoding: .utf8)!
+            completionHandler(s)
+        }
+        }.resume()
 }
 
 

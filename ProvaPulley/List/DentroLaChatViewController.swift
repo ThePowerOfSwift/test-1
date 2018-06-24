@@ -64,8 +64,8 @@ extension DentroLaChatViewController {
         finishSendingMessage()
         
         
-        SingletonServer.singleton.POST_ADDAnswerQ(text: text, questionID: (SingletonServer
-            .singleton.questionSelezionata?.id)!, email: (SingletonServer.singleton.user?.email)!) { (result) in
+        POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+            .singleton.questionSelezionata?.id)!) { (result) in
             if(result != "0"){
                 print("OK Add message")
                 DispatchQueue.main.async {
@@ -77,7 +77,7 @@ extension DentroLaChatViewController {
             }
         
         }
-        
+        self.view.endEditing(true)
     }
         
         
@@ -149,6 +149,8 @@ extension DentroLaChatViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
 //        // tell JSQMessagesViewController
 //        // who is the current user
         self.senderId = currentUser.id
@@ -167,6 +169,10 @@ extension DentroLaChatViewController {
     @objc func reloadDataCollectionView(){
         print("CARICO CHAT")
         self.collectionView.reloadData()
+    }
+    
+    override func dismissKeyboard() {
+        self.collectionView.endEditing(true)
     }
 }
 

@@ -54,8 +54,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
+    
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print("E' ARRIVATO COCCOS:\(userInfo)")
+        let dic = userInfo["aps"] as! [String: String]
+       let stringJSON = dic["alert"]
+        
+        print(stringJSON!)
+        let data = stringJSON?.data(using: .utf8)
+
+        let decoder = JSONDecoder()
+        do{
+            let answer = try decoder.decode(DBAnswerQ.self, from: data!)
+            switch (SingletonServer.singleton.questionSelezionata?.tipo) {
+            case tipoChat.myquestions.hashValue:
+                if(SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].ID == answer.question?.ID){
+
+                    SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                    }
+
+            default:
+                print("ciao")
+            }
+
+           }catch{
+            print("errore di serializz s")
+//
+            }
+      
+        
     }
     
     func registerForPushNotifications() {

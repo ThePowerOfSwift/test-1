@@ -23,7 +23,7 @@ class SingletonServer{
     var eventoSelezionato: EventAnnotation?
     
     
-    var questionSelezionata:QSelezionata?
+    var questionSelezionata:QESelezionata?
     
     //if it's a skipper (anonimous user)
     var skipper: Bool = false
@@ -201,8 +201,10 @@ class SingletonServer{
         let httpMethod = "GET"
        
         let httpBody : String = ""
+        let email = (SingletonServer.singleton.user?.email!)!
         
-        let textUrl : String = "http://\(ipServer):8181/Question/Answers/\(idQuestion)/"
+        let textUrl : String = "http://\(ipServer):8181/Question/Answers/\(idQuestion)/\(String(describing: email))/"
+        
         let url : URL = URL(string: textUrl)!
         let session : URLSession = URLSession.shared
         
@@ -256,52 +258,52 @@ class SingletonServer{
         
     }
     
-    func POST_ADDAnswerQ(text:String,questionID:Int32, email:String, completionHandler: @escaping(String?) -> Void){
-        let a = DBAnswerQ()
-        a.text = text
-        
-        a.question = DBQuestion()
-        a.question?.ID = questionID
-        a.userOwner = DBUser()
-        a.userOwner?.email = email
-        let httpMethod = "POST"
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        do{
-            let data = try encoder.encode(a)
-            let string = String(data:data, encoding: .utf8)
-            
-            let httpBody : String = string!
-            
-            let textUrl : String = "http://\(ipServer):8181/Question/Answers/add/"
-            let url : URL = URL(string: textUrl)!
-            let session : URLSession = URLSession.shared
-            
-            var urlRequest : URLRequest = URLRequest(url: url)
-            urlRequest.httpBody = httpBody.data(using: .utf8)
-            urlRequest.httpMethod = httpMethod
-            
-            
-            var s:String?
-            session.dataTask(with: urlRequest) {
-                data, response, error in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    completionHandler(error?.localizedDescription)
-                } else {
-                    s = String(data: data!, encoding: .utf8)!
-                    completionHandler(s)
-                }
-                }.resume()
-            
-        }catch{
-            print("errore di serializzazione")
-        }
-        
-        
-        
-        
-    }
+//    func POST_ADDAnswerQ(text:String,questionID:Int32, email:String, completionHandler: @escaping(String?) -> Void){
+//        let a = DBAnswerQ()
+//        a.text = text
+//        
+//        a.question = DBQuestion()
+//        a.question?.ID = questionID
+//        a.userOwner = DBUser()
+//        a.userOwner?.email = email
+//        let httpMethod = "POST"
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//        do{
+//            let data = try encoder.encode(a)
+//            let string = String(data:data, encoding: .utf8)
+//            
+//            let httpBody : String = string!
+//            
+//            let textUrl : String = "http://\(ipServer):8181/Question/Answers/add/"
+//            let url : URL = URL(string: textUrl)!
+//            let session : URLSession = URLSession.shared
+//            
+//            var urlRequest : URLRequest = URLRequest(url: url)
+//            urlRequest.httpBody = httpBody.data(using: .utf8)
+//            urlRequest.httpMethod = httpMethod
+//            
+//            
+//            var s:String?
+//            session.dataTask(with: urlRequest) {
+//                data, response, error in
+//                if error != nil {
+//                    print(error?.localizedDescription)
+//                    completionHandler(error?.localizedDescription)
+//                } else {
+//                    s = String(data: data!, encoding: .utf8)!
+//                    completionHandler(s)
+//                }
+//                }.resume()
+//            
+//        }catch{
+//            print("errore di serializzazione")
+//        }
+//        
+//        
+//        
+//        
+//    }
     
     
     func POST_ADDAnswerE(text:String,eventID:Int32, email:String, completionHandler: @escaping(String?) -> Void){

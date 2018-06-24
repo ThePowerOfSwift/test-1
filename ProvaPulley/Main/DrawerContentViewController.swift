@@ -403,14 +403,15 @@ extension DrawerContentViewController: UITableViewDataSource {
         let questNum = SingletonServer.singleton.domandeOrdinatePerTopic[topic].count
         
         if indexPath.row < questNum{
+            let question = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row]
 //            print("cazzo!")
             let imgprof = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
             let indexProf = imgprof.integerValue
             cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-            cell.backView?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
+            cell.backView?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int(question.topic!))
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1
-            cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
+            cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int(question.topic!)).cgColor
             cell.descrizione?.text =               SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].text
             cell.descrizione?.textColor = .white
             cell.nickname?.text = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.nickname
@@ -424,7 +425,7 @@ extension DrawerContentViewController: UITableViewDataSource {
                     cell.numero?.text = "0"
                 }
             cell.numero?.backgroundColor = .white
-            cell.numero?.textColor = SingletonServer.singleton.coloroOn(topicNum: topic)
+            cell.numero?.textColor = SingletonServer.singleton.coloroOn(topicNum: Int(question.topic!))
             cell.numero?.textAlignment = .center
             
             cell.dataEvent?.isHidden = true
@@ -443,13 +444,14 @@ extension DrawerContentViewController: UITableViewDataSource {
 //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
 //            _ = imgprof.integerValue as! Int
 //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
+            let ev = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum]
             let indexProf = Int((SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].topic)!)
             cell.improf?.image = SingletonServer.singleton.logoEvent[indexProf]
            
             cell.backView?.backgroundColor = UIColor.white
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1
-            cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
+            cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int(ev.topic!)).cgColor
             cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].name
             cell.descrizione?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
@@ -464,7 +466,7 @@ extension DrawerContentViewController: UITableViewDataSource {
                 cell.numero?.text = "0"
             }
 //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-            cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
+            cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int(ev.topic!))
             cell.numero?.textColor = .white
             cell.numero?.textAlignment = .center
             

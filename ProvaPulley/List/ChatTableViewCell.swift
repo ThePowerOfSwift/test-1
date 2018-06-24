@@ -33,16 +33,43 @@ class ChatTableViewCell: UITableViewCell {
         
         
         if(questionSelezionata?.id != nil){
+            if SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers == nil {
+                SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = []
+            }
             for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
                 print ("RISPOSTA:\(a.text)")
             }
             print("INDEX:\(questionSelezionata?.index)")
             SingletonServer.singleton.questionSelezionata = QSelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!)
             print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
+        
+           
+           SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: (questionSelezionata?.id!)!) { (result) in
             
-            retrieveAnswersOfMYQuestion(id: (questionSelezionata?.id!)!, email: (SingletonServer.singleton.user?.email)!, index:(questionSelezionata?.index)!)
-            
-            
+                let data  = result?.data(using: .utf8)
+                let decoder = JSONDecoder()
+                print("A FESS")
+                do{
+                    
+                    var answers = try decoder.decode([DBAnswerQ].self, from: data!)
+                    //faccio il reload data della collection view quando ottengo risposta dal server
+                    SingletonServer.singleton.user?.myQuestions![(self.questionSelezionata?.index)!].answers = answers
+                    DispatchQueue.main.async {
+                        
+                        print("ANSWERS:\(result)")
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                    }
+                   
+                    //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+                    
+                    
+                    
+                }catch{
+                    print("Errore di serializzazione")
+                    
+                }
+            }
             print("CIAO")
             
                    
@@ -97,3 +124,4 @@ struct QSelezionata {
         self.index = index
     }
 }
+

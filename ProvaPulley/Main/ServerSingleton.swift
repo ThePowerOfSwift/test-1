@@ -40,6 +40,7 @@ class SingletonServer{
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
     
     
+    
     func inizializza() {
         //sendMessagePOST(x:13,y:13)
         domandeOrdinatePerTopic = [[DBQuestion]]()
@@ -198,7 +199,7 @@ class SingletonServer{
     func GET_RichiediChatQuestion(idQuestion:Int32, completionHandler: @escaping(String?) -> Void){
         
         let httpMethod = "GET"
-        
+       
         let httpBody : String = ""
         
         let textUrl : String = "http://\(ipServer):8181/Question/Answers/\(idQuestion)/"

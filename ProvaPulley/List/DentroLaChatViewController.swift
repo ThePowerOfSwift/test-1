@@ -29,7 +29,14 @@ class DentroLaChatViewController: JSQMessagesViewController {
     
     // all messages of users1, users2
 //    var index = SingletonServer.singleton.questionSelezionata?.index
-    var messages = SingletonServer.singleton.user?.myQuestions![ (SingletonServer.singleton.questionSelezionata?.index!)!].answers
+    
+    func returnAnswers() -> [DBAnswerQ] {
+        return (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers)!
+    }
+    
+    func appendAnswer(answer: DBAnswerQ) {
+        SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+    }
     
 }
 
@@ -37,14 +44,33 @@ extension DentroLaChatViewController {
     
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-//        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
-//        SingletonServer.singleton.POST_ADDAnswerQ(text: <#T##String#>, questionID: <#T##Int32#>, email: <#T##String#>) { (result) in
-//            if(result=="1"){
-//                messages.append(message!)
-//                self.collectionView.reloadData()
-//            }
+        //let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
+        print("PREMUTO SEND")
+        
+        let message =  DBAnswerQ()
+        message.text = text
+        message.userOwner = DBUser()
+        message.userOwner?.email = SingletonServer.singleton.user?.email
+        message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+        message.timestamp = Date(timeIntervalSinceNow: 0).description
+        self.appendAnswer(answer: message)
+        self.collectionView.reloadData()
+        SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index)!].answers?.append(message)
+        
+        SingletonServer.singleton.POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+            .singleton.questionSelezionata?.id)!, email: (SingletonServer.singleton.user?.email)!) { (result) in
+            if(result != "0"){
+                print("OK Add message")
+                DispatchQueue.main.async {
+                    
+                    
+                }
+                
+                
+            }
         
         }
+    }
         
         
         
@@ -60,7 +86,7 @@ extension DentroLaChatViewController {
         return 13
     }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let message = messages![indexPath.row]
+        let message = self.returnAnswers()[indexPath.row]
         let messageUsername = message.userOwner?.nickname
         
         
@@ -69,7 +95,7 @@ extension DentroLaChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
      
-        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.row].userOwner!.email, senderDisplayName: messages![indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.row].text)
+        let message: JSQMessage = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
         
         
         return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
@@ -88,7 +114,7 @@ extension DentroLaChatViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         
-        let message = messages![indexPath.row]
+        let message = self.returnAnswers()[indexPath.row]
         
         if currentUser.id == message.userOwner?.email {
             return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
@@ -98,17 +124,18 @@ extension DentroLaChatViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return messages!.count
+        return self.returnAnswers().count
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        let message: JSQMessage = JSQMessage(senderId: messages![indexPath.row].userOwner!.email, senderDisplayName: messages![indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: messages![indexPath.row].text)
+        let message: JSQMessage = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
        print(message.description)
         return message
     }
 }
 
 extension DentroLaChatViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -128,6 +155,7 @@ extension DentroLaChatViewController {
     }
     
     @objc func reloadDataCollectionView(){
+        print("CARICO CHAT")
         self.collectionView.reloadData()
     }
 }
@@ -149,3 +177,4 @@ extension DentroLaChatViewController {
 //    }
 //}
 //
+

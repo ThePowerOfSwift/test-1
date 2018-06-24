@@ -189,7 +189,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     @IBAction func Cancel(_ sender: Any) {
 //        sender animazione quando si manda un messaggio
       
-        textFieldDidEndEditing(AskQuestionTextField)
+        
         if !SingletonServer.singleton.skipper || self.AskQuestionTextField.text != "" {
             dismissKeyboard()
 
@@ -211,6 +211,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 
                         SingletonServer.singleton.user?.myQuestions?.append(question)
                         SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+                        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
                         //
                         print(question.text!)
 
@@ -221,6 +222,10 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 }
             }
         }
+        textFieldDidEndEditing(AskQuestionTextField)
+
+        
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

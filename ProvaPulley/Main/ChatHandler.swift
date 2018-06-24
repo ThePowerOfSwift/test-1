@@ -13,36 +13,36 @@ let ipServer = SingletonServer.singleton.ipServer
 
 
 
-func GET_RichiediChatQuestion(idQuestion:Int32, email:String, completionHandler: @escaping(String?) -> Void){
-    
-    let httpMethod = "GET"
-    
-    let httpBody : String = "\(email)"
-    
-    let textUrl : String = "http://\(ipServer):8181/Question/Answers/\(idQuestion)/"
-    let url : URL = URL(string: textUrl)!
-    let session : URLSession = URLSession.shared
-    
-    var urlRequest : URLRequest = URLRequest(url: url)
-    urlRequest.httpBody = httpBody.data(using: .utf8)
-    urlRequest.httpMethod = httpMethod
-    
-    
-    var s:String?
-    session.dataTask(with: urlRequest) {
-        data, response, error in
-        if error != nil {
-            print(error?.localizedDescription)
-            completionHandler(error?.localizedDescription)
-        } else {
-            s = String(data: data!, encoding: .utf8)!
-            completionHandler(s)
-        }
-        }.resume()
-    
-    
-    
-}
+//func GET_RichiediChatQuestion(idQuestion:Int32, email:String, indice:Int, completionHandler: @escaping(String?) -> Void){
+//    
+//    let httpMethod = "GET"
+//    
+//    let httpBody : String = "\(email)"
+//    
+//    let textUrl : String = "http://\(ipServer):8181/Question/Answers/\(idQuestion)/"
+//    let url : URL = URL(string: textUrl)!
+//    let session : URLSession = URLSession.shared
+//    
+//    var urlRequest : URLRequest = URLRequest(url: url)
+//    urlRequest.httpBody = httpBody.data(using: .utf8)
+//    urlRequest.httpMethod = httpMethod
+//    
+//    
+//    var s:String?
+//    session.dataTask(with: urlRequest) {
+//        data, response, error in
+//        if error != nil {
+//            print(error?.localizedDescription)
+//            completionHandler(error?.localizedDescription)
+//        } else {
+//            s = String(data: data!, encoding: .utf8)!
+//            completionHandler(s)
+//        }
+//        }.resume()
+//    
+//    
+//    
+//}
 
 
 
@@ -204,68 +204,69 @@ func UpdateUserPosition(email: String, x: Double, y: Double){
     }
 }
 
-func retrieveAnswersOfMYQuestion(id:Int32, email:String, index:Int)->[DBAnswerQ]{
+func retrieveAnswersOfMYQuestion(id:Int32, email:String, index:Int){
     
-    print(id)
-    var answers:[DBAnswerQ] = []
-    GET_RichiediChatQuestion(idQuestion: id, email: email) { (result) in
-       
-        let data  = result?.data(using: .utf8)
-        let decoder = JSONDecoder()
-        do{
-            answers = try decoder.decode([DBAnswerQ].self, from: data!)
-            //faccio il reload data della collection view quando ottengo risposta dal server
-            DispatchQueue.main.async {
-                SingletonServer.singleton.user?.myQuestions![index].answers = answers
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
-                SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-            }
-            //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
-            
-            
-            
-        }catch{
-            print("Errore di serializzazione")
-            
-        }
-        
-    }
-    return answers
+    
+    var answers:[DBAnswerQ]?
+    
+//    GET_RichiediChatQuestion(idQuestion: id, email: email) { (result) in
+//
+//        let data  = result?.data(using: .utf8)
+//        let decoder = JSONDecoder()
+//        do{
+//            answers = try decoder.decode([DBAnswerQ].self, from: data!)
+//            //faccio il reload data della collection view quando ottengo risposta dal server
+//            DispatchQueue.main.async {
+//                SingletonServer.singleton.user?.myQuestions![index].answers = answers
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+//                SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+//            }
+//            //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+//
+//
+//
+//        }catch{
+//            print("Errore di serializzazione")
+//
+//        }
+    
+//    }
+   
     
     
 }
 
-func retrieveAnswersOfPulleyQuestion(id:Int32, email:String, index:Int)->[DBAnswerQ]{
-    
-    print(id)
-    var answers:[DBAnswerQ] = []
-    GET_RichiediChatQuestion(idQuestion: id, email: email) { (result) in
-        
-        let data  = result?.data(using: .utf8)
-        let decoder = JSONDecoder()
-        do{
-            print("RETRIEVE ANSWERS")
-            answers = try decoder.decode([DBAnswerQ].self, from: data!)
-            //faccio il reload data della collection view quando ottengo risposta dal server
-            DispatchQueue.main.async {
-                SingletonServer.singleton.user?.myQuestions![index].answers = answers
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
-                SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-            }
-            //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
-            
-            
-            
-        }catch{
-            print("Errore di serializzazione")
-            
-        }
-        
-    }
-    return answers
-    
-    
-}
+//func retrieveAnswersOfPulleyQuestion(id:Int32, email:String, index:Int)->[DBAnswerQ]{
+//
+//    print(id)
+//    var answers:[DBAnswerQ] = []
+//   SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: id, email: email,indice:index) { (result) in
+//
+//        let data  = result?.data(using: .utf8)
+//        let decoder = JSONDecoder()
+//        do{
+//            print("RETRIEVE ANSWERS")
+//            answers = try decoder.decode([DBAnswerQ].self, from: data!)
+//            //faccio il reload data della collection view quando ottengo risposta dal server
+//            DispatchQueue.main.async {
+//                SingletonServer.singleton.user?.myQuestions![index].answers = answers
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+//                SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+//            }
+//            //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+//
+//
+//
+//        }catch{
+//            print("Errore di serializzazione")
+//
+//        }
+//
+//    }
+//    return answers
+//    
+//
+//}
 
 
 func retrieveAnswersOfAEvent(id:Int32, email:String)->[DBAnswerE]{

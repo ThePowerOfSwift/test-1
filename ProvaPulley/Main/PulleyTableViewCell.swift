@@ -28,7 +28,7 @@ class PulleyTableViewCell: UITableViewCell {
         
         descrizione = UILabel(frame: CGRect(x: 85, y: 25, width: 196, height: 40))
         data = UILabel(frame: CGRect(x: 270, y: 8, width: 50, height: 15))
-        dataEvent = UILabel(frame: CGRect(x: 212, y: 8, width: 100, height: 15))
+        dataEvent = UILabel(frame: CGRect(x: 190, y: 8, width: 110, height: 15))
         numero = UILabel(frame: CGRect(x: 325, y: 20, width: 25, height: 25))
         
         self.addSubview(backView!)

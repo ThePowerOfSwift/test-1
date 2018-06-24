@@ -683,6 +683,13 @@ class SingletonServer{
     
     
     func dateFromTimeout(timeout:Int)-> String{
+        let actualDate = Date(timeIntervalSinceNow: 0)
+        let calendar = Calendar.current
+        let date = calendar.date(byAdding: .hour, value: 4, to: actualDate)
+        let  dataFine = date?.description
+        print(dataFine)
+        return dataFine!
+        
 //        let date = Date()
 //        let calendar = Calendar.current
 //        var month = calendar.component(.month, from: date)
@@ -702,9 +709,6 @@ class SingletonServer{
 //        }else {
 //            dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
 //        }
-        let  dataFine = "2018-06-25 10:00:00"
-        print(dataFine)
-        return dataFine
         
     }
     

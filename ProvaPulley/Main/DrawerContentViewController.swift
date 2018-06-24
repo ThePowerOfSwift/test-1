@@ -450,7 +450,7 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1
             cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].description
+            cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].name
             cell.descrizione?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
             cell.nickname?.textColor = .black

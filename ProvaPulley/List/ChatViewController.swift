@@ -118,10 +118,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             let event = SingletonServer.singleton.user?.myEvents![indexPath.row-countQuestion!]
             
-            cell.improf?.image = SingletonServer.singleton.logoImage[Int((event?.topic!)!)]
-            let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+//            cell.improf?.image = SingletonServer.singleton.logoImage[Int((event?.topic!)!)]
+            
+            let indexProf = Int((event?.topic)!)
+            cell.improf?.image = SingletonServer.singleton.logoEvent[indexProf]
             cell.sfondo?.backgroundColor = UIColor.white
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1

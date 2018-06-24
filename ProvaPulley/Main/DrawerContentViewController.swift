@@ -443,9 +443,9 @@ extension DrawerContentViewController: UITableViewDataSource {
 //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
 //            _ = imgprof.integerValue as! Int
 //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
-            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+            let indexProf = Int((SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].topic)!)
+            cell.improf?.image = SingletonServer.singleton.logoEvent[indexProf]
+           
             cell.backView?.backgroundColor = UIColor.white
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1

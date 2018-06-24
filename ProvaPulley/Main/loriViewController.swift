@@ -137,7 +137,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             var dataInizio = timePickerStart.date.description
             //        var dataFine = timePickerEnd.date.description
             let calendar = Calendar.current
-            let d = calendar.date(byAdding: DateComponents(calendar: calendar, hour: 4, minute: 00, second: 00), to: timePickerEnd.date)
+            let d = calendar.date(byAdding: .hour, value: 4, to: timePickerEnd.date)
             
             var dataFine = d?.description
             for _ in 1...6 {

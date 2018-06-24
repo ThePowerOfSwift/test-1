@@ -190,10 +190,14 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let e = try decoder.decode(DBEvent.self, from: da!)
                 
                 if(e.id != 0){
-                    
-                    SingletonServer.singleton.user?.myEvents?.append(e)
-                    SingletonServer.singleton.eventiOrdinatiPerTopic[Int(e.topic!)].append(e)
-                    SingletonServer.singleton.eventiOrdinatiPerTopic[0].append(e)
+                    DispatchQueue.main.async {
+                        SingletonServer.singleton.user?.myEvents?.append(e)
+                        SingletonServer.singleton.eventiOrdinatiPerTopic[Int(e.topic!)].append(e)
+                        SingletonServer.singleton.eventiOrdinatiPerTopic[0].append(e)
+                        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "data"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name("createAnnotation"), object: nil, userInfo: nil)
+                    }
                 }
             }catch{
                 print("errore di serializzazione|LATOCLIENT")

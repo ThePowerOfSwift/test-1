@@ -683,25 +683,26 @@ class SingletonServer{
     
     
     func dateFromTimeout(timeout:Int)-> String{
-        let date = Date()
-        let calendar = Calendar.current
-        var month = calendar.component(.month, from: date)
-        var day = calendar.component(.day, from: date)
-        var ora = calendar.component(.hour, from: date)
-        var min = calendar.component(.minute, from: date)
-        
-        
-        let dataFine:String
-        if month<10 && day<10{
-            dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
-        }
-        else if month<10 {
-            dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
-        }else if day<10 {
-            dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
-        }else {
-            dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
-        }
+//        let date = Date()
+//        let calendar = Calendar.current
+//        var month = calendar.component(.month, from: date)
+//        var day = calendar.component(.day, from: date)
+//        var ora = calendar.component(.hour, from: date)
+//        var min = calendar.component(.minute, from: date)
+//
+//
+//        let dataFine:String
+//        if month<10 && day<10{
+//            dataFine = "2018-0\(month)-0\(day) \(ora+timeout):\(min):00"
+//        }
+//        else if month<10 {
+//            dataFine = "2018-0\(month)-\(day) \(ora+timeout):\(min):00"
+//        }else if day<10 {
+//            dataFine = "2018-\(month)-0\(day) \(ora+timeout):\(min):00"
+//        }else {
+//            dataFine = "2018-\(month)-\(day) \(ora+timeout):\(min):00"
+//        }
+        let  dataFine = "2018-06-25 10:00:00"
         print(dataFine)
         return dataFine
         

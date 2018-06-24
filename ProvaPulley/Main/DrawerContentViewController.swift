@@ -206,15 +206,18 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
                 let da = result?.data(using: .utf8)
                 do{
                     let question = try decoder.decode(DBQuestion.self, from: da!)
-                    if(question.ID != nil){
+                    if(question.ID != 0){
 
+                        DispatchQueue.main.async {
+                            SingletonServer.singleton.user?.myQuestions?.append(question)
+                            SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
+                            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                            self.messageTable.reloadData()
+                            //
+                            print(question.text!)
 
-                        SingletonServer.singleton.user?.myQuestions?.append(question)
-                        SingletonServer.singleton.domandeOrdinatePerTopic[Int(question.topic!)].append(question)
-                        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                        //
-                        print(question.text!)
-
+                        }
+                        
                     }
                 }catch{
                     print("errore di serializzazione|LATOCLIENT")

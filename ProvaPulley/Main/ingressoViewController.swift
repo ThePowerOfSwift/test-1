@@ -47,6 +47,7 @@ class ingressoViewController: UIViewController {
 //            SingletonServer.singleton.user?.email
 //            User.loginUser(withEmail: email, password: password, completion: { [weak weakSelf = self](status) in
 //                DispatchQueue.main.async {
+        print("HELLO WORLD")
         let user =  SingletonServer.singleton.retrieveUserState()
         if(user.email != nil){
                        pushTo(viewController: .entro)

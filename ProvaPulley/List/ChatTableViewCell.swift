@@ -26,10 +26,7 @@ class ChatTableViewCell: UITableViewCell {
         DataManager.shared.nomeUtente = nickname.text!
         DataManager.shared.avatar = improf.image!
         
-        for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
-            print ("RISPOSTA:\(a.text)")
         
-        }
         
         
         if(questionSelezionata?.id != nil){

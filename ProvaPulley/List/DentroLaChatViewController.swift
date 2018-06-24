@@ -26,18 +26,11 @@ class DentroLaChatViewController: JSQMessagesViewController {
     var currentUser: User3 {
         return user1
     }
+//         all messages of users1, users2
+    var index = SingletonServer.singleton.questionSelezionata?.index
+  
+
     
-    // all messages of users1, users2
-//    var index = SingletonServer.singleton.questionSelezionata?.index
-    
-    func returnAnswers() -> [DBAnswerQ] {
-        let answers: [DBAnswerQ] = []
-        if(SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!] != nil){
-            return (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers)!
-        }
-        return answers
-        
-    }
     
     func appendAnswer(answer: DBAnswerQ) {
         SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
@@ -94,19 +87,44 @@ extension DentroLaChatViewController {
         return 13
     }
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let message = self.returnAnswers()[indexPath.row]
-        let messageUsername = message.userOwner?.nickname
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            print("1")
+            let message = self.returnAnswersQuestion()[indexPath.row]
+            let messageUsername = message.userOwner?.nickname
+            
+            
+            return NSAttributedString(string: messageUsername!)
+        }else{
+            print("2")
+            let message = self.returnAnswerEvent()[indexPath.row]
+            let messageUsername = message.userOwner?.nickname
+            
+            
+            return NSAttributedString(string: messageUsername!)
+            
+        }
         
         
-        return NSAttributedString(string: messageUsername!)
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-     
-        let message: JSQMessage = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
-//        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            print("3")
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestion()[indexPath.row].text)
+            //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
+            
+            return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+        }else{
+            print("4")
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEvent()[indexPath.row].text)
+            //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
+            
+            return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+            
+        }
         
-        return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+      
+      
     }
 
     
@@ -122,25 +140,93 @@ extension DentroLaChatViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
         let bubbleFactory = JSQMessagesBubbleImageFactory()
         
-        let message = self.returnAnswers()[indexPath.row]
-        
-        if currentUser.id == message.userOwner?.email {
-            return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
-        } else {
-            return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            print("5")
+            let message = self.returnAnswersQuestion()[indexPath.row]
+            if currentUser.id == message.userOwner?.email {
+                return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
+            } else {
+                return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
+            }
+        }else{
+            print("6")
+            let message = self.returnAnswerEvent()[indexPath.row]
+            if currentUser.id == message.userOwner?.email {
+                return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
+            } else {
+                return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
+            }
+            
+            
         }
+        
+        
+        
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.returnAnswers().count
+//        switch(SingletonServer.singleton.questionSelezionata?.tipo){
+//        case tipoChat.myquestions.hashValue:
+//            print("7 Question")
+//            return self.returnAnswersQuestion().count
+//        case tipoChat.myevents.hashValue:
+//            print("7 Question")
+//            return self.returnAnswersQuestion().count
+//            
+//        default:
+//            break
+//            
+//        }
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            print("7 Question")
+            return self.returnAnswersQuestion().count
+        }else{
+            print("8")
+            return self.returnAnswerEvent().count
+
+        }
+        return self.returnAnswersQuestion().count
+        
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
+            
+            print("9")
+            let message = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestion()[indexPath.row].text)
+            
+            
+            return message
+
+        }else{
+            print("10")
+            let message = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEvent()[indexPath.row].text)
+            
+            
+            return message
+
+            
+        }
         
-        let message = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
-       
+            }
+    func returnAnswersQuestion() -> [DBAnswerQ] {
+        let answers: [DBAnswerQ] = []
+        if(SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers != nil){
+            return (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers)!
+        }
+        return answers
         
-        return message 
+    }
+    
+    
+    func returnAnswerEvent()->[DBAnswerE]{
+        let answers: [DBAnswerE] = []
+        if(SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers != nil){
+            return (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers)!
+        }
+        return answers
+        
     }
 }
 

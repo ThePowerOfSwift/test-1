@@ -49,10 +49,12 @@ struct QESelezionata {
     var id: Int32?
     var index: Int?
     var tipo :Int?
-    init(id: Int32, index: Int, tipo:Int) {
+    var indexReal:Int?
+    init(id: Int32, index: Int, tipo:Int, indexReal:Int) {
         self.id = id
         self.index = index
         self.tipo = tipo
+        self.indexReal = indexReal
     }
 }
 

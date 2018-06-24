@@ -33,9 +33,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
             }
         }
-        
-        
         self.tableview.reloadData()
+        
+        self.messageTable.reloadData()
     }
     
 
@@ -112,7 +112,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             cell.inizio?.text = dataFormat
             cell.inizio?.textColor = .white
-            cell.questionSelezionata = QSelezionata(id: (question?.ID)!, index: indexPath.row)
+            cell.questionSelezionata = QESelezionata(id: (question?.ID)!, index: indexPath.row, tipo: tipoChat.myquestions.hashValue, indexReal: indexPath.row)
             
             
         }else{
@@ -139,7 +139,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.num?.text = "0"
             }
             //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
+//            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
             cell.num?.textColor = .white
             cell.num?.textAlignment = .center
             
@@ -153,7 +153,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print("\(dataEndFormat) bla bla")
             cell.inizio?.text =  "\(dataInitFormat) - \(dataEndFormat)"
             cell.inizio?.textColor = .black
-            
+            cell.questionSelezionata = QESelezionata(id: (event?.id)!, index: indexPath.row, tipo: tipoChat.myevents.hashValue, indexReal:indexPath.row-countQuestion! )
             
             
         }
@@ -164,10 +164,21 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("VIEWDIDLOAD")
        
-  self.tableview.reloadData()
+              NotificationCenter.default.addObserver(self, selector: #selector(segueDentro), name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
+       
+        self.tableview.reloadData()
     
     }
+    
+    @objc func segueDentro(){
+        print("AJ")
+        let storyboard = UIStoryboard(name: "MyQ", bundle: nil) //declare the storyboard
+        let profile = storyboard.instantiateViewController(withIdentifier: "dentro") as! DentroLaChatViewController
+        self.present(profile, animated: true, completion: nil)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

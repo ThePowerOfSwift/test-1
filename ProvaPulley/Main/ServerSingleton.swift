@@ -235,8 +235,8 @@ class SingletonServer{
         
         let httpMethod = "GET"
         let httpBody : String = ""
-        
-        let textUrl : String = "http://\(ipServer):8181/Event/Answers/\(idEvent)"
+        let email = (SingletonServer.singleton.user?.email!)!
+        let textUrl : String = "http://\(ipServer):8181/Event/Answers/\(idEvent)/\(email)/"
         let url : URL = URL(string: textUrl)!
         let session : URLSession = URLSession.shared
         

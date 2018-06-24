@@ -17,7 +17,7 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet weak var improf: UIImageView!
     @IBOutlet weak var sfondo: UICustomButton!
     
-    var questionSelezionata:QSelezionata?
+    var questionSelezionata:QESelezionata?
     
     
     @IBAction func clicco(_ sender: Any) {
@@ -27,47 +27,55 @@ class ChatTableViewCell: UITableViewCell {
         DataManager.shared.avatar = improf.image!
         
         
+            
+     
         
         
         if(questionSelezionata?.id != nil){
-            if SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers == nil {
-                SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = []
-            }
-            for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
-                print ("RISPOSTA:\(a.text)")
-            }
-            print("INDEX:\(questionSelezionata?.index)")
-            SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue)
-            print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
-        
-           
-           SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion: (questionSelezionata?.id!)!) { (result) in
-            
-                let data  = result?.data(using: .utf8)
-                let decoder = JSONDecoder()
-                print("A FESS")
-                do{
-                    
-                    var answers = try decoder.decode([DBAnswerQ].self, from: data!)
-                    //faccio il reload data della collection view quando ottengo risposta dal server
-                    SingletonServer.singleton.user?.myQuestions![(self.questionSelezionata?.index)!].answers = answers
-                    DispatchQueue.main.async {
-                        
-                        print("ANSWERS:\(result)")
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
-                        SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    }
-                   
-                    //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
-                    
-                    
-                    
-                }catch{
-                    print("Errore di serializzazione")
-                    
+            switch(questionSelezionata?.tipo){
+                
+            case tipoChat.myquestions.hashValue:
+                //QUESTION
+                print("QUESTION v")
+                if SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers == nil {
+                    SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers = []
                 }
+                for a in (SingletonServer.singleton.user?.myQuestions![(questionSelezionata?.index!)!].answers!)!{
+                    print ("RISPOSTA:\(a.text)")
+                }
+                print("INDEX:\(questionSelezionata?.index)")
+                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue, indexReal: (questionSelezionata?.indexReal)!)
+                print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
+
+                richiediChatQuestion(idQuestion:(questionSelezionata?.id)!)
+                
+            case tipoChat.myevents.hashValue:
+                //EVENTO
+                print("EVENTO v")
+                if SingletonServer.singleton.user?.myEvents![(questionSelezionata?.indexReal!)!].answers == nil {
+                    SingletonServer.singleton.user?.myEvents![(questionSelezionata?.indexReal!)!].answers = []
+                }
+                for a in (SingletonServer.singleton.user?.myEvents![(questionSelezionata?.indexReal!)!].answers!)!{
+                    print ("RISPOSTA:\(a.text)")
+                }
+                print("INDEX:\(questionSelezionata?.index)")
+                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue, indexReal: (questionSelezionata?.indexReal)!)
+                print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
+                richiediChatEvent(idEvent: (questionSelezionata?.id)!)
+               
+                
+                
+            default:
+                print("NIENTE")
             }
-            print("CIAO")
+            
+           
+            
+            
+            
+            
             
                    
         }
@@ -75,6 +83,66 @@ class ChatTableViewCell: UITableViewCell {
         //QUA DEVI FARE IL PERFORM SEGUE
         
         
+    }
+    
+    
+    func richiediChatQuestion(idQuestion:Int32){
+        SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion:idQuestion) { (result) in
+            
+            let data  = result?.data(using: .utf8)
+            let decoder = JSONDecoder()
+            print("A FESS")
+            do{
+                
+                var answers = try decoder.decode([DBAnswerQ].self, from: data!)
+                //faccio il reload data della collection view quando ottengo risposta dal server
+                
+                DispatchQueue.main.async {
+                    SingletonServer.singleton.user?.myQuestions![(self.questionSelezionata?.index)!].answers = answers
+                    print("ANSWERS:\(result)")
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                }
+                
+                //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+                
+                
+                
+            }catch{
+                print("Errore di serializzazione")
+                
+            }
+        }
+    }
+    
+    
+    func richiediChatEvent(idEvent:Int32){
+        SingletonServer.singleton.GET_RichiediChatEvent(idEvent:idEvent) { (result) in
+            
+            let data  = result?.data(using: .utf8)
+            let decoder = JSONDecoder()
+            print("A FESS")
+            do{
+                
+                var answers = try decoder.decode([DBAnswerE].self, from: data!)
+                //faccio il reload data della collection view quando ottengo risposta dal server
+                
+                DispatchQueue.main.async {
+                    SingletonServer.singleton.user?.myEvents![(self.questionSelezionata?.indexReal)!].answers = answers
+                    print("ANSWERS:\(result)")
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+                }
+                
+                //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+                
+                
+                
+            }catch{
+                print("Errore di serializzazione")
+                
+            }
+        }
     }
     
     override func awakeFromNib() {
@@ -113,12 +181,4 @@ class ChatTableViewCell: UITableViewCell {
 
 }
 
-struct QSelezionata {
-    var id: Int32?
-    var index: Int?
-    init(id: Int32, index: Int) {
-        self.id = id
-        self.index = index
-    }
-}
 

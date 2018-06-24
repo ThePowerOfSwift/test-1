@@ -125,26 +125,32 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.sfondo?.backgroundColor = UIColor.white
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
-            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.desc?.text = event?.description
+            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic)!)).cgColor
+            cell.desc?.text = event?.name
             cell.desc?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.user?.nickname
             cell.nickname?.textColor = .black
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.num?.layer.cornerRadius = 12.0
             cell.num?.clipsToBounds = true
+            if let _ = event?.answers?.count {
+                cell.num?.text = "\(String(describing: event?.answers?.count))"
+            } else {
+                cell.num?.text = "0"
+            }
             //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
 //            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
             cell.num?.textColor = .white
             cell.num?.textAlignment = .center
             
             cell.inizio?.isHidden = false
-            cell.inizio?.isHidden = true
+            
+            
             
             let dataInitFormat: String = String(String(event!.datetime!.dropFirst(11)).dropLast(3))
-            
+            print("\(dataInitFormat) buuuuuuu")
             let dataEndFormat: String = String(String(event!.endDate!.dropFirst(11)).dropLast(3))
-            
+            print("\(dataEndFormat) bla bla")
             cell.inizio?.text =  "\(dataInitFormat) - \(dataEndFormat)"
             cell.inizio?.textColor = .black
             cell.questionSelezionata = QESelezionata(id: (event?.id)!, index: indexPath.row, tipo: tipoChat.myevents.hashValue, indexReal:indexPath.row-countQuestion! )

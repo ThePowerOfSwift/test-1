@@ -443,20 +443,26 @@ extension DrawerContentViewController: UITableViewDataSource {
 //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
 //            _ = imgprof.integerValue as! Int
 //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
-//            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-//            let indexProf = imgprof.integerValue
-//            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.socialAvatar as! NSString
+            let indexProf = imgprof.integerValue
+            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
             cell.backView?.backgroundColor = UIColor.white
             cell.backView?.layer.cornerRadius = 32.0
             cell.backView?.layer.borderWidth = 1
             cell.backView?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-            cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].description
+            cell.descrizione?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].name
             cell.descrizione?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
             cell.nickname?.textColor = .black
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
+            
+            if let _ = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count {
+                cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
+            } else {
+                cell.numero?.text = "0"
+            }
 //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
             cell.numero?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
             cell.numero?.textColor = .white

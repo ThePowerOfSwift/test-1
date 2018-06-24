@@ -37,14 +37,20 @@ class EventoPulleyViewController: UIViewController {
         nomeEvent.text = Event?.name
         coment.layer.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: (Event?.topic)!).cgColor
         coment.borderColor = UIColor.white.cgColor
-        coment.titleLabel?.text = "33 Comments"
+        if let _ = Event?.answers?.count {
+           coment.setTitle("\(String(describing: Event?.answers?.count)) comments", for: .normal)
+        } else {
+            coment.setTitle("0 comments", for: .normal)
+        }
         Indirizzo.text = Event?.address
         descriz.text = Event?.descri
         let dataFormat: String = String(String((Event?.datetime!.dropFirst(11))!).dropLast(3))
         startEnd.text = dataFormat
         if(Event?.media?.count != 1){
+            
             let data1 = Data(base64Encoded: (Event?.media)!, options:  .init(rawValue: 1))
             imgView.image = UIImage(data: data1!)
+            
         } else {
             switch (Event?.media!){
             case "1":

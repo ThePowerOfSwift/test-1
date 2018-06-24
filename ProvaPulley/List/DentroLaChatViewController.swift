@@ -180,18 +180,18 @@ extension DentroLaChatViewController {
         if(SingletonServer.singleton.questionSelezionata?.tipo == tipoChat.myquestions.hashValue){
             print("5")
             let message = self.returnAnswersQuestion()[indexPath.row]
-            if currentUser.id == message.userOwner?.email {
+            if self.senderId == message.userOwner?.email {
                 return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
             } else {
-                return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
+                return bubbleFactory?.incomingMessagesBubbleImage(with:SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index)!].topic)!)))
             }
         }else{
             print("6")
             let message = self.returnAnswerEvent()[indexPath.row]
-            if currentUser.id == message.userOwner?.email {
+            if self.senderId == message.userOwner?.email {
                 return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
             } else {
-                return bubbleFactory?.incomingMessagesBubbleImage(with: DataManager.shared.sfondoColor)
+                return bubbleFactory?.incomingMessagesBubbleImage(with: SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal)!].topic)!)))
             }
             
             
@@ -276,7 +276,7 @@ extension DentroLaChatViewController {
         
 //        // tell JSQMessagesViewController
 //        // who is the current user
-        self.senderId = currentUser.id
+        self.senderId = SingletonServer.singleton.user?.email
         self.senderDisplayName = SingletonServer.singleton.user?.nickname
 //
 //

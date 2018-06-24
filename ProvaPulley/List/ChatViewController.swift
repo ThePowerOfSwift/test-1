@@ -126,7 +126,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
             cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic)!)).cgColor
-            cell.desc?.text = event?.description
+            cell.desc?.text = event?.name
             cell.desc?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.user?.nickname
             cell.nickname?.textColor = .black
@@ -144,12 +144,13 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.num?.textAlignment = .center
             
             cell.inizio?.isHidden = false
-            cell.inizio?.isHidden = true
+            
+            
             
             let dataInitFormat: String = String(String(event!.datetime!.dropFirst(11)).dropLast(3))
-            
+            print("\(dataInitFormat) buuuuuuu")
             let dataEndFormat: String = String(String(event!.endDate!.dropFirst(11)).dropLast(3))
-            
+            print("\(dataEndFormat) bla bla")
             cell.inizio?.text =  "\(dataInitFormat) - \(dataEndFormat)"
             cell.inizio?.textColor = .black
             

@@ -39,7 +39,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="clicco:" destination="n6G-N6-j7u" eventType="touchUpInside" id="4EM-7j-jX2"/>
-                                                        <segue destination="NMx-Z4-pSL" kind="show" id="Epe-YC-hS9"/>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-6j-a51">

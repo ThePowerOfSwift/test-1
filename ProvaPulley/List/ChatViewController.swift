@@ -125,7 +125,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.sfondo?.backgroundColor = UIColor.white
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
-            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
+            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic)!)).cgColor
             cell.desc?.text = event?.description
             cell.desc?.textColor = .black
             cell.nickname?.text = SingletonServer.singleton.user?.nickname
@@ -133,6 +133,11 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.num?.layer.cornerRadius = 12.0
             cell.num?.clipsToBounds = true
+            if let _ = event?.answers?.count {
+                cell.num?.text = "\(String(describing: event?.answers?.count))"
+            } else {
+                cell.num?.text = "0"
+            }
             //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
             cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
             cell.num?.textColor = .white

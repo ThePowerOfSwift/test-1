@@ -118,10 +118,10 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             let event = SingletonServer.singleton.user?.myEvents![indexPath.row-countQuestion!]
             
-            //cell.improf?.image = SingletonServer.singleton.logoImage[Int((event?.topic!)!)]
-            let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
-            let indexProf = imgprof.integerValue
-            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+//            cell.improf?.image = SingletonServer.singleton.logoImage[Int((event?.topic!)!)]
+            
+            let indexProf = Int((event?.topic)!)
+            cell.improf?.image = SingletonServer.singleton.logoEvent[indexProf]
             cell.sfondo?.backgroundColor = UIColor.white
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
@@ -139,7 +139,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.num?.text = "0"
             }
             //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-//            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
+            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
             cell.num?.textColor = .white
             cell.num?.textAlignment = .center
             

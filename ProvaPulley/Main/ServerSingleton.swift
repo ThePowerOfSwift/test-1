@@ -16,6 +16,7 @@ class SingletonServer{
     
     
     // topic selezionato nella creazione di domande o eventi
+    
     var chosenTopic: Int = 0
     var retrieveTopic:[Int] = []
     
@@ -36,6 +37,7 @@ class SingletonServer{
     //    var events_questions_aroundPosition:Events_QuestionsInSpecificRadar?
     let ipServer = "151.73.41.110"
     
+    var logoEvent: [UIImage] = [#imageLiteral(resourceName: "tourismRound"),#imageLiteral(resourceName: "foodRound"),#imageLiteral(resourceName: "nightlifeRound"),#imageLiteral(resourceName: "artRound"),#imageLiteral(resourceName: "shopsRound")]
     var logoImage: [UIImage] = [#imageLiteral(resourceName: "Francesco"), #imageLiteral(resourceName: "Antonio vero"), #imageLiteral(resourceName: "Sofia"), #imageLiteral(resourceName: "Giorgio"), #imageLiteral(resourceName: "Hind"), #imageLiteral(resourceName: "Antonio falso"), #imageLiteral(resourceName: "Luca"), #imageLiteral(resourceName: "Lorenzo"), #imageLiteral(resourceName: "Silvia")]
     var colori: [UIColor] = [DataManager.shared.artColor, DataManager.shared.cityInfoColor, DataManager.shared.foodColor, DataManager.shared.nightlifeColor, DataManager.shared.shopsColor, DataManager.shared.tourismColor]
     

@@ -160,6 +160,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         let radar = DBRadar(posX: myLocation.latitude, posY: myLocation.longitude, range: self.range)
 //        retrieveQuestionsAndEventsAroundRadar(radar: radar)
+        UpdateUserPosition(email: (SingletonServer.singleton.user?.email)!, x: myLocation.latitude, y: myLocation.longitude)
         SingletonServer.singleton.user?.posReal = radar //DBRadar(posX: location.coordinate.latitude, posY: location.coordinate.longitude, range: self.range)
        print("UPDATE")
         manager.stopUpdatingLocation()

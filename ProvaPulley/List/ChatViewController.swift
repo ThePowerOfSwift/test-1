@@ -166,18 +166,12 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         print("VIEWDIDLOAD")
        
-              NotificationCenter.default.addObserver(self, selector: #selector(segueDentro), name: NSNotification.Name(rawValue: "Dentroa"), object: nil)
        
         self.tableview.reloadData()
     
     }
     
-    @objc func segueDentro(){
-        print("AJ")
-        let storyboard = UIStoryboard(name: "MyQ", bundle: nil) //declare the storyboard
-        let profile = storyboard.instantiateViewController(withIdentifier: "dentro") as! DentroLaChatViewController
-        self.present(profile, animated: true, completion: nil)
-    }
+   
     
 
     override func didReceiveMemoryWarning() {

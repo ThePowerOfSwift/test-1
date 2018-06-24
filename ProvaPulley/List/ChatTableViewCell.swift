@@ -40,7 +40,7 @@ class ChatTableViewCell: UITableViewCell {
                 print ("RISPOSTA:\(a.text)")
             }
             print("INDEX:\(questionSelezionata?.index)")
-            SingletonServer.singleton.questionSelezionata = QSelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!)
+            SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.myquestions.hashValue)
             print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
         
            

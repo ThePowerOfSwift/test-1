@@ -53,6 +53,7 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             count = (SingletonServer.singleton.user?.myQuestions?.count)!
             countQuestion = count
         }
+        
         if( SingletonServer.singleton.user?.myEvents != nil){
             count = count + (SingletonServer.singleton.user?.myEvents?.count)!
         }
@@ -77,82 +78,78 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.view.addSubview(messageTable)
         
         
-       
+        
         if(indexPath.row<countQuestion!){
-                let question = SingletonServer.singleton.user?.myQuestions![indexPath.row]
-                let imgprof = SingletonServer.singleton.user?.socialAvatar! as! NSString
-                let indexProf = imgprof.integerValue
-                cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-                cell.sfondo?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
-                cell.sfondo?.layer.cornerRadius = 32.0
-                cell.sfondo?.layer.borderWidth = 1
-                cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!)).cgColor
-                cell.desc?.text = question?.text
-                cell.desc?.textColor = .white
-                cell.nickname?.text = question?.ownerUser?.nickname!
-                cell.nickname?.textColor = .white
-                cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
-                cell.num?.layer.cornerRadius = 12.0
-                cell.num?.clipsToBounds = true
-                if let _ = question?.answers?.count {
-                    cell.num?.text = "\(String(describing: question?.answers?.count))"
-                } else {
-                    cell.num?.text = "0"
-                }
-                cell.num?.backgroundColor = .white
-                cell.num?.textColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
-                cell.num?.textAlignment = .center
-                
-                cell.inizio?.isHidden = true
-                cell.inizio?.isHidden = false
-                let dataFormat: String = String(String(question!.dateFine!.dropFirst(11)).dropLast(3))
-                
-                print("ORARIO VEDI QUI \(dataFormat)")
-                
-                cell.inizio?.text = dataFormat
-                cell.inizio?.textColor = .white
-            cell.questionSelezionata = QESelezionata(id: (question?.ID)!, index: indexPath.row, tipo:tipoChat.myquestions.hashValue)
-                
+            let question = SingletonServer.singleton.user?.myQuestions![indexPath.row]
+            let imgprof = SingletonServer.singleton.user?.socialAvatar! as! NSString
+            let indexProf = imgprof.integerValue
+            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+            cell.sfondo?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
+            cell.sfondo?.layer.cornerRadius = 32.0
+            cell.sfondo?.layer.borderWidth = 1
+            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!)).cgColor
+            cell.desc?.text = question?.text
+            cell.desc?.textColor = .white
+            cell.nickname?.text = question?.ownerUser?.nickname!
+            cell.nickname?.textColor = .white
+            cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+            cell.num?.layer.cornerRadius = 12.0
+            cell.num?.clipsToBounds = true
+            if let _ = question?.answers?.count {
+                cell.num?.text = "\(String(describing: question?.answers?.count))"
+            } else {
+                cell.num?.text = "0"
+            }
+            cell.num?.backgroundColor = .white
+            cell.num?.textColor = SingletonServer.singleton.coloroOn(topicNum: Int((question?.topic)!))
+            cell.num?.textAlignment = .center
+            
+            cell.inizio?.isHidden = true
+            cell.inizio?.isHidden = false
+            let dataFormat: String = String(String(question!.dateFine!.dropFirst(11)).dropLast(3))
+            
+            print("ORARIO VEDI QUI \(dataFormat)")
+            
+            cell.inizio?.text = dataFormat
+            cell.inizio?.textColor = .white
+            cell.questionSelezionata = QSelezionata(id: (question?.ID)!, index: indexPath.row)
+            
             
         }else{
-        
-         
-       
-       
-//            //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar! as! NSString
-//            //            _ = imgprof.integerValue as! Int
-//            //                        cell.improf?.image = SingletonServer.singleton.logoImage[topic]
-//            //            let imgprof = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].ownerUser?.socialAvatar as! NSString
-//            //            let indexProf = imgprof.integerValue
-            //            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
-//            cell.sfondo?.backgroundColor = UIColor.white
-//            cell.sfondo?.layer.cornerRadius = 32.0
-//            cell.sfondo?.layer.borderWidth = 1
-//            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
-//            cell.desc?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].description
-//            cell.desc?.textColor = .black
-//            cell.nickname?.text = SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].ownerUser?.nickname
-//            cell.nickname?.textColor = .black
-//            cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
-//            cell.num?.layer.cornerRadius = 12.0
-//            cell.num?.clipsToBounds = true
-//            //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
-//            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: topic)
-//            cell.num?.textColor = .white
-//            cell.num?.textAlignment = .center
-//
-//            cell.inizio?.isHidden = false
-//            cell.inizio?.isHidden = true
-//
-//            let dataInitFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].datetime!.dropFirst(11)).dropLast(3))
-//
-//            let dataEndFormat: String = String(String(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].endDate!.dropFirst(11)).dropLast(3))
-//
-//            cell.inizio?.text =  "\(dataInitFormat) - \(dataEndFormat)"
-//            cell.inizio?.textColor = .black
-//
-//            
-
+            let event = SingletonServer.singleton.user?.myEvents![indexPath.row-countQuestion!]
+            
+            cell.improf?.image = SingletonServer.singleton.logoImage[Int((event?.topic!)!)]
+            let imgprof = SingletonServer.singleton.user?.socialAvatar as! NSString
+            let indexProf = imgprof.integerValue
+            cell.improf?.image = SingletonServer.singleton.logoImage[indexProf]
+            cell.sfondo?.backgroundColor = UIColor.white
+            cell.sfondo?.layer.cornerRadius = 32.0
+            cell.sfondo?.layer.borderWidth = 1
+            cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: topic).cgColor
+            cell.desc?.text = event?.description
+            cell.desc?.textColor = .black
+            cell.nickname?.text = SingletonServer.singleton.user?.nickname
+            cell.nickname?.textColor = .black
+            cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
+            cell.num?.layer.cornerRadius = 12.0
+            cell.num?.clipsToBounds = true
+            //                        cell.numero?.text = "\(String(describing: SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][indexPath.row - questNum].answers?.count))"
+            cell.num?.backgroundColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic!)!))
+            cell.num?.textColor = .white
+            cell.num?.textAlignment = .center
+            
+            cell.inizio?.isHidden = false
+            cell.inizio?.isHidden = true
+            
+            let dataInitFormat: String = String(String(event!.datetime!.dropFirst(11)).dropLast(3))
+            
+            let dataEndFormat: String = String(String(event!.endDate!.dropFirst(11)).dropLast(3))
+            
+            cell.inizio?.text =  "\(dataInitFormat) - \(dataEndFormat)"
+            cell.inizio?.textColor = .black
+            
+            
+            
         }
         return cell
     }

@@ -130,81 +130,58 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     @IBAction func done(_ sender: Any) {
-        
         let topic = SingletonServer.singleton.chosenTopic
         
         if (nomeevento.text != "")  && (topic != 0) {
-        
-        var dataInizio = timePickerStart.date.description
-//        var dataFine = timePickerEnd.date.description
-        let calendar = Calendar.current
-        let d = calendar.date(byAdding: DateComponents(calendar: calendar, hour: 4, minute: 00, second: 00), to: timePickerEnd.date)
-        
-        var dataFine = d?.description
-        for _ in 1...6 {
-            dataInizio = String(dataInizio.dropLast())
-            dataFine = String((dataFine?.dropLast())!)
-        }
-//        print ("DATA INIZIO: \(dataInizio) e \(dataFine!)")
-        let topic = SingletonServer.singleton.chosenTopic
-        print("TOPIC:\(topic)")
-        SingletonServer.singleton.chosenTopic = 0
-        let image = captureImageView.image
-        
-
-        
-        var string = "\(topic)"
-        if(image != nil){
-            let data: Data = UIImageJPEGRepresentation(image!, 0.5)!
-            string = data.base64EncodedString(options: .lineLength64Characters)
-        }
-        
-        
-        
-//        let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//        do{
-//            let s = try encoder.encode(image)
-//            let stringa = data.base64EncodedString()
-//            print("FOTO:\(stringa ) OP")
-//            print("COUNT:\(stringa.count)")
-//        }catch{
-//            print("NON FUNZIONA")
-//        }
-        
-        let a = "PORCO"
-        var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
-        if  let r = SingletonServer.singleton.user?.posFit {
-            radar = r
-        }
-        
-        
-        print("AAAAAAAAAAAAAAAAAAAA \(nomeevento.text!) \(descrizione.text!) \(eventopos.text!) \(dataInizio) \(String(describing: dataFine)) \(a)")
-        
-        
-        let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine!, topic: Int32(topic))
-        createNewEvent(event: event)
-        
-        navigationController?.popToRootViewController(animated: true)
+            
+            var dataInizio = timePickerStart.date.description
+            //        var dataFine = timePickerEnd.date.description
+            let calendar = Calendar.current
+            let d = calendar.date(byAdding: DateComponents(calendar: calendar, hour: 4, minute: 00, second: 00), to: timePickerEnd.date)
+            
+            var dataFine = d?.description
+            for _ in 1...6 {
+                dataInizio = String(dataInizio.dropLast())
+                dataFine = String((dataFine?.dropLast())!)
+            }
+            //        print ("DATA INIZIO: \(dataInizio) e \(dataFine!)")
+            let topic = SingletonServer.singleton.chosenTopic
+            print("TOPIC:\(topic)")
+            SingletonServer.singleton.chosenTopic = 0
+            let image = captureImageView.image
+            
+            
+            
+            var string = "\(topic)"
+            if(image != nil){
+                let data: Data = UIImageJPEGRepresentation(image!, 0.5)!
+                string = data.base64EncodedString(options: .lineLength64Characters)
+            }
+            
+            var radar:DBRadar = (SingletonServer.singleton.user?.posReal)!
+            if  let r = SingletonServer.singleton.user?.posFit {
+                radar = r
+            }
+            
+            let event = DBEvent(name: nomeevento.text!, description: descrizione.text!, media: string, address: eventopos.text!, radar: radar, user: SingletonServer.singleton.user!, datetime: dataInizio, endDate: dataFine!, topic: Int32(topic))
+            createNewEvent(event: event)
+            
+            navigationController?.popToRootViewController(animated: true)
             
         } else {
             print ("nulla")
-//            qua <<<
+            //            qua <<<
             let alert = UIAlertController(title: "", message: "Please choose one Topic and add an Event Name", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
-
+            
             
             self.present(alert, animated: true, completion: nil)
         }
         
         
-   }
+    }
     
     func createNewEvent(event:DBEvent){
-        
-        
-       
-        
         SingletonServer.singleton.POST_insertNewEvent(event: event) { (result) in
             let decoder = JSONDecoder()
             let da = result?.data(using: .utf8)
@@ -214,15 +191,9 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 if(e.id != 0){
                     
-                    print("CIAOO")
-                    //                    SingletonServer.singleton.user?.myEvents?.append(e)
-                    //                    SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
-                    //                    SingletonServer.singleton.events_questions_aroundPosition?.events?.append(e)
-                    //                    SingletonServer.singleton.saveEvents_QuestionsInSpecificRadarState(e_q: SingletonServer.singleton.events_questions_aroundPosition!)
-                    
                     SingletonServer.singleton.user?.myEvents?.append(e)
                     SingletonServer.singleton.eventiOrdinatiPerTopic[Int(e.topic!)].append(e)
-                    
+                    SingletonServer.singleton.eventiOrdinatiPerTopic[0].append(e)
                 }
             }catch{
                 print("errore di serializzazione|LATOCLIENT")
@@ -231,6 +202,7 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
         }
     }
+    
     
     @IBAction func didTakePhoto(_ sender: Any) {
 //        self.pickerController.allowsEditing = true // blocco la possibilità di editare le foto/video

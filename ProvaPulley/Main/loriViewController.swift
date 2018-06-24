@@ -78,6 +78,8 @@ class loriViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // fa sparire tutte le view
         
+        captureImageView.backgroundColor = .gray
+        
         if nomeevento.isEditing == true{
             open = true
         }else{

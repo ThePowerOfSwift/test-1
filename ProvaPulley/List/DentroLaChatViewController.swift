@@ -61,6 +61,7 @@ extension DentroLaChatViewController {
         self.appendAnswer(answer: message)
         SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
         self.collectionView.reloadData()
+        finishSendingMessage()
         
         
         SingletonServer.singleton.POST_ADDAnswerQ(text: text, questionID: (SingletonServer
@@ -102,7 +103,7 @@ extension DentroLaChatViewController {
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForCellTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
      
         let message: JSQMessage = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
-        
+//        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
         
         return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
     }
@@ -134,9 +135,11 @@ extension DentroLaChatViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        let message: JSQMessage = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
-       print(message.description)
-        return message
+        
+        let message = JSQMessage(senderId: self.returnAnswers()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswers()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswers()[indexPath.row].text)
+       
+        
+        return message 
     }
 }
 

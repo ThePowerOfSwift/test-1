@@ -143,13 +143,16 @@ func POST_ADDAnswerQ(text:String,questionID:Int32, completionHandler: @escaping(
 }
 
 
-func POST_ADDAnswerE(text:String,eventID:Int32, email:String, completionHandler: @escaping(String?) -> Void){
+func POST_ADDAnswerE(text:String,eventID:Int32, completionHandler: @escaping(String?) -> Void){
     let a = DBAnswerE()
     a.text = text
+    
     a.event = DBEvent()
     a.event?.id = eventID
     a.userOwner = DBUser()
-    a.userOwner?.email = email
+    a.userOwner?.email = SingletonServer.singleton.user?.email
+    a.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+    a.userOwner?.socialAvatar = SingletonServer.singleton.user?.socialAvatar
     let httpMethod = "POST"
     let encoder = JSONEncoder()
     encoder.outputFormatting = .prettyPrinted

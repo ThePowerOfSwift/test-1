@@ -91,7 +91,7 @@ extension DentroLaChatViewController {
             finishSendingMessage()
             
             
-            POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+            POST_ADDAnswerE(text: text, eventID: (SingletonServer
                 .singleton.questionSelezionata?.id)!) { (result) in
                     if(result != "0"){
                         print("OK Add message")

@@ -688,9 +688,10 @@ class SingletonServer{
         let actualDate = Date(timeIntervalSinceNow: 0)
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .hour, value: 4, to: actualDate)
-        var dataFine = date?.description
+        
+        var dataFine =  date?.description
         for _ in 1...6 {
-            dataFine = String((dataFine?.dropLast())!)
+           dataFine = String((dataFine?.dropLast())!)
         }
         print(dataFine)
         return dataFine!

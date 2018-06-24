@@ -126,9 +126,9 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.sfondo?.layer.cornerRadius = 32.0
             cell.sfondo?.layer.borderWidth = 1
             cell.sfondo?.layer.borderColor = SingletonServer.singleton.coloroOn(topicNum: Int((event?.topic)!)).cgColor
-            cell.desc?.text = event?.name
+            cell.desc?.text = event?.description
             cell.desc?.textColor = .black
-            cell.nickname?.text = SingletonServer.singleton.user?.nickname
+            cell.nickname?.text = event?.name
             cell.nickname?.textColor = .black
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.num?.layer.cornerRadius = 12.0

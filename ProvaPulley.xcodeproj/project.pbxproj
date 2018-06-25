@@ -65,6 +65,7 @@
 		C574174720DAA0BF00B16CD2 /* SegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574174620DAA0BF00B16CD2 /* SegmentedViewController.swift */; };
 		C574174920DAA0C300B16CD2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C574174820DAA0C300B16CD2 /* SecondViewController.swift */; };
 		C5A61B4620C949CC00C0B03E /* ServerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */; };
+		C5A9E5FF20E1065C002DB47B /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A9E5FE20E1065C002DB47B /* OthersViewController.swift */; };
 		D13CBF46AA3DDE0353195968 /* Pods_BatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A62161D384BE453414560D8 /* Pods_BatChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +132,7 @@
 		C574174620DAA0BF00B16CD2 /* SegmentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
 		C574174820DAA0C300B16CD2 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		C5A61B4520C949CC00C0B03E /* ServerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSingleton.swift; sourceTree = "<group>"; };
+		C5A9E5FE20E1065C002DB47B /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		EBB861DD47FD59964495AD0B /* Pods-BatChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.release.xcconfig"; sourceTree = "<group>"; };
 		F5FA83269179F8A7D5EC7941 /* Pods-BatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BatChat/Pods-BatChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				87D55F1920BED73B008C0C34 /* MyQ.storyboard */,
+				C5A9E5FE20E1065C002DB47B /* OthersViewController.swift */,
 				8721980620D932F600432914 /* DentroLaChatViewController.swift */,
 				878CDCBA20C1A3FA00F78BC8 /* Segue1ViewController.swift */,
 				C574174820DAA0C300B16CD2 /* SecondViewController.swift */,
@@ -463,6 +466,7 @@
 				81F33FB420CAC12A0015CB00 /* DBAnswerQ.swift in Sources */,
 				871B957720C5781C0035C3A2 /* Cella2PasswordTableViewCell.swift in Sources */,
 				87415E6D20C827140046DFAC /* RegisterViewController.swift in Sources */,
+				C5A9E5FF20E1065C002DB47B /* OthersViewController.swift in Sources */,
 				81F33FB020CAC12A0015CB00 /* DBQuestion.swift in Sources */,
 				879FC80420C849D100DA81CD /* SelectedViewController.swift in Sources */,
 			);

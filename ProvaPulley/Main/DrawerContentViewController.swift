@@ -31,7 +31,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     var vetButtons: [UICustomButton] = []
-    var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 458))
+    var messageTable = UITableView(frame: CGRect(x: 0, y: 110, width: 375, height: 480))
     
     //    var topicBool: [Bool] = [true, false, false, false, false, false, false]
     var tableCount:Int = 0

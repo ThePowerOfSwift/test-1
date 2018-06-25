@@ -39,6 +39,15 @@ class DentroLaChatViewController: JSQMessagesViewController {
         SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers?.append(answer)
     }
     
+    func appendAnswerQPulley(answer: DBAnswerQ) {
+        
+        SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+    }
+    func appendAnswerEPulley(answer: DBAnswerE) {
+         SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers?.append(answer)
+       
+    }
+    
 }
 
 extension DentroLaChatViewController {
@@ -49,7 +58,7 @@ extension DentroLaChatViewController {
         print("PREMUTO SEND")
         
         switch SingletonServer.singleton.questionSelezionata?.tipo {
-        case tipoChat.myquestions.hashValue | tipoChat.pulleyquestions.hashValue:
+        case tipoChat.myquestions.hashValue:
             print("1")
             let message =  DBAnswerQ()
             message.text = text
@@ -71,7 +80,7 @@ extension DentroLaChatViewController {
                         }
                     }
             }
-        case tipoChat.myevents.hashValue | tipoChat.pulleyevents.hashValue:
+        case tipoChat.myevents.hashValue:
             let message =  DBAnswerE()
             message.text = text
             message.userOwner = DBUser()
@@ -92,10 +101,50 @@ extension DentroLaChatViewController {
                         }
                     }
             }
-//        case tipoChat.pulleyquestions.hashValue:
-//        case tipoChat.pulleyevents.hashValue:
+        case tipoChat.pulleyquestions.hashValue:
+            print("1")
+            let message =  DBAnswerQ()
+            message.text = text
+            message.userOwner = DBUser()
+            message.userOwner?.email = SingletonServer.singleton.user?.email
+            message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            self.appendAnswerQPulley(answer: message)
+//            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+            self.collectionView.reloadData()
+            finishSendingMessage()
+            
+            
+            POST_ADDAnswerQ(text: text, questionID: (SingletonServer
+                .singleton.questionSelezionata?.id)!) { (result) in
+                    if(result != "0"){
+                        print("OK Add message")
+                        DispatchQueue.main.async {
+                        }
+                    }
+            }
         default:
-            print("ciao")
+            print("ADD ANSWER PULLEY")
+            let message =  DBAnswerE()
+            message.text = text
+            message.userOwner = DBUser()
+            message.userOwner?.email = SingletonServer.singleton.user?.email
+            message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            self.appendAnswerEPulley(answer: message)
+//            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+            self.collectionView.reloadData()
+            finishSendingMessage()
+            
+            
+            POST_ADDAnswerE(text: text, eventID: (SingletonServer
+                .singleton.questionSelezionata?.id)!) { (result) in
+                    if(result != "0"){
+                        print("OK Add message")
+                        DispatchQueue.main.async {
+                        }
+                    }
+            }
         }
         
                 self.view.endEditing(true)
@@ -157,12 +206,12 @@ extension DentroLaChatViewController {
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         case tipoChat.pulleyquestions.hashValue:
             print("3")
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         default:
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEventPulley()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEventPulley()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
@@ -252,11 +301,11 @@ extension DentroLaChatViewController {
             return message
         case tipoChat.pulleyquestions.hashValue:
             print("9")
-            let message = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestion()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
             return message
         default:
             print("10")
-            let message = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEvent()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEventPulley()[indexPath.row].text)
             return message
         }
         
@@ -295,7 +344,7 @@ extension DentroLaChatViewController {
     func returnAnswerEventPulley()->[DBAnswerE]{
         let answers: [DBAnswerE] = []
         if(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal)!].answers != nil){
-            return (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers)!
+            return (SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal)!].answers)!
         }
         return answers
     }

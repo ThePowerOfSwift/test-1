@@ -126,7 +126,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
 //        self.allButtonsOff(i: 0)
-        
+        self.tabBarController?.tabBar.isHidden = false
+
     }
     
     @IBAction func askQuestion(_ sender: Any) {

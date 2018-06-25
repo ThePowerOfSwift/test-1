@@ -228,6 +228,7 @@ extension DentroLaChatViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         let image = JSQMessagesAvatarImage(avatarImage: DataManager.shared.avatar, highlightedImage: DataManager.shared.avatar, placeholderImage: DataManager.shared.avatar)
+     
         return image
     }
     
@@ -371,6 +372,8 @@ extension DentroLaChatViewController {
 //
 //
 //
+        self.tabBarController?.tabBar.isHidden = true
+
         self.navigationItem.title = DataManager.shared.titolo
 //
 //

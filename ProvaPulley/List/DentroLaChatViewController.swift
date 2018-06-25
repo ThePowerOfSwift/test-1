@@ -67,7 +67,13 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
-            message.timestamp = Date(timeIntervalSinceNow: 0).description
+          
+            var dataFine =  Date(timeIntervalSinceNow: 0).description
+            for _ in 1...6 {
+                
+                dataFine = String((dataFine.dropLast()))
+            }
+            message.timestamp = dataFine
             self.appendAnswerQ(answer: message)
             SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
             self.collectionView.reloadData()
@@ -75,7 +81,7 @@ extension DentroLaChatViewController {
             
             
             POST_ADDAnswerQ(text: text, questionID: (SingletonServer
-                .singleton.questionSelezionata?.id)!) { (result) in
+                .singleton.questionSelezionata?.id)!, timestamp: message.timestamp!) { (result) in
                     if(result != "0"){
                         print("OK Add message")
                         DispatchQueue.main.async {
@@ -88,7 +94,12 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
-            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            var dataFine =  Date(timeIntervalSinceNow: 0).description
+            for _ in 1...6 {
+                
+                dataFine = String((dataFine.dropLast()))
+            }
+            message.timestamp = dataFine
             self.appendAnswerE(answer: message)
             SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
             self.collectionView.reloadData()
@@ -96,7 +107,7 @@ extension DentroLaChatViewController {
             
             
             POST_ADDAnswerE(text: text, eventID: (SingletonServer
-                .singleton.questionSelezionata?.id)!) { (result) in
+                .singleton.questionSelezionata?.id)!, timestamp: message.timestamp!) { (result) in
                     if(result != "0"){
                         print("OK Add message")
                         DispatchQueue.main.async {
@@ -110,7 +121,12 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
-            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            var dataFine =  Date(timeIntervalSinceNow: 0).description
+            for _ in 1...6 {
+                
+                dataFine = String((dataFine.dropLast()))
+            }
+            message.timestamp = dataFine
             self.appendAnswerQPulley(answer: message)
 //            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
             self.collectionView.reloadData()
@@ -118,7 +134,7 @@ extension DentroLaChatViewController {
             
             
             POST_ADDAnswerQ(text: text, questionID: (SingletonServer
-                .singleton.questionSelezionata?.id)!) { (result) in
+                .singleton.questionSelezionata?.id)!, timestamp: message.timestamp!) { (result) in
                     if(result != "0"){
                         print("OK Add message")
                         DispatchQueue.main.async {
@@ -132,7 +148,12 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
-            message.timestamp = Date(timeIntervalSinceNow: 0).description
+            var dataFine =  Date(timeIntervalSinceNow: 0).description
+            for _ in 1...6 {
+                
+                dataFine = String((dataFine.dropLast()))
+            }
+            message.timestamp = dataFine
             self.appendAnswerEPulley(answer: message)
 //            SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
             self.collectionView.reloadData()
@@ -140,7 +161,7 @@ extension DentroLaChatViewController {
             
             
             POST_ADDAnswerE(text: text, eventID: (SingletonServer
-                .singleton.questionSelezionata?.id)!) { (result) in
+                .singleton.questionSelezionata?.id)!, timestamp: message.timestamp!) { (result) in
                     if(result != "0"){
                         print("OK Add message")
                         DispatchQueue.main.async {
@@ -412,10 +433,15 @@ func stringToDate(date:String)->Date{
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     dateFormatter.timeZone = TimeZone(abbreviation: "UTC") as TimeZone!
+    print(date)
+    if(date != nil){
+        let date = dateFormatter.date(from:date)!
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute , .second], from: date)
+        let finalDate = calendar.date(from:components)
+        return finalDate!
+    }else{
+        return Date(timeIntervalSinceNow: 0)
+    }
     
-    let date = dateFormatter.date(from:date)!
-    let calendar = Calendar.current
-    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute , .second], from: date)
-    let finalDate = calendar.date(from:components)
-    return finalDate!
 }

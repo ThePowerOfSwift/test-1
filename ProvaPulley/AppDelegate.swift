@@ -90,10 +90,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
                 }
             case tipoChat.pulleyevents.hashValue:
+                print("(PULLEYE")
                  let answer = try decoder.decode(DBAnswerE.self, from: data!)
                 if(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal!)!].id == answer.event?.id){
-                    
-                    SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+                    print("(PULLEYE")
+                    SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers?.append(answer)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
                 }
 

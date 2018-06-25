@@ -95,10 +95,10 @@ func GET_RichiediChatEvent(idEvent:Int32,email:String, completionHandler: @escap
 }
 
 
-func POST_ADDAnswerQ(text:String,questionID:Int32, completionHandler: @escaping(String?) -> Void){
+func POST_ADDAnswerQ(text:String,questionID:Int32,timestamp:String, completionHandler: @escaping(String?) -> Void){
     let a = DBAnswerQ()
     a.text = text
-    
+    a.timestamp = timestamp
     a.question = DBQuestion()
     a.question?.ID = questionID
     a.userOwner = DBUser()
@@ -143,10 +143,10 @@ func POST_ADDAnswerQ(text:String,questionID:Int32, completionHandler: @escaping(
 }
 
 
-func POST_ADDAnswerE(text:String,eventID:Int32, completionHandler: @escaping(String?) -> Void){
+func POST_ADDAnswerE(text:String,eventID:Int32,timestamp:String, completionHandler: @escaping(String?) -> Void){
     let a = DBAnswerE()
     a.text = text
-    
+    a.timestamp = timestamp
     a.event = DBEvent()
     a.event?.id = eventID
     a.userOwner = DBUser()

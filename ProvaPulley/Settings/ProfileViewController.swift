@@ -377,7 +377,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell1 = table1.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! Cella2SettingsTableViewCell
         
         let cell2 = table2.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! Cella3SettiongsTableViewCell
-        let cell3 = table2.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! Cella4SettingsTableViewCell
+//        let cell3 = table2.dequeueReusableCell(withIdentifier: "cell3", for: indexPath) as! Cella4SettingsTableViewCell
         
         
         if tableView == self.table1{
@@ -393,16 +393,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         if tableView == self.table2{
-            if indexPath.row == 0{
+            
             cell2.scritta.text = "Report Problems"
             cell2.imm.image = #imageLiteral(resourceName: "Report problem")
             return cell2
-            }
-            if indexPath.row == 1{
-                cell3.imm.image = #imageLiteral(resourceName: "priva")
-                cell3.scritta.text = "Privacy Information"
-                return cell3
-            }
+            
         }
         
 

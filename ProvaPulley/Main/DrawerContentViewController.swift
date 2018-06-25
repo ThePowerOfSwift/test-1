@@ -69,7 +69,16 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         setupTable()
         setupEvent()
         setupPulley()
+        print("VIEWDIDLOADPULLEY")
+        NotificationCenter.default.addObserver(self, selector: #selector(perfDentro), name: NSNotification.Name(rawValue: "perfDentro"), object: nil)
+
     }
+    @objc func perfDentro(){
+        print("PULLEYPERFDENTRO")
+        self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
+        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+    }
+    
     
     func setupEvent() {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadEvent), name: NSNotification.Name(rawValue: "event"), object: nil)
@@ -86,7 +95,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     }
     
     func setupTable() {
-        NotificationCenter.default.addObserver(self, selector: #selector(DrawerContentViewController.reload), name: NSNotification.Name(rawValue: "data"), object: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "data"), object: self)
         print("LORENZOOOOOOOO")
     }
     
@@ -105,12 +114,13 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
         dismissKeyboard()
     }
     
-    @objc func reload(notification: NSNotification) {
+    @objc func reload() {
         self.messageTable.reloadData()
         print("dismissooooo")
         self.dismissKeyboard()
 
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
 //        self.allButtonsOff(i: 0)
@@ -419,6 +429,7 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
+           // cell.backView?.addTarget(self, action: #selector(performeQuest(not:Notification)), for: .touchDown)
             if let _ = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count {
                 cell.numero?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
                 } else {
@@ -437,7 +448,8 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.data?.text = dataFormat
             cell.data?.textColor = .white
             
-            cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+            //cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+            cell.questionSelezionata = QESelezionata(id: question.ID!, index: indexPath.row, tipo: tipoChat.pulleyquestions.hashValue, indexReal: indexPath.row)
             return cell
         }
         else {
@@ -479,23 +491,103 @@ extension DrawerContentViewController: UITableViewDataSource {
             
             cell.dataEvent?.text =  "\(dataInitFormat) - \(dataEndFormat)"
             cell.dataEvent?.textColor = .black
-            
-            cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+            cell.questionSelezionata = QESelezionata(id: ev.id!, index: indexPath.row, tipo: tipoChat.pulleyevents.hashValue, indexReal: indexPath.row - questNum)
+            //cell.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
             
         }
         return cell
     }
     
-    @objc func performeQuest(){
-        self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
-        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
-    }
     
-    @objc func performeEvent(){
-        self.performSegue(withIdentifier: "seguePulleyEvent", sender: nil)
-        self.pulleyViewController?.setDrawerPosition(position: .partiallyRevealed, animated: true)
-    }
-    
+//    @objc func performeQuest(not:Notification){
+//        print("ENTRATO")
+//        DataManager.shared.sfondoColor = (backView?.backgroundColor!)!
+//        DataManager.shared.titolo = (descrizione?.text!)!
+//        DataManager.shared.nomeUtente = (nickname?.text!)!
+//        DataManager.shared.avatar = (improf?.image!)!
+//
+//
+//        if(questionSelezionata?.id != nil){
+//            switch(questionSelezionata?.tipo){
+//
+//            case tipoChat.pulleyquestions.hashValue:
+//                //QUESTION
+//                print("QUESTION v")
+//                if SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.index!)!].answers == nil {
+//                    SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.index!)!].answers = []
+//                }
+//                for a in (SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.index!)!].answers!){
+//                    print ("RISPOSTA:\(a.text)")
+//                }
+//                print("INDEX:\(questionSelezionata?.index)")
+//                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.pulleyquestions.hashValue, indexReal: (questionSelezionata?.indexReal)!)
+//                print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfDentro"), object: nil)
+//
+//                richiediChatQuestionPulley(idQuestion: (SingletonServer.singleton.questionSelezionata?.id)!)
+//                //richiediChatQuestion(idQuestion:(questionSelezionata?.id)!)
+//
+//            case tipoChat.pulleyevents.hashValue:
+//                //EVENTO
+//                print("QUESTION v")
+//                if SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.indexReal!)!].answers == nil {
+//                    SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.indexReal!)!].answers = []
+//                }
+//                for a in (SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(questionSelezionata?.indexReal!)!].answers!){
+//                    print ("RISPOSTA:\(a.text)")
+//                }
+//                print("INDEX:\(questionSelezionata?.index)")
+//                SingletonServer.singleton.questionSelezionata = QESelezionata(id: (questionSelezionata?.id!)! , index: (questionSelezionata?.index!)!, tipo: tipoChat.pulleyevents.hashValue, indexReal: (questionSelezionata?.indexReal)!)
+//                print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfDentro"), object: nil)
+//                richiediChatEventPulley(idEvent: (SingletonServer.singleton.questionSelezionata?.id)!)
+//
+//
+//            default:
+//                print("NIENTE")
+//            }
+//
+//
+//
+//
+//
+//
+//
+//
+//        }
+//        //        self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
+//        //        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
+//    }
+//
+//    func richiediChatQuestionPulley(idQuestion:Int32){
+//        SingletonServer.singleton.GET_RichiediChatQuestion(idQuestion:idQuestion) { (result) in
+//
+//            let data  = result?.data(using: .utf8)
+//            let decoder = JSONDecoder()
+//            print("A FESS")
+//            do{
+//
+//                var answers = try decoder.decode([DBAnswerQ].self, from: data!)
+//                //faccio il reload data della collection view quando ottengo risposta dal server
+//
+//                DispatchQueue.main.async {
+//                    SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(self.questionSelezionata?.index!)!].answers = answers
+//                    print("ANSWERS:\(result)")
+//                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+//                    //SingletonServer.singleton.saveUserState(user: SingletonServer.singleton.user!)
+//                }
+//
+//                //adesso salvo le informazioni (essendo le mie domande) in memoria secodnaria
+//
+//
+//
+//            }catch{
+//                print("Errore di serializzazione")
+//
+//            }
+//        }
+//    }
+   
     
     
     func createNewQuestion(){

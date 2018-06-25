@@ -66,14 +66,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let decoder = JSONDecoder()
         do{
-            let answer = try decoder.decode(DBAnswerQ.self, from: data!)
+            
             switch (SingletonServer.singleton.questionSelezionata?.tipo) {
             case tipoChat.myquestions.hashValue:
+                let answer = try decoder.decode(DBAnswerQ.self, from: data!)
                 if(SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].ID == answer.question?.ID){
 
                     SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
                     }
+            case tipoChat.myevents.hashValue:
+                let answer = try decoder.decode(DBAnswerE.self, from: data!)
+                if(SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].id == answer.event?.id){
+                    
+                    SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers?.append(answer)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                }
+            case tipoChat.pulleyquestions.hashValue:
+                 let answer = try decoder.decode(DBAnswerQ.self, from: data!)
+                if(SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index!)!].ID == answer.question?.ID){
+                    
+                    SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                }
+            case tipoChat.pulleyevents.hashValue:
+                 let answer = try decoder.decode(DBAnswerE.self, from: data!)
+                if(SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal!)!].id == answer.event?.id){
+                    
+                    SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index!)!].answers?.append(answer)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadDataCollectionView"), object: nil)
+                }
 
             default:
                 print("ciao")

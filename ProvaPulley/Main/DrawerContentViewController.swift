@@ -31,7 +31,7 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     
     
     var vetButtons: [UICustomButton] = []
-    var messageTable = UITableView(frame: CGRect(x: 0, y: 120, width: 375, height: 458))
+    var messageTable = UITableView(frame: CGRect(x: 0, y: 110, width: 375, height: 480))
     
     //    var topicBool: [Bool] = [true, false, false, false, false, false, false]
     var tableCount:Int = 0
@@ -126,7 +126,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
 //        self.allButtonsOff(i: 0)
-        
+        self.tabBarController?.tabBar.isHidden = false
+
     }
     
     @IBAction func askQuestion(_ sender: Any) {

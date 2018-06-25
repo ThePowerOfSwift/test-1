@@ -119,7 +119,7 @@ class MapContentViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     func showCircle(coordinate: CLLocationCoordinate2D, radius: CLLocationDistance)->MKCircle {
         let circle = MKCircle(center: coordinate, radius: radius)
-        mappe.add(circle)
+//        mappe.add(circle)
         return circle
     }
     

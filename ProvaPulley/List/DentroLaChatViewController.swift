@@ -248,9 +248,39 @@ extension DentroLaChatViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        let image = JSQMessagesAvatarImage(avatarImage: DataManager.shared.avatar, highlightedImage: DataManager.shared.avatar, placeholderImage: DataManager.shared.avatar)
-     
-        return image
+        
+        switch SingletonServer.singleton.questionSelezionata?.tipo {
+        case tipoChat.myquestions.hashValue:
+            let indString = self.returnAnswersQuestion()[indexPath.row].userOwner!.socialAvatar as! NSString
+            let indice = indString.integerValue
+            let image = SingletonServer.singleton.logoImage[indice]
+            let image1 = JSQMessagesAvatarImage(avatarImage: image, highlightedImage: image, placeholderImage: image)
+            return image1
+            
+            
+        case tipoChat.myevents.hashValue:
+            let indString = self.returnAnswerEvent()[indexPath.row].userOwner!.socialAvatar as! NSString
+            let indice = indString.integerValue
+            let image = SingletonServer.singleton.logoImage[indice]
+            let image1 = JSQMessagesAvatarImage(avatarImage: image, highlightedImage: image, placeholderImage: image)
+            return image1
+            
+        case tipoChat.pulleyquestions.hashValue:
+            let indString = self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.socialAvatar! as NSString
+            let indice = indString.integerValue
+            let image = SingletonServer.singleton.logoImage[indice]
+            let image1 = JSQMessagesAvatarImage(avatarImage: image, highlightedImage: image, placeholderImage: image)
+            return image1
+            
+        default:
+            let indString = self.returnAnswerEventPulley()[indexPath.row].userOwner!.socialAvatar as! NSString
+            let indice = indString.integerValue
+            let image = SingletonServer.singleton.logoImage[indice]
+            let image1 = JSQMessagesAvatarImage(avatarImage: image, highlightedImage: image, placeholderImage: image)
+            return image1
+            
+        }
+       
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {

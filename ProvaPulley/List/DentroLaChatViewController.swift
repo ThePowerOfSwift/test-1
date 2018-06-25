@@ -196,24 +196,24 @@ extension DentroLaChatViewController {
         switch SingletonServer.singleton.questionSelezionata?.tipo {
         case tipoChat.myquestions.hashValue:
             print("3")
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestion()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswersQuestion()[indexPath.row].timestamp!), text: self.returnAnswersQuestion()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         case tipoChat.myevents.hashValue:
             print("4")
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEvent()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswerEvent()[indexPath.row].timestamp!), text: self.returnAnswerEvent()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         case tipoChat.pulleyquestions.hashValue:
             print("3")
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswersQuestionPulley()[indexPath.row].timestamp!), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
         default:
-            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEventPulley()[indexPath.row].text)
+            let message: JSQMessage = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswerEventPulley()[indexPath.row].timestamp!), text: self.returnAnswerEventPulley()[indexPath.row].text)
             //        return NSAttributedString(string: self.returnAnswers()[indexPath.row].text!)
             
             return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
@@ -295,19 +295,19 @@ extension DentroLaChatViewController {
         switch SingletonServer.singleton.questionSelezionata?.tipo {
         case tipoChat.myquestions.hashValue:
             print("9")
-            let message = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestion()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswersQuestion()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestion()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswersQuestion()[indexPath.row].timestamp!), text: self.returnAnswersQuestion()[indexPath.row].text)
             return message
         case tipoChat.myevents.hashValue:
             print("10")
-            let message = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEvent()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswerEvent()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEvent()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswerEvent()[indexPath.row].timestamp!), text: self.returnAnswerEvent()[indexPath.row].text)
             return message
         case tipoChat.pulleyquestions.hashValue:
             print("9")
-            let message = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswersQuestionPulley()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswersQuestionPulley()[indexPath.row].timestamp!), text: self.returnAnswersQuestionPulley()[indexPath.row].text)
             return message
         default:
             print("10")
-            let message = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: Date(timeIntervalSinceNow: 0), text: self.returnAnswerEventPulley()[indexPath.row].text)
+            let message = JSQMessage(senderId: self.returnAnswerEventPulley()[indexPath.row].userOwner!.email, senderDisplayName: self.returnAnswerEventPulley()[indexPath.row].userOwner!.nickname, date: stringToDate(date: self.returnAnswerEventPulley()[indexPath.row].timestamp!), text: self.returnAnswerEventPulley()[indexPath.row].text)
             return message
         }
         
@@ -407,3 +407,15 @@ extension DentroLaChatViewController {
 //}
 //
 
+func stringToDate(date:String)->Date{
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC") as TimeZone!
+    
+    let date = dateFormatter.date(from:date)!
+    let calendar = Calendar.current
+    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute , .second], from: date)
+    let finalDate = calendar.date(from:components)
+    return finalDate!
+}

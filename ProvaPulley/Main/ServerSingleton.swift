@@ -597,7 +597,8 @@ class SingletonServer{
     
     func dateFromTimeout(timeout:Int)-> String{
         let actualDate = Date(timeIntervalSinceNow: 0)
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.timeZone =  TimeZone(abbreviation: "UTC")!
         let date = calendar.date(byAdding: .hour, value: 4, to: actualDate)
         
         var dataFine =  date?.description

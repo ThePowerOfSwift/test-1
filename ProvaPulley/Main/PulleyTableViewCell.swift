@@ -28,6 +28,7 @@ class PulleyTableViewCell: UITableViewCell {
         improf = UIImageView(frame: CGRect(x: 8, y: 6, width: 60, height: 60))
         backView = UIButton(frame: CGRect(x: 5, y: 3, width: 360, height: 65))
          self.backView?.addTarget(self, action: #selector(performeQuest), for: .touchDown)
+        
         descrizione = UILabel(frame: CGRect(x: 85, y: 25, width: 196, height: 40))
         data = UILabel(frame: CGRect(x: 270, y: 8, width: 50, height: 15))
         dataEvent = UILabel(frame: CGRect(x: 190, y: 8, width: 110, height: 15))

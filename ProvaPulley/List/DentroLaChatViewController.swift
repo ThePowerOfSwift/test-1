@@ -23,6 +23,8 @@ class DentroLaChatViewController: JSQMessagesViewController {
     let user2 = User3(id: "2", name: "Tim")
     let rispostaQ = DBAnswerQ()
     
+    
+    
     var currentUser: User3 {
         return user1
     }
@@ -255,7 +257,7 @@ extension DentroLaChatViewController {
             if self.senderId == message.userOwner?.email {
                 return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
             } else {
-                return bubbleFactory?.incomingMessagesBubbleImage(with:SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.user?.myQuestions![(SingletonServer.singleton.questionSelezionata?.index)!].topic)!)))
+                return bubbleFactory?.incomingMessagesBubbleImage(with:SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.index)!].topic)!)))
             }
         default:
             print("6")
@@ -263,7 +265,7 @@ extension DentroLaChatViewController {
             if self.senderId == message.userOwner?.email {
                 return bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor(red: 228/255.0, green: 229/255.0, blue: 233/255.0, alpha: 1))
             } else {
-                return bubbleFactory?.incomingMessagesBubbleImage(with: SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal)!].topic)!)))
+                return bubbleFactory?.incomingMessagesBubbleImage(with: SingletonServer.singleton.coloroOn(topicNum:Int( (SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal)!].topic)!)))
             }
         }
 
@@ -335,7 +337,7 @@ extension DentroLaChatViewController {
     func returnAnswerEvent()->[DBAnswerE]{
         let answers: [DBAnswerE] = []
         if(SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers != nil){
-            return (SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal)!].answers)!
+            return (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers)!
         }
         return answers
     }
@@ -353,6 +355,9 @@ extension DentroLaChatViewController {
 
 extension DentroLaChatViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -362,6 +367,7 @@ extension DentroLaChatViewController {
 //        // who is the current user
         self.senderId = SingletonServer.singleton.user?.email
         self.senderDisplayName = SingletonServer.singleton.user?.nickname
+        self.navigationController?.isNavigationBarHidden = false
 //
 //
 //

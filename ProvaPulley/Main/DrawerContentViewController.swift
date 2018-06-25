@@ -74,9 +74,8 @@ class DrawerContentViewController: UIViewController, UITabBarDelegate, UITableVi
 
     }
     @objc func perfDentro(){
-        let storyboard = UIStoryboard(name: "MyQ", bundle: nil) //declare the storyboard
-        let profile = storyboard.instantiateViewController(withIdentifier: "dentro") as! DentroLaChatViewController
-        self.present(profile, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
+        self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
         print("PULLEYPERFDENTRO")
 //        self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
         self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
@@ -432,7 +431,7 @@ extension DrawerContentViewController: UITableViewDataSource {
             cell.nickname?.font = UIFont.boldSystemFont(ofSize: 16.0)
             cell.numero?.layer.cornerRadius = 12.0
             cell.numero?.clipsToBounds = true
-//            cell.backView?.addTarget(self, action: #selector(performeQuest(cell:)), for: .touchDown)
+          //  cell.backView?.addTarget(self, action: #selector(performeQuest(cell:)), for: .touchDown)
             if let _ = SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count {
                 cell.numero?.text = "\(String(describing: SingletonServer.singleton.domandeOrdinatePerTopic[SingletonServer.singleton.chosenTopic][indexPath.row].answers?.count))"
                 } else {
@@ -527,6 +526,7 @@ extension DrawerContentViewController: UITableViewDataSource {
                 SingletonServer.singleton.questionSelezionata = QESelezionata(id: (cell.questionSelezionata?.id!)! , index: (cell.questionSelezionata?.index!)!, tipo: tipoChat.pulleyquestions.hashValue, indexReal: (cell.questionSelezionata?.indexReal)!)
                 print("INDEX ORIGINAL\(String(describing: SingletonServer.singleton.questionSelezionata?.index))")
                 //NotificationCenter.default.post(name: NSNotification.Name(rawValue: "perfDentro"), object: nil)
+                
                         self.performSegue(withIdentifier: "seguePulleyMessage", sender: nil)
                         self.pulleyViewController?.setDrawerPosition(position: .open, animated: true)
                 richiediChatQuestionPulley(idQuestion: (SingletonServer.singleton.questionSelezionata?.id)!)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OGh-Ue-B7V">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -332,8 +332,8 @@
                         <outlet property="Send" destination="VK5-a8-Klf" id="qMf-Up-TqE"/>
                         <outlet property="Tourism2Button" destination="QE3-Q9-bqr" id="OUq-5E-Z4V"/>
                         <outlet property="TourismButton" destination="ijn-17-LqX" id="3pT-wT-br2"/>
-                        <segue destination="vdb-e0-crL" kind="show" identifier="seguePulleyMessage" id="qIz-Pd-RJk"/>
                         <segue destination="bQc-vg-WaQ" kind="show" identifier="evpulley" id="gGA-C9-KfM"/>
+                        <segue destination="vdb-e0-crL" kind="show" identifier="seguePulleyMessage" id="vfn-yh-NfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lmg-Jv-qT8" userLabel="First Responder" sceneMemberID="firstResponder"/>

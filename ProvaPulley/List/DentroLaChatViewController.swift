@@ -335,7 +335,7 @@ extension DentroLaChatViewController {
     func returnAnswerEvent()->[DBAnswerE]{
         let answers: [DBAnswerE] = []
         if(SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers != nil){
-            return (SingletonServer.singleton.eventiOrdinatiPerTopic[SingletonServer.singleton.chosenTopic][(SingletonServer.singleton.questionSelezionata?.indexReal)!].answers)!
+            return (SingletonServer.singleton.user?.myEvents![(SingletonServer.singleton.questionSelezionata?.indexReal!)!].answers)!
         }
         return answers
     }

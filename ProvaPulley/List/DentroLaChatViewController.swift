@@ -67,6 +67,7 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.userOwner?.socialAvatar = SingletonServer.singleton.user?.socialAvatar
           
             var dataFine =  Date(timeIntervalSinceNow: 0).description
             for _ in 1...6 {
@@ -94,6 +95,7 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.userOwner?.socialAvatar = SingletonServer.singleton.user?.socialAvatar
             var dataFine =  Date(timeIntervalSinceNow: 0).description
             for _ in 1...6 {
                 
@@ -121,6 +123,7 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.userOwner?.socialAvatar = SingletonServer.singleton.user?.socialAvatar
             var dataFine =  Date(timeIntervalSinceNow: 0).description
             for _ in 1...6 {
                 
@@ -148,6 +151,7 @@ extension DentroLaChatViewController {
             message.userOwner = DBUser()
             message.userOwner?.email = SingletonServer.singleton.user?.email
             message.userOwner?.nickname = SingletonServer.singleton.user?.nickname
+            message.userOwner?.socialAvatar = SingletonServer.singleton.user?.socialAvatar
             var dataFine =  Date(timeIntervalSinceNow: 0).description
             for _ in 1...6 {
                 
